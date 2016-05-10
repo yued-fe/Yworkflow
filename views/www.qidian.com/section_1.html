@@ -1,0 +1,114 @@
+<!-- start 编辑推荐-->
+<div class="index-two-wrap box-center mb30 cf">
+    <!-- start 本周强推-->
+    <div class="book-list-wrap mr30 fl" data-aid="qd_A101">
+        <h3 class="wrap-title">本周强推
+            <a class="more" href="http://wwwploy.qidian.com/Book/CommendListNew.aspx?GroupId=3" target="_blank"><em>&#124;</em>更多</a>
+        </h3>
+        <div class="book-list">
+            <ul>
+                <!-- 这里对频道页是‘二次元’字符做了class的特殊处理，判断分类是二次元时，class为str3，宽度增加 -->
+                <% for(var i=0; i < strongRecom['bookList'].length; i++) {
+                   var str1=strongRecom['bookList'][i]['chanName'] %>
+                <li class="color-type_<%= strongRecom['bookList'][i]['colorType']%><%if (str1 == '二次元') { %> str3<% } %>">
+                    <a class="channel" href="<%= strongRecom['bookList'][i]['chanUrl'] %>" target="_blank"><em>「</em><%= strongRecom['bookList'][i]['chanName'] %><em>」</em></a>
+                    <a class="name" href="http://www.qidian.com/Book/<%= strongRecom['bookList'][i]['bookId'] %>.aspx %>" target="_blank"  data-bid="<%= strongRecom['bookList'][i]['bookId'] %>"><%= strongRecom['bookList'][i]['bookName'] %></a>
+                    <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= strongRecom['bookList'][i]['authorId']  %>" target="_blank"><%= strongRecom['bookList'][i]['authorName'] %></a>
+                </li>
+                <% } %>
+                <li>
+                    <a class="channel" href="http://game.qidian.com/index.aspx" target="_blank" data-aid="qd_A102"><em>「</em><%= strongRecom['adInfo']['adCategoryName'] %><em>」</em></a>
+                    <a class="name" href="<%= strongRecom['adInfo']['adJumpUrl'] %>" target="_blank" data-aid="qd_A102"><%= strongRecom['adInfo']['title'] %></a><span class="author">推广</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end 本周强推-->
+    <!-- start 编辑推荐 -->
+    <div class="edit-rec-wrap fl">
+        <h3 class="wrap-title">编辑推荐</h3>
+        <div class="focus-today cf">
+            <div class="slider-wrap fl">
+                <!-- start slides -->
+                <div id="carousel" class="carousel">
+                    <div class="la-ball-pulse">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="slides">
+                        <% for(var i=0; i < editorImgRecom.length; i++) { %>
+                        <div class="slideItem">
+                            <img src="<%= editorImgRecom[i]['imageUrl']%>" title="<%= editorImgRecom[i]['bookName']%>">
+                        </div>
+                        <% } %>
+                    </div>
+                    <!-- end slides -->
+                    <!-- start 推荐文字 -->
+                    <div class="description">
+                        <% for(var i=0; i < editorImgRecom.length; i++) { %>
+                        <div class="desc-wrap">
+                            <h3><a href="http://www.qidian.com/Book/<%= editorImgRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorImgRecom[i]['bookId'] %>"><%= editorImgRecom[i]['title'] %></a></h3>
+                            <p><%= editorImgRecom[i]['desc'] %></p>
+                            <a class="blue-btn" href="http://www.qidian.com/Book/<%= editorImgRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorImgRecom[i]['bookId'] %>">查看介绍</a>
+                        </div>
+                        <% } %>
+                    </div>
+                    <!-- end 推荐文字 -->
+                </div>
+            </div>
+            <!-- end 3d轮播 -->
+        </div>
+        <div class="edit-rec">
+            <p class="line"></p>
+            <ul class="edit-rec-list bd cf">
+                <% for(var i=0; i < 4; i++) { %>
+                <li>
+                    <span class="tag"><i class="iconfont syh">&#xe61b;</i><a href="http://www.qidian.com/Book/<%= editorWordRecom[i]['bookId'] %>.aspx %>" data-aid="qd_A103" data-bid="<%= editorWordRecom[i]['bookId'] %>" target="_blank"><%= editorWordRecom[i]['recomTitle'] %></a><i class="iconfont xyh">&#xe61c;</i></span>
+                    <h3>
+                        <a href="http://www.qidian.com/Book/<%= editorWordRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorWordRecom[i]['bookId'] %>"><span>《</span><b><%= editorWordRecom[i]['bookName'] %></b><span>》</span></a>
+                        </h3>
+                    <em class="total"><cite><%= editorWordRecom[i]['likeCnt'] %></cite><i>人在追</i></em>
+                    <p><%= editorWordRecom[i]['desc'] %></p>
+                </li>
+                <% } %>
+            </ul>
+            <ul class="edit-rec-list cf">
+                <% for(var i=4; i < 8; i++) { %>
+                <li>
+                    <span class="tag"><i class="iconfont syh">&#xe61b;</i><a href="http://www.qidian.com/Book/<%= editorWordRecom[i]['bookId'] %>.aspx %>" data-aid="qd_A103" data-bid="<%= editorWordRecom[i]['bookId'] %>" target="_blank"><%= editorWordRecom[i]['recomTitle']  %></a><i class="iconfont xyh">&#xe61c;</i></span>
+                    <h3>
+                        <a href="http://www.qidian.com/Book/<%= editorWordRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorWordRecom[i]['bookId'] %>"><span>《</span><b><%= editorWordRecom[i]['bookName'] %></b><span>》</span></a>
+                        </h3>
+                    <em class="total"><cite><%= editorWordRecom[i]['likeCnt'] %></cite><i>人在追</i></em>
+                    <p><%= editorWordRecom[i]['desc'] %></p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <!-- end 编辑推荐 -->
+    <!-- start 三江·网文新风 -->
+    <div class="book-list-wrap fr" data-aid="qd_A104">
+        <h3 class="wrap-title">三江<i>&#183;</i>网文新风<a class="more" href="http://sjg.qidian.com/Default.aspx" target="_blank"><em>&#124;</em>更多</a></h3>
+        <div class="book-list">
+            <ul>
+                <!-- 这里对频道页是‘二次元’字符做了class的特殊处理 -->
+                <% for(var i=0; i < sjRecom['bookList'].length; i++) {
+                   var str2=sjRecom['bookList'][i]['chanName']%>
+                <li class="color-type_<%= sjRecom['bookList'][i]['colorType']  %><%if (str2 == '二次元') { %> str3<% } %>">
+
+                    <a class="channel" href="<%= sjRecom['bookList'][i]['chanUrl']  %>" target="_blank"><em>「</em><%= sjRecom['bookList'][i]['chanName'] %><em>」</em></a>
+                    <a class="name" href="http://www.qidian.com/Book/<%= sjRecom['bookList'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= sjRecom['bookList'][i]['bookId'] %>"><%= sjRecom['bookList'][i]['bookName'] %></a>
+                    <span class="rec" target="_blank"><%= sjRecom['bookList'][i]['recomTitle'] %></span>
+                </li>
+                <% } %>
+                <li>
+                    <a class="channel" href="http://game.qidian.com/index.aspx" target="_blank" data-aid="qd_A105"><em>「</em><%= sjRecom['adInfo']['adCategoryName'] %><em>」</em></a><a class="name" href="<%= sjRecom['adInfo']['adJumpUrl'] %>" target="_blank" data-aid="qd_A105"><%= sjRecom['adInfo']['title'] %></a><span class="rec">推广</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end 三江·网文新风 -->
+</div>
+<!-- end 编辑推荐-->

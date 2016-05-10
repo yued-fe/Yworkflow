@@ -1,0 +1,88 @@
+<div class="rank-nav-list fl">
+    <ul>
+        <%
+            //判断排行榜的侧边高亮给列表+class，每个模板文件中sideBarHighlight会有对应高亮的值。
+            switch (sideBarHighlight) {
+                case 0:
+                    var act='class=act';
+                    break;
+                case 1:
+                    var act1='class=act';
+                    break;
+                case 2:
+                    var act2='class=act';
+                    break;
+                case 3:
+                    var act3='class=act';
+                    break;
+                case 4:
+                    var act4='class=act';
+                    break;
+                case 5:
+                    var act5='class=act';
+                    break;
+                case 6:
+                    var act6='class=act';
+                    break;
+                case 7:
+                    var act7='class=act';
+                    break;
+                case 8:
+                    var act8='class=act';
+                    break;
+                case 9:
+                    var act9='class=act';
+                    break;
+                case 10:
+                    var act10='class=act';
+                    break;
+                case 11:
+                    var act11='class=act';
+                    break;
+                case 12:
+                    var act12='class=act';
+                    break;
+                case 13:
+                    var act13='class=act';
+                    break;
+                case 14:
+                    var act14='class=act';
+                    break;
+            }
+        %>
+        <li <%=act%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/">人气榜单</a><cite></cite></li>
+    </ul>
+    <p class="line"></p>
+    <h4>热门作品排行</h4>
+    <ul>
+        <li <%=act1%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao">原创风云榜</a><cite></cite></li>
+        <li <%=act2%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/hotsales">24小时热销榜</a><cite></cite></li>
+        <li <%=act3%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/click">会员点击榜</a><cite></cite></li>
+        <li <%=act4%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/recom">推荐票榜</a><cite></cite></li>
+        <li <%=act5%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/collect">收藏榜</a><cite></cite></li>
+        <li <%=act6%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/vipup">VIP更新榜</a><cite></cite></li>
+        <li <%=act7%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/vipcollect">VIP收藏榜</a><cite></cite></li>
+        <li <%=act8%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/vipreward">VIP打赏榜</a><cite></cite></li>
+        <li <%=act9%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/fin">完本榜</a><cite></cite></li>
+    </ul>
+    <p class="line"></p>
+    <h4>新书排行</h4>
+    <ul>
+        <li <%=act10%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook">签约作家新书榜</a><cite></cite></li>
+        <li <%=act11%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/pubnewbook">公众作者新书榜</a><cite></cite></li>
+        <li <%=act12%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/newsign">新人签约新书榜</a><cite></cite></li>
+        <li <%=act13%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/newauthor">新人作者新书榜</a><cite></cite></li>
+    </ul>
+    <p class="line"></p>
+    <h4>社区排行</h4>
+    <ul>
+        <li <%=act14%>><a href="//<%= staticConf.domainPrefix %>r.qidian.com/fans">打赏粉丝榜</a><cite></cite></li>
+    </ul>
+    <p class="line"></p>
+    <h4>其他排行</h4>
+    <ul>
+        <li><a target="_blank" href="http://www.qdmm.com/MMWeb/TopTen.aspx">女生精选榜</a></li>
+        <li><a target="_blank" href="http://top.qdmm.com/MMWeb/TopDetail.aspx?TopType=7&Time=1">女生原创风云榜</a></li>
+        <li><a target="_blank" href="http://wwwploy.qdmm.com/MMWeb/PKList.aspx">女生PK榜</a></li>
+    </ul>
+</div>

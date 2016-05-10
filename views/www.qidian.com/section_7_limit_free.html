@@ -1,0 +1,41 @@
+<div class="time-limit-wrap box-center mb40 cf" data-aid="qd_A144">
+    <ul>
+        <li id="time-box" class="time-box odd" data-endtime="<%= limitFree['freeDendline'] %>">
+            <div class="limit-wrap">
+                <h3>限时免费</h3>
+                <p class="type">VIP章节免费读</p>
+                <em class="iconfont">&#xe60a;</em>
+                <p class="countdown" id="countdown">
+                    <i><cite class="day">-</cite></i><em>天</em><i><cite class="hour">--</cite>:<cite class="minute">--</cite>:<cite class="second">--</cite></i>
+                </p>
+                 <a class="blue" href="//<%= staticConf.domainPrefix %>f.qidian.com" target="_blank" data-aid="qd_A145">进入限免频道<span>&gt;</span></a>
+            </div>
+        </li>
+        <%
+            //判断奇数和偶数，给li加上对应的变色class
+            var num =''
+            for(var i=0; i < limitFree.limitFreeList.length; i++) {
+                if(i%2 == 0) {
+                    num = 'class=even'
+                } else {
+                    num = 'class=odd'
+                }
+        %>
+        <li <%= num%>>
+            <div class="book-img">
+                <a href="http://free.qidian.com/Free/ShowBook.aspx?bookid=<%= limitFree.limitFreeList[i]['bookId'] %>" target="_blank" data-bid="<%= limitFree.limitFreeList[i]['bookId'] %>"><img class="lazy" data-original="<%= limitFree.limitFreeList[i]['imageUrl']  %>">
+                    <%
+                        //评分小于7.0不显示，由于在循环体内，逻辑前移会导致分数<9.0也不显示，暂时放在span标签里判断
+                        var score = limitFree.limitFreeList[i]['praiseCnt']
+                    %>
+                    <span <% if (score < 7.0 ) { %>class="hidden"<% } %>><%= score %></span>
+                </a>
+            </div>
+            <a class="name" href="http://free.qidian.com/Free/ShowBook.aspx?bookid=<%= limitFree.limitFreeList[i]['bookId'] %>" target="_blank" data-bid="<%= limitFree.limitFreeList[i]['bookId'] %>"><%=
+                limitFree.limitFreeList[i]['bookName'] %></a>
+            <s><%= limitFree.limitFreeList[i]['readCnt'] %>5起点币&#8260;千字</s>
+            <a class="blue-btn" href="http://free.qidian.com/Free/ShowBook.aspx?bookid=<%= limitFree.limitFreeList[i]['bookId'] %>" target="_blank" data-bid="<%= limitFree.limitFreeList[i]['bookId'] %>">免费阅读</a>
+        </li>
+        <% } %>
+    </ul>
+</div>

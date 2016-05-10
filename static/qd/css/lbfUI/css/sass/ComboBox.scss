@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+@import "variables";
+@import "mixins";
+
+//
+// ComboBox
+// --------------------------------------------------
+@mixin triangle-down{
+		position: absolute;
+		border-top: 5px solid #A6A6A6;
+		border-right: 5px solid transparent;
+		border-bottom: 0 none;
+		border-left: 5px solid transparent;
+		width: 0;
+		height: 0;
+}
+
+.lbf-combobox {
+	@include inline-block();
+
+	& &-label {
+		position: relative;
+		@include inline-block();
+		overflow: hidden;
+		padding-right: 36px;
+		padding-left: 10px;
+		text-align: left;
+		vertical-align: middle;
+		color: $gray9;
+		background: white;
+		height: 24px;
+		line-height: 24px;
+		.lbf-combobox-caption {
+			@include inline-block();
+			vertical-align: top;
+			white-space: nowrap;
+		}
+
+		.lbf-combobox-icon {
+			position: absolute;
+			top: 14px;
+			right: 10px;
+			@include triangle-down;
+
+			/*top: 8px\9; // IE8
+			:root & {
+				top: 6px;
+				font-size: 16px; // IE9
+			}
+
+			*font-size: 8px; // IE7
+			*top: 10px; // IE7*/
+			*background: url($image-path + "Combobox/combobox.png") no-repeat right -6px;
+
+			&:before {
+				@include transition(.3s ease-in);
+			}
+		}
+	}
+
+	&-on,
+	&-on:hover {
+		background: #E5E5E5;
+		@include box-shadow(0 0px 4px rgba(0, 0, 0, 0.2));
+	}
+
+	&-on,
+	& &-label:hover {
+		background: white;
+	}
+
+	&-on,
+	& &-label:focus {
+		.lbf-combobox-label:focus {
+			@include box-shadow(inset 0 2px 0 rgba(0, 0, 0, .125));
+		}
+	}
+
+	& &-on {
+		.lbf-combobox-icon:before {
+			@include inline-block();
+			-webkit-transform: scale(0.5);
+			@include rotate(180deg);
+		}
+	}
+
+	& &-disabled {
+		@include opacity(.65);
+	}
+
+	select {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+}
+.lbf-combobox-panel {
+	display: none;
+	overflow: auto;
+	min-width: 150px;
+	border-top: 1px solid #EEE;
+	-webkit-border-radius: $border-radius-base;
+	-moz-border-radius: $border-radius-base;
+	border-radius: $border-radius-base;
+	font-size: $font-size-base;
+	background: $body-bg;
+	@include transition(opacity 0.218s);
+	@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+	border: 1px solid #EEE\9;
+	.lbf-combobox-item {
+		display: block;
+		height: 24px;
+		padding: 3px 12px;
+		line-height: 24px;
+		font-family: $simsun;
+		cursor: pointer;
+		text-align: left;
+		white-space: nowrap;
+		color: $gray8;
+		&:hover {
+			color: inherit;
+			background: #F7F7F7;
+		}
+	}
+}

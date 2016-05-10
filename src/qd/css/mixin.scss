@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+
+/* 居中容器 */
+@mixin center-box($value: 1200px) {
+	width: $value;
+	margin: 0 auto;
+}
+/*边框*/
+@mixin border($value: #E6E6E6) {
+	border: 1px solid $value;
+}
+/*下边距 默认mb就是10px*/
+@mixin mb($value: 10px) {
+	margin-bottom: $value;
+}
+/* 不折行截字 */
+@mixin word-wrap {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* 折行截字 */
+@mixin word-wrap-multi {
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* 字号22的标题 - 调整行高 */
+@mixin title22 {
+	.wrap-title {
+		font-size: 22px;
+		line-height: 27px;
+		margin-top: -2px;
+		padding-bottom: 6px;
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: 4px;
+			margin-left: 8px;
+			font: 12px/20px $fontbase;
+			color: $blue;
+		}
+	}
+}
+/* 嵌套小三角 */
+@mixin triangle {
+	span {
+		position: absolute;
+		top: 5px;
+		right: -3px;
+		border-top: 5px solid $blue;
+		border-right: 5px solid transparent;
+		border-bottom: 0 none;
+		border-left: 5px solid transparent;
+		width: 0;
+		height: 0;
+		i {
+			position: absolute;
+			top: -7px;
+			right: -5px;
+			border-top: 5px solid #FFF;
+			border-right: 5px solid transparent;
+			border-bottom: 0 none;
+			border-left: 5px solid transparent;
+			width: 0;
+			height: 0;
+		}
+		&.up {
+			border-top: 0 none;
+			border-bottom: 5px solid $blue;
+			i {
+				top: 2px;
+				border-top: 0 none;
+				border-bottom: 5px solid #FFF;
+			}
+		}
+	}
+}
+/* 实体小三角 */
+@mixin triangle-down($value:#A6A6A6) {
+	position: absolute;
+	border-top: 4px solid $value;
+	border-right: 4px solid transparent;
+	border-bottom: 0 none;
+	border-left: 4px solid transparent;
+	width: 0;
+	height: 0;
+}
+@mixin triangle-up($value:#A6A6A6) {
+	position: absolute;
+	border-top: 0 none;
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid $value;
+	border-left: 4px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+/* 过渡动画 默认0.3秒 */
+@mixin ease-out ($value:.3s) {
+	-webkit-transition: -webkit-transform $value ease-out;
+	-moz-transition: -moz-transform $value ease-out;
+	-ms-transition: -ms-transform $value ease-out;
+	transition: transform $value ease-out;
+}
+/* 平面书封hover放大到1.1倍 */
+@mixin scale {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+/* 父容器清浮动 */
+%cf {
+	overflow: hidden;
+	*zoom: 1;
+}
+/* 标题下边框线 */
+%bb6 {
+	border-bottom: 1px solid #666;
+}
+%bbe {
+	border-bottom: 1px solid #EBEBEB;
+}
+%bbd {
+	border-bottom: 1px solid #E6E6E6;
+}

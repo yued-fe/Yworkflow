@@ -1,0 +1,46 @@
+<!--全部作品页、完本作品页、免费作品页列表上方操作栏 start-->
+<%
+var mode1,mode2='';
+if(data['paramList']['style']==1){
+mode2='act';
+}else if(data['paramList']['style']==2){
+mode1='act';
+}
+%>
+<div class="tool-bar cf">
+    <div class="view-mode" id="view-mode">
+        <a id="img-text" class="iconfont <%= mode2%>" href="javascript:">&#xe618;</a><em>|</em><a id="only-text" class="iconfont  <%= mode1%>" href="javascript:">&#xe61a;</a>
+    </div>
+    <div class="select-wrap">
+        <%
+            var updateTime='';
+            var clicks='';
+            var voteCount='';
+            var totalWords='';
+            var orderId = parseInt(data['paramList']['orderId']);
+            switch(orderId) {
+                case 1:clicks='class=act';
+                    break;
+                case 2:voteCount='class=act';
+                    break;
+                case 3:totalWords='class=act';
+                    break;
+                case 4:updateTime='class=act';
+                    break;
+        }
+        %>
+        <a data-id="4" <%= updateTime%> href="javascript:">更新时间<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="1" <%= clicks%> href="javascript:">会员周点击<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="2" <%= voteCount%> href="javascript:">总推荐票数<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="3" <%= totalWords%> href="javascript:">总字数<cite class="iconfont">&#xe625;</cite></a>
+        <em>|</em>
+                                <span class="lbf-checkbox get-new-book <%if(data['paramList']['month']==3){%> lbf-checkbox-checked <%}%>">
+                                    <input id="only" type="checkbox" <%if(data['paramList']['month']==3){%>checked<%}%>/>
+                                </span>
+        <label for="only">只看3个月内新书</label>
+        <div class="sort-count count-info fr">
+            <p>共<span><%= data['pageInfo']['totalCount']%></span>本相关作品</p><i>|</i>
+        </div>
+    </div>
+</div>
+<!--全部作品页、完本作品页、免费作品页列表上方操作栏 end-->

@@ -1,0 +1,92 @@
+.lbf-slides {
+    overflow: auto;
+    margin: 0;
+    padding: 0
+}
+
+.lbf-slides-wrap {
+    position: relative
+}
+
+.lbf-slides-wrap.lbf-slides-carousel > li {
+    float: left
+}
+
+.lbf-slides-vertical > ul {
+    height: 100%
+}
+
+.lbf-slides-vertical li {
+    float: none;
+    width: 100%
+}
+
+.lbf-slides-fade {
+    position: relative
+}
+
+.lbf-slides-fade .lbf-slides-wrap li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 8
+}
+
+.lbf-slides-fade .lbf-slides-wrap li.lbf-slides-active {
+    z-index: 10
+}
+
+.lbf-slides li, .lbf-slides ol, .lbf-slides ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none
+}
+
+.lbf-slides-arrow {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
+    cursor: pointer
+}
+
+.lbf-slides-arrow.next {
+    left: auto;
+    right: 20px
+}
+
+
+/**
+ *   Here's where everything gets included. You don't need
+ *   to change anything here, and doing so might break
+ *   stuff. Here be dragons and all that.
+ */
+/**
+ *   Default variables
+ *
+ *   While these can be set with JavaScript, it's probably
+ *   better and faster to just set them here, compile to
+ *   CSS and include that instead to use some of that
+ *   hardware-accelerated goodness.
+ */
+.lbf-slides-nav ol {
+    list-style: none;
+    text-align: center;
+}
+.lbf-slides-nav ol li {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+    background: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    text-indent: -999em;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+.lbf-slides-nav ol li.lbf-slides-active {
+    background: #fff;
+    cursor: default;
+}

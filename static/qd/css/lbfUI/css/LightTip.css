@@ -1,0 +1,34 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-light-tip {
+    position: absolute;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    max-width: 240px;
+    padding: 10px 20px;
+    color: #FFF;
+    outline: none;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background: #3E3D43;
+    background: rgba(62, 61, 67, .9);
+}
+.lbf-light-tip-success {
+}
+.lbf-light-tip-error {
+}
+/*# sourceMappingURL=LightTip.css.map */

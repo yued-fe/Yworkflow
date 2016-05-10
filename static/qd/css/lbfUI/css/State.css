@@ -1,0 +1,62 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-state {
+  border: 1px solid #e4e4e4;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #F1F1F1;
+  color: #333; }
+  .lbf-state .lbf-state-title {
+    font-size: 14px;
+    color: #333; }
+  .lbf-state-success {
+    border-color: #5CB85C;
+    background-color: #5CB85C; }
+  .lbf-state-warning {
+    border-color: #F0AD4E;
+    background-color: #F0AD4E; }
+  .lbf-state-error {
+    border-color: #D9534F;
+    background-color: #D9534F; }
+  .lbf-state-info {
+    border-color: #5BC0DE;
+    background-color: #5BC0DE; }
+  .lbf-state .lbf-state-close {
+    float: right;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 13px;
+    height: 16px;
+    font-size: 14px;
+    margin: 1px 0 0 0;
+    *margin: 2px 0 0 0;
+    color: #333;
+    background: none;
+    *background-image: url("//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/nodes/close.png"); }
+    .lbf-state .lbf-state-close:hover {
+      color: #333;
+      background: none;
+      *background-image: url("//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/nodes/close-hover.png"); }
+  .lbf-state-success, .lbf-state-warning, .lbf-state-error, .lbf-state-info {
+    color: #fff; }
+    .lbf-state-success .lbf-state-title, .lbf-state-warning .lbf-state-title, .lbf-state-error .lbf-state-title, .lbf-state-info .lbf-state-title {
+      margin: 0 6px 0 0;
+      color: #fff; }
+    .lbf-state-success .lbf-state-close, .lbf-state-warning .lbf-state-close, .lbf-state-error .lbf-state-close, .lbf-state-info .lbf-state-close {
+      color: #fff; }
+      .lbf-state-success .lbf-state-close:hover, .lbf-state-warning .lbf-state-close:hover, .lbf-state-error .lbf-state-close:hover, .lbf-state-info .lbf-state-close:hover {
+        color: #fff; }
+
+/*# sourceMappingURL=State.css.map */

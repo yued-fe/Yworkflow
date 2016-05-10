@@ -1,0 +1,35 @@
+# Generated Stuff
+.sass-cache
+.sass-cache/*
+css/*.map
+
+# bundling output 生产环境编译的代码无需上传
+build/*
+build
+dist/*
+dist
+
+.idea/
+
+# Node Modules (use `npm install` to generate these)
+node_modules/*
+node_modules
+../*
+
+# OS X Junk
+.DS_Store
+.DS_Store/*
+
+
+# Not-Needed System Files
+*.swp
+*.bak
+.idea/
+.svn/
+newrelic_agent.log
+#临时文件
+cdn.json
+
+.idea/*
+
+

@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// Pagination
+// --------------------------------------------------
+
+.lbf-pagination {
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    font-size: $font-size-base;
+
+    a {
+        text-decoration:none;
+        color: $link-color;
+
+        &:hover {
+            color: $link-hover-color;
+        }
+    }
+
+    ul {
+        float:left;
+        @include inline-block();
+        margin:0;
+        padding:0;
+        list-style:none;
+        vertical-align: middle;
+
+        li {
+            display: inline;
+            color:#666;
+
+            a,
+            span {
+                float: left;
+                border: 1px solid darken($brand-default, 5%);
+                border-left-width: 0;
+
+                @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, 0);
+
+                text-decoration: none;
+                background-color: $body-bg;
+            }
+
+            a:hover,
+            a:focus {
+                background-color: #f5f5f5
+            }
+
+            &:first-child a,
+            &:first-child span {
+                border-left-width: 1px;
+                -webkit-border-top-left-radius: 2px;
+                -moz-border-radius-topleft: 2px;
+                border-top-left-radius: 2px;
+                -webkit-border-bottom-left-radius: 2px;
+                -moz-border-radius-bottomleft: 2px;
+                border-bottom-left-radius: 2px;
+            }
+
+            &:last-child a,
+            &:last-child span {
+                -webkit-border-top-right-radius: 2px;
+                -moz-border-radius-topright: 2px;
+                border-top-right-radius: 2px;
+                -webkit-border-bottom-right-radius: 2px;
+                -moz-border-radius-bottomright: 2px;
+                border-bottom-right-radius: 2px;
+            }
+        }
+    }
+
+    & &-jump {
+        @include inline-block();
+        float: left;
+        margin-left: 12px;
+        vertical-align: middle;
+    }
+
+    & &-input {
+        float: left;
+        width: 24px;
+        border: 1px solid darken($brand-default, 5%);
+
+        @include button-size($padding-base-vertical, 8px, $font-size-base, $line-height-base, $border-radius-base);
+        *padding-bottom: 6px;
+
+        text-align: center;
+        vertical-align: middle;
+        color: #666;
+    }
+
+    & &-go {
+        float: left;
+        border: 1px solid darken($brand-default, 5%);
+        border-left-width: 0;
+
+        @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+
+        text-align: center;
+        vertical-align: middle;
+        color: #666;
+    }
+
+    & &-current {
+        cursor:default;
+        color:#666;
+
+        &:hover {
+            background: $body-bg;
+        }
+    }
+
+    & &-disabled {
+        &, &:hover {
+            cursor:default;
+            color:#ccc;
+            background: $body-bg;
+        }
+    }
+}

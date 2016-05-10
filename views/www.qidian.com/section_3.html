@@ -1,0 +1,179 @@
+<!-- start 热门作品 -->
+<div class="hot-work-wrap box-center mb40 cf">
+    <div class="hot-work-box fl" data-aid="qd_A118">
+        <h3 class="wrap-title">热门作品</h3>
+        <div class="hot-work-info">
+            <div class="hot-work-slide">
+                <div class="three-silde-wrap">
+                    <div class="la-ball-pulse">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul id="left-slide-01" class="roundabout">
+                        <% for(var i=0; i < hotBook.length; i++) { %>
+                        <li class="book<%=i+1%>" data-id="<%=i+1%>" data-type="1" data-width="93px" data-height="100%">
+                            <img class="lazy" data-original="<%= hotBook[i]['imageUrl']%>">
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="info-text">
+                    <dl>
+                        <dd>
+                            <h3>
+                                <a href="http://www.qidian.com/Book/<%= hotBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[0]['bookId'] %>"><%=
+                                    hotBook[0]['bookName']%></a></h3>
+                            <p class="author">
+                                <a href="http://me.qidian.com/authorIndex.aspx?id=<%= hotBook[0]['authorId'] %>"><%=
+                                    hotBook[0]['authorName']%></a><em>&#183;</em><%= hotBook[0]['praiseCnt'] %>分</p>
+                            <p class="total"><b><%= hotBook[0]['popularity'] %></b>人气</p>
+                            <p class="intro">
+                                <%= hotBook[0]['desc'] %>
+                            </p>
+                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[0]['bookId'] %>">查看介绍</a>
+                        </dd>
+                        <% for(var i=1; i < hotBook.length; i++) { %>
+                        <dd class="hidden">
+                            <h3>
+                                <a href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>"><%=
+                                    hotBook[i]['bookName']%></a></h3>
+                            <p class="author">
+                                <a href="http://me.qidian.com/authorIndex.aspx?id=<%= hotBook[i]['authorId'] %>"><%=
+                                    hotBook[i]['authorName']%></a><em>&#183;</em><%= hotBook[i]['praiseCnt'] %>分</p>
+                            <p class="total"><b><%= hotBook[i]['popularity'] %></b>人气</p>
+                            <p class="intro">
+                                <%= hotBook[i]['desc'] %>
+                            </p>
+                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">查看介绍</a>
+                        </dd>
+                        <% } %>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hot-classify-wrap fl">
+        <ul>
+            <li data-aid="qd_A119">
+                <h3 class="wrap-title">玄幻<i>&#183;</i>奇幻<b class="icon-tag xhqh"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom1.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom1[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom1[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom1[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom1[i]['bookId'] %>"><%=
+                        chanRecom1[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li data-aid="qd_A120">
+                <h3 class="wrap-title">武侠<i>&#183;</i>仙侠<b class="icon-tag wxxx"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom2.length; i++) { %>
+                    <dd>
+                        <a class="classify" href="<%= chanRecom2[i]['chanUrl'] %>" target="_blank" data-bid="<%= chanRecom2[i]['chanUrl'] %>"><em>「</em><%=
+                            chanRecom2[i]['chanName']
+                            %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom2[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom2[i]['bookId'] %>"><%=
+                        chanRecom2[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li data-aid="qd_A121">
+                <h3 class="wrap-title">都市<i>&#183;</i>职场<b class="icon-tag ds"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom3.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom3[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom3[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom3[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom3[i]['bookId'] %>"><%=
+                        chanRecom3[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li class="mr0" data-aid="qd_A123">
+                <h3 class="wrap-title">历史<i>&#183;</i>军事<b class="icon-tag jsls"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom4.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom4[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom4[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom4[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom4[i]['bookId'] %>"><%=
+                        chanRecom4[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li data-aid="qd_A124">
+                <h3 class="wrap-title">游戏<i>&#183;</i>竞技<b class="icon-tag yxjj"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom5.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom5[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom5[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom5[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom5[i]['bookId'] %>"><%=
+                        chanRecom5[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li data-aid="qd_A125">
+                <h3 class="wrap-title">科幻<i>&#183;</i>灵异<b class="icon-tag khly"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom6.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom6[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom6[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom6[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom6[i]['bookId'] %>"><%=
+                        chanRecom6[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li class="erciyuan" data-aid="qd_A122">
+                <h3 class="wrap-title">二次元<b class="icon-tag ecy"></b></h3>
+                <dl class="hot-book-list">
+                    <% for(var i=0; i < chanRecom7.length; i++) { %>
+                    <dd><a class="classify" href="<%= chanRecom7[i]['chanUrl']  %>" target="_blank"><em>「</em><%=
+                        chanRecom7[i]['chanName']
+                        %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom7[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom7[i]['bookId'] %>"><%=
+                        chanRecom7[i]['recomTitle'] %></a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </li>
+            <li class="mr0" data-aid="qd_A126">
+                <div class="book-wrap bd cf">
+                    <div class="book-info fl">
+                        <span class="tag"><%= chanImgRecom[0]['subCategoryName']  %></span>
+                        <h4>
+                            <a href="http://www.qidian.com/Book/<%= chanImgRecom[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanImgRecom[0]['bookId'] %>"><%=
+                                chanImgRecom[0]['bookName'] %></a></h4>
+                        <p class="digital"><em><%= chanImgRecom[0]['popularity'] %></em>人气</p>
+                        <p class="desc"><%= chanImgRecom[0]['recomTitle'] %></p>
+                    </div>
+                    <div class="book-cover">
+                        <a class="link" href="http://www.qidian.com/Book/<%= chanImgRecom[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanImgRecom[0]['bookId'] %>">
+                            <img src="<%= chanImgRecom[0]['imageUrl']  %>" alt="">
+                        </a>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="book-wrap bd0 cf">
+                    <div class="book-info fl">
+                        <span class="tag"><%= chanImgRecom[1]['subCategoryName'] %></span>
+                        <h4>
+                            <a href="http://www.qidian.com/Book/<%= chanImgRecom[1]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanImgRecom[1]['bookId'] %>"><%= chanImgRecom[1]['bookName'] %></a></h4>
+                        <p class="digital"><em><%= chanImgRecom[1]['popularity'] %></em>人气</p>
+                        <p class="desc"><%= chanImgRecom[1]['recomTitle'] %></p>
+                    </div>
+                    <div class="book-cover">
+                        <a class="link" href="http://www.qidian.com/Book/<%= chanImgRecom[1]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanImgRecom[1]['bookId'] %>">
+                            <img src="<%= chanImgRecom[1]['imageUrl']  %>" alt="">
+                        </a>
+                        <span></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- end 热门作品 -->

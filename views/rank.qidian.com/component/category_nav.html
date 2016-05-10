@@ -1,0 +1,55 @@
+
+
+                <div class="type-list">
+                    <p>
+                        <% if ( data['paramList']['year'] >= 2016  && data['paramList']['month'] >= 4) { %>
+                        <a data-chanid="-1" <%=actmindex %>  href="javascript:;">全部分类</a><em>&#183;</em>
+                        <a data-chanid="21" <%=actm21 %>  href="javascript:;">玄幻</a><em>&#183;</em>
+                        <a data-chanid="1" <%=actm1 %>  href="javascript:;">奇幻</a><em>&#183;</em>
+                        <a data-chanid="2" <%=actm2 %>  href="javascript:;">武侠</a><em>&#183;</em>
+                        <a data-chanid="22" <%=actm22 %>  href="javascript:;">仙侠</a><em>&#183;</em>
+                        <a data-chanid="4" <%=actm4 %>  href="javascript:;">都市</a><em>&#183;</em>
+                        <a data-chanid="15" <%=actm15 %>  href="javascript:;">职场</a><em>&#183;</em>
+                        <a data-chanid="6" <%=actm6 %>  href="javascript:;">军事</a><em>&#183;</em>
+                        <a data-chanid="5" <%=actm5 %>  href="javascript:;">历史</a><em>&#183;</em>
+                        <a data-chanid="7" <%=actm7 %>  href="javascript:;">游戏</a><em>&#183;</em>
+                        <a data-chanid="8" <%=actm8 %>  href="javascript:;">竞技</a><em>&#183;</em>
+                        <a data-chanid="9" <%=actm9 %>  href="javascript:;">科幻</a><em>&#183;</em>
+                        <a data-chanid="10" <%=actm10 %>  href="javascript:;">灵异</a><em>&#183;</em>
+                        <a data-chanid="12" <%=actm12 %>  href="javascript:;">二次元</a><em>&#183;</em>
+                         <% if (sideBarHighlight == 1 && (( new Date() ).getMonth() == parseInt(data['paramList']['month']) -1 ) ) { %>
+                        <a data-chanid="0" class="<%=actm0 %>"  href="javascript:;">当月新书</a>
+                         <% } %>
+
+                        <% }else { %>
+
+                        <% if (sideBarHighlight == 1 ) { %>
+                        <a data-chanid="-1" <%=actmindex %> href="javascript:;">全部分类</a><em>&#183;</em>
+                        <a data-chanid="101" <%=actm101 %>  href="javascript:;">玄幻奇幻</a><em>&#183;</em>
+                        <a data-chanid="102" <%=actm102 %>  href="javascript:;">武侠仙侠</a><em>&#183;</em>
+                        <a data-chanid="103" <%=actm103 %>  href="javascript:;">都市职业</a><em>&#183;</em>
+                        <a data-chanid="104" <%=actm104 %>  href="javascript:;">历史军事</a><em>&#183;</em>
+                        <a data-chanid="105" <%=actm105 %>  href="javascript:;">游戏竞技</a><em>&#183;</em>
+                        <a data-chanid="106" <%=actm106 %>   href="javascript:;">科幻灵异</a><em>&#183;</em>
+                        <% if ( (( new Date() ).getMonth() == parseInt(data['paramList']['month']) -1 ) ) { %>
+                        <a data-chanid="0" class="<%=actm0 %>"  href="javascript:;">当月新书</a>
+                        <% } %>
+                         <% } else  {%>
+                        <a data-chanid="-1" <%=actmindex %>  href="javascript:;">全部分类</a><em>&#183;</em>
+                        <a data-chanid="21" <%=actm21 %>  href="javascript:;">玄幻</a><em>&#183;</em>
+                        <a data-chanid="1" <%=actm1 %>  href="javascript:;">奇幻</a><em>&#183;</em>
+                        <a data-chanid="2" <%=actm2 %>  href="javascript:;">武侠</a><em>&#183;</em>
+                        <a data-chanid="22" <%=actm22 %>  href="javascript:;">仙侠</a><em>&#183;</em>
+                        <a data-chanid="4" <%=actm4 %>  href="javascript:;">都市</a><em>&#183;</em>
+                        <a data-chanid="15" <%=actm15 %>  href="javascript:;">职场</a><em>&#183;</em>
+                        <a data-chanid="6" <%=actm6 %>  href="javascript:;">军事</a><em>&#183;</em>
+                        <a data-chanid="5" <%=actm5 %>  href="javascript:;">历史</a><em>&#183;</em>
+                        <a data-chanid="7" <%=actm7 %>  href="javascript:;">游戏</a><em>&#183;</em>
+                        <a data-chanid="8" <%=actm8 %>  href="javascript:;">竞技</a><em>&#183;</em>
+                        <a data-chanid="9" <%=actm9 %>  href="javascript:;">科幻</a><em>&#183;</em>
+                        <a data-chanid="10" <%=actm10 %>  href="javascript:;">灵异</a><em>&#183;</em>
+                        <a data-chanid="12" <%=actm12 %>  href="javascript:;">二次元</a>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>

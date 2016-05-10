@@ -1,0 +1,88 @@
+<!-- start 高级搜索 -->
+<div class="filter-search-wrap">
+    <div class="box-center cf">
+        <div class="filter-search-box fl">
+            <div class="title fl">没有找到？试试这里</div>
+            <div class="filter-search fl">
+                <div id="classify" class="lbf-combobox">
+                    <select>
+                        <option value="21">玄幻</option>
+                        <option value="1">奇幻</option>
+                        <option value="2">武侠</option>
+                        <option value="22">仙侠</option>
+                        <option value="4">都市</option>
+                        <option value="15">职场</option>
+                        <option value="6">军事</option>
+                        <option value="5">历史</option>
+                        <option value="7">游戏</option>
+                        <option value="8">竞技</option>
+                        <option value="9">科幻</option>
+                        <option value="10">灵异</option>
+                        <option value="41">女生网</option>
+                        <option value="12">二次元</option>
+                    </select>
+                    <!-- 当前选中项信息 -->
+                    <a href="javascript:" class="lbf-button lbf-combobox-label" hidefocus="true">
+                        <span class="lbf-combobox-caption">玄幻</span>
+                        <span class="lbf-combobox-icon">&nbsp;</span>
+                    </a>
+                </div>
+                <div id="serial" class="lbf-combobox">
+                    <select name="">
+                        <option value="1">连载</option>
+                        <option value="5">完本</option>
+                    </select>
+                    <a href="javascript:" class="lbf-button lbf-combobox-label" hidefocus="true">
+                        <span class="lbf-combobox-caption">连载</span>
+                        <span class="lbf-combobox-icon">&nbsp;</span>
+                    </a>
+                </div>
+                <div id="charge" class="lbf-combobox">
+                    <select name="">
+                        <option value="0">免费</option>
+                        <option value="1">收费</option>
+                    </select>
+                    <a href="javascript:" class="lbf-button lbf-combobox-label" hidefocus="true">
+                        <span class="lbf-combobox-caption">免费</span>
+                        <span class="lbf-combobox-icon">&nbsp;</span>
+                    </a>
+                </div>
+                <div id="words" class="lbf-combobox words">
+                    <select name="">
+                        <option value="5">200万以上</option>
+                        <option value="4">100万-200万字</option>
+                        <option value="3">50万-100万字</option>
+                        <option value="2">30万-50万字</option>
+                        <option value="1">30万以下</option>
+                    </select>
+                    <a href="javascript:" class="lbf-button lbf-combobox-label" hidefocus="true">
+                        <span class="lbf-combobox-caption">100万-200万字</span>
+                        <span class="lbf-combobox-icon">&nbsp;</span>
+                    </a>
+                </div>
+                <div id="tags" class="lbf-combobox tags">
+                    <select name="">
+                        <% for(var i=0; i < searchTags.length; i++) { %>
+                        <option value="<%= searchTags[i]['tag'] %>"><%= searchTags[i]['tag'] %></option>
+                        </dd>
+                        <% } %>
+                    </select>
+                    <a href="javascript:" class="lbf-button lbf-combobox-label" hidefocus="true">
+                        <span class="lbf-combobox-caption"><%= searchTags[0]['tag'] %></span>
+                        <span class="lbf-combobox-icon">&nbsp;</span>
+                    </a>
+                </div>
+                <a id="btn-filter-search" class="red-btn" href="javascript:" target="_blank" data-aid="qd_A146">按条件找书</a>
+            </div>
+        </div>
+        <div class="everyone fl" data-aid="qd_A147">
+            <p class="title fl">大家都在搜</p>
+            <div class="key-words fl">
+                <% for(var i=0; i < searchRecom.length; i++) { %>
+                <a href="<%= searchRecom[i]['link'] %>" target="_blank"><%= searchRecom[i]['words'] %></a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end 高级搜索 -->

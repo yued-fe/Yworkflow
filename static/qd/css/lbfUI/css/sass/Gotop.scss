@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+@import "variables";
+@import "mixins";
+
+//
+// Gotop
+// --------------------------------------------------
+
+.lbf-gotop {
+    a {
+        position: fixed;
+        right: 45px;
+        bottom: 45px;
+        display: block;
+        width: 38px;
+        height: 38px;
+        opacity: 0.5;
+        background: url($image-path + "Gotop/gotop.png") no-repeat 0 0;
+        filter: alpha(opacity=50);
+
+        &:hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+    }
+}

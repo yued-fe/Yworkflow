@@ -1,0 +1,658 @@
+<!--完本、全本、免费频道左边菜单栏-->
+<div class="range-sidebar fl">
+    <!-- start 选择站点 -->
+    <div class="site">
+        <a class="act" href="javascript:">主站</a><a href="http://all.qdmm.com/Default.aspx" target="_blank">女生</a>
+    </div>
+    <!-- end 选择站点 -->
+    <!-- start 已选-->
+    <div class="selected">
+        <%
+        /*
+        用于储存状态action。最终选择的值和数组中的index对应
+        */
+        var actionArr = ['连载','完本'];
+        /*
+        用于储存属性vip
+        */
+        var vipArr = ['免费','VIP付费'];
+        /*
+        用于储存字数size
+        */
+        var sizeArr = ['不限','30万字以下','30-50万字','50-100万字','100-200万字','200万以上'];
+        /*
+        用于储存品质sign
+        */
+        var signArr = ['不限','签约作品','精品'];
+        /*
+        selectedArr用来储存已选择的过滤条件
+        */
+
+        var selectedArr = [];
+        /*
+        分类
+        */
+        var type = parseInt(data['paramList']['chanId']);
+        var subType = parseInt(data['paramList']['subCateId']);
+        /*
+        状态
+        */
+
+        if(data['paramList']['action']!='hidden'){
+        var action = parseInt(data['paramList']['action']);
+        }else{
+        var action = 'hidden';
+        }
+        /*
+        属性
+        */
+        if(data['paramList']['vip']!='hidden'){
+        var vip = parseInt(data['paramList']['vip']);
+        }else{
+        var vip = 'hidden';
+        }
+        /*
+        字数
+        */
+        var size = parseInt(data['paramList']['size']);
+        /*
+        品质
+        */
+        var sign = parseInt(data['paramList']['sign']);
+        /*
+        标签
+        */
+        var tag = data['paramList']['tag'];
+
+        /*
+        只有在选择项不为'全部'时，才能够将其选择的结果放入selectedArr数组中,这里的放入顺序是固定的
+        */
+        /*
+            第一项
+        */
+        if(type!=-1){
+            if( subType!=-1){
+                selectedArr.push({
+                name:data['paramList']['subCateName'],
+                type:'category'
+                });
+            }else{
+                selectedArr.push({
+                name:data['paramList']['chanName'],
+                type:'subCategory'
+                });
+            }
+        }
+        /*
+            第二项
+        */
+        if(action!=-1 && action!='hidden'){
+            selectedArr.push({
+            name:actionArr[action],
+            type:'action'
+            });
+        }
+        /*
+            第三项
+        */
+        if(vip!=-1 && vip!='hidden'){
+            selectedArr.push({
+            name:vipArr[vip],
+            type:'vip'
+            });
+        }
+        /*
+            第四项
+        */
+        if(size!=-1){
+            selectedArr.push({
+            name:sizeArr[size],
+            type:'size'
+            });
+        }
+        /*
+            第五项
+        */
+        if(sign!=-1){
+            selectedArr.push({
+            name:signArr[sign],
+            type:'sign'
+            });
+        }
+        /*
+            第六项
+        */
+        if(decodeURI(tag)!='全部'&& tag!=-1){
+            selectedArr.push({
+            name:decodeURI(tag),
+            type:'tag'
+            });
+        }
+        %>
+        <p><span>已选</span>
+            <%if(selectedArr.length>0){
+            /*
+            selectedArr长度大于0说明用户选择了某一项筛选条件
+            */
+            for(var i=0;i< selectedArr.length;i++){%>
+            <a href="javascript:" type="<%= selectedArr[i]['type']%>"><%= selectedArr[i]['name']%><cite class="iconfont">&#xe61f;</cite></a>
+            <%}}else{
+            /*
+            selectedArr长度小于或等于0说明用户未选择任何筛选条件，因此显示'全部'
+            */
+            %>
+            <a class="all" href="javascript:" type="all">全部</a>
+            <%}%>
+    </div>
+    <!-- end 已选-->
+    <!-- start 条件筛选列表 -->
+    <div class="select-list">
+        <!-- start 作品分类 -->
+        <div class="work-filter type-filter">
+            <% var typeId = parseInt(data['paramList']['chanId']);
+            var subTypeId = parseInt(data['paramList']['subCateId']);
+
+            %>
+            <%
+            var all='class=act';
+            var xh='';
+            var qh='';
+            var wx='';
+            var xx='';
+            if(typeId!=-1){
+                all='';
+            if(subTypeId==-1){
+                switch(typeId){
+                    case 21:xh='act arrow';break;
+                    case 1:qh='act arrow';break;
+                    case 2:wx='act arrow';break;
+                    case 22:xx='act arrow';break;
+                }
+                }else{
+                switch(typeId){
+                    case 21:xh='arrow';break;
+                    case 1:qh='arrow';break;
+                    case 2:wx='arrow';break;
+                    case 22:xx='arrow';break;
+                }
+                }
+            }
+            %>
+            <h3>分类</h3>
+            <!-- 第一行一级分类 cite和i是嵌套的小三角-->
+            <ul class="row-1" type="category">
+                <li id="all" data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
+                <li data-id="21" id="xh" class="<%= xh%>"><a href="javascript:">玄幻<cite><i></i></cite></a></li>
+                <li data-id="1" id="qh" class="<%= qh%>"><a href="javascript:">奇幻<cite><i></i></cite></a></li>
+                <li data-id="2" id="wx" class="<%= wx%>"><a href="javascript:">武侠<cite><i></i></cite></a></li>
+                <li data-id="22" id="xx" class="<%= xx%>"><a href="javascript:">仙侠<cite><i></i></cite></a></li>
+            </ul>
+            <!-- 点击后展示对应的子分类 默认隐藏 目前是为了展示选中一级分类时的状态 -->
+            <!-- 跳转回显页面时，先隐藏所有的sub-type，然后重新显示对应行的子分类 -->
+            <%
+                var subTypes = 'hidden';
+                var xuanhuan = 'hidden';
+                var qihuan = 'hidden';
+                var wuxia = 'hidden';
+                var xianxia = 'hidden';
+                if(data['paramList']['typeId']!=-1){
+                if( typeId==21||typeId==1||typeId==2||typeId==22){
+                    subTypes='';
+                }
+                switch(typeId){
+                    case 21:xuanhuan='';break;
+                    case 1:qihuan='';break;
+                    case 2:wuxia='';break;
+                    case 22:xianxia='';break;
+                }
+                }
+            %>
+            <div class="sub-type <%= subTypes%>">
+                <!--玄幻start-->
+                <dl class="<%= xuanhuan%>">
+                    <% var xhArr=[
+                    {id:8,name:'东方玄幻',hl:subTypeId==8?'act':''},
+                    {id:73,name:'异界大陆',hl:subTypeId==73?'act':''},
+                    {id:58,name:'异界争霸',hl:subTypeId==58?'act':''},
+                    {id:78,name:'远古神话',hl:subTypeId==78?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< xhArr.length;i++){%>
+                    <dd data-subtype="<%= xhArr[i]['id']%>" class="<%= xhArr[i]['hl']%>"><a href="javascript:"><%= xhArr[i]['name']%></a></dd>
+                    <%}%>
+
+                </dl>
+                <!--玄幻end-->
+                <!--奇幻start-->
+                <dl class="<%= qihuan%>">
+                    <% var qhArr=[
+                    {id:38,name:'魔法校园',hl:subTypeId==38?'act':''},
+                    {id:62,name:'西方奇幻',hl:subTypeId==62?'act':''},
+                    {id:201,name:'领主贵族',hl:subTypeId==201?'act':''},
+                    {id:202,name:'亡灵异族',hl:subTypeId==202?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< qhArr.length;i++){%>
+                    <dd data-subtype="<%= qhArr[i]['id']%>" class="<%= qhArr[i]['hl']%>"><a href="javascript:"><%= qhArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--奇幻end-->
+                <!--武侠start-->
+                <dl class="<%= wuxia%>">
+                    <% var wxArr=[
+                    {id:5,name:'传统武侠',hl:subTypeId==5?'act':''},
+                    {id:30,name:'新派武侠',hl:subTypeId==30?'act':''},
+                    {id:206,name:'国术武技',hl:subTypeId==206?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< wxArr.length;i++){%>
+                    <dd data-subtype="<%= wxArr[i]['id']%>" class="<%= wxArr[i]['hl']%>"><a href="javascript:"><%= wxArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--武侠end-->
+                <!--仙侠start-->
+                <dl class="<%= xianxia%>">
+                    <% var xxArr=[
+                    {id:18,name:'古典仙侠',hl:subTypeId==18?'act':''},
+                    {id:44,name:'幻想修仙',hl:subTypeId==44?'act':''},
+                    {id:64,name:'现代修仙',hl:subTypeId==64?'act':''},
+                    {id:207,name:'洪荒封神',hl:subTypeId==207?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< xxArr.length;i++){%>
+                    <dd data-subtype="<%= xxArr[i]['id']%>" class="<%= xxArr[i]['hl']%>"><a href="javascript:"><%= xxArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--仙侠end-->
+            </div>
+            <!-- 第二行一级分类 -->
+            <%
+            var ds='';
+            var zc='';
+            var js='';
+            var ls='';
+            var yx='';
+            if(typeId!=-1){
+                if(subTypeId==-1){
+                    switch(typeId){
+                        case 4:ds='act arrow';break;
+                        case 15:zc='act arrow';break;
+                        case 6:js='act arrow';break;
+                        case 5:ls='act arrow';break;
+                        case 7:yx='act arrow';break;
+                    }
+                }else{
+                    switch(typeId){
+                        case 4:ds='arrow';break;
+                        case 15:zc='arrow';break;
+                        case 6:js='arrow';break;
+                        case 5:ls='arrow';break;
+                        case 7:yx='arrow';break;
+                    }
+                }
+            }
+            %>
+
+            <ul class="row-2" type="category">
+                <li data-id="4" id="ds" class="<%= ds%>"><a href="javascript:">都市<cite><i></i></cite></a></li>
+                <li data-id="15" id="zc" class="<%= zc%>"><a href="javascript:">职场<cite><i></i></cite></a></li>
+                <li data-id="6" id="js" class="<%= js%>"><a href="javascript:">军事<cite><i></i></cite></a></li>
+                <li data-id="5" id="ls" class="<%= ls%>"><a href="javascript:">历史<cite><i></i></cite></a></li>
+                <li data-id="7" id="yx" class="<%= yx%>"><a href="javascript:">游戏<cite><i></i></cite></a></li>
+            </ul>
+            <!-- 点击后展示对应的子分类 默认隐藏 -->
+            <%
+            var subTypes2 = 'hidden';
+            var dushi = 'hidden';
+            var zhichang = 'hidden';
+            var junshi = 'hidden';
+            var lishi = 'hidden';
+            var youxi = 'hidden';
+            if(data['paramList']['typeId']!=-1){
+            if( typeId==4||typeId==15||typeId==6||typeId==5||typeId==7){
+            subTypes2='';
+            }
+            switch(typeId){
+            case 4:dushi='';break;
+            case 15:zhichang='';break;
+            case 6:junshi='';break;
+            case 5:lishi='';break;
+            case 7:youxi='';break;
+            }
+            }
+            %>
+            <div class="sub-type <%= subTypes2%>">
+                <!--都市start-->
+                <dl class="<%= dushi%>">
+                    <% var dsArr=[
+                    {id:12,name:'都市生活',hl:subTypeId==12?'act':''},
+                    {id:16,name:'恩怨情仇',hl:subTypeId==16?'act':''},
+                    {id:74,name:'异术超能',hl:subTypeId==74?'act':''},
+                    {id:209,name:'现实百态',hl:subTypeId==209?'act':''},
+                    {id:6,name:'爱情婚姻',hl:subTypeId==6?'act':''},
+                    {id:130,name:'青春校园',hl:subTypeId==130?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< dsArr.length;i++){%>
+                    <dd data-subtype="<%= dsArr[i]['id']%>" class="<%= dsArr[i]['hl']%>"><a href="javascript:"><%= dsArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--都市end-->
+                <!--职场start-->
+                <dl class="<%= zhichang%>">
+                    <% var zcArr=[
+                    {id:151,name:'娱乐明星',hl:subTypeId==151?'act':''},
+                    {id:152,name:'官场沉浮',hl:subTypeId==152?'act':''},
+                    {id:153,name:'商战职场',hl:subTypeId==153?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< zcArr.length;i++){%>
+                    <dd data-subtype="<%= zcArr[i]['id']%>" class="<%= zcArr[i]['hl']%>"><a href="javascript:"><%= zcArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--职场end-->
+                <!--军事start-->
+                <dl class="<%= junshi%>">
+                    <% var jsArr=[
+                    {id:54,name:'军旅生涯',hl:subTypeId==54?'act':''},
+                    {id:65,name:'军事战争',hl:subTypeId==65?'act':''},
+                    {id:80,name:'战争幻想',hl:subTypeId==80?'act':''},
+                    {id:230,name:'抗战烽火',hl:subTypeId==230?'act':''},
+                    {id:231,name:'谍战特工',hl:subTypeId==231?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< jsArr.length;i++){%>
+                    <dd data-subtype="<%= jsArr[i]['id']%>" class="<%= jsArr[i]['hl']%>"><a href="javascript:"><%= jsArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--军事end-->
+                <!--历史start-->
+                <dl class="<%= lishi%>">
+                    <% var lsArr=[
+                    {id:22,name:'架空历史',hl:subTypeId==22?'act':''},
+                    {id:48,name:'秦汉三国',hl:subTypeId==48?'act':''},
+                    {id:220,name:'上古先秦',hl:subTypeId==220?'act':''},
+                    {id:32,name:'历史传记',hl:subTypeId==32?'act':''},
+                    {id:222,name:'两晋隋唐',hl:subTypeId==222?'act':''},
+                    {id:223,name:'五代十国',hl:subTypeId==223?'act':''},
+                    {id:224,name:'两宋元明',hl:subTypeId==224?'act':''},
+                    {id:225,name:'清史民国',hl:subTypeId==225?'act':''},
+                    {id:226,name:'外国历史',hl:subTypeId==226?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< lsArr.length;i++){%>
+                    <dd data-subtype="<%= lsArr[i]['id']%>" class="<%= lsArr[i]['hl']%>"><a href="javascript:"><%= lsArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--历史end-->
+                <!--游戏start-->
+                <dl class="<%= youxi%>">
+                    <% var yxArr=[
+                    {id:7,name:'电子竞技',hl:subTypeId==7?'act':''},
+                    {id:70,name:'虚拟网游',hl:subTypeId==70?'act':''},
+                    {id:76,name:'游戏生涯',hl:subTypeId==76?'act':''},
+                    {id:240,name:'游戏异界',hl:subTypeId==240?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< yxArr.length;i++){%>
+                    <dd data-subtype="<%= yxArr[i]['id']%>" class="<%= yxArr[i]['hl']%>"><a href="javascript:"><%= yxArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--游戏end-->
+            </div>
+            <!-- 第三行一级分类 -->
+            <%
+            var jj='';
+            var kh='';
+            var ly='';
+            var ecy='';
+            if(typeId!=-1){
+                if(subTypeId==-1){
+                    switch(typeId){
+                        case 8:jj='act arrow';break;
+                        case 9:kh='act arrow';break;
+                        case 10:ly='act arrow';break;
+                        case 12:ecy='act arrow';break;
+                    }
+                }else{
+                    switch(typeId){
+                        case 8:jj='arrow';break;
+                        case 9:kh='arrow';break;
+                        case 10:ly='arrow';break;
+                        case 12:ecy='arrow';break;
+                    }
+                }
+            }
+            %>
+
+
+            <ul class="row-3" type="category">
+                <li data-id="8" id="jj" class="<%= jj%>"><a href="javascript:">竞技<cite><i></i></cite></a></li>
+                <li data-id="9" id="kh" class="<%= kh%>"><a href="javascript:">科幻<cite><i></i></cite></a></li>
+                <li data-id="10" id="ly" class="<%= ly%>"><a href="javascript:">灵异<cite><i></i></cite></a></li>
+                <li data-id="12" id="ecy" class="<%= ecy%>"><a href="javascript:">二次元<cite><i></i></cite></a></li>
+            </ul>
+            <!-- 点击后展示对应的子分类 默认隐藏 -->
+            <%
+            var subTypes3 = 'hidden';
+            var jingji = 'hidden';
+            var kehuan = 'hidden';
+            var lingyi = 'hidden';
+            var erciyuan = 'hidden';
+            if(data['paramList']['typeId']!=-1){
+            if( typeId==8||typeId==9||typeId==10||typeId==12){
+            subTypes3='';
+            }
+            switch(typeId){
+            case 8:jingji='';break;
+            case 9:kehuan='';break;
+            case 10:lingyi='';break;
+            case 12:erciyuan='';break;
+            }
+            }
+            %>
+            <div class="sub-type <%= subTypes3%>">
+
+                <!--竞技start-->
+                <dl class="<%= jingji%>">
+                    <% var jjArr=[
+                    {id:28,name:'篮球运动',hl:subTypeId==28?'act':''},
+                    {id:55,name:'体育竞技',hl:subTypeId==55?'act':''},
+                    {id:82,name:'足球运动',hl:subTypeId==82?'act':''},
+                    {id:84,name:'弈林春秋',hl:subTypeId==84?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< jjArr.length;i++){%>
+                    <dd data-subtype="<%= jjArr[i]['id']%>" class="<%= jjArr[i]['hl']%>"><a href="javascript:"><%= jjArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--竞技end-->
+                <!--科幻start-->
+                <dl class="<%= kehuan%>">
+                    <% var khArr=[
+                    {id:21,name:'古武机甲',hl:subTypeId==21?'act':''},
+                    {id:25,name:'未来世界',hl:subTypeId==25?'act':''},
+                    {id:68,name:'星际战争',hl:subTypeId==68?'act':''},
+                    {id:250,name:'超级科技',hl:subTypeId==250?'act':''},
+                    {id:251,name:'时空穿梭',hl:subTypeId==251?'act':''},
+                    {id:252,name:'进化变异',hl:subTypeId==252?'act':''},
+                    {id:253,name:'末世危机',hl:subTypeId==253?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< khArr.length;i++){%>
+                    <dd data-subtype="<%= khArr[i]['id']%>" class="<%= khArr[i]['hl']%>"><a href="javascript:"><%= khArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--科幻end-->
+                <!--灵异start-->
+                <dl class="<%= lingyi%>">
+                    <% var lyArr=[
+                    {id:26,name:'恐怖惊悚',hl:subTypeId==26?'act':''},
+                    {id:35,name:'灵异奇谈',hl:subTypeId==35?'act':''},
+                    {id:57,name:'推理侦探',hl:subTypeId==57?'act':''},
+                    {id:260,name:'悬疑探险',hl:subTypeId==260?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< lyArr.length;i++){%>
+                    <dd data-subtype="<%= lyArr[i]['id']%>" class="<%= lyArr[i]['hl']%>"><a href="javascript:"><%= lyArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--灵异end-->
+                <!--二次元start-->
+                <dl class="<%= erciyuan%>">
+                    <% var ecyArr=[
+                    {id:10,name:'变身入替',hl:subTypeId==10?'act':''},
+                    {id:60,name:'原生幻想',hl:subTypeId==60?'act':''},
+                    {id:66,name:'青春日常',hl:subTypeId==66?'act':''},
+                    {id:281,name:'衍生同人',hl:subTypeId==281?'act':''},
+                    {id:282,name:'搞笑吐槽',hl:subTypeId==282?'act':''}
+                    ];
+                    %>
+                    <%for(var i=0;i< ecyArr.length;i++){%>
+                    <dd data-subtype="<%= ecyArr[i]['id']%>" class="<%= ecyArr[i]['hl']%>"><a href="javascript:"><%= ecyArr[i]['name']%></a></dd>
+                    <%}%>
+                </dl>
+                <!--二次元end-->
+            </div>
+        </div>
+        <!-- end 作品分类 -->
+        <!-- start 作品状态 -->
+        <% if(data['paramList']['action']!='hidden'){%>
+        <div class="work-filter action-filter">
+            <%
+            var loading,finished,all='';
+            if(data['paramList']['action']==0){
+            var loading = 'class=act';
+            }else if(data['paramList']['action']==1){
+            var finished = 'class=act'
+            }else{
+            var all = 'class=act'
+            }
+            %>
+            <h3>状态</h3>
+            <ul type="action">
+                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
+                <li data-id="0" <%= loading%>><a href="javascript:">连载</a></li>
+                <li data-id="1" <%= finished%>><a href="javascript:">完本</a></li>
+            </ul>
+        </div>
+        <%}%>
+        <!-- end 作品状态 -->
+        <!-- start 作品属性 -->
+        <% if(data['paramList']['vip']!='hidden'){%>
+        <%
+        var free,vip,all='';
+        if(data['paramList']['vip']==0){
+            var free = 'class=act';
+        }else if(data['paramList']['vip']==1){
+            var vip = 'class=act'
+        }else{
+            var all = 'class=act'
+        }
+        %>
+        <div class="work-filter vip-filter">
+
+            <h3>属性</h3>
+            <ul type="vip">
+                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
+                <li data-id="0" <%= free%>><a href="javascript:">免费</a></li>
+                <li data-id="1" <%= vip%>><a href="javascript:">VIP</a></li>
+            </ul>
+        </div>
+        <%}%>
+
+        <!-- end 作品属性 -->
+        <!-- start 作品字数 -->
+        <div class="work-filter">
+            <%
+            var below30,bet30and50,bet50and100,bet100and200,above200,all='';
+            if(data['paramList']['size']==1){
+            var below30 = 'class=act';
+            }else if(data['paramList']['size']==2){
+            var bet30and50 = 'class=act'
+            }else if(data['paramList']['size']==3){
+            var bet50and100 = 'class=act'
+            }else if(data['paramList']['size']==4){
+            var bet100and200 = 'class=act'
+            }else if(data['paramList']['size']==5){
+            var above200 = 'class=act'
+            }else{
+            var all = 'class=act'
+            }
+            %>
+            <h3>字数</h3>
+            <ul type="size">
+                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
+                <li data-id="1" <%= below30%>><a href="javascript:">30万字以下</a></li>
+                <li data-id="2" <%= bet30and50%>><a href="javascript:">30-50万字</a></li>
+                <li data-id="3" <%= bet50and100%>><a href="javascript:">50-100万字</a></li>
+                <li data-id="4" <%= bet100and200%>><a href="javascript:">100-200万字</a></li>
+                <li data-id="5" <%= above200%>><a href="javascript:">200万字以上</a></li>
+            </ul>
+        </div>
+        <!-- end 作品字数 -->
+        <!-- start 作品品质 -->
+        <div class="work-filter">
+            <%
+            var signWork,goodWork,all='';
+            if(data['paramList']['sign']==1){
+            var signWork = 'class=act';
+            }else if(data['paramList']['sign']==2){
+            var goodWork = 'class=act'
+            }else{
+            var all = 'class=act'
+            }
+            %>
+            <h3>品质</h3>
+            <ul type="sign">
+                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
+                <li data-id="1" <%= signWork%>><a href="javascript:">签约作品</a></li>
+                <li data-id="2" <%= goodWork%>><a href="javascript:">精品小说</a></li>
+            </ul>
+        </div>
+        <!-- end 作品品质 -->
+        <!-- start 作品标签 -->
+        <div class="work-filter tag">
+            <h3>标签</h3>
+            <%
+            var tag = decodeURI(data['paramList']['tag']);
+            var n;
+            var topTags=['全部','豪门','孤儿','盗贼','特工','黑客','明星','特种兵','杀手','老师','学生'];
+            if(tag==-1){
+                tag='全部'
+            }
+            for(n=0;n < topTags.length;n++){
+                if(tag==topTags[n]){
+                break;
+                }
+            }
+            %>
+            <ul type="tag">
+                <%for(var i =0;i < topTags.length;i++ ){%>
+                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:"><%= topTags[i]%></a></li>
+                <%}%>
+
+                <!-- 预先被隐藏的标签 -->
+                <% var hiddenList =
+                [
+                "胖子","宠物","蜀山","魔王附体","LOL","废材流","护短","卡片","手游","法师","医生","感情","鉴宝","亡灵","职场","吸血鬼","龙","西游","鬼怪","阵法",
+                "魔兽","勇猛","玄学","群穿","丹药","练功流","召唤流","恶搞","爆笑","轻松","冷酷","腹黑","阳光","狡猾",
+                "机智","猥琐","嚣张","淡定","僵尸","丧尸","盗墓","随身流","软饭流","无敌文","异兽流",
+                "系统流","洪荒流","学院流","位面","铁血","励志","坚毅","变身","强者回归","赚钱","争霸流","种田文",
+                "宅男","无限流","技术流","凡人流","热血","重生","穿越"
+                ];
+                if(n < topTags.length){%>
+                <li class="more" id="unfold"><a href="javascript:">展开<span><i></i></span></a></li>
+                <%for(var i=0;i< hiddenList.length;i++){%>
+                <li class="hidden"><a href="javascript:"><%= hiddenList[i]%></a></li>
+                <%}}else{
+                for(var i=0;i< hiddenList.length;i++){%>
+                <li <%if(tag==hiddenList[i]){%>class='act'<%}%>><a href="javascript:"><%= hiddenList[i]%></a></li>
+                <%}
+                }%>
+            </ul>
+        </div>
+        <!-- end 作品标签 -->
+    </div>
+    <!-- end 条件筛选列表 -->
+</div>
