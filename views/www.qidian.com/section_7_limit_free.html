@@ -23,7 +23,7 @@
         %>
         <li <%= num%>>
             <div class="book-img">
-                <a href="http://free.qidian.com/Free/ShowBook.aspx?bookid=<%= limitFree.limitFreeList[i]['bookId'] %>" target="_blank" data-bid="<%= limitFree.limitFreeList[i]['bookId'] %>"><img class="lazy" data-original="<%= limitFree.limitFreeList[i]['imageUrl']  %>">
+                <a href="http://free.qidian.com/Free/ShowBook.aspx?bookid=<%= limitFree.limitFreeList[i]['bookId'] %>" target="_blank" data-bid="<%= limitFree.limitFreeList[i]['bookId'] %>"><img class="lazy" data-original="<%= limitFree.limitFreeList[i]['imageUrl'] %>" alt="<%= limitFree.limitFreeList[i]['bookName'] %>">
                     <%
                         //评分小于7.0不显示，由于在循环体内，逻辑前移会导致分数<9.0也不显示，暂时放在span标签里判断
                         var score = limitFree.limitFreeList[i]['praiseCnt']

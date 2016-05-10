@@ -146,9 +146,8 @@
 }
 /* 暂无数据 */
 .no-result-wrap {
-	height: 200px;
+	padding-bottom: 30px;
 	@include mb(30px);
-	background: #F7F6F2;
 	text-align: center;
 	.no-result-img {
 		padding: 47px 0 13px;
@@ -165,13 +164,11 @@
 	}
 }
 .search-title {
-	font-size: 18px;
 	height: 20px;
-	line-height: 20px;
 	padding: 10px 0;
+	font: 18px/20px FZZCYSK;
 	border-bottom: 1px solid #666;
 	margin-bottom: 24px;
-	font-family: 'FZZCYSK';
 }
 /* 1024 响应点样式变动 */
 @media (max-width: 1025px) {

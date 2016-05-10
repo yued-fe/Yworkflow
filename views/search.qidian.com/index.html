@@ -115,8 +115,8 @@
 
             <!-- start 搜索结果列表 —— 有结果 -->
             <div id="result-list">
-            <% if (data['showSearchList'] == false)   {
-                var title = '为您推荐';
+            <% if (data['showRecommedUserData'] == false)   {
+                var title = '为你推荐';
                 if(data['showMonthTicketTopList'] == true){
                 title = '原创风云榜<i>·</i>新书';
                 }
@@ -140,6 +140,8 @@
                                 <p class="intro">
                                    <%= data['recommendUserData'][i]['recommendReason'] %>
                                 </p>
+                                <!--<p class="update"><a class="red" href="javascript:void(0);"><%= data['recommendUserData'][i]['recommendReason'] %></a><em>&#183;</em><span><%= data['listInfo'][i]['lastUpdateTime'] %></span>-->
+                                <!--</p>-->
                             </div>
                             <div class="book-right-info">
                      <!--            <div class="total">
@@ -177,6 +179,8 @@
                                 </p>
                                 <p class="intro">
                                    <%= data['monthTicketTopList'][i]['desc'] %>
+                                </p>
+                                <p class="update"><a href="<%= data['monthTicketTopList'][i]['lastChapterUrl'] %>" target="_blank">最新更新  <%= data['monthTicketTopList'][i]['lastChapterName'] %></a><em>&#183;</em><span><%= data['listInfo'][i]['lastUpdateTime'] %></span>
                                 </p>
                             </div>
                             <div class="book-right-info">

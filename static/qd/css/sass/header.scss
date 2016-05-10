@@ -161,7 +161,8 @@
 			width: 56px;
 			height: 38px;
 			line-height: 38px;
-			line-height: 36px\0;
+			line-height: 36px \0
+		;
 			*line-height: 36px;
 			margin-right: 3px;
 			overflow: hidden;
@@ -186,7 +187,8 @@
 		em {
 			width: 16px;
 			margin-right: 5px;
-			margin-top: 4px\0;
+			margin-top: 4px \0
+		;
 			font-size: 16px;
 			line-height: 20px;
 			overflow: hidden;
@@ -482,8 +484,11 @@
 			h3 {
 				@include mb;
 				span {
+					width: 21px;
+					height: 11px;
 					float: right;
 					margin-top: 4px;
+					background: url("/qd/images/common/tag.png") no-repeat 0 0;
 				}
 				a {
 					float: left;
@@ -538,7 +543,10 @@
 			}
 			span {
 				float: left;
-				margin-right: 5px;
+				width: 21px;
+				height: 11px;
+				margin-top: 3px;
+				background: url("/qd/images/common/tag.png") no-repeat 0 0;
 			}
 			a {
 				font-size: 14px;
@@ -597,5 +605,9 @@
 		background: url("/qd/images/logo3x.png") no-repeat;
 		background-size: 217px;
 		background-repeat: no-repeat;
+	}
+	.main-nav li.web .game-dropdown .web-list dd h3 span, .main-nav li.phone .game-dropdown .phone-list dd span {
+		background: url("/qd/images/common/tag_2x.png") no-repeat 0 0;
+		background-size: 100%;
 	}
 }

@@ -31,8 +31,7 @@ LBF.define('site.search.index', function(require, exports, module) {
          */
         events: {
             'click .add-book': 'addToBookShelf',
-            'click .sort-switcher a': 'switchSortType',
-            'click .close-popup':'hideLoginPopup'
+            'click .sort-switcher a': 'switchSortType'
         },
 
         /**
@@ -130,14 +129,6 @@ LBF.define('site.search.index', function(require, exports, module) {
                     }
                 }
             });
-        },
-        /**
-         * 关闭登录弹窗
-         * @method hideLoginPopup
-         */
-        hideLoginPopup:function(){
-            //引用Addbook.js中的去除login窗口方法
-            Addbook.hideCurrentPopup();
         }
     })
 });

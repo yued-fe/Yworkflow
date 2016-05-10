@@ -22,7 +22,7 @@
                         </div>
                         <div class="book-cover">
                             <a class="link" href="http://www.qidian.com/Book/<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>">
-                                <img src="<%= recomLastUpd['recomLastUpdFocused'][i]['imageUrl']  %>" alt="">
+                                <img src="<%= recomLastUpd['recomLastUpdFocused'][i]['imageUrl']  %>" alt="<%= recomLastUpd['recomLastUpdFocused'][i]['bookName'] %>">
                             </a>
                             <span></span>
                         </div>
@@ -65,7 +65,7 @@
                                 chartUpdList[i]['bookName'] %></a></td>
                         <td><a class="section" href="<%= chartUpdList[i]['updChapterUrl'] %>" data-chapterUrl="<%= chartUpdListVip[i]['updChapterUrl'] %>" target="_blank"><%=
                             chartUpdList[i]['updChapterName'] %></a>
-                            <% if(chartUpdList[i]['isVip']==1) { %> <span class="vip">VIP</span> <% } %>
+                            <% if(chartUpdList[i]['isVip']==1) { %> <span class="vip"></span> <% } %>
                         </td>
                         <td class="respon">
                             <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartUpdList[i]['authorId']  %>" target="_blank"><%=
@@ -128,7 +128,7 @@
                                 chartUpdListVip[i]['bookName'] %></a></td>
                         <td><a class="section" href="<%= chartUpdListVip[i]['updChapterUrl'] %>" target="_blank" data-chapterUrl="<%= chartUpdListVip[i]['updChapterUrl'] %>"><%=
                             chartUpdListVip[i]['updChapterName'] %></a>
-                            <% if(chartUpdListVip[i]['isVip']==1) { %> <span class="vip">VIP</span> <% } %>
+                            <% if(chartUpdListVip[i]['isVip']==1) { %> <span class="vip"></span> <% } %>
                         </td>
                         <td class="respon">
                             <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartUpdListVip[i]['authorId']  %>" target="_blank"><%=

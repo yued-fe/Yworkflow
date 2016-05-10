@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 /**
  * @author yangye
  * @design yangxuesong;
@@ -23,598 +23,481 @@
 /* 平面书封hover放大到1.1倍 */
 /* 父容器清浮动 */
 .main-nav li.web .game-dropdown .lately dd {
-    overflow: hidden;
-
-    *zoom: 1;
-}
+  overflow: hidden;
+  *zoom: 1; }
 
 /* 标题下边框线 */
 .main-nav li.web .game-dropdown .lately {
-    border-bottom: 1px solid #ebebeb;
-}
+  border-bottom: 1px solid #EBEBEB; }
 
 .top-nav {
+  border-bottom: 1px solid #E5E5E5;
+  height: 35px;
+  background: #F7F7F7; }
+  .top-nav .box-center {
+    background: #F7F7F7; }
+  .top-nav a, .top-nav em {
+    float: left; }
+  .top-nav a {
     height: 35px;
-    border-bottom: 1px solid #e5e5e5;
-    background: #f7f7f7;
-}
-.top-nav .box-center {
-    background: #f7f7f7;
-}
-.top-nav a, .top-nav em {
-    float: left;
-}
-.top-nav a {
-    overflow: hidden; 
-    height: 35px;
+    font: 12px/35px "PingFangSC-Regular", Simsun;
     color: #808080;
-    font: 12px/35px 'PingFangSC-Regular', Simsun;
-}
-.top-nav a.black {
-    color: #262626;
-}
-.top-nav a:hover {
-    color: #ed4259;
-}
-.top-nav a.act {
-    position: relative;
-    width: 80px;
-    max-width: 80px;
-    height: 36px;
-    margin-right: 10px;
-    margin-bottom: -1px;
-    border-right: 1px solid #e5e5e5;
-    border-left: 1px solid #e5e5e5;
-    background: #fff; 
-    color: #575757;
-    text-align: center;
-}
-.top-nav a.act:hover {
-    color: #ed4259;
-}
-.top-nav em {
+    overflow: hidden; }
+    .top-nav a.black {
+      color: #262626; }
+    .top-nav a:hover {
+      color: #ED4259; }
+    .top-nav a.act {
+      position: relative;
+      border-right: 1px solid #E5E5E5;
+      border-left: 1px solid #E5E5E5;
+      margin-bottom: -1px;
+      height: 36px;
+      width: 80px;
+      max-width: 80px;
+      margin-right: 10px;
+      text-align: center;
+      color: #575757;
+      background: #FFF; }
+      .top-nav a.act:hover {
+        color: #ED4259; }
+  .top-nav em {
     margin: 0 10px;
-    color: #d9d9d9; 
     font: 12px/35px Arial;
-}
-.top-nav .login-box span {
+    color: #D9D9D9; }
+  .top-nav .login-box span {
     float: left;
-    color: #a6a6a6; 
-    font: 12px/35px 'PingFangSC-Regular', Simsun;
-}
-.top-nav .login-box a {
-    color: #a6a6a6;
-}
-.top-nav .login-box a.black {
-    color: #262626;
-}
-.top-nav .login-box a:hover, .top-nav .login-box a i {
-    color: #ed4259;
-}
-.top-nav .sign-in i.black {
-    color: #262626;
-}
-.top-nav a:hover i.black {
-    color: #ed4259;
-}
+    font: 12px/35px "PingFangSC-Regular", Simsun;
+    color: #A6A6A6; }
+  .top-nav .login-box a {
+    color: #A6A6A6; }
+    .top-nav .login-box a.black {
+      color: #262626; }
+    .top-nav .login-box a:hover, .top-nav .login-box a i {
+      color: #ED4259; }
+  .top-nav .sign-in i.black {
+    color: #262626; }
+  .top-nav a:hover i.black {
+    color: #ED4259; }
 
 /* logo、搜书、书架 */
 .logo-wrap {
-    overflow: hidden; 
-    width: 100%;
-    height: 84px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-.logo-wrap .box-center {
-    position: relative;
-}
-.logo-wrap .left-link {
-    left: 224px; 
+  width: 100%;
+  height: 84px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  overflow: hidden; }
+  .logo-wrap .box-center {
+    position: relative; }
+  .logo-wrap .left-link {
     width: 174px;
-}
-.logo-wrap .right-link {
-    right: 124px; 
+    left: 224px; }
+  .logo-wrap .right-link {
     width: 282px;
-}
-.logo-wrap .left-link, .logo-wrap .right-link {
+    right: 124px; }
+  .logo-wrap .left-link, .logo-wrap .right-link {
     position: absolute;
-    height: 84px;
-}
-.logo-wrap .logo {
+    height: 84px; }
+  .logo-wrap .logo {
     width: 217px;
     height: 51px;
-    margin: 17px 184px 0 0;
-}
-.logo-wrap .logo a {
-    display: block;
-    width: 217px;
-    height: 51px;
-    background: url('/qd/images/logo.png') no-repeat;
-}
-.logo-wrap .search-wrap, .logo-wrap .book-shelf {
-    margin-top: 22px;
-}
-.logo-wrap .search-wrap p, .logo-wrap .book-shelf p {
-    float: left;
-    overflow: hidden; 
-    width: 348px;
-    height: 38px;
-    border: 1px solid #dbdbdb;
-    border-right: none;
-}
-.logo-wrap .search-wrap p:hover, .logo-wrap .book-shelf p:hover {
-    border-color: #c9c9c9;
-}
-.logo-wrap .search-wrap .search-box, .logo-wrap .book-shelf .search-box {
-    width: 326px;
-    height: 38px;
-    padding: 0 11px;
-    font: 14px/38px 'PingFangSC-Regular', Simsun;
-}
-.logo-wrap .search-wrap .search-box.placeholder, .logo-wrap .book-shelf .search-box.placeholder {
-    color: #ccc;
-}
-.logo-wrap .search-wrap .search-btn, .logo-wrap .book-shelf .search-btn {
-    float: left;
-    width: 40px;
-    height: 40px;
-    background-color: #bf2c24; 
-    text-align: center;
-}
-.logo-wrap .search-wrap .search-btn:hover, .logo-wrap .book-shelf .search-btn:hover {
-    background-color: #ed4259;
-}
-.logo-wrap .search-wrap .search-btn em, .logo-wrap .book-shelf .search-btn em {
-    display: block;
-    margin-top: 10px;
-    color: white;
-    font-size: 18px;
-
-    *overflow: hidden;
-}
-.logo-wrap .book-shelf {
-    overflow: hidden; 
+    margin: 17px 184px 0 0; }
+    .logo-wrap .logo a {
+      display: block;
+      width: 217px;
+      height: 51px;
+      background: url("/qd/images/logo.png") no-repeat; }
+  .logo-wrap .search-wrap, .logo-wrap .book-shelf {
+    margin-top: 22px; }
+    .logo-wrap .search-wrap p, .logo-wrap .book-shelf p {
+      float: left;
+      border: 1px solid #DBDBDB;
+      border-right: none;
+      width: 348px;
+      height: 38px;
+      overflow: hidden; }
+      .logo-wrap .search-wrap p:hover, .logo-wrap .book-shelf p:hover {
+        border-color: #C9C9C9; }
+    .logo-wrap .search-wrap .search-box, .logo-wrap .book-shelf .search-box {
+      width: 326px;
+      height: 38px;
+      padding: 0 11px;
+      font: 14px/38px "PingFangSC-Regular", Simsun; }
+      .logo-wrap .search-wrap .search-box.placeholder, .logo-wrap .book-shelf .search-box.placeholder {
+        color: #CCC; }
+    .logo-wrap .search-wrap .search-btn, .logo-wrap .book-shelf .search-btn {
+      float: left;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      background-color: #BF2C24; }
+      .logo-wrap .search-wrap .search-btn:hover, .logo-wrap .book-shelf .search-btn:hover {
+        background-color: #ED4259; }
+      .logo-wrap .search-wrap .search-btn em, .logo-wrap .book-shelf .search-btn em {
+        display: block;
+        margin-top: 10px;
+        font-size: 18px;
+        color: white;
+        *overflow: hidden; }
+  .logo-wrap .book-shelf {
     width: 120px;
     height: 40px;
-    background: #fff;
-}
-.logo-wrap .book-shelf a, .logo-wrap .book-shelf em, .logo-wrap .book-shelf i, .logo-wrap .book-shelf span {
-    display: inline-block;
-    vertical-align: middle;
-}
-.logo-wrap .book-shelf i {
-    overflow: hidden; 
-    width: 56px;
-    height: 38px;
-    margin-right: 3px;
-    line-height: 38px;
-    line-height: 36px\0;
-
-    *line-height: 36px;
-}
-.logo-wrap .book-shelf a {
-    display: block;
-    width: 118px;
-    height: 38px;
-    border: 1px solid #e6e6e6; 
-    font: 14px/1 'PingFangSC-Regular', Simsun;
-    text-align: center;
-}
-.logo-wrap .book-shelf a:hover {
-    border: 1px solid #ed4259; 
-    background: #ed4259;
-    color: white;
-}
-.logo-wrap .book-shelf a:hover span {
-    background: white; 
-    color: #ed4259;
-}
-.logo-wrap .book-shelf em {
-    overflow: hidden; 
-    width: 16px;
-    margin-top: 4px\0;
-    margin-right: 5px;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-@-moz-document url-prefix() {
+    background: #FFF;
+    overflow: hidden; }
+    .logo-wrap .book-shelf a, .logo-wrap .book-shelf em, .logo-wrap .book-shelf i, .logo-wrap .book-shelf span {
+      display: inline-block;
+      vertical-align: middle; }
+    .logo-wrap .book-shelf i {
+      width: 56px;
+      height: 38px;
+      line-height: 38px;
+      line-height: 36px \0 ;
+      *line-height: 36px;
+      margin-right: 3px;
+      overflow: hidden; }
+    .logo-wrap .book-shelf a {
+      display: block;
+      width: 118px;
+      height: 38px;
+      font: 14px/1 "PingFangSC-Regular", Simsun;
+      text-align: center;
+      border: 1px solid #E6E6E6; }
+      .logo-wrap .book-shelf a:hover {
+        color: white;
+        background: #ED4259;
+        border: 1px solid #ED4259; }
+        .logo-wrap .book-shelf a:hover span {
+          color: #ED4259;
+          background: white; }
     .logo-wrap .book-shelf em {
-        margin-top: 4px;
-    }
-}
-
+      width: 16px;
+      margin-right: 5px;
+      margin-top: 4px \0 ;
+      font-size: 16px;
+      line-height: 20px;
+      overflow: hidden; }
+@-moz-document url-prefix() {
+  .logo-wrap .book-shelf em {
+    margin-top: 4px; } }
 /* 主导航 */
 .main-nav-wrap {
-    margin-bottom: 10px; 
-    background-color: #3e3d43;
-}
-.main-nav-wrap .main-nav {
+  background-color: #3E3D43;
+  margin-bottom: 10px; }
+  .main-nav-wrap .main-nav {
     position: relative;
     height: 40px;
-    background-color: #3e3d43;
-}
-.main-nav-wrap .main-nav li {
-    float: left;
-}
-.main-nav-wrap .main-nav li b {
-    font-weight: 400;
-}
-.main-nav-wrap .main-nav li b.client, .main-nav-wrap .main-nav li b.webgame {
-    float: left;
-    margin: 1px 5px 0 0;
-    opacity: .8;
-    font-size: 16px;
-
-    filter: alpha(opacity=80);
-}
-.main-nav-wrap .main-nav li a {
-    float: left;
-    height: 38px;
-    padding: 0 32px;
-    border-bottom: 2px solid #333;
-    color: white; 
-    font: 16px/38px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
-}
-.main-nav-wrap .main-nav li.nav-li a.act {
-    border-bottom: 2px solid #ed4259; 
-    background-color: #ed4259;
-    color: white;
-}
-.main-nav-wrap .main-nav li.nav-li a.act:hover {
-    height: 38px;
-    border-top: none;
-    border-bottom: 2px solid #ed4259;
-    background: #ed4259; 
-    line-height: 38px;
-}
-.main-nav-wrap .main-nav li.nav-li a:hover {
-    height: 36px;
-    border-top: 2px solid #ed4259;
-    border-bottom: 2px solid #252428;
-    background-color: #252428;
-    line-height: 34px;
-    transition: none;
-}
-.main-nav-wrap .main-nav li.first {
-    position: relative;
-    width: 216px;
-    height: 40px;
-    margin-right: 30px;
-    background-color: #313035;
-    cursor: pointer;
-}
-.main-nav-wrap .main-nav li.first b {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 0;
-    height: 0;
-    margin-left: -5px;
-    border-top: 5px solid #a6a6a6;
-    border-right: 5px solid transparent;
-    border-bottom: 0 none;
-    border-left: 5px solid transparent;
-    transition: all .5s;
-}
-.main-nav-wrap .main-nav li.first b strong {
-    position: absolute;
-    top: -7px;
-    right: -5px;
-    width: 0;
-    height: 0; 
-    border-top: 5px solid #333;
-    border-right: 5px solid transparent;
-    border-bottom: 0 none;
-    border-left: 5px solid transparent;
-}
-.main-nav-wrap .main-nav li.first:hover span {
-    background-color: #252428;
-}
-.main-nav-wrap .main-nav li.first:hover b {
-    border-top: 5px solid white;
-}
-.main-nav-wrap .main-nav li.first:hover b strong {
-    border-top: 5px solid #252428;
-}
-.main-nav-wrap .main-nav li.first span {
-    display: block;
-    padding: 0 0 0 18px;
-    background-color: #313035;
-    color: white;
-    font: 16px/38px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
-    transition: all .5s;
-}
-.main-nav-wrap .main-nav li.first span em {
-    float: left;
-    width: 16px;
-    height: 14px;
-    margin: 13px 8px 0 0;
-    vertical-align: middle;
-
-    _overflow: hidden;
-}
-.main-nav-wrap .main-nav li.first span em i {
-    display: block;
-    width: 16px;
-    height: 2px;
-    margin-bottom: 4px;
-    background: #d5d5d6;
-}
-.main-nav-wrap .main-nav li.game {
-    float: right;
-    position: relative;
-    margin-right: 0;
-
-    _padding-right: 64px;
-}
-.main-nav-wrap .main-nav li.game a {
-    padding: 0;
-    background: none;
-}
-.main-nav-wrap .main-nav li.game a:hover {
-    border-bottom: none; 
-    color: #ffeea8;
-}
-.main-nav-wrap .main-nav li.game a.web-game {
-    margin-right: 20px;
-}
-.main-nav-wrap .main-nav li.game b {
-    margin-right: 5px;
-    opacity: .8;
-    font-size: 16px;
-
-    filter: alpha(opacity=80);
-}
-.main-nav-wrap .main-nav li.game b:hover {
-    color: #ffeea8;
-}
-.main-nav-wrap .main-nav li.game b, .main-nav-wrap .main-nav li.game cite {
-    float: left;
-}
-.main-nav-wrap .main-nav li.game cite {
-    margin: 8px 5px 0; 
-    color: white;
-}
-.main-nav-wrap .main-nav li.game em {
-    float: left;
-    width: 16px;
-    height: 14px;
-    margin: 13px 6px 0 0;
-    background: #666;
-    vertical-align: middle;
-
-    _overflow: hidden;
-}
+    background-color: #3E3D43; }
+  .main-nav-wrap .main-nav li {
+    float: left; }
+    .main-nav-wrap .main-nav li b {
+      font-weight: 400; }
+      .main-nav-wrap .main-nav li b.client, .main-nav-wrap .main-nav li b.webgame {
+        float: left;
+        margin: 1px 5px 0 0;
+        font-size: 16px;
+        opacity: .8;
+        filter: alpha(opacity=80); }
+    .main-nav-wrap .main-nav li a {
+      float: left;
+      padding: 0 32px;
+      height: 38px;
+      font: 16px/38px "PingFangSC-Regular", "HelveticaNeue-Light", "Helvetica Neue Light", "Microsoft YaHei", "sans-serif";
+      border-bottom: 2px solid #333;
+      color: white; }
+    .main-nav-wrap .main-nav li.nav-li a.act {
+      color: white;
+      background-color: #ED4259;
+      border-bottom: 2px solid #ED4259; }
+      .main-nav-wrap .main-nav li.nav-li a.act:hover {
+        height: 38px;
+        line-height: 38px;
+        border-top: none;
+        border-bottom: 2px solid #ED4259;
+        background: #ED4259; }
+    .main-nav-wrap .main-nav li.nav-li a:hover {
+      height: 36px;
+      background-color: #252428;
+      line-height: 34px;
+      border-top: 2px solid #ED4259;
+      border-bottom: 2px solid #252428;
+      transition: none; }
+    .main-nav-wrap .main-nav li.first {
+      position: relative;
+      width: 216px;
+      height: 40px;
+      margin-right: 30px;
+      background-color: #313035;
+      cursor: pointer; }
+      .main-nav-wrap .main-nav li.first b {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        margin-left: -5px;
+        border-top: 5px solid #A6A6A6;
+        border-right: 5px solid transparent;
+        border-bottom: 0 none;
+        border-left: 5px solid transparent;
+        width: 0;
+        height: 0;
+        transition: all .5s; }
+        .main-nav-wrap .main-nav li.first b strong {
+          position: absolute;
+          top: -7px;
+          right: -5px;
+          border-top: 5px solid #333;
+          border-right: 5px solid transparent;
+          border-bottom: 0 none;
+          border-left: 5px solid transparent;
+          width: 0;
+          height: 0; }
+      .main-nav-wrap .main-nav li.first:hover span {
+        background-color: #252428; }
+      .main-nav-wrap .main-nav li.first:hover b {
+        border-top: 5px solid white; }
+        .main-nav-wrap .main-nav li.first:hover b strong {
+          border-top: 5px solid #252428; }
+      .main-nav-wrap .main-nav li.first span {
+        display: block;
+        padding: 0 0 0 18px;
+        font: 16px/38px "PingFangSC-Regular", "HelveticaNeue-Light", "Helvetica Neue Light", "Microsoft YaHei", "sans-serif";
+        color: white;
+        background-color: #313035;
+        transition: all .5s; }
+        .main-nav-wrap .main-nav li.first span em {
+          float: left;
+          width: 16px;
+          height: 14px;
+          margin: 13px 8px 0 0;
+          vertical-align: middle;
+          _overflow: hidden; }
+          .main-nav-wrap .main-nav li.first span em i {
+            display: block;
+            width: 16px;
+            height: 2px;
+            margin-bottom: 4px;
+            background: #D5D5D6; }
+    .main-nav-wrap .main-nav li.game {
+      position: relative;
+      float: right;
+      margin-right: 0;
+      _padding-right: 64px; }
+      .main-nav-wrap .main-nav li.game a {
+        padding: 0;
+        background: none; }
+        .main-nav-wrap .main-nav li.game a:hover {
+          color: #FFEEA8;
+          border-bottom: none; }
+        .main-nav-wrap .main-nav li.game a.web-game {
+          margin-right: 20px; }
+      .main-nav-wrap .main-nav li.game b {
+        margin-right: 5px;
+        font-size: 16px;
+        opacity: 0.8;
+        filter: alpha(opacity=80); }
+        .main-nav-wrap .main-nav li.game b:hover {
+          color: #FFEEA8; }
+      .main-nav-wrap .main-nav li.game b, .main-nav-wrap .main-nav li.game cite {
+        float: left; }
+      .main-nav-wrap .main-nav li.game cite {
+        color: white;
+        margin: 8px 5px 0; }
+      .main-nav-wrap .main-nav li.game em {
+        float: left;
+        width: 16px;
+        height: 14px;
+        margin: 13px 6px 0 0;
+        vertical-align: middle;
+        background: #666;
+        _overflow: hidden; }
 
 /* 页游 手游下拉窗口 */
 .main-nav li .game-dropdown {
+  position: absolute;
+  z-index: 21;
+  top: 40px;
+  width: 216px;
+  height: 420px;
+  background: white;
+  box-shadow: 0 3px 5px #CCC; }
+  .main-nav li .game-dropdown cite {
     position: absolute;
-    z-index: 21;
-    top: 40px;
-    width: 216px;
-    height: 420px;
-    background: white;
-    box-shadow: 0 3px 5px #ccc;
-}
-.main-nav li .game-dropdown cite {
-    position: absolute;
-    top: -15px;
     width: 0;
     height: 0;
+    top: -15px;
     border-top: 0 none;
     border-right: 7px solid transparent;
     border-bottom: 7px solid white;
-    border-left: 7px solid transparent;
-}
-.main-nav li .game-dropdown dl {
-    padding: 10px 12px;
-}
-.main-nav li .game-dropdown dl a {
-    float: none;
-    height: auto;
-    border: none;
-    color: inherit;
-    line-height: 18px;
-}
-.main-nav li .game-dropdown dl dt {
-    margin-bottom: 8px; 
-    color: #bf2c24;
-    font-family: 'PingFangSC-Regular', Simsun;
-    font-size: 12px;
-}
-.main-nav li .game-dropdown dl dd h3 {
-    overflow: hidden;
-    height: 18px;
-    font-weight: 400; 
-    line-height: 18px;
-
-    *zoom: 1;
-}
-.main-nav li .game-dropdown dl dd span {
-    height: 12px;
-    padding: 0 2px;
-    background: #fc6c28;
-    color: white;
-    font: 12px/12px 'PingFangSC-Regular', Simsun;
-    text-align: center;
-}
-.main-nav li .game-dropdown dl dd.bottom {
-    padding-top: 12px; 
-    border-top: 1px solid #e6e6e6;
-}
-.main-nav li .game-dropdown dl dd.bottom h4 {
-    margin-bottom: 5px; 
-    color: #bf2c24;
-    font: 12px/18px 'PingFangSC-Regular', Simsun;
-}
-.main-nav li .game-dropdown dl dd.bottom img {
-    height: 86px;
-}
-
+    border-left: 7px solid transparent; }
+  .main-nav li .game-dropdown dl {
+    padding: 10px 12px; }
+    .main-nav li .game-dropdown dl a {
+      float: none;
+      border: none;
+      height: auto;
+      color: inherit;
+      line-height: 18px; }
+    .main-nav li .game-dropdown dl dt {
+      color: #BF2C24;
+      font-size: 12px;
+      font-family: "PingFangSC-Regular", Simsun;
+      margin-bottom: 8px; }
+    .main-nav li .game-dropdown dl dd h3 {
+      height: 18px;
+      overflow: hidden;
+      *zoom: 1;
+      line-height: 18px;
+      font-weight: 400; }
+    .main-nav li .game-dropdown dl dd span {
+      height: 12px;
+      padding: 0 2px;
+      font: 12px/12px "PingFangSC-Regular", Simsun;
+      background: #FC6C28;
+      color: white;
+      text-align: center; }
+    .main-nav li .game-dropdown dl dd.bottom {
+      border-top: 1px solid #E6E6E6;
+      padding-top: 12px; }
+      .main-nav li .game-dropdown dl dd.bottom h4 {
+        font: 12px/18px "PingFangSC-Regular", Simsun;
+        color: #BF2C24;
+        margin-bottom: 5px; }
+      .main-nav li .game-dropdown dl dd.bottom img {
+        height: 86px; }
 .main-nav li.web .game-dropdown {
-    left: -89px;
-    /* 最近玩过 */
-    /* 今日开服 */
-}
-.main-nav li.web .game-dropdown cite {
-    left: 107px;
-}
-.main-nav li.web .game-dropdown .lately {
-    overflow: hidden; 
+  left: -89px;
+  /* 最近玩过 */
+  /* 今日开服 */ }
+  .main-nav li.web .game-dropdown cite {
+    left: 107px; }
+  .main-nav li.web .game-dropdown .lately {
     width: 192px;
     height: 70px;
-    margin: 0 auto;
     padding: 10px 0 5px;
-}
-.main-nav li.web .game-dropdown .lately dd {
-    margin-bottom: 5px;
-}
-.main-nav li.web .game-dropdown .lately dd .name {
-    float: left;
-    overflow: hidden;
-    width: 90px;
-    height: 18px;
-    margin-right: 10px;
-    font: 14px/18px 'PingFangSC-Regular', Simsun; 
-    white-space: normal;
-    text-overflow: ellipsis;
-}
-.main-nav li.web .game-dropdown .lately dd .name:hover {
-    color: #ed4259;
-}
-.main-nav li.web .game-dropdown .lately dd strong {
-    float: left;
-    color: #666; 
-    font: 12px/18px 'PingFangSC-Regular', Simsun;
-    font-weight: 400;
-}
-.main-nav li.web .game-dropdown .lately dd .link {
-    float: right;
-    color: #3f5a93; 
-    font: 12px/18px 'PingFangSC-Regular', Simsun;
-}
-.main-nav li.web .game-dropdown .lately dd .link:hover {
-    color: #2972cc;
-}
-.main-nav li.web .game-dropdown .lately dd .link i {
-    margin-left: 5px;
-    font-family: simsun;
-    font-weight: 700;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 {
-    margin-bottom: 10px;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 span {
-    float: right;
-    margin-top: 4px;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 a {
-    float: left;
-    overflow: hidden;
-    overflow: hidden;
-    width: 70px;
-    height: 18px;
-    margin-right: 10px;
-    font-family: 'PingFangSC-Regular', Simsun;
-    font-size: 14px;
-    white-space: normal;
-    text-overflow: ellipsis;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 a:hover {
-    color: #ed4259;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 i {
-    float: left;
-    margin-right: 14px;
-    color: #a6a6a6; 
-    font-family: 'PingFangSC-Regular', Simsun;
-    font-size: 12px;
-}
-.main-nav li.web .game-dropdown .web-list dd h3 strong {
-    float: left;
-    color: #666; 
-    font-family: 'PingFangSC-Regular', Simsun;
-    font-size: 12px;
-    font-weight: 400;
-}
-.main-nav li.web .game-dropdown .web-list dd img {
+    margin: 0 auto;
+    overflow: hidden; }
+  .main-nav li.web .game-dropdown .lately dd {
+    margin-bottom: 5px; }
+    .main-nav li.web .game-dropdown .lately dd .name {
+      float: left;
+      width: 90px;
+      height: 18px;
+      margin-right: 10px;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font: 14px/18px "PingFangSC-Regular", Simsun; }
+      .main-nav li.web .game-dropdown .lately dd .name:hover {
+        color: #ED4259; }
+    .main-nav li.web .game-dropdown .lately dd strong {
+      float: left;
+      font: 12px/18px "PingFangSC-Regular", Simsun;
+      font-weight: 400;
+      color: #666; }
+    .main-nav li.web .game-dropdown .lately dd .link {
+      float: right;
+      font: 12px/18px "PingFangSC-Regular", Simsun;
+      color: #3F5A93; }
+      .main-nav li.web .game-dropdown .lately dd .link:hover {
+        color: #2972CC; }
+      .main-nav li.web .game-dropdown .lately dd .link i {
+        margin-left: 5px;
+        font-family: simsun;
+        font-weight: 700; }
+  .main-nav li.web .game-dropdown .web-list dd h3 {
+    margin-bottom: 10px; }
+    .main-nav li.web .game-dropdown .web-list dd h3 span {
+      width: 21px;
+      height: 11px;
+      float: right;
+      margin-top: 4px;
+      background: url("/qd/images/common/tag.png") no-repeat 0 0; }
+    .main-nav li.web .game-dropdown .web-list dd h3 a {
+      float: left;
+      width: 70px;
+      height: 18px;
+      margin-right: 10px;
+      font-size: 14px;
+      font-family: "PingFangSC-Regular", Simsun;
+      overflow: hidden;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      .main-nav li.web .game-dropdown .web-list dd h3 a:hover {
+        color: #ED4259; }
+    .main-nav li.web .game-dropdown .web-list dd h3 i {
+      float: left;
+      margin-right: 14px;
+      font-size: 12px;
+      font-family: "PingFangSC-Regular", Simsun;
+      color: #A6A6A6; }
+    .main-nav li.web .game-dropdown .web-list dd h3 strong {
+      float: left;
+      font-size: 12px;
+      font-family: "PingFangSC-Regular", Simsun;
+      font-weight: 400;
+      color: #666; }
+  .main-nav li.web .game-dropdown .web-list dd img {
     width: 192px;
-    height: 46px;
-}
-.main-nav li.web .game-dropdown .web-list dd p {
-    margin-bottom: 5px;
-}
-.main-nav li.web .game-dropdown .web-list dd.bottom img {
-    height: 86px;
-}
-
+    height: 46px; }
+  .main-nav li.web .game-dropdown .web-list dd p {
+    margin-bottom: 5px; }
+  .main-nav li.web .game-dropdown .web-list dd.bottom img {
+    height: 86px; }
 .main-nav li.phone .game-dropdown {
-    left: -162px;
-}
-.main-nav li.phone .game-dropdown cite {
-    right: 12px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd h3 {
-    margin-bottom: 5px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd span {
+  left: -162px; }
+  .main-nav li.phone .game-dropdown cite {
+    right: 12px; }
+  .main-nav li.phone .game-dropdown .phone-list dd h3 {
+    margin-bottom: 5px; }
+  .main-nav li.phone .game-dropdown .phone-list dd span {
     float: left;
-    margin-right: 5px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd a {
-    margin-right: 5px; 
-    font-family: 'PingFangSC-Regular', Simsun;
+    width: 21px;
+    height: 11px;
+    margin-top: 3px;
+    background: url("/qd/images/common/tag.png") no-repeat 0 0; }
+  .main-nav li.phone .game-dropdown .phone-list dd a {
     font-size: 14px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd a:hover {
-    color: #ed4259;
-}
-.main-nav li.phone .game-dropdown .phone-list dd i {
+    font-family: "PingFangSC-Regular", Simsun;
+    margin-right: 5px; }
+    .main-nav li.phone .game-dropdown .phone-list dd a:hover {
+      color: #ED4259; }
+  .main-nav li.phone .game-dropdown .phone-list dd i {
     color: #666;
-    font-family: 'PingFangSC-Regular', Simsun;
     font-size: 12px;
-    vertical-align: middle;
-}
-.main-nav li.phone .game-dropdown .phone-list dd p {
-    margin-bottom: 5px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd p img {
-    width: 192px;
-    height: 58px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd.bottom {
-    margin-top: 10px;
-}
-.main-nav li.phone .game-dropdown .phone-list dd.bottom img {
-    height: 86px;
-}
+    font-family: "PingFangSC-Regular", Simsun;
+    vertical-align: middle; }
+  .main-nav li.phone .game-dropdown .phone-list dd p {
+    margin-bottom: 5px; }
+    .main-nav li.phone .game-dropdown .phone-list dd p img {
+      width: 192px;
+      height: 58px; }
+  .main-nav li.phone .game-dropdown .phone-list dd.bottom {
+    margin-top: 10px; }
+    .main-nav li.phone .game-dropdown .phone-list dd.bottom img {
+      height: 86px; }
 
 /* 1024 响应点样式变动 */
 @media (max-width: 1025px) {
-    .logo-wrap .left-link {
-        width: 80px;
-    }
-    .logo-wrap .right-link {
-        width: 164px;
-    }
-    .logo-wrap .logo {
-        margin: 17px 92px 0 0;
-    }
-    .main-nav-wrap .main-nav li {
-        margin-right: 0;
-    }
-    .main-nav-wrap .main-nav li a {
-        padding: 0 20px;
-    }
-}
+  .logo-wrap .left-link {
+    width: 80px; }
+  .logo-wrap .right-link {
+    width: 164px; }
+  .logo-wrap .logo {
+    margin: 17px 92px 0 0; }
 
+  .main-nav-wrap .main-nav li {
+    margin-right: 0; }
+    .main-nav-wrap .main-nav li a {
+      padding: 0 20px; } }
 /* retina屏双倍图 */
 @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
-    .logo-wrap .logo a {
-        background: url('/qd/images/logo3x.png') no-repeat;
-        background-repeat: no-repeat; 
-        background-size: 217px;
-    }
-}
+  .logo-wrap .logo a {
+    background: url("/qd/images/logo3x.png") no-repeat;
+    background-size: 217px;
+    background-repeat: no-repeat; }
+
+  .main-nav li.web .game-dropdown .web-list dd h3 span, .main-nav li.phone .game-dropdown .phone-list dd span {
+    background: url("/qd/images/common/tag_2x.png") no-repeat 0 0;
+    background-size: 100%; } }
+
+/*# sourceMappingURL=header.css.map */

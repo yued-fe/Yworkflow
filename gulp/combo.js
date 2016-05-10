@@ -1,5 +1,20 @@
 /**
- * 定制Combo合并路径
+ * Author: Luolei
+ *
+ * 自动将HTML中的文件转成combo路径
+
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+
+ * 执行 gulp combo 后转换成
+ *
+
+ <link rel="stylesheet" data-ignore="true" href="//<%= staticConf.staticDomain %>/c/=/qd/css/reset.0.1.css,/qd/css/global.0.1.css,/qd/css/font.0.1.css?v=201605101449" />
+
+ *
+ * 若需要忽略某js和css,只需要在html标签中增加 data-ignore="true" 即可
+ *
  */
 
 var envType = "local";
@@ -13,7 +28,7 @@ var dateFormat = require('dateformat');
 
 
 gulp.task('combo', function() {
-    var _updateTime = dateFormat((new Date()).getTime(),'yyyymmddHHMM');
+    var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     console.log(_updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
     gulp.src('_previews/**/*.html')
@@ -21,10 +36,10 @@ gulp.task('combo', function() {
             splitter: ',',
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
-            assignPathTag: 'activity',
-            updateTime:_updateTime
+            assignPathTag: 'qd', //这里需要配置combo后的相关文件路径
+            updateTime: _updateTime
         }, {
-            max_age:31536000
+            max_age: 31536000
         }))
         .pipe(gulp.dest('_previews'));
 })

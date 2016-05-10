@@ -1,6 +1,9 @@
 /**
+ *
  * 处理精灵图片
+ * Author: Luolei
  */
+
 
 var gulp = require('gulp');
 

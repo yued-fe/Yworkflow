@@ -105,7 +105,7 @@
                 case 8:
                     var act8='class=act';
                     menuSubTitle = 'vip作品被打赏金额的排行';
-                     menuTitle='VIP打赏榜';
+                     menuTitle='本周VIP打赏榜';
                       showUnit = '月票';
                     break;
                 case 9:
@@ -435,7 +435,7 @@ var _currentMonth = (new Date().getMonth()) + 1
                                         <% } %>
                                     </div>
                                     <p class="btn">
-                                        <a class="red-btn" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank">立即阅读</a>
+                                        <a class="red-btn" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank">书籍详情</a>
                                         <% if (data['bookList'][i]['isKept'] == 0) { %>
                                                 <a class="blue-btn add-book" href="javascript:" data-bookId=<%= data['bookList'][i]['bookId'] %> >加入书架</a>
                                         <% } else {%>

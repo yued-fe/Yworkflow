@@ -176,9 +176,9 @@
           .focus-wrap .notice-wrap .notice .notice-list li a em {
             display: inline-block;
             width: 38px;
-            height: 16px;
+            height: 18px;
             margin: -2px 10px 0 8px;
-            font: 12px/16px "PingFangSC-Regular", Simsun;
+            font: 12px/18px "PingFangSC-Regular", Simsun;
             text-align: center;
             vertical-align: middle;
             color: #FFF;
@@ -253,9 +253,30 @@
   transform: rotate(45deg); }
 
 /* 第二屏 排行榜 */
-.index-two-wrap .book-list ul {
-  height: 503px;
-  overflow: hidden; }
+.index-two-wrap {
+  /*
+   * 只有首页第二屏排行有此样式
+   * name后有hot小标识
+   */ }
+  .index-two-wrap .book-list ul {
+    height: 503px;
+    overflow: hidden; }
+  .index-two-wrap .book-list-wrap .book-list li strong {
+    float: left;
+    margin-left: -3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #1A1A1A;
+    position: relative; }
+    .index-two-wrap .book-list-wrap .book-list li strong .name {
+      margin-left: 0; }
+    .index-two-wrap .book-list-wrap .book-list li strong .hot {
+      position: absolute;
+      top: 0;
+      right: -20px;
+      width: 18px;
+      height: 10px;
+      background: url("/qd/images/common/tag.png") 0 -11px no-repeat; }
 
 /* 编辑推荐 */
 .edit-rec-wrap {
@@ -910,15 +931,10 @@
             color: inherit; }
       .update-wrap .update-list-wrap .update-list table td .vip {
         float: left;
-        width: 20px;
-        height: 12px;
-        padding: 0 1px;
-        margin-top: 9px;
-        font: 12px/12px "PingFangSC-Regular", Simsun;
-        text-align: center;
-        color: white;
-        background: #FC6C28;
-        overflow: hidden; }
+        width: 19px;
+        height: 11px;
+        margin-top: 10px;
+        background: url("/qd/images/common/tag.png") no-repeat 0 -21px; }
       .update-wrap .update-list-wrap .update-list table td i {
         float: right;
         margin-top: 3px;
@@ -1360,17 +1376,20 @@ em.point {
     background-size: 53px;
     background-repeat: no-repeat; }
 
-  .focus-wrap .classify-list dd a cite .rec {
-    background: url("/qd/images/index/rec2x.png") no-repeat;
-    background-size: 100%; }
-
   .survey-btn {
     background: url(/qd/images/index/survey_btn.png) no-repeat;
     background-size: 100%; }
 
   .survey-wrap .survey-box p {
     background: url(/qd/images/index/survey.png) no-repeat;
-    background-size: 100%; } }
+    background-size: 100%; }
+
+  .update-wrap .update-list-wrap .update-list table td .vip {
+    background: url("/qd/images/common/tag_2x.png") 0 -18px no-repeat;
+    background-size: 100%; }
+
+  .book-list-wrap .book-list li strong .hot {
+    background: url("/qd/images/common/tag_2x.png") 0 -11px no-repeat; } }
 /* 1250px以下 排行榜ul宽度去除，不让右侧出白边*/
 @media (max-width: 1250px) {
   .rank-list-row {

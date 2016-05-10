@@ -95,14 +95,13 @@ LBF.define('site.component.header', function (require, exports, module) {
                     if (data && data.length != 0) {
                         if (g_data.domainSearch == location.hostname) {
                             $(resultContainer).find('.lbf-autocomplete-suggestion').each(function (i) {
-                                $(this).wrapInner('<a href="' +'//'+ g_data.domainSearch + '/?kw='+encodeURIComponent(data[i].value)+ '"'+ '"data-aid="qd_A13"></a>');
+                                $(this).wrapInner('<a href="' + '//' + g_data.domainSearch + '/?kw=' + encodeURIComponent(data[i].value) + '"' + '"data-aid="qd_A13"></a>');
                             });
-                        }else{
+                        } else {
                             $(resultContainer).find('.lbf-autocomplete-suggestion').each(function (i) {
-                                $(this).wrapInner('<a target="_blank" href="' +'//'+ g_data.domainSearch + '/?kw='+encodeURIComponent(data[i].value)+ '"'+ '"data-aid="qd_A13"></a>');
+                                $(this).wrapInner('<a target="_blank" href="' + '//' + g_data.domainSearch + '/?kw=' + encodeURIComponent(data[i].value) + '"' + '"data-aid="qd_A13"></a>');
                             });
                         }
-
                     } else {
                         // 无结果隐藏
                         $('#s-box').click();
@@ -128,10 +127,10 @@ LBF.define('site.component.header', function (require, exports, module) {
                     var searchVal = word.val();
                     //判断域名是否是搜索页，是的话当前页面搜索，否则跳转带值跳搜索页
                     if (g_data.domainSearch == location.hostname) {
-                        location.href ='//'+ g_data.domainSearch + '?kw=' + encodeURIComponent(searchVal);
+                        location.href = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(searchVal);
                     } else {
                         // 事件触发超链接的方案，window.open是千万不能用的！
-                        var url = '//'+ g_data.domainSearch + '?kw=' + encodeURIComponent(searchVal);
+                        var url = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(searchVal);
                         var el = document.createElement("a");
                         document.body.appendChild(el);
                         el.href = url;
@@ -153,10 +152,10 @@ LBF.define('site.component.header', function (require, exports, module) {
                     }
                     //判断域名是否是搜索页，是的话当前页面搜索，否则跳转带值跳搜索页
                     if (g_data.domainSearch == location.hostname) {
-                        location.href ='//'+ g_data.domainSearch + '?kw=' + encodeURIComponent($('#s-box').val());
+                        location.href = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent($('#s-box').val());
                     } else {
                         // 事件触发超链接的方案，window.open是千万不能用的！
-                        var url ='//'+ g_data.domainSearch + '?kw=' + encodeURIComponent($('#s-box').val());
+                        var url = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent($('#s-box').val());
                         var el = document.createElement("a");
                         document.body.appendChild(el);
                         el.href = url;
@@ -180,7 +179,7 @@ LBF.define('site.component.header', function (require, exports, module) {
             this.gameDropDown();
 
             //判断是否登录，显示页游最近玩过的页游数据
-            this.latelyWebGameData();
+            //this.latelyWebGameData();
         },
         /**
          * 导航条 页游、手游鼠标移入移出延时下拉菜单
@@ -230,7 +229,7 @@ LBF.define('site.component.header', function (require, exports, module) {
                 clearTimeout(phoneTime);
             });
         },
-        latelyWebGameData: function () {
+        /*latelyWebGameData: function () {
             //登录态未超时，或初次登录成功后显示最近玩过的下拉框，隐藏未登录的下拉框
             if (Cookie.get('cmfuToken')) {
                 var webGameBox = $('#web-dropdown');
@@ -278,7 +277,7 @@ LBF.define('site.component.header', function (require, exports, module) {
                     }
                 });
             }
-        }
+        }*/
     };
     gameListDropDown.init();
 });

@@ -1,3 +1,12 @@
+/**
+ * 处理图片相关
+ * Author: Luolei
+ */
+
+
+
+
+
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");

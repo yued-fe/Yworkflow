@@ -9,8 +9,8 @@
       "pageNum": 20,
       "pageMax": 1
     },
-    "showMonthTicketTopList": true,
-    "showRecommedUserData": false,
+    "showMonthTicketTopList": false,
+    "showRecommedUserData": true,
     "showSearchList": false,
     "showStrongRecommend": false,
     "showRecommedData": true,
@@ -380,7 +380,46 @@
         "isInShelf": false
       }
     ],
-    "recommendUserData": [],
+    "recommendUserData": [
+      {
+        "bookId": "1223147",
+        "bookName": "间客",
+        "chanId": 21,
+        "chanName": "玄幻",
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "subCateId": 8,
+        "subCateName": "竞技",
+        "subCateUrl": "/all/index?chanId=21&subCateId=8",
+        "authorId": "4362908",
+        "authorName": "猫腻",
+        "authorUrl": "http://me.qidian.com/authorIndex.aspx?id=4362908",
+        "bookStatus": "已经完本",
+        "imgUrl": "http://image.cmfu.com/books/1223147/1223147.jpg",
+        "bookUrl": "http://www.qidian.com/Book/1223147.aspx",
+        "chapterListUrl": "http://read.qidian.com/BookReader/LPOxPd7I_NE1.aspx",
+        "bookType": 1,
+        "recommendReason": "40%的读者也订阅本书"
+      },
+      {
+        "bookId": "2083259",
+        "bookName": "将夜",
+        "chanId": 21,
+        "chanName": "玄幻",
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "subCateId": 8,
+        "subCateName": "竞技",
+        "subCateUrl": "/all/index?chanId=21&subCateId=8",
+        "authorId": "4362908",
+        "authorName": "猫腻",
+        "authorUrl": "http://me.qidian.com/authorIndex.aspx?id=4362908",
+        "bookStatus": "已经完本",
+        "imgUrl": "http://image.cmfu.com/books/2083259/2083259.jpg",
+        "bookUrl": "http://www.qidian.com/Book/2083259.aspx",
+        "chapterListUrl": "http://read.qidian.com/BookReader/BtjGevONQfg1.aspx",
+        "bookType": 1,
+        "recommendReason": "点击榜玄幻类总排行前十"
+      }
+    ],
     "recommendData": [
       {
         "bookId": "1223147",

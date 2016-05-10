@@ -149,34 +149,36 @@
     <div class="select-list">
         <!-- start 作品分类 -->
         <div class="work-filter type-filter">
-            <% var typeId = parseInt(data['paramList']['chanId']);
-            var subTypeId = parseInt(data['paramList']['subCateId']);
-
+            <%  var typeId = parseInt(data['paramList']['chanId']);
+                var subTypeId = parseInt(data['paramList']['subCateId']);
             %>
             <%
-            var all='class=act';
-            var xh='';
-            var qh='';
-            var wx='';
-            var xx='';
-            if(typeId!=-1){
-                all='';
-            if(subTypeId==-1){
-                switch(typeId){
-                    case 21:xh='act arrow';break;
-                    case 1:qh='act arrow';break;
-                    case 2:wx='act arrow';break;
-                    case 22:xx='act arrow';break;
+                var all='class=act';
+                var xh='';
+                var qh='';
+                var wx='';
+                var xx='';
+                if(typeId!=-1){
+                    all='';
+                    /*
+                        如果没有三级分类，则二级分类有箭头，并点亮，否则二级分类有箭头但不点亮
+                    */
+                    if(subTypeId==-1){
+                        switch(typeId){
+                            case 21:xh='act arrow';break;
+                            case 1:qh='act arrow';break;
+                            case 2:wx='act arrow';break;
+                            case 22:xx='act arrow';break;
+                        }
+                    }else{
+                        switch(typeId){
+                            case 21:xh='arrow';break;
+                            case 1:qh='arrow';break;
+                            case 2:wx='arrow';break;
+                            case 22:xx='arrow';break;
+                        }
+                    }
                 }
-                }else{
-                switch(typeId){
-                    case 21:xh='arrow';break;
-                    case 1:qh='arrow';break;
-                    case 2:wx='arrow';break;
-                    case 22:xx='arrow';break;
-                }
-                }
-            }
             %>
             <h3>分类</h3>
             <!-- 第一行一级分类 cite和i是嵌套的小三角-->
@@ -196,40 +198,39 @@
                 var wuxia = 'hidden';
                 var xianxia = 'hidden';
                 if(data['paramList']['typeId']!=-1){
-                if( typeId==21||typeId==1||typeId==2||typeId==22){
-                    subTypes='';
-                }
-                switch(typeId){
-                    case 21:xuanhuan='';break;
-                    case 1:qihuan='';break;
-                    case 2:wuxia='';break;
-                    case 22:xianxia='';break;
-                }
+                    if( typeId==21||typeId==1||typeId==2||typeId==22){
+                        subTypes='';
+                    }
+                    switch(typeId){
+                        case 21:xuanhuan='';break;
+                        case 1:qihuan='';break;
+                        case 2:wuxia='';break;
+                        case 22:xianxia='';break;
+                    }
                 }
             %>
             <div class="sub-type <%= subTypes%>">
                 <!--玄幻start-->
                 <dl class="<%= xuanhuan%>">
                     <% var xhArr=[
-                    {id:8,name:'东方玄幻',hl:subTypeId==8?'act':''},
-                    {id:73,name:'异界大陆',hl:subTypeId==73?'act':''},
-                    {id:58,name:'异界争霸',hl:subTypeId==58?'act':''},
-                    {id:78,name:'远古神话',hl:subTypeId==78?'act':''}
-                    ];
+                        {id:8,name:'东方玄幻',hl:subTypeId==8?'act':''},
+                        {id:73,name:'异界大陆',hl:subTypeId==73?'act':''},
+                        {id:58,name:'异界争霸',hl:subTypeId==58?'act':''},
+                        {id:78,name:'远古神话',hl:subTypeId==78?'act':''}
+                        ];
                     %>
                     <%for(var i=0;i< xhArr.length;i++){%>
                     <dd data-subtype="<%= xhArr[i]['id']%>" class="<%= xhArr[i]['hl']%>"><a href="javascript:"><%= xhArr[i]['name']%></a></dd>
                     <%}%>
-
                 </dl>
                 <!--玄幻end-->
                 <!--奇幻start-->
                 <dl class="<%= qihuan%>">
                     <% var qhArr=[
-                    {id:38,name:'魔法校园',hl:subTypeId==38?'act':''},
-                    {id:62,name:'西方奇幻',hl:subTypeId==62?'act':''},
-                    {id:201,name:'领主贵族',hl:subTypeId==201?'act':''},
-                    {id:202,name:'亡灵异族',hl:subTypeId==202?'act':''}
+                        {id:38,name:'魔法校园',hl:subTypeId==38?'act':''},
+                        {id:62,name:'西方奇幻',hl:subTypeId==62?'act':''},
+                        {id:201,name:'领主贵族',hl:subTypeId==201?'act':''},
+                        {id:202,name:'亡灵异族',hl:subTypeId==202?'act':''}
                     ];
                     %>
                     <%for(var i=0;i< qhArr.length;i++){%>
@@ -309,16 +310,16 @@
             var lishi = 'hidden';
             var youxi = 'hidden';
             if(data['paramList']['typeId']!=-1){
-            if( typeId==4||typeId==15||typeId==6||typeId==5||typeId==7){
-            subTypes2='';
-            }
-            switch(typeId){
-            case 4:dushi='';break;
-            case 15:zhichang='';break;
-            case 6:junshi='';break;
-            case 5:lishi='';break;
-            case 7:youxi='';break;
-            }
+                if( typeId==4||typeId==15||typeId==6||typeId==5||typeId==7){
+                    subTypes2='';
+                }
+                switch(typeId){
+                    case 4:dushi='';break;
+                    case 15:zhichang='';break;
+                    case 6:junshi='';break;
+                    case 5:lishi='';break;
+                    case 7:youxi='';break;
+                }
             }
             %>
             <div class="sub-type <%= subTypes2%>">
@@ -440,15 +441,15 @@
             var lingyi = 'hidden';
             var erciyuan = 'hidden';
             if(data['paramList']['typeId']!=-1){
-            if( typeId==8||typeId==9||typeId==10||typeId==12){
-            subTypes3='';
-            }
-            switch(typeId){
-            case 8:jingji='';break;
-            case 9:kehuan='';break;
-            case 10:lingyi='';break;
-            case 12:erciyuan='';break;
-            }
+                if( typeId==8||typeId==9||typeId==10||typeId==12){
+                    subTypes3='';
+                }
+                switch(typeId){
+                    case 8:jingji='';break;
+                    case 9:kehuan='';break;
+                    case 10:lingyi='';break;
+                    case 12:erciyuan='';break;
+                }
             }
             %>
             <div class="sub-type <%= subTypes3%>">
@@ -522,11 +523,11 @@
             <%
             var loading,finished,all='';
             if(data['paramList']['action']==0){
-            var loading = 'class=act';
+                var loading = 'class=act';
             }else if(data['paramList']['action']==1){
-            var finished = 'class=act'
+                var finished = 'class=act'
             }else{
-            var all = 'class=act'
+                var all = 'class=act'
             }
             %>
             <h3>状态</h3>
@@ -567,17 +568,17 @@
             <%
             var below30,bet30and50,bet50and100,bet100and200,above200,all='';
             if(data['paramList']['size']==1){
-            var below30 = 'class=act';
+                var below30 = 'class=act';
             }else if(data['paramList']['size']==2){
-            var bet30and50 = 'class=act'
+                var bet30and50 = 'class=act'
             }else if(data['paramList']['size']==3){
-            var bet50and100 = 'class=act'
+                var bet50and100 = 'class=act'
             }else if(data['paramList']['size']==4){
-            var bet100and200 = 'class=act'
+                var bet100and200 = 'class=act'
             }else if(data['paramList']['size']==5){
-            var above200 = 'class=act'
+                var above200 = 'class=act'
             }else{
-            var all = 'class=act'
+                var all = 'class=act'
             }
             %>
             <h3>字数</h3>
@@ -596,11 +597,11 @@
             <%
             var signWork,goodWork,all='';
             if(data['paramList']['sign']==1){
-            var signWork = 'class=act';
+                var signWork = 'class=act';
             }else if(data['paramList']['sign']==2){
-            var goodWork = 'class=act'
+                var goodWork = 'class=act'
             }else{
-            var all = 'class=act'
+                var all = 'class=act'
             }
             %>
             <h3>品质</h3>

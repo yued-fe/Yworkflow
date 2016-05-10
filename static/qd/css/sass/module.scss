@@ -301,6 +301,7 @@
 					width: 24px;
 					height: 24px;
 					margin: 2px 8px 0 0;
+					transition: ease-out .3s;
 					&.lingyi {
 						margin-top: 0;
 					}
@@ -310,9 +311,13 @@
 				}
 			}
 			&:hover {
-				color: $hover;
+				color: #000;
+				em {
+					margin: 2px 10px 0 -2px;
+				}
 				cite b {
-					color: $hover;
+					transition: all .3s;
+					color: #000;
 				}
 			}
 		}
@@ -606,6 +611,7 @@ html:root {
 			-moz-transition: -moz-transform .3s ease-out;
 			-ms-transition: -ms-transform .3s ease-out;
 			transition: transform .3s ease-out;
+			color: #FCFCFA;
 			&:hover {
 				-webkit-transform: scale(1.1);
 				-moz-transform: scale(1.1);
@@ -1137,5 +1143,9 @@ html:root {
 		background-image: url("/qd/images/pin_logo_3x.png");
 		background-size: 80px;
 		background-repeat: no-repeat;
+	}
+	.focus-wrap .classify-list dd a cite .rec {
+		background: url("/qd/images/index/rec2x.png") no-repeat;
+		background-size: 100%;
 	}
 }

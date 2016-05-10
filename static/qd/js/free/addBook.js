@@ -75,12 +75,16 @@ LBF.define('site.free.addBook', function (require, exports, module) {
             })
         }
     }
-    function hideCurrentPopup(){
+    /**
+     * 关闭登录弹窗
+     * @method hideLoginPopup
+     */
+    $('body').on('click','.close-popup',function(){
         Login.hideLoginPopup();
-    }
+    });
+
     return {
-        addToBookShelf:addToBookShelf,
-        hideCurrentPopup:hideCurrentPopup
+        addToBookShelf:addToBookShelf
     }
 
 });

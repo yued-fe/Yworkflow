@@ -20,12 +20,8 @@ var paths = {
 
 
 /**
- * 生成时间戳 MD5 combo等任务
- * $ gulp build
- *
+ * 生成带版本号的静态文件
  */
-
-
 
 gulp.task('rev', ['clean','sfile'], function(cb) {
 
@@ -41,24 +37,16 @@ gulp.task('rev', ['clean','sfile'], function(cb) {
     gulp.src('build/qd/**')
         .pipe(revAll.revision())
         .pipe(gulp.dest('_prelease'))
-        .pipe(revAll.manifestFile())
+        .pipe(revAll.manifestFile()) //创建静态资源hash映射表
         .pipe(gulp.dest('hash-tag-map'))
-        .pipe(revAll.verionIdFile())
+        .pipe(revAll.verionIdFile())  //创建递增id映射表
         .pipe(gulp.dest('hash-tag-map'))
     cb()
 });
 
 
-gulp.task('copy',['rev-views','rev-fix'],function(){
-        // del(['_tmp/**/*'])
-        gulp.src('_prelease/**/*')
-        .pipe(gulp.dest('./_tmp/qd'))
-        // cb()
-})
-
-
 /**
- * 更换模板中的相关变量
+ * 替换模板文件中的静态资源引入路径
  */
 gulp.task('rev-views', function(cb) {
     var manifest = gulp.src("hash-tag-map/rev-verionId.json");
@@ -79,7 +67,6 @@ gulp.task('rev-fix-url',function() {
     return gulp.src(['_prelease/**/*.js','_prelease/**/*.ejs','_prelease/**/*.css']) // Minify any CSS sources
         .pipe(revReplace({
             manifest: manifest
-                // prefix: cdnConfig.Domain + pkg.name + '/'
         }))
         .pipe(gulp.dest('_prelease'))
 });
@@ -90,7 +77,20 @@ gulp.task('rev-fix',['rev-views'] ,function() {
     return gulp.src(['_prelease/**/*.js','_prelease/**/*.ejs','_prelease/**/*.css']) // Minify any CSS sources
         .pipe(revReplace({
             manifest: manifest
-                // prefix: cdnConfig.Domain + pkg.name + '/'
         }))
         .pipe(gulp.dest('_prelease'))
 });
+
+
+/**
+ * 为了方便本地模拟读取静态资源 /root 路径,临时将静态资源复制到_tmp目录下
+ * 这是一个坑,需要解决
+ */
+
+gulp.task('copy',['rev-views','rev-fix'],function(){
+        // del(['_tmp/**/*'])
+        gulp.src('_prelease/**/*')
+        .pipe(gulp.dest('./_tmp/qd'))
+        // cb()
+})
+

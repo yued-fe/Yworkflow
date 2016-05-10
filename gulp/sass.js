@@ -21,9 +21,7 @@ var bust = require('gulp-buster');
 var paths = {
     assets: 'assets',
     sass: 'src/**/*.scss',
-    lbfsass:'static/qd/css/lbfUI/css/sass/*.scss',
     css: 'build',
-    lbfcss:'static/qd/css/lbfUI/css',
     prelease:'_prelease'
 };
 

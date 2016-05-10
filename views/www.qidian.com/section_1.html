@@ -9,10 +9,16 @@
             <ul>
                 <!-- 这里对频道页是‘二次元’字符做了class的特殊处理，判断分类是二次元时，class为str3，宽度增加 -->
                 <% for(var i=0; i < strongRecom['bookList'].length; i++) {
-                   var str1=strongRecom['bookList'][i]['chanName'] %>
-                <li class="color-type_<%= strongRecom['bookList'][i]['colorType']%><%if (str1 == '二次元') { %> str3<% } %>">
+                   var str1=strongRecom['bookList'][i]['chanName']
+                   var rec = strongRecom['bookList'][i]['colorType']
+                %>
+                <li class="color-type0">
                     <a class="channel" href="<%= strongRecom['bookList'][i]['chanUrl'] %>" target="_blank"><em>「</em><%= strongRecom['bookList'][i]['chanName'] %><em>」</em></a>
-                    <a class="name" href="http://www.qidian.com/Book/<%= strongRecom['bookList'][i]['bookId'] %>.aspx %>" target="_blank"  data-bid="<%= strongRecom['bookList'][i]['bookId'] %>"><%= strongRecom['bookList'][i]['bookName'] %></a>
+                    <strong><a class="name" href="http://www.qidian.com/Book/<%= strongRecom['bookList'][i]['bookId'] %>.aspx %>" target="_blank"  data-bid="<%= strongRecom['bookList'][i]['bookId'] %>"><%= strongRecom['bookList'][i]['bookName'] %></a>
+                        <% if (rec == 1) { %>
+                        <cite class="hot"></cite>
+                        <% } %>
+                    </strong>
                     <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= strongRecom['bookList'][i]['authorId']  %>" target="_blank"><%= strongRecom['bookList'][i]['authorName'] %></a>
                 </li>
                 <% } %>
@@ -39,7 +45,7 @@
                     <div class="slides">
                         <% for(var i=0; i < editorImgRecom.length; i++) { %>
                         <div class="slideItem">
-                            <img src="<%= editorImgRecom[i]['imageUrl']%>" title="<%= editorImgRecom[i]['bookName']%>">
+                            <img src="<%= editorImgRecom[i]['imageUrl']%>" title="<%= editorImgRecom[i]['bookName']%>" alt="<%= editorImgRecom[i]['bookName'] %>">
                         </div>
                         <% } %>
                     </div>
@@ -48,7 +54,7 @@
                     <div class="description">
                         <% for(var i=0; i < editorImgRecom.length; i++) { %>
                         <div class="desc-wrap">
-                            <h3><a href="http://www.qidian.com/Book/<%= editorImgRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorImgRecom[i]['bookId'] %>"><%= editorImgRecom[i]['title'] %></a></h3>
+                            <h3><a href="http://www.qidian.com/Book/<%= editorImgRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorImgRecom[i]['bookId'] %>"><%= editorImgRecom[i]['bookName'] %></a></h3>
                             <p><%= editorImgRecom[i]['desc'] %></p>
                             <a class="blue-btn" href="http://www.qidian.com/Book/<%= editorImgRecom[i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_A103" data-bid="<%= editorImgRecom[i]['bookId'] %>">查看介绍</a>
                         </div>

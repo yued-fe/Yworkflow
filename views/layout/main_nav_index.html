@@ -19,7 +19,7 @@
                 <a class="phone-game" href="http://xs.qidian.com/Home/Pc/Index/index" target="_blank" data-aid="qd_A22"><b class="iconfont webgame">
                     &#xe612;</b>手游</a>
                 <!-- start 手游下拉框 -->
-                <div class="game-dropdown hidden" id="phone-dropdown">
+                <!--<div class="game-dropdown hidden" id="phone-dropdown">
                     <cite></cite>
                     <dl class="phone-list">
                         <% for(var i = 0; i < mobileGame.kfData.length; i++) { %>
@@ -27,10 +27,10 @@
                             <h3>
                                 <%
                                     /* 判断手游标题是否有HOT标识，isHot==1时才输出html
-                                     * html：<span>HOT</span>
+                                     * html：<span></span>
                                      */
                                     if( mobileGame.kfData[i].isHot == 1 ){ %>
-                                        <span>HOT</span>
+                                        <span></span>
                                     <% } %>
                                 <a href="<%= mobileGame.kfData[i].link %>" target="_blank"><%= mobileGame.kfData[i].name %></a><i><%= mobileGame.kfData[i].des %></i></h3>
                             <p><a href="<%= mobileGame.kfData[i].jumpUrl %>" target="_blank"><img src="<%= mobileGame.kfData[i].imgUrl %>"></a></p>
@@ -41,26 +41,26 @@
                             <p><a href="<%= mobileGame.recomData.jumpUrl %>" target="_blank"><img src="<%= mobileGame.recomData.imgUrl %>" alt=""></a></p>
                         </dd>
                     </dl>
-                </div>
+                </div>-->
                 <!-- end 手游下拉框 -->
             </li>
             <li class="game web" id="game-web">
                 <a class="web-game" href="http://game.qidian.com/" target="_blank" data-aid="qd_A21"><b class="iconfont">
                     &#xe60b;</b>页游</a>
                 <!-- start 页游下拉框 -->
-                <div class="game-dropdown hidden" id="web-dropdown">
+                <!--<div class="game-dropdown hidden" id="web-dropdown">
                     <cite></cite>
-                    <!-- start 未登录 -->
+                    &lt;!&ndash; start 未登录 &ndash;&gt;
                     <div class="not-logged">
                         <dl class="web-list">
                             <dt>今日开服</dt>
                             <dd><h3>
                                 <%
                                     /* 判断页游标题是否有HOT标识，isHot==1时才输出html
-                                    * html：<span>HOT</span>
+                                    * html：<span></span>
                                     */
                                     if( webGame.kfData[0].isHot == 1 ){ %>
-                                    <span>HOT</span>
+                                    <span></span>
                                 <% } %>
                                 <i><%= webGame.kfData[0].date %></i><a href="<%= webGame.kfData[0].jumpUrl %>" target="_blank"><%= webGame.kfData[0].name %></a><strong><%= webGame.kfData[0].area %></strong></h3>
                                 <p><a href="<%= webGame.kfData[i].jumpUrl %>" target="_blank"><img src="<%= webGame.kfData[i].imgUrl %>"></a></p>
@@ -69,10 +69,10 @@
                             <dd><h3>
                                 <%
                                     /* 判断页游标题是否有HOT标识，isHot==1时才输出html
-                                    * html：<span>HOT</span>
+                                    * html：<span></span>
                                     */
                                     if( webGame.kfData[i].isHot == 1 ){ %>
-                                    <span>HOT</span>
+                                    <span></span>
                                 <% } %>
                                 <i><%= webGame.kfData[i].date %></i><a href="<%= webGame.kfData[i].jumpUrl %>" target="_blank"><%= webGame.kfData[i].name %></a><strong><%= webGame.kfData[i].area %></strong></h3>
                             </dd>
@@ -83,26 +83,26 @@
                             </dd>
                         </dl>
                     </div>
-                    <!-- end 未登录 -->
+                    &lt;!&ndash; end 未登录 &ndash;&gt;
 
-                    <!-- start 已登录 -->
+                    &lt;!&ndash; start 已登录 &ndash;&gt;
                     <div class="logged-in hidden">
-                        <!-- start 最近玩过 -->
+                        &lt;!&ndash; start 最近玩过 &ndash;&gt;
                         <dl class="lately" id="lately">
                             <dt>最近玩过</dt>
                             <dd><a class="name" href="javascript:" target="_blank"></a><strong></strong><a class="link" href="javascript:" target="_blank">进入游戏<i>&gt;</i></a></dd>
                             <dd><a class="name" href="javascript:" target="_blank">1</a><strong></strong><a class="link" href="javascript:" target="_blank">进入游戏<i>&gt;</i></a></dd>
                         </dl>
-                        <!-- end 最近玩过 -->
+                        &lt;!&ndash; end 最近玩过 &ndash;&gt;
                         <dl class="web-list">
                             <dt>今日开服</dt>
                             <dd><h3>
                                 <%
                                     /* 判断页游标题是否有HOT标识，isHot==1时才输出html
-                                    * html：<span>HOT</span>
+                                    * html：<span></span>
                                     */
                                     if( webGame.kfData[0].isHot == 1 ){ %>
-                                    <span>HOT</span>
+                                    <span></span>
                                 <% } %>
                                 <i><%= webGame.kfData[0].date %></i><a href="<%= webGame.kfData[0].jumpUrl %>" target="_blank"><%= webGame.kfData[0].name %></a><strong><%= webGame.kfData[0].area %></strong></h3>
                                 <p><a href="<%= webGame.kfData[0].jumpUrl %>" target="_blank"><img src="<%= webGame.kfData[0].imgUrl %>"></a></p>
@@ -112,10 +112,10 @@
                                 <h3>
                                 <%
                                     /* 判断页游标题是否有HOT标识，isHot==1时才输出html
-                                    * html：<span>HOT</span>
+                                    * html：<span></span>
                                     */
                                     if( webGame.kfData[i].isHot == 1 ){ %>
-                                    <span>HOT</span>
+                                    <span></span>
                                 <% } %>
                                 <i><%= webGame.kfData[i].date %></i><a href="<%= webGame.kfData[i].jumpUrl %>" target="_blank"><%= webGame.kfData[i].name %></a><strong><%= webGame.kfData[i].area %></strong></h3>
                             </dd>
@@ -126,8 +126,8 @@
                             </dd>
                         </dl>
                     </div>
-                    <!-- end 已登录 -->
-                </div>
+                    &lt;!&ndash; end 已登录 &ndash;&gt;
+                </div>-->
                 <!-- end 页游下拉框 -->
             </li>
         </ul>

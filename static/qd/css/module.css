@@ -279,15 +279,19 @@ h3.wrap-title {
           float: left;
           width: 24px;
           height: 24px;
-          margin: 2px 8px 0 0; }
+          margin: 2px 8px 0 0;
+          transition: ease-out .3s; }
           .classify-list dd a cite em.lingyi {
             margin-top: 0; }
           .classify-list dd a cite em.jingji, .classify-list dd a cite em.erciyuan {
             margin-top: 1px; }
       .classify-list dd a:hover {
-        color: #ED4259; }
+        color: #000; }
+        .classify-list dd a:hover em {
+          margin: 2px 10px 0 -2px; }
         .classify-list dd a:hover cite b {
-          color: #ED4259; }
+          transition: all .3s;
+          color: #000; }
     .classify-list dd.even {
       background: #FCFCFA; }
 
@@ -521,7 +525,8 @@ html:root .book-cover {
       -webkit-transition: -webkit-transform .3s ease-out;
       -moz-transition: -moz-transform .3s ease-out;
       -ms-transition: -ms-transform .3s ease-out;
-      transition: transform .3s ease-out; }
+      transition: transform .3s ease-out;
+      color: #FCFCFA; }
       .book-img a img:hover {
         -webkit-transform: scale(1.1);
         -moz-transform: scale(1.1);
@@ -939,6 +944,10 @@ html:root .book-cover {
   .pin-nav-wrap .nav-list li.site a.pin-logo {
     background-image: url("/qd/images/pin_logo_3x.png");
     background-size: 80px;
-    background-repeat: no-repeat; } }
+    background-repeat: no-repeat; }
+
+  .focus-wrap .classify-list dd a cite .rec {
+    background: url("/qd/images/index/rec2x.png") no-repeat;
+    background-size: 100%; } }
 
 /*# sourceMappingURL=module.css.map */

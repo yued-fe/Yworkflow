@@ -41,6 +41,7 @@
 }
 .limit-book-list {
 	width: 954px;
+	min-height: 400px;
 	li:last-of-type {
 		border-bottom: none;
 	}
@@ -72,7 +73,7 @@
 }
 /* 下期预告无数据 */
 .no-next {
-	padding: 40px 0;
+	padding: 81px 0 0;
 	text-align: center;
 	p {
 		margin-top: 10px;

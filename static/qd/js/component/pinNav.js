@@ -83,7 +83,7 @@ LBF.define('site.component.pinNav', function (require, exports, module) {
             //简单搜索失去焦点时滑动隐藏
             $(document).on("click", function (e) {
                 var target = $(e.target);
-                if (target.closest('#min-Search').length == 0) {
+                if (target.closest('#pin-input, #pin-search').length == 0) {
                     PinInput.stop().animate({width: "40px", opacity: '0'}).addClass('hide');
                 }
             });

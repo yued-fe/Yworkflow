@@ -35,9 +35,7 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          */
         events: {
             'click #free-type-tab li': 'freeTypeSwitch',
-            'click .add-book': 'addToBookShelf',
-            'click .close-popup': 'hideLoginPopup'
-
+            'click .add-book': 'addToBookShelf'
         },
 
         /**
@@ -151,14 +149,6 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
         addToBookShelf: function (e) {
             //引用Addbook.js中的加入书架方法
             Addbook.addToBookShelf(e, 'blue-btn', 'in-shelf');
-        },
-        /**
-         * 关闭登录弹窗
-         * @method hideLoginPopup
-         */
-        hideLoginPopup: function () {
-            //引用Addbook.js中的去除login窗口方法
-            Addbook.hideCurrentPopup();
         }
     })
 });

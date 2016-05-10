@@ -1,12 +1,14 @@
 {
-  "name": "QidianActivityViewsTool",
-  "version": "1.0.0",
+  "name": "QidianViewsTool",
+  "version": "3.0.0",
   "author": "Rainszhang & Luolei",
   "license": "ISC",
   "description": "BOSS Project Local Server",
   "scripts": {
     "test": "echo \"Error: 11no test specified\"",
     "dev": "export NODE_ENV=local && gulp dev",
+    "simple": "gulp build && gulp copy",
+    "clean": "gulp clean && gulp cleanbuild",
     "go": "gulp build && gulp rev && gulp rev-fix-url && gulp rev-views && gulp copy",
     "gocombo": "gulp build && gulp rev && gulp rev-fix-url && gulp rev-views && gulp combo",
     "preview": "export NODE_ENV=preview && gulp dev"
