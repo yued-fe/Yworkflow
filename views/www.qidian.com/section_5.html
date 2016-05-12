@@ -31,7 +31,7 @@
                         <p class="intro">
                             <%= newBookRecom['newBookFocus'][0]['recomWords'] %>
                         </p>
-                        <a class="read-btn" href="http://www.qidian.com/Book/<%= newBookRecom['newBookFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= newBookRecom['newBookFocus'][0]['bookId'] %>">查看介绍</a>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= newBookRecom['newBookFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= newBookRecom['newBookFocus'][0]['bookId'] %>">书籍详情</a>
                     </dd>
                     <% for(var i=1; i < newBookRecom['newBookFocus'].length; i++) { %>
                     <dd class="hidden">
@@ -46,7 +46,7 @@
                         <p class="intro">
                             <%= newBookRecom['newBookFocus'][i]['recomWords'] %>
                         </p>
-                        <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">查看介绍</a>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">书籍详情</a>
                     </dd>
                     <% } %>
                 </dl>

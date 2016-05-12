@@ -9,24 +9,17 @@
 .footer {
 	text-align: center;
 	background: #FAFAFA;
-	padding-bottom: 30px;
+	padding:20px 0;
 	.box-center {
 		background: #FAFAFA;
 	}
 	.friend-link {
-		height: 39px;
-		padding-top: 18px;
+		padding-bottom: 12px;
 		overflow: hidden;
 		em {
 			font-size: 12px;
 			margin-right: 16px;
 			font-family: $simsun;
-		}
-	}
-	.footer-menu {
-		padding: 5px 0 10px;
-		a {
-			color: $gray6;
 		}
 	}
 	.friend-link, .footer-menu {
@@ -37,10 +30,17 @@
 			margin-right: 16px;
 			font-size: 12px;
 			font-family: $simsun;
+			line-height: 18px;
 			color: #1A1A1A;
 			&:hover {
 				color: $hover;
 			}
+		}
+	}
+	.footer-menu {
+		padding: 0 0 15px;
+		a {
+			color: $gray6;
 		}
 	}
 	.copy-right, .safety-box {

@@ -3,10 +3,6 @@
  * Author: Luolei
  */
 
-
-
-
-
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");
@@ -15,10 +11,12 @@ var concat = require('gulp-concat');
 var image = require('gulp-image');
 var del = require('del');
 
+var folders = require('gulp-folders');
+
+
 var paths = {
     img: ['src/**/*.jpg','src/**/*.png','src/**/*.gif'],// 图片相关
     sass: 'src/**/*.scss',
-    lbfsass:'static/qd/css/lbfUI/css/sass/*.scss',
     build: 'build',
     others:['src/**/*.mp3'],
     prelease:'_prelease'

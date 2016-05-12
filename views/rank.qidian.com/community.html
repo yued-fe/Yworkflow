@@ -90,11 +90,11 @@
                     <div class="rank-data-day cf">
                         <!-- start 第一列数据 -->
                         <div class="fans-list">
-                            <h3><b class="col-1">排名</b><b class="col-2">粉丝英雄</b><b col-3>累计打赏(起点币)</b></h3>
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=0; i < 25; i++) { %>
                                 <li>
-                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
                                 <!-- 此处数据到序列25-->
@@ -103,11 +103,11 @@
                         <!-- end 第一列数据 -->
                         <!-- start 第二列数据 -->
                         <div class="fans-list">
-                            <h3><b class="col-1">排名</b><b class="col-2">粉丝英雄</b><b col-3>累计打赏(起点币)</b></h3>
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=25; i < 50; i++) { %>
                                 <li>
-                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" target="_blank"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
 
@@ -117,11 +117,11 @@
                         <!-- end 第二列数据 -->
                         <!-- start 第三列数据 -->
                         <div class="fans-list">
-                            <h3><b class="col-1">排名</b><b class="col-2">粉丝英雄</b><b col-3>累计打赏(起点币)</b></h3>
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                <% for(var i=50; i < 75; i++) { %>
                                 <li>
-                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" target="_blank"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
                                 <!-- 此处数据到序列75-->
@@ -130,11 +130,11 @@
                         <!-- end 第三列数据 -->
                         <!-- start 第四列数据 -->
                         <div class="fans-list mr0">
-                            <h3><b class="col-1">排名</b><b class="col-2">粉丝英雄</b><b col-3>累计打赏(起点币)</b></h3>
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=75; i < 100; i++) { %>
                                 <li>
-                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" target="_blank"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
                                 <!-- 此处数据到序列100-->
@@ -165,7 +165,7 @@
     // 用作统计PV
     g_data.pageId = 'qd_p_qidian';
     // 域名环境变量
-    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
     LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.community'], function ($, SpeedReport, community) {

@@ -18,16 +18,11 @@
     if(data['paramList']['style']==1){
     %>
         <div class="book-img-text">
-            <ul class="all-img-list">
+            <ul class="all-img-list cf">
                 <% for(var i=0;i< data['listInfo'].length;i++){
                         var hlfirst = '';
                         var hllast = '';
                         var item = data['listInfo'][i];
-                        if(i%2==0){
-                            var fr="";
-                        } else {
-                            var fr="class=fr";
-                        }
                     /*
                     如果排序方式为总字数(3)或更新时间(4)，则显示最新章节更新时间
                     */
@@ -53,14 +48,14 @@
                         hllast = 'class=red';
                     }
                     %>
-                <li <%= fr%> >
+                <li>
                 <div class="book-img-box">
-                    <a href="<%= item['bookUrl']%>" target="_blank"><img src="<%= item['imageUrl']%>"></a>
+                    <a href="<%= item['bookUrl']%>" data-bid="qd_B44" target="_blank"><img src="<%= item['imageUrl']%>"></a>
                 </div>
                 <div class="book-mid-info">
-                    <h4><a href="<%= item['bookUrl']%>" target="_blank"><%= item['bookName']||'- -'%></a></h4>
+                    <h4><a href="<%= item['bookUrl']%>" target="_blank" data-bid="qd_B45"><%= item['bookName']||'- -'%></a></h4>
                     <p class="author">
-                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" target="_blank"><%= item['authorName']||'- -'%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank"><%= item['chanName']||'- -'%></a><i>&#183;</i><a class="go-sub-type" data-typeid="<%= item['chanId']%>" data-subtypeid="<%= item['subCateId']%>" href="javascript:"><%= item['subCateName']||'- -'%></a><em>|</em><span ><%= item['bookStatus']%></span>
+                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" data-bid="qd_B46" target="_blank"><%= item['authorName']||'- -'%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank" data-bid="qd_B47"><%= item['chanName']||'- -'%></a><i>&#183;</i><a class="go-sub-type" data-typeid="<%= item['chanId']%>" data-subtypeid="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']||'- -'%></a><em>|</em><span ><%= item['bookStatus']%></span>
                     </p>
                     <p class="intro">
                         <%= item['desc']||'- -'%>
@@ -69,23 +64,7 @@
                     </p>
                 </div>
                 </li>
-                <%}%>
-                <!--<li class="fr">-->
-                <!--<div class="book-img-box">-->
-                <!--<a href="javascript:" target="_blank"><img src="http://image.cmfu.com/Books/3347598/3347598.jpg"></a>-->
-                <!--</div>-->
-                <!--<div class="book-mid-info">-->
-                <!--<h4><a href="javascript:" target="_blank">姑苏慕容世家</a></h4>-->
-                <!--<p class="author">-->
-                <!--<img src="//local.qidian.com:3133/qd/images/ico/user.png"><a class="name" href="javascript:" target="_blank">任家乐</a><em>|</em><a href="javascript:" target="_blank">武侠</a><em>|</em><span>连载</span>-->
-                <!--</p>-->
-                <!--<p class="intro">-->
-                <!--燕飞扬有许多不同的身份，老师同学眼中是一个好学生；求医问药的，叫他“燕神医”；求卜问卦的，叫他“燕大师”；商场上的大亨们，尊称他为“燕先生”……-->
-                <!--</p>-->
-                <!--<p class="update"><a href="javascript:" target="_blank">最新更新 第七百一十三章 震慑</a><em>·</em><span>2015-12-30 12:00</span>-->
-                <!--</p>-->
-                <!--</div>-->
-                <!--</li>-->
+                <% } %>
             </ul>
         <!-- 此处数据一共是10行，总共20本书-->
     </div>
@@ -157,11 +136,11 @@
             }
             %>
             <tr>
-                <td class="td-one"><a class="type" href="<%= item['chanUrl']%>" target="_blank"><em>「</em><%= item['chanName']||'- -'%></a><i class="point">&#183;</i><a class="go-sub-type" data-typeId="<%= item['chanId']%>" data-subtypeId="<%= item['subCateId']%>" href="javascript:"><%= item['subCateName']%><em>」</em></a></td>
-                <td><a class="name" href="<%= item['bookUrl']%>" target="_blank"><%= item['bookName']||'- -'%></a></td>
-                <td><a class="chapter" href="<%= item['lastChapterUrl']%>" target="_blank"><%= item['lastChapterName']||'- -'%></a></td>
+                <td class="td-one"><a class="type" href="<%= item['chanUrl']%>" data-bid="qd_B47" target="_blank"><em>「</em><%= item['chanName']||'- -'%></a><i class="point">&#183;</i><a class="go-sub-type" data-typeId="<%= item['chanId']%>" data-subtypeId="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']%><em>」</em></a></td>
+                <td><a class="name" href="<%= item['bookUrl']%>" data-bid="qd_B45" target="_blank"><%= item['bookName']||'- -'%></a></td>
+                <td><a class="chapter" href="<%= item['lastChapterUrl']%>" data-chapterurl="<%= item['lastChapterUrl']%>" target="_blank"><%= item['lastChapterName']||'- -'%></a></td>
                 <td><span class="total"><%= item['wordCnt']||'- -'%></span></td>
-                <td><a class="author" href="<%= item['authorUrl']%>" target="_blank"><%= item['authorName']%></a></td>
+                <td><a class="author" href="<%= item['authorUrl']%>" target="_blank" data-bid="qd_B46"><%= item['authorName']%></a></td>
                 <td class="date"><%= update%></td>
             </tr>
             <%}%>

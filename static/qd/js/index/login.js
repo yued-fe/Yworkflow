@@ -8,11 +8,14 @@ LBF.define('site.index.login', function (require, exports, module) {
         Cookie = require('util.Cookie');
 
     var body = $('body');
+    var _url = "http://avd.qidian.com/OALoginJump.aspx?ReturnUrl=" + encodeURIComponent(parent.location.href);
+    var ifrUrl = 'http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=top&style=0&pm=1&returnURL='+ encodeURIComponent(_url);
+    //var ifrUrl = 'http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=iframe&style=2&pm=2&returnURL=http%3A%2F%2Favd.qidian.com%2FOALoginjump.aspx%3Fqd_skip%3D1%26&ReturnUrl='+encodeURIComponent(location.hostname);
     var popop = [
         '<div id="login-popup" class="popup-wrap login-popup">',
         '<a class="close-popup" href="javascript:"></a>',
         '<div class="popup-box">',
-        '<iframe frameborder=0 src="http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=iframe&style=2&pm=2&returnURL=http%3A%2F%2Favd.qidian.com%2FOALoginjump.aspx%3Fqd_skip%3D1%26ReturnUrl%3Dhttp%253A%252F%252Fdevi.qidian.com" name="frameLG" id="frameLG"></iframe>',
+        '<iframe id="loginIfr" src="'+ifrUrl+'" frameborder=0 name="frameLG" id="frameLG"></iframe>',
         '</div>',
         '</div>'
     ].join('');

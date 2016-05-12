@@ -33,7 +33,7 @@
                         <p class="intro">
                             <%= finBookRecom['finBkFocus'][0]['recomWords'] %>
                         </p>
-                        <a class="read-btn" href="http://www.qidian.com/Book/<%= finBookRecom['finBkFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= finBookRecom['finBkFocus'][0]['bookId'] %>">查看介绍</a>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= finBookRecom['finBkFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= finBookRecom['finBkFocus'][0]['bookId'] %>">书籍详情</a>
                     </dd>
                     <% for(var i=1; i < finBookRecom['finBkFocus'].length; i++) { %>
                     <dd class="hidden">
@@ -48,7 +48,7 @@
                         <p class="intro">
                             <%= finBookRecom['finBkFocus'][i]['recomWords'] %>
                         </p>
-                        <a class="read-btn" href="http://www.qidian.com/Book/<%= finBookRecom['finBkFocus'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= finBookRecom['finBkFocus'][i]['bookId'] %>">查看介绍</a>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= finBookRecom['finBkFocus'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= finBookRecom['finBkFocus'][i]['bookId'] %>">书籍详情</a>
                     </dd>
                     <% } %>
                 </dl>

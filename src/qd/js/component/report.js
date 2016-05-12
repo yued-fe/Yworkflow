@@ -3,7 +3,7 @@
  * @author rainszhang
  * Created: 16-03-28
  */
-LBF.define('site.component.report', function (require, exports, module) {
+LBF.define('/qd/js/component/report.js', function (require, exports, module) {
     var $ = require('lib.jQuery');
 
     var report = {};

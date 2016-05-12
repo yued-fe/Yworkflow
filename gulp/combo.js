@@ -17,14 +17,18 @@
  *
  */
 
-var envType = "local";
+
 var gulp = require('gulp');
 var del = require('del');
 var combo = require('../lib/util/combo');
 
+
 var serverConf = require('../views/node-config/server');
+
+
 var staticConf = serverConf[envType]['static'];
 var dateFormat = require('dateformat');
+var envType = "local";
 
 
 gulp.task('combo', function() {
@@ -32,6 +36,24 @@ gulp.task('combo', function() {
     console.log(_updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
     gulp.src('_previews/**/*.html')
+        .pipe(combo(baseUri, {
+            splitter: ',',
+            async: false,
+            ignorePathVar: '<%= staticConf.staticPath %>',
+            assignPathTag: 'qd', //这里需要配置combo后的相关文件路径
+            updateTime: _updateTime
+        }, {
+            max_age: 31536000
+        }))
+        .pipe(gulp.dest('_previews'));
+})
+
+
+gulp.task('o-combo', function() {
+    var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
+    console.log(_updateTime);
+    var baseUri = '<%= staticConf.staticDomain %>/c/=';
+    gulp.src('views/**/*.html')
         .pipe(combo(baseUri, {
             splitter: ',',
             async: false,

@@ -31,7 +31,7 @@
                             <p class="intro">
                                 <%= hotBook[0]['desc'] %>
                             </p>
-                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[0]['bookId'] %>">查看介绍</a>
+                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[0]['bookId'] %>">书籍详情</a>
                         </dd>
                         <% for(var i=1; i < hotBook.length; i++) { %>
                         <dd class="hidden">
@@ -45,7 +45,7 @@
                             <p class="intro">
                                 <%= hotBook[i]['desc'] %>
                             </p>
-                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">查看介绍</a>
+                            <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">书籍详情</a>
                         </dd>
                         <% } %>
                     </dl>
@@ -105,7 +105,7 @@
                 </dl>
             </li>
             <li data-aid="qd_A124">
-                <h3 class="wrap-title">游戏<i>&#183;</i>竞技<b class="icon-tag yxjj"></b></h3>
+                <h3 class="wrap-title">游戏<i>&#183;</i>体育<b class="icon-tag yxjj"></b></h3>
                 <dl class="hot-book-list">
                     <% for(var i=0; i < chanRecom5.length; i++) { %>
                     <dd><a class="classify" href="<%= chanRecom5[i]['chanUrl']  %>" target="_blank"><em>「</em><%=

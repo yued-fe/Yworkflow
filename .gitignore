@@ -27,6 +27,9 @@ node_modules
 
 
 #临时文件
-
+_prelease/
+_previews/
+_tmp/
+static/
 
 

@@ -15,16 +15,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
 var morgan = require('morgan'); // http请求日志用
-var _ = require('underscore'); // 引入underscore
 var chalk = require('chalk'); // 美化日志
 var fs = require('fs');
 var dateFormat = require('dateformat'); //时间戳转换
 const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
 
-
 var comboAnswer = require('koa-combo-answer');
-
 
 
 //载入静态资源相关配置
@@ -58,16 +55,9 @@ app.all('*', function(req, res, next) {
 
 app.use(cookieParser());
 
-
-
-// app.use(comboAnswer({
-//     miniCSS: true,
-//     comboSyntax: ['?', '&'],
-//     base: path.resolve(__dirname, './htdocs')
-// }));
-
-
+   app.set('port', process.env.PORT || 3234); // 默认端口
 if (process.env.NODE_ENV == 'local') {
+
     app.use(express.static(path.join(__dirname, 'static')));
     app.use(express.static(path.join(__dirname, 'dev')));
     app.set('views', path.join(__dirname, 'views')); // 设置模板页面 本地测试
@@ -76,10 +66,8 @@ if (process.env.NODE_ENV == 'local') {
 if (process.env.NODE_ENV == 'preview') {
     app.use(express.static(path.join(__dirname, '_tmp')));
     app.use(express.static(path.join(__dirname, 'dev')));
-    app.set('views', path.join(__dirname, '_previews')); // 设置模板页面 本地测试
+    app.set('views', path.join(__dirname, '_previews')); // 设置preview模板页面
 }
-
-
 
 
 
@@ -169,12 +157,6 @@ var getRouterDomain = function(originHost, routerKey, val) {
 }
 
 var configRouter = function(val) {
-    // var that = this;
-    // var _routerVal = val,
-    //     _cgiVal = routerMap[_routerVal];
-    // console.log('render路由:' + _routerVal);
-    // console.log('render接口:' + _cgiVal);
-    // var _templateFileName = _.last(_routerVal.split('/'));
 
     return function(req, res, next) {
         console.log("match route:" + req.url);
@@ -383,8 +365,6 @@ app.get('/404', function(req, res) {
 
 
 // 启动server
-
-app.set('port', process.env.PORT || 3234); // 默认端口
 
 app.listen(app.get('port'), function() {
     console.log(chalk.green('[服务器启动],端口: ' + app.get('port')));

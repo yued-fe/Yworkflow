@@ -341,6 +341,16 @@ LBF.define('site.index.index', function (require, exports, module) {
          * @method initLimitFreeMod
          */
         initLimitFreeMod: function () {
+            //需要重复执行的免费阅读禁用方法
+            function disableFreeBtn() {
+                //给免费阅读加上disabled样式
+                $('.time-limit-wrap li a.blue-btn').addClass('disabled');
+                //如果是disabled，点击无法跳转
+                $('.time-limit-wrap li a.disabled').click(function () {
+                    return false;
+                });
+            }
+            //开始请求
             $.ajax({
                 type: 'GET',
                 url: '/ajax/Free/getSysTime',
@@ -361,6 +371,8 @@ LBF.define('site.index.index', function (require, exports, module) {
                     function countDown(endTime, day_elem, hour_elem, minute_elem, second_elem) {
                         //剩余时间 = 结束时间 - 服务器系统时间
                         var remaining = (end_time - sysTime) / 1000;
+                        console.log(remaining);
+                        console.log(remaining <= 0);
                         var timer = setInterval(function () {
                             if (remaining > 0) {
                                 remaining -= 1;
@@ -372,16 +384,16 @@ LBF.define('site.index.index', function (require, exports, module) {
                                 $(hour_elem).text(hour < 10 ? "0" + hour : hour);
                                 $(minute_elem).text(minute < 10 ? "0" + minute : minute);
                                 $(second_elem).text(second < 10 ? "0" + second : second);
+                                //在每次倒数时判断是否<=0，true时，实时把按钮禁用
                                 if (remaining <= 0) {
-                                    //给免费阅读加上disabled样式
-                                    $('.time-limit-wrap li a.blue-btn').addClass('disabled');
-                                    //如果是disabled，点击无法跳转
-                                    $('.time-limit-wrap li a.disabled').click(function(){
-                                        return false;
-                                    });
+                                    disableFreeBtn();
                                 }
                             } else {
                                 clearInterval(timer);
+                            }
+                            //首次刷新页面时判断是否剩余时间是否 <= 0，true时把按钮禁用
+                            if (remaining <= 0) {
+                                disableFreeBtn();
                             }
                         }, 1000);
                     }

@@ -22,9 +22,7 @@ var paths = {
 /**
  * 生成带版本号的静态文件
  */
-
 gulp.task('rev', ['clean','sfile'], function(cb) {
-
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
         dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],
@@ -44,6 +42,19 @@ gulp.task('rev', ['clean','sfile'], function(cb) {
     cb()
 });
 
+/**
+ * 二次替换,防止js和css中有url没有被替换
+ */
+
+gulp.task('rev-fix',['rev-views'] ,function() {
+    var manifest = gulp.src("hash-tag-map/rev-verionId.json");
+    return gulp.src(['_prelease/**/*.{js,ejs,css}']) // Minify any CSS sources
+        .pipe(revReplace({
+            manifest: manifest
+        }))
+        .pipe(gulp.dest('_prelease'))
+});
+
 
 /**
  * 替换模板文件中的静态资源引入路径
@@ -59,31 +70,9 @@ gulp.task('rev-views', function(cb) {
         cb()
 });
 
-/**
- * 这部很关键,二次替换,防止js和css中有url没有被替换
- */
-gulp.task('rev-fix-url',function() {
-    var manifest = gulp.src("hash-tag-map/rev-verionId.json");
-    return gulp.src(['_prelease/**/*.js','_prelease/**/*.ejs','_prelease/**/*.css']) // Minify any CSS sources
-        .pipe(revReplace({
-            manifest: manifest
-        }))
-        .pipe(gulp.dest('_prelease'))
-});
-
-
-gulp.task('rev-fix',['rev-views'] ,function() {
-    var manifest = gulp.src("hash-tag-map/rev-verionId.json");
-    return gulp.src(['_prelease/**/*.js','_prelease/**/*.ejs','_prelease/**/*.css']) // Minify any CSS sources
-        .pipe(revReplace({
-            manifest: manifest
-        }))
-        .pipe(gulp.dest('_prelease'))
-});
-
 
 /**
- * 为了方便本地模拟读取静态资源 /root 路径,临时将静态资源复制到_tmp目录下
+ * 为了方便本地模拟读取静态资源的服务url根路径,临时将静态资源复制到_tmp目录下
  * 这是一个坑,需要解决
  */
 
@@ -94,3 +83,13 @@ gulp.task('copy',['rev-views','rev-fix'],function(){
         // cb()
 })
 
+
+/**
+ * 生成不需要增加版本号的静态资源,直接将编译后的静态资源复制到_prelease目录
+ */
+gulp.task('copy-no-rev',function(){
+        // del(['_tmp/**/*'])
+        gulp.src('build/**/*')
+        .pipe(gulp.dest('_prelease'))
+        // cb()
+})

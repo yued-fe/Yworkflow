@@ -39,10 +39,14 @@
 /* 图文展示列表 */
 .book-img-text {
 	li {
-		@extend %cf;
-		@include mb(24px);
-		padding-bottom: 22px;
-		@extend %bbd;
+		height: 162px;
+		padding-top: 25px;
+		border-top: 1px solid #E6E6E6;
+		&:first-child {
+			padding-top: 0;
+			border-top: none;
+		}
+		*vertical-align: bottom;
 	}
 	.book-img-box, .book-mid-info {
 		float: left;
@@ -84,9 +88,12 @@
 		width: 542px;
 		h4 {
 			height: 24px;
-			@include mb(5px);
+			@include mb(6px);
 			font: 18px/24px $fontbase;
 			overflow: hidden;
+			cite.red-kw {
+				color: $red;
+			}
 		}
 		p {
 			font-size: 12px;
@@ -101,7 +108,7 @@
 				float: left;
 				width: 14px;
 				height: 14px;
-				margin: 2px 5px 0 0;
+				margin: 1px 5px 0 0;
 			}
 			a {
 				float: left;
@@ -116,6 +123,9 @@
 			}
 			i {
 				float: left;
+				margin: 0 3px;
+				line-height: 16px;
+				font-family: $simsun;
 				color: $A6;
 			}
 			em {
@@ -132,34 +142,52 @@
 		}
 		p.intro {
 			height: 40px;
-			@include mb(15px);
+			@include mb(12px);
 			line-height: 20px;
 			overflow: hidden;
 			color: $gray6;
+			cite.red-kw {
+				color: $red;
+			}
 		}
 		p.update {
 			line-height: 22px;
 			a {
+				display: inline-block;
+				vertical-align: middle;
 				color: $blue;
 				&:hover {
 					color: $blue_hover;
+				}
+				&.red {
+					color: $red;
+					&.def {
+						cursor: default;
+					}
 				}
 			}
 			i {
 				display: inline-block;
 				vertical-align: middle;
+				font-family: Arial;
+				margin: 0 5px;
+				color: $A6;
 			}
 			em {
 				margin: 0 5px;
+				font-family: Arial;
 			}
 			b {
 				display: inline-block;
 				vertical-align: middle;
 				font: 12px/22px $simsun;
+				color: #B5B5B5;
+				&.red {
+					color: $red;
+				}
 			}
 			em, span {
 				color: #B5B5B5;
-				font-family: Arial;
 				display: inline-block;
 				vertical-align: middle;
 			}
@@ -170,16 +198,17 @@
 		position: relative;
 		width: 224px;
 		height: 136px;
+		margin-top: 5px;
 		.total {
 			text-align: right;
 			p {
-				@include mb(5px);
+				@include mb(6px);
 				color: $gray6;
 				font: 12px/16px $simsun;
 				span {
 					margin-right: 3px;
 					color: #262626;
-					font: 700 16px/18px Arial;
+					font: 12px/18px $simsun;
 				}
 			}
 		}
@@ -203,7 +232,7 @@
 		.btn {
 			position: absolute;
 			left: 0;
-			bottom: 0;
+			bottom: 4px;
 			font-size: 0;
 			*letter-spacing: -1;
 		}
@@ -224,6 +253,12 @@
 				&:hover {
 					background: $hover;
 					border-color: $hover;
+				}
+				&.disabled {
+					border-color: $A6;
+					color: $A6;
+					background: none;
+					cursor: default;
 				}
 			}
 			&.blue-btn {
@@ -249,7 +284,6 @@
 	@include mb(24px);
 }
 .book-img-text .all-img-list {
-	@extend %cf;
 	li {
 		float: left;
 		width: 477px;
@@ -263,12 +297,12 @@
 			p.update {
 				color: inherit;
 				span {
-					color: $red;
+					color: $A6;
+					&.red {
+						color: $red;
+					}
 				}
 			}
-		}
-		&.fr {
-			float: right;
 		}
 	}
 }
@@ -278,11 +312,12 @@ span.rank-tag {
 	z-index: 2;
 	top: 0;
 	left: 0;
-	width: 22px;
+	min-width: 14px;
 	height: 22px;
+	padding: 0 4px;
 	color: white;
 	text-align: center;
-	font: 700 14px/22px Arial;
+	font: 16px/22px FZZCYSK;
 	background: #000;
 	filter: alpha(opacity=60);
 	background: rgba(0, 0, 0, .6);
@@ -378,7 +413,8 @@ span.rank-tag {
 		}
 		.chapter {
 			display: block;
-			width: 290px;
+			width: 280px;
+
 			@include word-wrap;
 			color: $gray6;
 			&:hover {
@@ -398,7 +434,8 @@ span.rank-tag {
 			font: 12px/40px Arail;
 		}
 		.author {
-			width: 120px;
+			display: block;
+			width: 90px;
 			@include word-wrap;
 		}
 		.author, .total {
@@ -411,7 +448,7 @@ span.rank-tag {
 		a.blue:hover {
 			color: $blue-hover;
 		}
-		.gray:hover {
+		.in-shelf, .gray:hover {
 			color: $A6;
 		}
 	}
@@ -430,16 +467,18 @@ em.number {
 	position: relative;
 	span.rank-tag {
 		top: 10px;
-		width: 16px;
-		height: 16px;
+		min-width: auto;
+		margin-top: 4px;
+		height: 18px;
 		color: $gray6;
 		background: none;
-		font-weight: 400;
+		font-size: 14px;
+		line-height: 1;
 		filter: alpha(opacity=100);
 		&.no1, &.no2, &.no3 {
 			color: white;
-			font-weight: 700;
-			line-height: 18px;
+			line-height: 22px;
+			margin-top: 0;
 		}
 		&.no1 {
 			background: $red;
@@ -459,10 +498,25 @@ em.number {
 }
 /* 操作栏 */
 .tool-bar {
+	position: relative;
 	height: 40px;
 	padding: 0 12px;
 	@include mb(24px);
 	background: #F7F6F2;
+	//全部作品，完本，免费的工具条中加入统计信息样式
+	.sort-count {
+		padding-right: 68px;
+		p {
+			float: left;
+		}
+		i {
+			float: left;
+			margin-top: 10px;
+			padding-left: 10px;
+			color: #E6E6E6;
+			font: 14px/18px Arial;
+		}
+	}
 	.count-info {
 		color: $A6;
 		font: 12px/40px $simsun;
@@ -476,9 +530,9 @@ em.number {
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
-		padding-right: 12px;
-		margin-right: 5px;
+		margin-right: 12px;
 		color: $A6;
+		height: 40px;
 		font: 12px/40px $simsun;
 		&:hover {
 			color: $hover;
@@ -487,7 +541,8 @@ em.number {
 			display: inline-block;
 			vertical-align: middle;
 			font-size: 12px;
-			margin: 1px 0 0 4px;
+			line-height: 40px;
+			margin: -1px 0 0 4px;
 		}
 		&.act {
 			font-weight: 700;
@@ -503,7 +558,7 @@ em.number {
 			display: inline-block;
 			vertical-align: middle;
 			margin-top: -3px;
-			margin-right: 10px;
+			margin-right: 14px;
 			color: #E6E6E6;
 			font: 14px/18px Arial;
 		}
@@ -525,6 +580,9 @@ em.number {
 			*margin-left: 5px;
 			color: $gray6;
 			font: 12px/17px $simsun;
+			&:hover {
+				color: #1A1A1A;
+			}
 		}
 	}
 }
@@ -536,12 +594,14 @@ em.number {
 		z-index: 2;
 		padding-bottom: 4px;
 		border-bottom: 1px solid $gray6;
-		font: 18px/21px hyqihei55s;
+		font: 18px/21px FZZCYSK;
 	}
 	li {
+		position: relative;
+		z-index: 1;
 		padding: 15px 0;
+		height: 97px;
 		border-bottom: 1px solid #E6E6E6;
-		@extend %cf;
 		&:last-of-type {
 			border-bottom: none;
 		}
@@ -581,8 +641,10 @@ em.number {
 			}
 		}
 		.book-info {
+			position: absolute;
+			left: 90px;
+			z-index: 1;
 			width: 130px;
-			float: left;
 			h4 {
 				height: 21px;
 				@include mb(8px);
@@ -617,19 +679,48 @@ em.number {
 		}
 	}
 }
+/* 暂无数据 */
+.no-data {
+	width: 300px;
+	margin: 60px auto 30px;
+	text-align: center;
+	.no-result-img {
+		padding: 47px 0 13px;
+	}
+	h3 {
+		font: 16px/24px $fontbase;
+	}
+	p {
+		font: 14px/24px $simsun;
+		color: $A6;
+		.blue {
+			margin: 0 5px;
+		}
+	}
+}
 /* 暂无数据的图片样式 */
 .no-data-img {
 	display: block;
-	width: 73px;
-	height: 59px;
+	width: 243px;
+	height: 100px;
 	margin: 0 auto;
+	background: url('/qd/images/common/big_wu.png') no-repeat;
+}
+.other-rec-wrap .no-data-img {
+	width: 161px;
+	height: 90px;
 	background: url('/qd/images/common/wu.png') no-repeat;
+
 }
 /* retina屏双倍图 */
 @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
 	.no-data-img {
-		background: url('/qd/images/common/wu2x.png') no-repeat;
-		background-size: contain;
+		background: url('/qd/images/common/big_wu_3x.png') no-repeat;
+		background-size: 100%;
+	}
+	.other-rec-wrap .no-data-img {
+		background: url('/qd/images/common/wu_3x.png') no-repeat;
+		background-size: 100%;
 	}
 	.tool-bar .select-wrap .lbf-checkbox {
 		background: url(/qd/images/ico/qd_checkbox_3x.png) no-repeat;

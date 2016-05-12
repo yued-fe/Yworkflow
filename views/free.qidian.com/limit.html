@@ -21,7 +21,6 @@
         var speedTimer = [],
             speedZero = new Date().getTime();
     </script>
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/icon.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Checkbox.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
@@ -226,7 +225,7 @@
     g_data.pageId = 'qd_p_qidian';
     g_data.targetUrl = '//<%= staticConf.domainPrefix%>f.qidian.com';
     // 域名环境变量
-    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
     LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.free.limitedFree'], function ($, SpeedReport, LimitFree) {

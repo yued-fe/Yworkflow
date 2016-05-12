@@ -3,7 +3,7 @@
  * @author yangye
  * Created: 16-04-13
  */
-LBF.define('site.component.pinNav', function (require, exports, module) {
+LBF.define('/qd/js/component/pinNav.js', function (require, exports, module) {
     var $ = require('lib.jQuery');
 
     var report = {};

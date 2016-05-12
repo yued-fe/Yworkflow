@@ -177,8 +177,7 @@ h3.wrap-title {
       font-weight: 400; }
   .pin-nav-wrap .min-user li.book-shelf em {
     margin-top: -2px;
-    *margin-top: 0;
-    margin-left: 5px; }
+    *margin-top: 0; }
   .pin-nav-wrap .min-user li a {
     position: relative;
     background: none;
@@ -271,10 +270,12 @@ h3.wrap-title {
             text-align: left; }
           .classify-list dd a cite .info i {
             font: 14px/1 "PingFangSC-Regular", Simsun;
-            white-space: nowrap; }
+            white-space: nowrap;
+            transition: ease-out .3s; }
           .classify-list dd a cite .info b {
             font: 12px/1.5 Arial;
-            color: #999; }
+            color: #999;
+            transition: all .5s; }
         .classify-list dd a cite em {
           float: left;
           width: 24px;
@@ -286,12 +287,15 @@ h3.wrap-title {
           .classify-list dd a cite em.jingji, .classify-list dd a cite em.erciyuan {
             margin-top: 1px; }
       .classify-list dd a:hover {
-        color: #000; }
-        .classify-list dd a:hover em {
-          margin: 2px 10px 0 -2px; }
+        color: #ED4259; }
+        .classify-list dd a:hover cite em {
+          margin: 2px 11px 0 -3px; }
+          .classify-list dd a:hover cite em.lingyi {
+            margin: 0 11px 0 -3px; }
+          .classify-list dd a:hover cite em.jingji, .classify-list dd a:hover cite em.erciyuan {
+            margin: 1px 11px 0 -3px; }
         .classify-list dd a:hover cite b {
-          transition: all .3s;
-          color: #000; }
+          color: #ED4259; }
     .classify-list dd.even {
       background: #FCFCFA; }
 
@@ -747,7 +751,7 @@ html:root .book-cover {
       .page-box .pagination .lbf-pagination-jump input {
         display: inline-block;
         vertical-align: middle;
-        width: 26px;
+        width: 40px;
         height: 22px;
         margin-right: 10px;
         border: 1px solid #F2F2F2;

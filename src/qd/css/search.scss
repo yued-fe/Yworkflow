@@ -36,7 +36,9 @@
 		float: left;
 		width: 80px;
 		height: 40px;
-		font: 700 14px/40px $simsun;
+		font: 18px/40px FZZCYSK;
+		letter-spacing: 4px;
+		text-indent:5px;
 		color: white;
 		text-align: center;
 		background: $red;
@@ -54,7 +56,7 @@
 	h3 {
 		padding-bottom: 4px;
 		border-bottom: 1px solid $gray6;
-		font: 18px/21px hyqihei55s;
+		font: 18px/21px FZZCYSK;
 	}
 }
 .author-info-wrap {
@@ -144,9 +146,8 @@
 }
 /* 暂无数据 */
 .no-result-wrap {
-	height: 200px;
+	padding-bottom: 30px;
 	@include mb(30px);
-	background: #F7F6F2;
 	text-align: center;
 	.no-result-img {
 		padding: 47px 0 13px;
@@ -163,10 +164,9 @@
 	}
 }
 .search-title {
-	font-size: 18px;
 	height: 20px;
-	line-height: 20px;
 	padding: 10px 0;
+	font: 18px/20px FZZCYSK;
 	border-bottom: 1px solid #666;
 	margin-bottom: 24px;
 }

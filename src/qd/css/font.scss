@@ -14,12 +14,12 @@
 	url('/qd/css/font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 @font-face {
-	font-family: 'hyqihei55s';
-	src: url('/qd/css/font/hanyi55S.eot');
-	src: url('/qd/css/font/hanyi55S.eot?#iefix') format('embedded-opentype'),
-	url('/qd/css/font/hanyi55S.woff') format('woff'),
-	url('/qd/css/font/hanyi55S.ttf') format('truetype'),
-	url('/qd/css/font/hanyi55S.svg#hyqihei55s') format('svg');
+	font-family: 'FZZCYSK';
+	src: url('/qd/css/font/FZZCYSK.eot');
+	src: url('/qd/css/font/FZZCYSK.eot?#iefix') format('embedded-opentype'),
+	url('/qd/css/font/FZZCYSK.woff') format('woff'),
+	url('/qd/css/font/FZZCYSK.ttf') format('truetype'),
+	url('/qd/css/font/FZZCYSK.svg#FZZCYSK') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -121,9 +121,6 @@
 .icon-guanbi:before {
 	content: "\e61f";
 }
-.icon-arrow-down:before {
-	content: "\e620";
-}
 .icon-youjiantou:before {
 	content: "\e621";
 }
@@ -133,8 +130,14 @@
 .icon-xiajiantou:before {
 	content: "\e623";
 }
-.icon-arrow-up:before {
-	content: "\e624";
+.icon-jiangxu:before {
+	content: "\e625";
+}
+.icon-shengxu:before {
+	content: "\e626";
+}
+.icon-weipaixu:before {
+	content: "\e627";
 }
 .success, .error {
 	font-size: 14px;

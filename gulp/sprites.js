@@ -9,8 +9,8 @@ var gulp = require('gulp');
 
 var del = require('del');
 var rename = require('gulp-rename');
-
-
+var fs = require('fs');
+var path = require('path');
 
 var chalk = require('chalk'); //美化日志
 var plumber = require("gulp-plumber");
@@ -20,10 +20,64 @@ var plumber = require("gulp-plumber");
 var spritesmith = require('gulp.spritesmith');
 var imageResize = require('gulp-image-resize');
 var vinylPaths = require('vinyl-paths');
-
+var folders = require('gulp-folders');
 var PATHS = {
     spritesOriginalFiles: 'src/**/sprites/*.png'
 }
+
+
+// directory
+var dir = {
+    source: 'src/qd/images/sprites',
+    scss: 'src/qd/css',
+    img: 'qd/images/sprites',
+    sprite: 'qd/sprite'
+};
+
+/**
+ * 获得文件的目录
+ */
+
+var getFolders = function(dir) {
+    return fs.readdirSync(dir)
+        .filter(function(file) {
+            return fs.statSync(path.join(dir, file)).isDirectory();
+        });
+}
+
+
+var scriptsPath = 'src/qd/images/sprites'; // folder to process
+
+
+// task.sprites
+gulp.task('spp', function() {
+    // set target folders
+    var folders = getFolders(scriptsPath);
+    var iii = 1;
+    // generate image & sass files
+    folders.map(function(folder) {
+        console.log('===== '+iii);
+        iii += 1;
+        console.log('原始路径:' + 'src/qd/images/sprites/' + folder + '/*.png');
+        // console.log('src/qd/images/sprites' + folder + '.png');
+        var spriteData = gulp.src('src/qd/images/sprites/' + folder + '/*.png')
+            .pipe(spritesmith({
+                imgName: 'sprites-' + folder + '@2x.png',
+                cssName: folder + '-sprite' + '.scss',
+                algorithm: 'binary-tree',
+                padding: 4,
+                cssFormat: 'scss'
+            }));
+        console.log(folder + '图片out:' + 'build/'+ dir.img + '/' + folder);
+        console.log(folder + 'CSS out:' + 'build/' + dir.sprite + '/' + folder);
+        spriteData.img.pipe(gulp.dest('build/'+ dir.img + '/' + folder));
+        spriteData.css.pipe(gulp.dest('build/' + dir.sprite + '/' + folder));
+    });
+});
+
+
+
+
 
 
 /**
@@ -35,13 +89,10 @@ var PATHS = {
  */
 
 
+
 gulp.task('retinasprite', function(cb) {
-    // del(['assets/images/*.png'], function() {
-    //     console.log(chalk.red('[清理] 删除旧有精灵'))
-    // });
     console.log('开始生成精灵图');
-    console.log(path.dirname);
-    var spriteData = gulp.src(PATHS.spritesOriginalFiles)
+    var spriteData = gulp.src('src/qd/images/sprites/free/*.png')
         .pipe(spritesmith({
             imgName: 'sprite@2x.png',
             cssName: '_sprite.scss',

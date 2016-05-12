@@ -21,7 +21,7 @@ var routerMap = {
 
     //排行榜单
     'rank.qidian.com/': { 'views': '/hot/index', 'cgi': '/page/rank/index'},//人气榜单
-    'rank.qidian.com/fy': { 'views': '/hotnew', 'cgi': '/page/rank/fy' },//风云榜
+    'rank.qidian.com/yuepiao': { 'views': '/hotnew', 'cgi': '/page/rank/fy' },//风云榜
     'rank.qidian.com/daily': { 'views': '/hotnew', 'cgi': '/page/rank/dailyHot' },//24小时热销榜
     'rank.qidian.com/vip': { 'views': '/hotnew', 'cgi': '/page/rank/vipClick' },//会员点击榜
     'rank.qidian.com/recom': { 'views': '/hotnew', 'cgi': '/page/rank/recom' },//推荐票榜

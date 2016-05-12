@@ -2,7 +2,7 @@
 <div class="range-sidebar fl">
     <!-- start 选择站点 -->
     <div class="site">
-        <a class="act" href="javascript:">主站</a><a href="http://all.qdmm.com/Default.aspx" target="_blank">女生</a>
+        <a class="act" href="javascript:" data-bid="qd_B01">主站</a><a href="http://all.qdmm.com/Default.aspx" target="_blank" data-bid="qd_B02">女生</a>
     </div>
     <!-- end 选择站点 -->
     <!-- start 已选-->
@@ -135,7 +135,7 @@
             selectedArr长度大于0说明用户选择了某一项筛选条件
             */
             for(var i=0;i< selectedArr.length;i++){%>
-            <a href="javascript:" type="<%= selectedArr[i]['type']%>"><%= selectedArr[i]['name']%><cite class="iconfont">&#xe61f;</cite></a>
+            <a href="javascript:" data-bid="qd_B03" type="<%= selectedArr[i]['type']%>"><%= selectedArr[i]['name']%><cite class="iconfont">&#xe61f;</cite></a>
             <%}}else{
             /*
             selectedArr长度小于或等于0说明用户未选择任何筛选条件，因此显示'全部'
@@ -183,11 +183,11 @@
             <h3>分类</h3>
             <!-- 第一行一级分类 cite和i是嵌套的小三角-->
             <ul class="row-1" type="category">
-                <li id="all" data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
-                <li data-id="21" id="xh" class="<%= xh%>"><a href="javascript:">玄幻<cite><i></i></cite></a></li>
-                <li data-id="1" id="qh" class="<%= qh%>"><a href="javascript:">奇幻<cite><i></i></cite></a></li>
-                <li data-id="2" id="wx" class="<%= wx%>"><a href="javascript:">武侠<cite><i></i></cite></a></li>
-                <li data-id="22" id="xx" class="<%= xx%>"><a href="javascript:">仙侠<cite><i></i></cite></a></li>
+                <li id="all" data-id="-1" <%= all%>><a href="javascript:" data-bid="qd_B04">全部</a></li>
+                <li data-id="21" id="xh" class="<%= xh%>"><a href="javascript:" data-bid="qd_B05">玄幻<cite><i></i></cite></a></li>
+                <li data-id="1" id="qh" class="<%= qh%>"><a href="javascript:"  data-bid="qd_B06">奇幻<cite><i></i></cite></a></li>
+                <li data-id="2" id="wx" class="<%= wx%>"><a href="javascript:"  data-bid="qd_B07">武侠<cite><i></i></cite></a></li>
+                <li data-id="22" id="xx" class="<%= xx%>"><a href="javascript:" data-bid="qd_B08">仙侠<cite><i></i></cite></a></li>
             </ul>
             <!-- 点击后展示对应的子分类 默认隐藏 目前是为了展示选中一级分类时的状态 -->
             <!-- 跳转回显页面时，先隐藏所有的sub-type，然后重新显示对应行的子分类 -->
@@ -295,11 +295,11 @@
             %>
 
             <ul class="row-2" type="category">
-                <li data-id="4" id="ds" class="<%= ds%>"><a href="javascript:">都市<cite><i></i></cite></a></li>
-                <li data-id="15" id="zc" class="<%= zc%>"><a href="javascript:">职场<cite><i></i></cite></a></li>
-                <li data-id="6" id="js" class="<%= js%>"><a href="javascript:">军事<cite><i></i></cite></a></li>
-                <li data-id="5" id="ls" class="<%= ls%>"><a href="javascript:">历史<cite><i></i></cite></a></li>
-                <li data-id="7" id="yx" class="<%= yx%>"><a href="javascript:">游戏<cite><i></i></cite></a></li>
+                <li data-id="4" id="ds" class="<%= ds%>"><a href="javascript:" data-bid="qd_B09">都市<cite><i></i></cite></a></li>
+                <li data-id="15" id="zc" class="<%= zc%>"><a href="javascript:" data-bid="qd_B10">职场<cite><i></i></cite></a></li>
+                <li data-id="6" id="js" class="<%= js%>"><a href="javascript:" data-bid="qd_B11">军事<cite><i></i></cite></a></li>
+                <li data-id="5" id="ls" class="<%= ls%>"><a href="javascript:" data-bid="qd_B12">历史<cite><i></i></cite></a></li>
+                <li data-id="7" id="yx" class="<%= yx%>"><a href="javascript:" data-bid="qd_B13">游戏<cite><i></i></cite></a></li>
             </ul>
             <!-- 点击后展示对应的子分类 默认隐藏 -->
             <%
@@ -425,13 +425,11 @@
                 }
             }
             %>
-
-
             <ul class="row-3" type="category">
-                <li data-id="8" id="jj" class="<%= jj%>"><a href="javascript:">竞技<cite><i></i></cite></a></li>
-                <li data-id="9" id="kh" class="<%= kh%>"><a href="javascript:">科幻<cite><i></i></cite></a></li>
-                <li data-id="10" id="ly" class="<%= ly%>"><a href="javascript:">灵异<cite><i></i></cite></a></li>
-                <li data-id="12" id="ecy" class="<%= ecy%>"><a href="javascript:">二次元<cite><i></i></cite></a></li>
+                <li data-id="8" id="jj" class="<%= jj%>"><a href="javascript:" data-bid="qd_B14">体育<cite><i></i></cite></a></li>
+                <li data-id="9" id="kh" class="<%= kh%>"><a href="javascript:" data-bid="qd_B15">科幻<cite><i></i></cite></a></li>
+                <li data-id="10" id="ly" class="<%= ly%>"><a href="javascript:" data-bid="qd_B16">灵异<cite><i></i></cite></a></li>
+                <li data-id="12" id="ecy" class="<%= ecy%>"><a href="javascript:" data-bid="qd_B17">二次元<cite><i></i></cite></a></li>
             </ul>
             <!-- 点击后展示对应的子分类 默认隐藏 -->
             <%
@@ -532,9 +530,9 @@
             %>
             <h3>状态</h3>
             <ul type="action">
-                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
-                <li data-id="0" <%= loading%>><a href="javascript:">连载</a></li>
-                <li data-id="1" <%= finished%>><a href="javascript:">完本</a></li>
+                <li data-id="-1" <%= all%>><a href="javascript:" data-bid="qd_B18">全部</a></li>
+                <li data-id="0" <%= loading%>><a href="javascript:" data-bid="qd_B19">连载</a></li>
+                <li data-id="1" <%= finished%>><a href="javascript:" data-bid="qd_B20">完本</a></li>
             </ul>
         </div>
         <%}%>
@@ -555,9 +553,9 @@
 
             <h3>属性</h3>
             <ul type="vip">
-                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
-                <li data-id="0" <%= free%>><a href="javascript:">免费</a></li>
-                <li data-id="1" <%= vip%>><a href="javascript:">VIP</a></li>
+                <li data-id="-1" <%= all%>><a href="javascript:" data-bid="qd_B21">全部</a></li>
+                <li data-id="0" <%= free%>><a href="javascript:" data-bid="qd_B22">免费</a></li>
+                <li data-id="1" <%= vip%>><a href="javascript:" data-bid="qd_B23">VIP</a></li>
             </ul>
         </div>
         <%}%>
@@ -583,12 +581,12 @@
             %>
             <h3>字数</h3>
             <ul type="size">
-                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
-                <li data-id="1" <%= below30%>><a href="javascript:">30万字以下</a></li>
-                <li data-id="2" <%= bet30and50%>><a href="javascript:">30-50万字</a></li>
-                <li data-id="3" <%= bet50and100%>><a href="javascript:">50-100万字</a></li>
-                <li data-id="4" <%= bet100and200%>><a href="javascript:">100-200万字</a></li>
-                <li data-id="5" <%= above200%>><a href="javascript:">200万字以上</a></li>
+                <li data-id="-1" <%= all%>><a href="javascript:" data-bid="qd_B24">全部</a></li>
+                <li data-id="1" <%= below30%>><a href="javascript:" data-bid="qd_B25">30万字以下</a></li>
+                <li data-id="2" <%= bet30and50%>><a href="javascript:" data-bid="qd_B26">30-50万字</a></li>
+                <li data-id="3" <%= bet50and100%>><a href="javascript:" data-bid="qd_B27">50-100万字</a></li>
+                <li data-id="4" <%= bet100and200%>><a href="javascript:" data-bid="qd_B28">100-200万字</a></li>
+                <li data-id="5" <%= above200%>><a href="javascript:" data-bid="qd_B29">200万字以上</a></li>
             </ul>
         </div>
         <!-- end 作品字数 -->
@@ -606,9 +604,9 @@
             %>
             <h3>品质</h3>
             <ul type="sign">
-                <li data-id="-1" <%= all%>><a href="javascript:">全部</a></li>
-                <li data-id="1" <%= signWork%>><a href="javascript:">签约作品</a></li>
-                <li data-id="2" <%= goodWork%>><a href="javascript:">精品小说</a></li>
+                <li data-id="-1" <%= all%>><a href="javascript:" data-bid="qd_B30">全部</a></li>
+                <li data-id="1" <%= signWork%>><a href="javascript:" data-bid="qd_B31">签约作品</a></li>
+                <li data-id="2" <%= goodWork%>><a href="javascript:" data-bid="qd_B32">精品小说</a></li>
             </ul>
         </div>
         <!-- end 作品品质 -->
@@ -620,7 +618,7 @@
             var n;
             var topTags=['全部','豪门','孤儿','盗贼','特工','黑客','明星','特种兵','杀手','老师','学生'];
             if(tag==-1){
-                tag='全部'
+                tag='全部';
             }
             for(n=0;n < topTags.length;n++){
                 if(tag==topTags[n]){
@@ -629,9 +627,14 @@
             }
             %>
             <ul type="tag">
-                <%for(var i =0;i < topTags.length;i++ ){%>
-                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:"><%= topTags[i]%></a></li>
-                <%}%>
+                <%
+                for(var i =0;i < topTags.length;i++ ){
+                if(i==0){
+                %>
+                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:" data-bid="qd_B33"><%= topTags[i]%></a></li>
+                <%}else{%>
+                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:" data-bid="qd_B34" data-tid="<%= topTags[i]%>"><%= topTags[i]%></a></li>
+                <%}}%>
 
                 <!-- 预先被隐藏的标签 -->
                 <% var hiddenList =
@@ -643,7 +646,7 @@
                 "宅男","无限流","技术流","凡人流","热血","重生","穿越"
                 ];
                 if(n < topTags.length){%>
-                <li class="more" id="unfold"><a href="javascript:">展开<span><i></i></span></a></li>
+                <li class="more" id="unfold"><a href="javascript:" data-bid="qd_B35">展开<span><i></i></span></a></li>
                 <%for(var i=0;i< hiddenList.length;i++){%>
                 <li class="hidden"><a href="javascript:"><%= hiddenList[i]%></a></li>
                 <%}}else{

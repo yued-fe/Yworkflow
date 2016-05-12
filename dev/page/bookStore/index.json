@@ -86,34 +86,7 @@
       "pageMax": 10
     },
     "listInfo": [
-      {
-        "bookId": 1003347845,
-        "bookName": "炉石传说：破碎的世界",
-        "bookUrl": "http://www.baidu.com",
-        "desc": "炉石传说：破碎的世界",
-        "chanId": "7 ",
-        "chanName": "游戏",
-        "chanUrl": "http://www.baidu.com",
-        "subCateId": "240 ",
-        "subCateName": "游戏异界",
-        "subCateUrl": "http://www.baidu.com",
-        "lastChapterId": "94372330 ",
-        "lastChapterName": "第798章 班花的小字条 ",
-        "lastChapterUrl": "http://www.baidu.com",
-        "lastUpdateTime": "2015-08-20 20:37 ",
-        "wordCnt": "300万",
-        "authorId": 3993363,
-        "authorName": "琦文可舞",
-        "authorUrl": "http://www.baidu.com",
-        "clickCnt": "300万",
-        "recomendCnt": "300万",
-        "bookType": "1 ",
-        "isVip": "1 ",
-        "bookStatus": "是否连载 ",
-        "signStatus": "是否签约 ",
-        "isInShelf": "false ",
-        "imageUrl": "http://image.cmfu.com/books/1.jpg"
-      }
+
     ]
   }
 }

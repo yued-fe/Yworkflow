@@ -3,7 +3,7 @@
  * @author yangye
  * Created: 16-04-07
  */
-LBF.define('site.component.header', function (require, exports, module) {
+LBF.define('/qd/js/component/header.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Autocomplete = require('ui.widget.Autocomplete.Autocomplete'),
         Cookie = require('util.Cookie');

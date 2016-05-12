@@ -74,9 +74,6 @@
   color: white; }
 
 /* 设置ul样式隐藏最后一根横线 */
-#limit-list ul {
-  height: 1085px;
-  overflow: hidden; }
 #limit-list .book-img-text {
   padding-bottom: 50px; }
 

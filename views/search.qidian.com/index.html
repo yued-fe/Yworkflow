@@ -115,7 +115,7 @@
 
             <!-- start 搜索结果列表 —— 有结果 -->
             <div id="result-list">
-            <% if (data['showRecommedUserData'] == false)   {
+            <% if (data['showSearchList'] == false)   {
                 var title = '为你推荐';
                 if(data['showMonthTicketTopList'] == true){
                 title = '原创风云榜<i>·</i>新书';
@@ -138,10 +138,10 @@
                                     <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= data['recommendUserData'][i]['authorUrl'] %>" target="_blank"><%= data['recommendUserData'][i]['authorName'] %></a><em>|</em><a href="<%= data['recommendUserData'][i]['chanUrl'] %>" target="_blank"><%= data['recommendUserData'][i]['chanName'] %></a><em>|</em><span><%= data['recommendUserData'][i]['bookStatus'] %></span>
                                 </p>
                                 <p class="intro">
-                                   <%= data['recommendUserData'][i]['recommendReason'] %>
+                                   <%= data['recommendUserData'][i]['bookInfo'] %>
                                 </p>
-                                <!--<p class="update"><a class="red" href="javascript:void(0);"><%= data['recommendUserData'][i]['recommendReason'] %></a><em>&#183;</em><span><%= data['listInfo'][i]['lastUpdateTime'] %></span>-->
-                                <!--</p>-->
+                                <p class="update"><a class="red def" href="javascript:"><%= data['recommendUserData'][i]['recommendReason'] %></a>
+                                </p>
                             </div>
                             <div class="book-right-info">
                      <!--            <div class="total">
@@ -150,7 +150,7 @@
                                     <p><span> <%= data['recommendUserData'][i]['clickCnt'] %></span>总点击</p>
                                 </div> -->
                                 <p class="btn">
-                                    <a class="red-btn" href="<%= data['recommendUserData'][i]['bookUrl'] %>" target="_blank">查看介绍</a>
+                                    <a class="red-btn" href="<%= data['recommendUserData'][i]['bookUrl'] %>" target="_blank">书籍详情</a>
                                     <% if (data['recommendUserData'][i]['isInShelf'] == false) { %>
                                     <a class="blue-btn add-book" href="javascript:" data-bookId=<%= data['recommendUserData'][i]['bookId'] %>>加入书架</a>
                                     <% } else {%>
@@ -178,14 +178,14 @@
                                     <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= data['monthTicketTopList'][i]['authorUrl'] %>" target="_blank"><%= data['monthTicketTopList'][i]['authorName'] %></a><em>|</em><a href="<%= data['monthTicketTopList'][i]['chanUrl'] %>" target="_blank"><%= data['monthTicketTopList'][i]['chanName'] %></a><em>|</em><span><%= data['monthTicketTopList'][i]['bookStatus'] %></span>
                                 </p>
                                 <p class="intro">
-                                   <%= data['monthTicketTopList'][i]['desc'] %>
+                                   <%= data['monthTicketTopList'][i]['bookInfo'] %>
                                 </p>
-                                <p class="update"><a href="<%= data['monthTicketTopList'][i]['lastChapterUrl'] %>" target="_blank">最新更新  <%= data['monthTicketTopList'][i]['lastChapterName'] %></a><em>&#183;</em><span><%= data['listInfo'][i]['lastUpdateTime'] %></span>
+                                <p class="update"><a href="<%= data['monthTicketTopList'][i]['lastChapterUrl'] %>" target="_blank">最新更新  <%= data['monthTicketTopList'][i]['lastChapterName'] %></a><em>&#183;</em><span><%= data['monthTicketTopList'][i]['lastUpdateTime'] %></span>
                                 </p>
                             </div>
                             <div class="book-right-info">
                                 <p class="btn">
-                                    <a class="red-btn" href="<%= data['monthTicketTopList'][i]['bookUrl'] %>" target="_blank">查看介绍</a>
+                                    <a class="red-btn" href="<%= data['monthTicketTopList'][i]['bookUrl'] %>" target="_blank">书籍详情</a>
                                     <% if (data['monthTicketTopList'][i]['isInShelf'] == false) { %>
                                     <a class="blue-btn add-book" href="javascript:" data-bookId=<%= data['monthTicketTopList'][i]['bookId'] %>>加入书架</a>
                                     <% } else {%>
@@ -236,7 +236,7 @@
                                 </div>
                                 <p class="btn">
 
-                                    <a class="red-btn" href="<%= data['listInfo'][i]['bookUrl'] %>" target="_blank">查看介绍</a>
+                                    <a class="red-btn" href="<%= data['listInfo'][i]['bookUrl'] %>" target="_blank">书籍详情</a>
                                     <% if (data['listInfo'][i]['isInShelf'] == false) { %>
                                     <a class="blue-btn add-book" href="javascript:" data-bookId=<%= data['listInfo'][i]['bookId'] %>>加入书架</a>
                                     <% } else {%>
@@ -330,7 +330,7 @@
     // 用作统计PV
     g_data.pageId = 'qd_p_qidian';
     // 域名环境变量
-    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 
 </script>
 <script>

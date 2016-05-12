@@ -19,7 +19,6 @@ var bust = require('gulp-buster');
 
 // 设置相关路径
 var paths = {
-    assets: 'assets',
     sass: 'src/**/*.scss',
     css: 'build',
     prelease:'_prelease'
@@ -29,7 +28,7 @@ var paths = {
 gulp.task('sass', function(cb) {
     gulp.src(paths.sass)
         .pipe(plumber())
-        // .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(csscomb())
         // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
@@ -42,12 +41,7 @@ gulp.task('sass', function(cb) {
     gulp.src('src/**/*.css')
         .pipe(plumber())
         .pipe(csscomb())
-        // .pipe(sourcemaps.init())
-        // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
         .pipe(gulp.dest(paths.css))
-        // .pipe(sourcemaps.write({
-        //     sourceRoot: '/css/sass'
-        // }))
         cb()
 });
 

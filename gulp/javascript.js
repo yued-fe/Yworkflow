@@ -25,8 +25,6 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scripts', function(cb) {
-    // Minify and copy all JavaScript (except vendor scripts)
-    // with sourcemaps all the way down
     gulp.src(paths.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())

@@ -12,7 +12,7 @@
         var navHighLight = 2;
             var categoryNav =   data['paramList']["chanId"];//分类menu高亮
 
-            categoryNav = categoryNav.toString();
+
 
         var listTypeAct = 0;
 
@@ -54,12 +54,12 @@
                     menuTitle='人气榜单';
                     break;
                 case 1:
-                    if (categoryNav == '0' ){
+                    //原创风云榜需要显示时间控件,但点击当月新书后不需要控件。
+                    if (categoryNav === 0 ){
                         needTime = 0
-                    }else{
+                    } else {
                         needTime = 1
                     }
-
 
                     var act1='class=act';
                      menuTitle='原创风云榜';
@@ -243,7 +243,7 @@
         %>
 <head>
     <meta charset="UTF-8">
-    <title>起点中文网_阅文集团旗下网站</title>
+    <title><%= menuTitle %>_起点中文网_阅文集团旗下网站</title>
     <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
     <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
     <meta name="robots" content="all">
@@ -297,10 +297,9 @@
                 <h3><%=menuTitle%><span><%=data['pageDetail']['rankDesc']%></span></h3>
                 <!-- start 分类排序筛选 -->
 
-                    <% if (needTime == 0) { %>
+                    <% if (needTime === 0) { %>
                     <div class="rank-toolbar-wrap notimebox">
                     <div class="tool-box">
-                        <!-- start 选择日期，图示工具栏 -->
                         <!-- rankType == 8 VIP打赏榜时没有btn-box这个div，单独显示切换按钮 -->
                         <% if (sideBarHighlight == 8) { %>
                         <div class="view-mode" id="view-mode">
@@ -331,7 +330,6 @@
 
                         <% } %>
 
-                        <!-- end 选择日期，图示工具栏 -->
                         <!-- start 筛选分类 -->
 
                         <!-- end 筛选分类 -->
@@ -343,8 +341,7 @@
                                 <div class="view-mode fr" id="view-mode">
                                     <a class="img-text iconfont <%=actFullView %>" href="javascript:">&#xe619;</a><em>|</em><a class="only-text iconfont  <%=actListView %>" href="javascript:">&#xe61a;</a>
                                 </div>
-
-
+                                <!-- start 选择日期，图示工具栏 -->
                                 <div id="year" class="lbf-combobox">
                                     <select>
 
@@ -390,6 +387,7 @@ var _currentMonth = (new Date().getMonth()) + 1
                                         <span class="lbf-combobox-icon">&nbsp;</span>
                                     </a>
                                 </div>
+                                <!-- end 选择日期，图示工具栏 -->
                             </div>
                             <!-- end 选择日期，图示工具栏 -->
                             <!-- start 筛选分类 -->
@@ -405,8 +403,19 @@ var _currentMonth = (new Date().getMonth()) + 1
             <!-- end rank头部区域 -->
             <!-- start 榜单区域 -->
             <div class="rank-body">
-                <!-- start 榜单小说列表 -->
-                <div class="rank-view-list" id="rank-view-list">
+                <%
+                  //判断无数据时的样式
+                  if (data['bookList'].length == 0) {
+                %>
+                    <!-- start 无显示数据 -->
+                    <div class="no-rank-data">
+                        <span></span>
+                        <p>无显示数据</p>
+                    </div>
+                    <!-- end 无显示数据 -->
+                <% } else { %>
+                    <!-- start 榜单小说列表 -->
+                    <div class="rank-view-list" id="rank-view-list">
                    <% if (data['paramList']['listType'] == 1) { %>
                     <!-- start 图文模式 -->
                     <div class="book-img-text">
@@ -463,7 +472,7 @@ var _currentMonth = (new Date().getMonth()) + 1
                                 <col width="10%">
                                 <col width="10%">
                                 <col width="14%">
-                                <col width="6%">
+                                <col width="7%">
                             </colgroup>
                             <thead>
                             <tr>
@@ -533,7 +542,8 @@ var _currentMonth = (new Date().getMonth()) + 1
                     <!-- end 文字表格模式 -->
                     <% } %>
                 </div>
-                <!-- end 榜单小说列表 -->
+                    <!-- end 榜单小说列表 -->
+                <% } %>
             </div>
             <!-- end 榜单区域 -->
             <!-- start 分页 -->
@@ -556,7 +566,7 @@ var _currentMonth = (new Date().getMonth()) + 1
     // 用作统计PV
     g_data.pageId = 'qd_p_qidian';
     // 域名环境变量
-    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
     LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.hotnew'], function ($, SpeedReport, HotNew) {

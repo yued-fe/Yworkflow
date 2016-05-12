@@ -92,6 +92,8 @@
             border: none;
             border-left: 1px solid #AAA;
             border-right: 1px solid #AAA;
+            border-left: 1px solid rgba(255, 255, 255, 0.4);
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
             text-align: center;
             white-space: normal;
             color: white;
@@ -1385,11 +1387,16 @@ em.point {
     background-size: 100%; }
 
   .update-wrap .update-list-wrap .update-list table td .vip {
-    background: url("/qd/images/common/tag_2x.png") 0 -18px no-repeat;
+    background-image: url("/qd/images/common/tag_2x.png");
+    background-position: 0 -20px;
     background-size: 100%; }
 
-  .book-list-wrap .book-list li strong .hot {
-    background: url("/qd/images/common/tag_2x.png") 0 -11px no-repeat; } }
+  .index-two-wrap .book-list-wrap .book-list li strong .hot {
+    background-image: url("/qd/images/common/tag_2x.png");
+    width: 17px;
+    height: 9px;
+    background-position: 0 -9px;
+    background-size: 100%; } }
 /* 1250px以下 排行榜ul宽度去除，不让右侧出白边*/
 @media (max-width: 1250px) {
   .rank-list-row {

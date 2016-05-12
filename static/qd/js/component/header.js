@@ -85,6 +85,7 @@ LBF.define('site.component.header', function (require, exports, module) {
 
         initAutocompleteMod: function () {
             new Autocomplete({
+                deferRequestBy:300,
                 selector: '#s-box',
                 lookup: $('#s-box').val(),
                 serviceUrl: '/ajax/Search/AutoComplete',
@@ -173,18 +174,18 @@ LBF.define('site.component.header', function (require, exports, module) {
      * 页游手游下拉菜单展示
      * @method gameListDropDown
      */
-    var gameListDropDown = {
+    /*var gameListDropDown = {
         init: function () {
             // 导航右侧 页游手游下拉菜单
-            this.gameDropDown();
+            //this.gameDropDown();
 
             //判断是否登录，显示页游最近玩过的页游数据
             //this.latelyWebGameData();
         },
-        /**
+        /!**
          * 导航条 页游、手游鼠标移入移出延时下拉菜单
          * @method gameDropDown
-         */
+         *!/
         gameDropDown: function () {
             var webGame = $('#game-web');
             var phoneGame = $('#game-phone');
@@ -229,7 +230,7 @@ LBF.define('site.component.header', function (require, exports, module) {
                 clearTimeout(phoneTime);
             });
         },
-        /*latelyWebGameData: function () {
+        latelyWebGameData: function () {
             //登录态未超时，或初次登录成功后显示最近玩过的下拉框，隐藏未登录的下拉框
             if (Cookie.get('cmfuToken')) {
                 var webGameBox = $('#web-dropdown');
@@ -277,7 +278,7 @@ LBF.define('site.component.header', function (require, exports, module) {
                     }
                 });
             }
-        }*/
-    };
-    gameListDropDown.init();
+        }
+    };*/
+    //gameListDropDown.init();
 });

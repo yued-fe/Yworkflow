@@ -1,14 +1,17 @@
 /*
- * 创建Gulp配置文件
+ * Author:luolei
  */
 
 //引入 gulp
 var gulp = require('gulp');
 var requireDir = require('require-dir');
+var nodemon = require('gulp-nodemon'); // node watch
+
 var pkg = require('./package.json'); // 获得配置文件中相关信息
 var plumber = require("gulp-plumber"); // 错误处理
 var chalk = require('chalk'); // 美化日志
-var nodemon = require('gulp-nodemon'); // node watch
+
+
 requireDir('./gulp');
 
 // 设置相关路径
@@ -16,27 +19,17 @@ var paths = {
     css: ['src/**/*.scss', 'src/**/*.css'],
     js: ['src/**/*.js'], // js文件相关目录
     sass: 'src/**/*.scss',
-    lbfsass: 'static/activity/css/lbfUI/css/sass/**/*',
-    img: ['src/**/*.jpg', 'src/**/*.png', 'src/**/*.gif'] // 图片相关
+    img: ['src/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF}'] // 图片相关
 };
 
 
-
 function gulpWatch() {
-    gulp.task('watch', function() {
         gulp.watch(paths.js, ['scripts']);
         gulp.watch(paths.css, ['sass']);
         gulp.watch(paths.img, ['images-copy']);
-    });
 }
 
-gulpWatch();
-
-
-
-
 var watching = false;
-
 
 gulp.task('browserSync', ['dev'], function() {
     browserSync.init(null, {
@@ -90,4 +83,4 @@ gulp.task('build', ['cleanbuild', 'sass', 'scripts','sfile']);
 //创建带版本号的静态资源
 gulp.task('build-static', ['clean', 'rev','rev-fix-url']);
 //创建替换所有静态资源
-gulp.task('build-views', ['rev-views', 'rev-fix', 'copy']);
+gulp.task('build-views', ['rev-views', 'rev-fix-url', 'copy']);

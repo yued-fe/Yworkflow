@@ -90,7 +90,6 @@
         var speedTimer = [],
                 speedZero = new Date().getTime();
     </script>
-
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
@@ -145,7 +144,7 @@
                 <div class="rank-list-row cf mb20">
                     <!-- start 原创风云榜 -->
                     <div class="rank-list">
-                        <h3 class="wrap-title">原创风云榜<i>&#183;</i>新书<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao" data-aid="qd_A108"><em>&#124;</em>更多</a>
+                        <h3 class="wrap-title">原创风云榜<i>&#183;</i>新书<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao"><em>&#124;</em>更多</a>
                         </h3>
                         <div class="book-list">
                             <% if (data.chartForbes.length === 0) { %>
@@ -191,7 +190,7 @@
                     <!-- end 原创风云榜 -->
                     <!-- start 24小时热销 -->
                     <div class="rank-list sort-list">
-                        <h3 class="wrap-title">24小时热销榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/hotsales" data-aid=""><em>&#124;</em>更多</a></h3>
+                        <h3 class="wrap-title">24小时热销榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/hotsales"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartDaySales.length === 0) { %>
                             <div class="no-rank-data">
@@ -244,10 +243,10 @@
                     </div>
                     <!-- end 24小时热销 -->
                     <!-- start 会员点击榜 -->
-                    <div class="rank-list" data-aid="qd_A111">
+                    <div class="rank-list">
                         <div class="tab-title">
                             <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">会员点击榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/click" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                            <h3 class="wrap-title">会员点击榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/click"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -373,10 +372,10 @@
                     </div>
                     <!-- end 会员点击榜 -->
                     <!-- start 推荐票榜 -->
-                    <div class="rank-list mr0" data-aid="qd_A112">
+                    <div class="rank-list mr0">
                         <div class="tab-title">
                             <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">推荐票榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/recom" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                            <h3 class="wrap-title">推荐票榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/recom"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -502,8 +501,8 @@
                     </div>
                     <!-- end 推荐票榜 -->
                     <!-- start 收藏榜 -->
-                    <div class="rank-list" data-aid="qd_A113">
-                            <h3 class="wrap-title">收藏榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/collect" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                    <div class="rank-list">
+                            <h3 class="wrap-title">收藏榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/collect"><em>&#124;</em>更多</a></h3>
                             <div class="book-list">
                                 <% if (data.chartCollect.length === 0) { %>
                                 <div class="no-rank-data">
@@ -546,10 +545,10 @@
                     </div>
                     <!-- end 收藏榜 -->
                     <!-- start 完本榜 -->
-                    <div class="rank-list" data-aid="qd_A114">
+                    <div class="rank-list">
                         <div class="tab-title">
                             <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">完本榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/fin" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                            <h3 class="wrap-title">完本榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/fin"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -675,8 +674,8 @@
                     </div>
                     <!-- end 完本榜 -->
                     <!-- start 签约作家新书榜 -->
-                    <div class="rank-list" data-aid="qd_A113">
-                        <h3 class="wrap-title">签约作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                    <div class="rank-list">
+                        <h3 class="wrap-title">签约作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartVipAuthorNewBook.length === 0) { %>
                             <div class="no-rank-data">
@@ -718,8 +717,8 @@
                     </div>
                     <!-- end 签约作家新书榜 -->
                     <!-- start 公众作家新书榜 -->
-                    <div class="rank-list mr0" data-aid="qd_A113">
-                        <h3 class="wrap-title">公众作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/pubnewbook" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+                    <div class="rank-list mr0">
+                        <h3 class="wrap-title">公众作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/pubnewbook"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartPublicAuthor.length === 0) { %>
                             <div class="no-rank-data">
@@ -776,11 +775,11 @@
     // 环境变量，会按照环境选择性打log
     g_data.envType = '<%= envType %>';
     // 用作统计PV
-    g_data.pageId = 'qd_p_qidian';
-    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+    g_data.pageId = 'qd_P_all';
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.index'], function ($, SpeedReport, Index) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/rank/index.js'], function ($, SpeedReport, Index) {
 
         // 页面逻辑入口
         new Index({});

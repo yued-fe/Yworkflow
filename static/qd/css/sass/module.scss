@@ -177,7 +177,6 @@
 			em {
 				margin-top: -2px;
 				*margin-top: 0;
-				margin-left: 5px;
 			}
 		}
 		li a {
@@ -290,10 +289,12 @@
 					i {
 						font: 14px/1 $simsun;
 						white-space: nowrap;
+						transition: ease-out .3s;
 					}
 					b {
 						font: 12px/1.5 Arial;
 						color: #999;
+						transition: all .5s;
 					}
 				}
 				em {
@@ -311,13 +312,20 @@
 				}
 			}
 			&:hover {
-				color: #000;
-				em {
-					margin: 2px 10px 0 -2px;
-				}
-				cite b {
-					transition: all .3s;
-					color: #000;
+				color: $hover;
+				cite {
+					em {
+						margin: 2px 11px 0 -3px;
+						&.lingyi {
+							margin: 0 11px 0 -3px;
+						}
+						&.jingji, &.erciyuan {
+							margin: 1px 11px 0 -3px;
+						}
+					}
+					b {
+						color: $hover;
+					}
 				}
 			}
 		}
@@ -893,7 +901,7 @@ html:root {
 			input {
 				display: inline-block;
 				vertical-align: middle;
-				width: 26px;
+				width: 40px;
 				height: 22px;
 				margin-right: 10px;
 				border: 1px solid #F2F2F2;

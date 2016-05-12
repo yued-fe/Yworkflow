@@ -58,7 +58,20 @@ LBF.define('site.component.pinNav', function (require, exports, module) {
                 if (PinInput.val() == '') {
                     PinInput.val(PinInput.attr('placeholder'))
                 }
-                var url = 'http://sosu.qidian.com/searchresult.aspx?keyword=' + encodeURIComponent(PinInput.val());
+                //判断域名是否是搜索页，是的话当前页面搜索，否则跳转带值跳搜索页
+                if (g_data.domainSearch == location.hostname) {
+                    location.href = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(PinInput.val());
+                } else {
+                    // 事件触发超链接的方案，window.open是千万不能用的！
+                    var url = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(PinInput.val());
+                    var el = document.createElement("a");
+                    document.body.appendChild(el);
+                    el.href = url;
+                    el.target = '_blank';
+                    el.click();
+                    document.body.removeChild(el);
+                }
+
                 $(this).attr('href', url);
                 return true;
             });
@@ -70,13 +83,19 @@ LBF.define('site.component.pinNav', function (require, exports, module) {
                     if (PinInput.val() == '') {
                         PinInput.val(PinInput.attr('placeholder'))
                     }
-                    var url = '//sosu.qidian.com/searchresult.aspx?keyword=' + encodeURIComponent(PinInput.val());
-                    var el = document.createElement("a");
-                    document.body.appendChild(el);
-                    el.href = url;
-                    el.target = '_blank';
-                    el.click();
-                    document.body.removeChild(el);
+                    //判断域名是否是搜索页，是的话当前页面搜索，否则跳转带值跳搜索页
+                    if (g_data.domainSearch == location.hostname) {
+                        location.href = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(PinInput.val());
+                    } else {
+                        // 事件触发超链接的方案，window.open是千万不能用的！
+                        var url = '//' + g_data.domainSearch + '?kw=' + encodeURIComponent(PinInput.val());
+                        var el = document.createElement("a");
+                        document.body.appendChild(el);
+                        el.href = url;
+                        el.target = '_blank';
+                        el.click();
+                        document.body.removeChild(el);
+                    }
                 }
             });
 

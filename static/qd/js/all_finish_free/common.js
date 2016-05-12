@@ -15,8 +15,9 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
         Node = require('ui.Nodes.Node'),
         ajaxSetting = require('site.component.ajaxSetting'),
         Checkbox = require('ui.Nodes.Checkbox'),
-        //report = require('site.component.report'),
+    //report = require('site.component.report'),
         Header = require('site.component.header'),
+        JSON = require('lang.JSON'),
         BrowserSupport = require('site.component.browserSupport'),
         Pagination = require('ui.Nodes.Pagination'),
         Login = require('site.index.login'),
@@ -38,15 +39,16 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
         events: {
             'click #free-type-tab li': 'freeTypeSwitch',
             'click #unfold': 'showTagMore',
-            'click .type-filter dl dd':'selectSubType',
-            'click .work-filter li':'selectCondition',
-            'click .selected a':'removeCondition',
-            'click .tool-bar .select-wrap a':'orderBy',
+            'click .type-filter dl dd': 'selectSubType',
+            'click .work-filter li': 'selectCondition',
+            'click .selected a': 'removeCondition',
+            'click .tool-bar .select-wrap a': 'orderBy',
             'click #img-text': 'imgTextMode',
-            'click #only-text':'onlyTextMode',
-            'click .go-sub-type':'filterBySubType'
+            'click #only-text': 'onlyTextMode',
+            'click .go-sub-type': 'filterBySubType',
+            'mouseenter #yiwen': 'showQuestionTip',
+            'mouseleave #yiwen': 'closeQuestionTip'
         },
-
         /**
          * Nodes default UI element，this.$element
          * @property elements
@@ -85,33 +87,32 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
             this.onlyNewBook();
             //获取当前查询的所有条件的参数及其值，全局化
             this.params = JSON.parse(g_data.params);
-            this.typeId=this.params.chanId;
-            this.subTypeId=this.params.subCateId;
-            this.actionId=this.params.action;
-            this.vipId=this.params.vip;
-            this.sizeId=this.params.size;
-            this.signId=this.params.sign;
-            this.tagName=this.params.tag;
-            this.orderId=this.params.orderId;
-            this.currentPage=parseInt($('#page-container').attr('data-page'));
-            this.newIn3Month=this.params.month;
-            this.showId=this.params.style;
+            this.typeId = this.params.chanId;
+            this.subTypeId = this.params.subCateId;
+            this.actionId = this.params.action;
+            this.vipId = this.params.vip;
+            this.sizeId = this.params.size;
+            this.signId = this.params.sign;
+            this.tagName = this.params.tag;
+            this.orderId = this.params.orderId;
+            this.currentPage = parseInt($('#page-container').attr('data-page'));
+            this.newIn3Month = this.params.month;
+            this.showId = this.params.style;
 
             //初始化分页
             this.pagiNation();
-            //勾选3月内新书
-            $('.get-new-book').on('check', function () {
-                that.newIn3Month=3;
-                that.currentPage = 1;
-                that.setUrl();
-                //location.href=that.setUrl();
-            });
-            $('.get-new-book').on('uncheck', function () {
-                that.newIn3Month=-1;
-                that.currentPage = 1;
-                that.setUrl();
-                //location.href=that.setUrl();
 
+            //勾选3个月内新书
+            $('.get-new-book').on('check', function () {
+                that.newIn3Month = 3;
+                that.currentPage = 1;
+                that.setUrl();
+            });
+            //取消勾选3个月内新书
+            $('.get-new-book').on('uncheck', function () {
+                that.newIn3Month = -1;
+                that.currentPage = 1;
+                that.setUrl();
             });
 
         },
@@ -123,14 +124,11 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
         freeTypeSwitch: function (e) {
             var target = $(e.target);
             var pageType = parseInt(target.attr('type'));
-            if(pageType==1){
-                location.href=g_data.domain;
-            }else{
-                location.href=g_data.domain+'/all';
+            if (pageType == 1) {
+                location.href = g_data.domain;
+            } else {
+                location.href = g_data.domain + '/all';
             }
-
-            //target.addClass('act').siblings().removeClass('act');
-            //$('#free-channel-wrap > div').eq($('#free-type-tab li').index(target)).show().siblings().hide();
         },
         /**
          * 展开更多标签
@@ -138,13 +136,13 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @param e 事件对象
          */
         showTagMore: function (e) {
-            if(e.target.nodeName.toLowerCase()=='span'){
+            if (e.target.nodeName.toLowerCase() == 'span') {
                 var target = $(e.target).parent().parent();
-            }else if(e.target.nodeName.toLowerCase()=='i'){
+            } else if (e.target.nodeName.toLowerCase() == 'i') {
                 var target = $(e.target).parent().parent().parent();
-            }else if(e.target.nodeName.toLowerCase()=='a'){
+            } else if (e.target.nodeName.toLowerCase() == 'a') {
                 var target = $(e.target).parent();
-            }else{
+            } else {
                 var target = $(e.target);
             }
 
@@ -157,8 +155,8 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
         onlyNewBook: function () {
             var onlyCheckbox = new Checkbox({
                 selector: '.get-new-book',
-                events:{
-                    click: function(){
+                events: {
+                    click: function () {
                         //这里获取点击前的状态
                         this.get('value');
                     }
@@ -170,11 +168,11 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @method selectType
          * @param e 事件对象
          */
-        selectType:function(e){
+        selectType: function (e) {
             //判断被点击节点类型
-            if(e.target.nodeName.toLowerCase()=='a'){
+            if (e.target.nodeName.toLowerCase() == 'a') {
                 var targetType = $(e.target).parent();
-            }else{
+            } else {
                 var targetType = $(e.target);
             }
             // var targetRow = targetType.parent();
@@ -190,10 +188,10 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @method selectSubType
          * @param e 事件对象
          */
-        selectSubType:function(e){
-            if(e.target.nodeName.toLowerCase()=='a'){
+        selectSubType: function (e) {
+            if (e.target.nodeName.toLowerCase() == 'a') {
                 var targetSubType = $(e.target).parent();
-            }else{
+            } else {
                 var targetSubType = $(e.target);
             }
             // 全局初始化子分类
@@ -209,7 +207,7 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @method filterBySubType
          * @param e 事件对象
          */
-        filterBySubType:function(e){
+        filterBySubType: function (e) {
             var target = $(e.target);
             this.typeId = parseInt(target.attr('data-typeid'));
             this.subTypeId = parseInt(target.attr('data-subtypeid'));
@@ -223,11 +221,11 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @param router 当前页面对应的路由字符串
          * @param paramArr 所有参数及值的数组
          */
-        combineUrl:function(router,paramArr){
+        combineUrl: function (router, paramArr) {
             var paramStr = '?';
-            for(var i=0;i<paramArr.length;i++){
-                paramStr=paramStr+paramArr[i].name+'='+paramArr[i].val;
-                if(i!=(paramArr.length-1)){
+            for (var i = 0; i < paramArr.length; i++) {
+                paramStr = paramStr + paramArr[i].name + '=' + paramArr[i].val;
+                if (i != (paramArr.length - 1)) {
                     paramStr = paramStr + '&'
                 }
             }
@@ -238,64 +236,64 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * 准备参数及其值对应的数组，最终跳转到拼接好的url上
          * @method setUrl
          */
-        setUrl:function(){
-                var that = this;
-                //请求参数存在数组中,如果分类切换了，子分类重置为-1
-                var currentParam=[
-                    {
-                        name:'size',
-                        val:that.sizeId
-                    },
-                    {
-                        name:'sign',
-                        val:that.signId
-                    },
-                    {
-                        name:'tag',
-                        val:decodeURI(that.tagName)=='全部'?-1:that.tagName
-                    },
-                    {
-                        name:'chanId',
-                        val:that.typeId
-                    },
-                    {
-                        name:'subCateId',
-                        val:(that.params.chanId==-1) || (that.typeId==that.params.chanId)?that.subTypeId:-1
-                    },
-                    {
-                        name:'orderId',
-                        val:that.orderId
-                    },
-                    {
-                        name:'page',
-                        val:that.currentPage
-                    },
-                    {
-                        name:'month',
-                        val:that.newIn3Month
-                    },
-                    {
-                        name:'style',
-                        val:that.showId
-                    }
-                ];
+        setUrl: function () {
+            var that = this;
+            //请求参数存在数组中,如果分类切换了，子分类重置为-1
+            var currentParam = [
+                {
+                    name: 'size',
+                    val: that.sizeId
+                },
+                {
+                    name: 'sign',
+                    val: that.signId
+                },
+                {
+                    name: 'tag',
+                    val: decodeURI(that.tagName) == '全部' ? -1 : that.tagName
+                },
+                {
+                    name: 'chanId',
+                    val: that.typeId
+                },
+                {
+                    name: 'subCateId',
+                    val: (that.params.chanId == -1) || (that.typeId == that.params.chanId) ? that.subTypeId : -1
+                },
+                {
+                    name: 'orderId',
+                    val: that.orderId
+                },
+                {
+                    name: 'page',
+                    val: that.currentPage
+                },
+                {
+                    name: 'month',
+                    val: that.newIn3Month
+                },
+                {
+                    name: 'style',
+                    val: that.showId
+                }
+            ];
 
-                //如果当前页面有'状态'筛选条件，则加入Url中
-                if($('.action-filter').length>0){
-                    currentParam.push({
-                        name:'action',
-                        val:that.actionId
-                    });
-                }
-                //如果当前页面有'vip'筛选条件，则加入Url中
-                if($('.vip-filter').length>0){
-                    currentParam.push({
-                        name:'vip',
-                        val:that.vipId
-                    });
-                }
-                //去往拼出的最终URL
-                location.href = that.combineUrl(g_data.url,currentParam);
+            //如果当前页面有'状态'筛选条件，则加入Url中
+            if ($('.action-filter').length > 0) {
+                currentParam.push({
+                    name: 'action',
+                    val: that.actionId
+                });
+            }
+            //如果当前页面有'vip'筛选条件，则加入Url中
+            if ($('.vip-filter').length > 0) {
+                currentParam.push({
+                    name: 'vip',
+                    val: that.vipId
+                });
+            }
+            //去往拼出的最终URL
+            location.href = that.combineUrl(g_data.url, currentParam);
         },
 
         //setUrl:function(){
@@ -364,20 +362,20 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @method selectCondition
          * @param e 事件对象
          */
-        selectCondition:function(e){
+        selectCondition: function (e) {
             var that = this;
-            if(e.target.nodeName.toLowerCase()=='a'){
+            if (e.target.nodeName.toLowerCase() == 'a') {
                 var target = $(e.target).parent();
-            }else{
+            } else {
                 var target = $(e.target);
             }
             //如果点击的是标签出'展开'标签，则不进行页面刷新
-            if(e.target.nodeName.toLowerCase()=='span'||e.target.nodeName.toLowerCase()=='i'||target.hasClass('more')){
+            if (e.target.nodeName.toLowerCase() == 'span' || e.target.nodeName.toLowerCase() == 'i' || target.hasClass('more')) {
                 return;
             }
             var filterType = target.parent().attr('type');
 
-            switch(filterType){
+            switch (filterType) {
                 case 'category':
                     that.typeId = parseInt(target.attr('data-id'));
                     that.subTypeId = -1;
@@ -404,20 +402,20 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
             that.setUrl();
             //location.href = this.setUrl();
         },
-        removeCondition:function(e){
+        removeCondition: function (e) {
             var that = this;
-            if(e.target.nodeName.toLowerCase()=='cite'){
+            if (e.target.nodeName.toLowerCase() == 'cite') {
                 var targetToRemove = $(e.target).parent();
-            }else{
+            } else {
                 var targetToRemove = $(e.target);
             }
 
             var filterType = targetToRemove.attr('type');
             //如果点击的是'全部'，则不予处理
-            if(filterType=='all'){
+            if (filterType == 'all') {
                 return;
             }
-            switch(filterType){
+            switch (filterType) {
                 case 'category':
                     that.typeId = -1;
                     that.subTypeId = -1;
@@ -451,10 +449,10 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * @method orderBy
          * @param e 事件对象
          */
-        orderBy:function(e){
-            if(e.target.nodeName.toLowerCase()=='cite'){
+        orderBy: function (e) {
+            if (e.target.nodeName.toLowerCase() == 'cite') {
                 var target = $(e.target).parent();
-            }else{
+            } else {
                 var target = $(e.target);
             }
             this.orderId = parseInt(target.attr('data-id'));
@@ -467,7 +465,7 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * 切换到图文模式
          * @method imgTextMode
          */
-        imgTextMode:function(){
+        imgTextMode: function () {
             //刷新页面
             this.showId = 1;
             this.currentPage = 1;
@@ -479,7 +477,7 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
          * 切换到列表模式
          * @method onlyTextMode
          */
-        onlyTextMode:function(){
+        onlyTextMode: function () {
             //刷新页面
             this.showId = 2;
             this.currentPage = 1;
@@ -511,8 +509,20 @@ LBF.define('site.all_finish_free.common', function (require, exports, module) {
                     }
                 }
             });
+        },
+        /**
+         * 显示“由于政策和内容原因，部分作品暂时未能显示”的提示
+         * @method showQuestionTip1
+         */
+        showQuestionTip: function () {
+            $('#hover-tip').fadeIn(200);
+        },
+        /**
+         * 隐藏“由于政策和内容原因，部分作品暂时未能显示”的提示
+         * @method closeQuestionTip
+         */
+        closeQuestionTip: function () {
+            $('#hover-tip').stop().fadeOut(200);
         }
-
-
     })
 });

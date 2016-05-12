@@ -3,19 +3,19 @@
  * @author  luolei
  * Created: 2016-04-08
  */
-LBF.define('site.rank.hotnew', function(require, exports, module) {
+LBF.define('/qd/js/rank/hotnew.js', function(require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
         ComboBox = require('ui.widget.ComboBox.ComboBox'),
-        ajaxSetting = require('site.component.ajaxSetting'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
         //report = require('site.component.report'),
-        Header = require('site.component.header'),
-        BrowserSupport = require('site.component.browserSupport'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
         Pagination = require('ui.Nodes.Pagination'),
         Cookie = require('util.Cookie'),
-        Url = require('site.component.url'),
-        Login = require('site.index.login'),
-        Addbook = require('site.free.addBook');
+        Url = require('/qd/js/component/url.js'),
+        Login = require('/qd/js/index/login.js'),
+        Addbook = require('/qd/js/freeaddBook.js');
     // Login = require('site.index.login');
 
     exports = module.exports = Node.inherit({

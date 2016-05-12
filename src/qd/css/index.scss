@@ -55,6 +55,9 @@
 					&#item1 {
 						display: block;
 					}
+					&:hover {
+
+					}
 				}
 				.thumb {
 					position: absolute;
@@ -101,6 +104,8 @@
 
 		}
 		.focus-img li {
+			position: relative;
+			z-index: 1;
 			float: left;
 			width: 33.33%;
 			height: 160px;
@@ -113,6 +118,11 @@
 			img {
 				display: block;
 				margin: 19px auto 0;
+			}
+			&:hover {
+				z-index: 2;
+				transition: all .5s;
+				box-shadow: 0 5px 16px #D9D4C7;
 			}
 		}
 	}
@@ -166,9 +176,9 @@
 						em {
 							display: inline-block;
 							width: 38px;
-							height: 16px;
+							height: 18px;
 							margin: -2px 10px 0 8px;
-							font: 12px/16px $simsun;
+							font: 12px/18px $simsun;
 							text-align: center;
 							vertical-align: middle;
 							color: #FFF;
@@ -274,6 +284,30 @@
 	.book-list ul {
 		height: 503px;
 		overflow: hidden;
+	}
+	/*
+	 * 只有首页第二屏排行有此样式
+	 * name后有hot小标识
+	 */
+	.book-list-wrap .book-list li strong {
+		float: left;
+		margin-left: -3px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #1A1A1A;
+		position: relative;
+		.name {
+			margin-left: 0;
+		}
+		.hot {
+			position: absolute;
+			top: 0;
+			right: -20px;
+			width: 18px;
+			height: 10px;
+			background: url("/qd/images/common/tag.png") 0 -11px no-repeat;
+		}
+
 	}
 }
 /* 编辑推荐 */
@@ -406,7 +440,7 @@
 					display: inline-block;
 					max-width: 114px;
 					height: 17px;
-					margin: -4px 0 0;
+					margin: -3px 0 0;
 					vertical-align: middle;
 					@include word-wrap-multi;
 					font-size: 14px;
@@ -463,10 +497,12 @@
 					margin-right: 3px;
 					font-family: Arial;
 					font-size: 14px;
+					vertical-align: middle;
 				}
 				i {
 					font-family: $simsun;
 					font-size: 12px;
+					vertical-align: middle;
 				}
 			}
 			p {
@@ -575,7 +611,6 @@
 		}
 		//二次元列表特殊处理
 		&.erciyuan {
-			margin-right: 0;
 			.hot-book-list dd a.classify {
 				width: 70px;
 			}
@@ -1056,15 +1091,10 @@
 					}
 					.vip {
 						float: left;
-						width: 20px;
-						height: 14px;
-						padding: 0 2px;
-						margin-top: 9px;
-						font: 700 12px/14px Arial;
-						text-align: center;
-						color: white;
-						background: #FC6C28;
-						overflow: hidden;
+						width: 19px;
+						height: 11px;
+						margin-top: 10px;
+						background: url("/qd/images/common/tag.png") no-repeat 0 -23px;
 					}
 					i {
 						float: right;
@@ -1180,7 +1210,7 @@
 			width: 172px;
 			.iconfont {
 				display: block;
-				margin: 14px 0 20px;
+				margin: 10px 0;
 				font-size: 60px;
 				height: 60px;
 			}
@@ -1192,7 +1222,7 @@
 			}
 			h3 {
 				height: 21px;
-				font: 18px/21px hyqihei55s;
+				font: 18px/21px FZZCYSK;
 				color: #ED4259;
 				overflow: hidden;
 			}
@@ -1224,6 +1254,8 @@
 				vertical-align: middle;
 				overflow: hidden;
 				span {
+					display: inline-block;
+					margin-top: -2px;
 					margin-left: 5px;
 					font: {
 						family: simsun;
@@ -1252,6 +1284,14 @@
 		}
 		.blue-btn {
 			margin: 0 auto;
+			&.disabled {
+				cursor: default;
+				border-color: $A6;
+				color: $A6;
+				&:hover {
+					background: none;
+				}
+			}
 		}
 		.name {
 			display: block;
@@ -1275,9 +1315,11 @@
 		&:hover {
 			position: relative;
 			z-index: 3;
-			transition: all .3s;
-			//@include border($hover);
-			box-shadow: 0 0 10px #CCC;
+			transition: all .5s;
+			box-shadow: 0 5px 16px #D9D4C7;
+		}
+		&:first-of-type:hover {
+			box-shadow: none;
 		}
 	}
 }
@@ -1368,8 +1410,9 @@
 	color: $blue;
 	overflow: hidden;
 	&:hover {
-		color: white;
-		background: #3F5A93;
+		border-color: $blue_hover;
+		color: $blue_hover;
+		background: #F0F5FF;
 	}
 }
 /* 红色阅读按钮 */
@@ -1599,21 +1642,24 @@ em.point {
 			}
 		}
 	}
-	.focus-wrap .classify-list dd a cite .rec {
-		background: url("/qd/images/index/rec2x.png") no-repeat;
-		background-size: 100%;
-	}
-	.pin-nav-wrap .nav-list li.site a.pin-logo {
-		background-image: url("/qd/images/pin_logo_3x.png");
-		background-size: 80px;
-		background-repeat: no-repeat;
-	}
 	.survey-btn {
 		background: url(/qd/images/index/survey_btn.png) no-repeat;
 		background-size: 100%;
 	}
 	.survey-wrap .survey-box p {
 		background: url(/qd/images/index/survey.png) no-repeat;
+		background-size: 100%;
+	}
+	.update-wrap .update-list-wrap .update-list table td .vip {
+		background-image: url("/qd/images/common/tag_2x.png");
+		background-position: 0 -20px;
+		background-size: 100%;
+	}
+	.index-two-wrap .book-list-wrap .book-list li strong .hot {
+		background-image: url("/qd/images/common/tag_2x.png");
+		width: 17px;
+		height: 9px;
+		background-position: 0 -9px;
 		background-size: 100%;
 	}
 }
@@ -1666,7 +1712,7 @@ em.point {
 	.rank-list:nth-of-type(4) {
 		margin-right: 0;
 	}
-	.hot-classify-wrap li.mr0 {
+	.hot-classify-wrap li:last-of-type {
 		display: none;
 	}
 	.hot-classify-wrap {

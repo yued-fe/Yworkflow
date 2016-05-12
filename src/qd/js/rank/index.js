@@ -3,16 +3,16 @@
  * @author  luolei
  * Created: 2016-04-08
  */
-LBF.define('site.rank.index', function (require, exports, module) {
+LBF.define('/qd/js/rank/index.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
         ComboBox = require('ui.widget.ComboBox.ComboBox'),
-        ajaxSetting = require('site.component.ajaxSetting'),
-        report = require('site.component.report'),
-        Header = require('site.component.header'),
-        BrowserSupport = require('site.component.browserSupport'),
-         Url = require('site.component.url'),
-        Login = require('site.index.login');
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
+        report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
+         Url = require('/qd/js/component/url.js'),
+        Login = require('/qd/js/index/login.js');
 
     exports = module.exports = Node.inherit({
         /**

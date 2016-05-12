@@ -7,7 +7,7 @@
 var domainMap = {
     'free'      : 'f.qidian.com',
     'rank'      : 'r.qidian.com',
-    'search'    : 's.qidian.com',
+    'search'    : 'se.qidian.com',
     'all'       : 'a.qidian.com',
     'finish'    : 'fin.qidian.com',
     'www'       : 'i.qidian.com'
@@ -80,10 +80,10 @@ var serverConfig = {
             "ip": "10.247.135.237",
             "domain": "oai.qidian.com",
             "L5": {
-                "enable": false,
+                "enable": true,
                 "conf": {
                     "MODID": 64138113,
-                    "CMDID": 524288
+                    "CMDID": 1310720
                 }
             }
         },
@@ -119,7 +119,7 @@ var serverConfig = {
                 "enable": true,
                 "conf": {
                     "MODID": 64138113,
-                    "CMDID": 524288
+                    "CMDID": 1376256
                 }
             }
         },

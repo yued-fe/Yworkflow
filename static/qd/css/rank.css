@@ -22,7 +22,7 @@
 /* 过渡动画 默认0.3秒 */
 /* 平面书封hover放大到1.1倍 */
 /* 父容器清浮动 */
-.fans-list li {
+.fans-list h3, .fans-list li {
   overflow: hidden;
   *zoom: 1; }
 
@@ -75,6 +75,11 @@
       .rank-header h3 span em {
         font-family: Arial;
         margin-right: 5px; }
+    .rank-header h3 .link {
+      float: right;
+      margin-top: 12px;
+      font: 12px/1 "PingFangSC-Regular", Simsun;
+      color: #666; }
   .rank-header .type-list {
     height: 40px;
     padding-left: 12px;
@@ -177,27 +182,28 @@
 /* 粉丝列表 */
 .fans-list {
   float: left;
-  margin-right: 22px; }
+  width: 228px;
+  margin-right: 14px; }
   .fans-list.mr0 {
     margin-right: 0; }
   .fans-list h3 {
     margin-bottom: 5px; }
     .fans-list h3 b {
-      display: inline-block;
+      float: left;
       font: 700 12px/16px "PingFangSC-Regular", Simsun; }
       .fans-list h3 b.col-1 {
         margin-right: 15px; }
       .fans-list h3 b.col-2 {
         margin-right: 30px; }
-  .fans-list ul {
-    width: 216px; }
+      .fans-list h3 b.col-3 {
+        float: right; }
   .fans-list li .number, .fans-list li a {
     float: left; }
   .fans-list li .number {
     margin-right: 40px; }
   .fans-list li a {
     font: 14px/40px "PingFangSC-Regular", Simsun;
-    width: 110px;
+    width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
@@ -205,11 +211,14 @@
     float: right;
     font: 12px/40px Arail;
     color: #A6A6A6;
-    max-width: 60px;
+    max-width: 64px;
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis; }
 
+@-moz-document url-prefix() {
+  .fans-list {
+    margin-right: 14px; } }
 .rank-view-list .book-img-text li:last-of-type {
   border-bottom: none;
   margin-bottom: 0; }

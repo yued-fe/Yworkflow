@@ -21,16 +21,15 @@ var paths = {
 
 
 
-
 gulp.task('cleanbuild', function(cb) {
-    console.log('执行清理');
+    console.log(chalk.red('清理build目录'));
     del(['build/**/*'])
     cb()
 });
 
 
 gulp.task('clean', function(cb) {
-    console.log('执行清理');
+    console.log(chalk.red('清理预览目录'));
     del(['_tmp/**/*','_prelease/**/*', '_previews/**/*'])
     cb()
 });

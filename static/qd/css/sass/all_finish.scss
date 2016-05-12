@@ -78,6 +78,13 @@
 		}
 	}
 }
+/* 全部作品 完本 中li是左右排列，所以第一个和第二个都要去掉上边距和边线 */
+.book-img-text .all-img-list li{
+	&:first-child + li {
+		padding-top: 0;
+		border-top: none;
+	}
+}
 /* 条件筛选列表 */
 .select-list {
 	.work-filter {

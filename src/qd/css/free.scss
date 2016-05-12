@@ -6,10 +6,12 @@
  */
 @import "global";
 @import "mixin";
-
 /* 免费频道 */
 .free-container {
 	padding: 20px 0 30px;
+}
+.free-work .all-pro-wrap {
+	padding-top: 0;
 }
 .free-type-tab {
 	position: relative;
@@ -20,43 +22,28 @@
 		float: left;
 		width: 130px;
 		text-align: center;
-		font: 18px/44px hyqihei55s;
+		font: 18px/44px FZZCYSK;
 		color: $A6;
 		cursor: pointer;
 		&.act {
 			position: relative;
-			top:1px;
+			top: 1px;
 			z-index: 3;
 			width: 128px;
 			border-top: 2px solid #2972CC;
 			border-left: 1px solid #E6E6E6;
 			border-right: 1px solid #E6E6E6;
 			background: white;
-			font: 18px/38px hyqihei55s;
+			font: 18px/38px FZZCYSK;
 			color: #2972CC;
 		}
 	}
 }
 .limit-book-list {
 	width: 954px;
-}
-/* 暂无数据 */
-.no-data {
-	width: 300px;
-	margin: 60px auto 30px;
-	text-align: center;
-	.no-result-img {
-		padding: 47px 0 13px;
-	}
-	h3 {
-		font: 16px/24px $fontbase;
-	}
-	p {
-		font: 14px/24px $simsun;
-		color: $A6;
-		.blue {
-			margin: 0 5px;
-		}
+	min-height: 400px;
+	li:last-of-type {
+		border-bottom: none;
 	}
 }
 /* 书封里的评分 */
@@ -75,13 +62,14 @@
 	}
 }
 /* 设置ul样式隐藏最后一根横线 */
-#limit-list ul {
-	height: 1085px;
-	overflow: hidden;
+#limit-list {
+	.book-img-text {
+		padding-bottom: 50px;
+	}
 }
 /* 下期预告无数据 */
 .no-next {
-	padding: 40px 0;
+	padding: 81px 0 0;
 	text-align: center;
 	p {
 		margin-top: 10px;
@@ -106,15 +94,18 @@
 			height: 60px;
 			margin-right: 10px;
 			text-align: center;
+			font-size: 24px;
+			font-family: FZZCYSK;
 		}
 	}
 }
+
 /* 1024 响应点样式变动 */
 @media (max-width: 1025px) {
 	.book-img-text .book-mid-info {
 		width: 380px;
 	}
-	.limit-book-list{
+	.limit-book-list {
 		width: 744px;
 	}
 }

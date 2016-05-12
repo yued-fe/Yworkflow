@@ -7,7 +7,7 @@
 @import "global";
 @import "mixin";
 .all-pro-wrap {
-	padding: 20px 0;
+	padding: 20px 0 0;
 }
 .range-sidebar {
 	width: 216px;
@@ -24,7 +24,7 @@
 			text-align: center;
 			&.act {
 				height: 28px;
-				border-top:2px solid $hover;
+				border-top: 2px solid $hover;
 				border-left: 1px solid #E6E6E6;
 				border-right: 1px solid #E6E6E6;
 				font-weight: 700;
@@ -44,7 +44,7 @@
 		span {
 			display: block;
 			@include mb;
-			font:700 12px/18px $simsun;
+			font: 700 12px/18px $simsun;
 		}
 		a {
 			float: left;
@@ -57,7 +57,7 @@
 			font: 12px/18px $simsun;
 			cite {
 				position: absolute;
-				top: 1px;
+				top: 0;
 				right: 2px;
 				font-size: 14px;
 				color: $A6;
@@ -65,7 +65,24 @@
 			&:hover .lbf-icon {
 				color: #E2A9A3;
 			}
+			&.all {
+				padding-right: 4px;
+				&:hover {
+					cursor: default;
+					color: inherit;
+				}
+				cite {
+					display: none;
+				}
+			}
 		}
+	}
+}
+/* 全部作品 完本 中li是左右排列，所以第一个和第二个都要去掉上边距和边线 */
+.book-img-text .all-img-list li{
+	&:first-child + li {
+		padding-top: 0;
+		border-top: none;
 	}
 }
 /* 条件筛选列表 */
@@ -90,7 +107,7 @@
 	}
 	.work-filter ul li {
 		float: left;
-		height: 18px;
+		height: 20px;
 		padding: 0 4px;
 		margin-right: 8px;
 		@include mb(8px);
@@ -111,13 +128,12 @@
 		}
 		a {
 			display: block;
-			font: 12px/18px $simsun;
+			font: 12px/20px $simsun;
 		}
 		&.act {
 			background: #333;
 			a {
 				color: white;
-				font-weight: 700;
 			}
 		}
 		&.arrow {
@@ -183,13 +199,30 @@
 			&.act {
 				a {
 					min-width: 56px;
-					height: 18px;
-					line-height: 16px;
+					height: 20px;
+					line-height: 20px;
 					background: #333;
 					color: white;
-					font-weight: 700;
 				}
 			}
+		}
+	}
+}
+.no-data {
+	width: 300px;
+	margin: 60px auto 30px;
+	text-align: center;
+	.no-result-img {
+		padding: 47px 0 13px;
+	}
+	h3 {
+		font: 16px/24px $fontbase;
+	}
+	p {
+		font: 14px/24px $simsun;
+		color: $A6;
+		.blue {
+			margin: 0 5px;
 		}
 	}
 }
