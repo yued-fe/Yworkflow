@@ -23,12 +23,12 @@ var del = require('del');
 var combo = require('../lib/util/combo');
 
 
-var serverConf = require('../views/node-config/server');
+var serverConf = require('../src/node-config/server');
 
-
+var envType = "local";
 var staticConf = serverConf[envType]['static'];
 var dateFormat = require('dateformat');
-var envType = "local";
+
 
 
 gulp.task('combo', function() {

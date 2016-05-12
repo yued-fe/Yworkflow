@@ -22,10 +22,10 @@ const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
 
 var comboAnswer = require('koa-combo-answer');
-
+var _ = require('underscore');
 
 //载入静态资源相关配置
-var serverConf = require('./views/node-config/server');
+var serverConf = require('./src/node-config/server');
 var staticConf = serverConf[envType]['static'];
 
 //域名别名，在本地环境读取实际目录用
@@ -55,17 +55,18 @@ app.all('*', function(req, res, next) {
 
 app.use(cookieParser());
 
+
+    // app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
+
+
    app.set('port', process.env.PORT || 3234); // 默认端口
 if (process.env.NODE_ENV == 'local') {
-
-    app.use(express.static(path.join(__dirname, 'static')));
-    app.use(express.static(path.join(__dirname, 'dev')));
+    app.use(express.static(path.join(__dirname, 'build')));
     app.set('views', path.join(__dirname, 'views')); // 设置模板页面 本地测试
 }
 
 if (process.env.NODE_ENV == 'preview') {
     app.use(express.static(path.join(__dirname, '_tmp')));
-    app.use(express.static(path.join(__dirname, 'dev')));
     app.set('views', path.join(__dirname, '_previews')); // 设置preview模板页面
 }
 
@@ -106,13 +107,13 @@ console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
  */
 
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
-var routerMap = require('./views/node-config/routermap.js');
+var routerMap = require('./src/node-config/routermap.js');
 
 //ajaxmap仅供本地调试用,约定好格式即可
-var ajaxMap = require('./dev/ajax/ajaxmap.js');
+var ajaxMap = require('./src/json/ajaxmap.js');
 
 //目前本地开发基本上只有GET和POST两种请求方式，暂时提供这两种的同用配置
-var ajaxPostMap = require('./dev/ajax/ajaxpostmap.js');
+var ajaxPostMap = require('./src/json/ajaxpostmap.js');
 
 /**
  * 处理cgi路由闭包
@@ -186,8 +187,8 @@ var configRouter = function(val) {
         console.log("模板：" + templateFileName);
         var _cgiVal = routerDomain['cgi'];
 
-        console.log("读取文件：" + __dirname + '/dev' + _cgiVal + '.json')
-        fs.readFile(__dirname + '/dev' + _cgiVal + '.json', function(err, data) {
+        console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
+        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
             if (err) throw err;
             var data = JSON.parse(data);
             //console.log('读取数据' + JSON.stringify(data));
@@ -222,8 +223,8 @@ var ajaxRouter = function(val) {
     // console.log('模拟ajax接口:' + _cgiVal);
     var _templateFileName = _.last(_routerVal.split('/'));
     return function(req, res, next) {
-        console.log('路径是' + __dirname + '/dev' + _cgiVal + '.json');
-        fs.readFile(__dirname + '/dev' + _cgiVal + '.json', function(err, data) {
+        console.log('路径是' + __dirname + '/src/json' + _cgiVal + '.json');
+        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
             if (err) throw err;
             var data = JSON.parse(data);
             console.log('读取数据' + JSON.stringify(data));
@@ -246,8 +247,8 @@ var ajaxPostRouter = function(val) {
     console.log(chalk.red('模拟POST路由:') + _cgiVal);
     var _templateFileName = _.last(_routerVal.split('/'));
     return function(req, res, next) {
-        console.log('路径是' + __dirname + '/dev' + _cgiVal + '.json');
-        fs.readFile(__dirname + '/dev' + _cgiVal + '.json', function(err, data) {
+        console.log('路径是' + __dirname + '/src/json' + _cgiVal + '.json');
+        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
             if (err) throw err;
             var data = JSON.parse(data);
             console.log('读取数据' + JSON.stringify(data));
@@ -337,7 +338,7 @@ for (var ajaxVal in ajaxMap) {
     var _ajaxVal = ajaxVal,
         _cgiVal = ajaxMap[ajaxVal];
     // console.log('ajax接口' + _ajaxVal);
-    //app.get(_ajaxVal, ajaxRouter(_ajaxVal))
+    app.get(_ajaxVal, ajaxRouter(_ajaxVal))
 }
 
 
@@ -354,7 +355,7 @@ for (var ajaxVal in ajaxPostMap) {
     var _ajaxVal = ajaxVal,
         _cgiVal = ajaxPostMap[ajaxVal];
     // console.log('ajax接口' + _ajaxVal);
-    //app.post(_ajaxVal, ajaxPostRouter(_ajaxVal))
+    app.post(_ajaxVal, ajaxPostRouter(_ajaxVal))
 }
 
 app.get('/404', function(req, res) {
