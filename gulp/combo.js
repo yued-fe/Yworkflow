@@ -31,7 +31,12 @@ var dateFormat = require('dateformat');
 
 
 
-gulp.task('combo', function() {
+
+/**
+ * 执行combo,将预览版的html中的css和js url地址进行combo拼接
+ */
+
+gulp.task('preview-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     console.log(_updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
@@ -48,12 +53,16 @@ gulp.task('combo', function() {
         .pipe(gulp.dest('_previews'));
 })
 
+/**
+ * 不做版本,直接将view html进行combo处理
+ * 直接命令行执行 gulp
+ */
 
-gulp.task('o-combo', function() {
+gulp.task('view-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     console.log(_updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
-    gulp.src('views/**/*.html')
+    gulp.src('src/views/**/*.html')
         .pipe(combo(baseUri, {
             splitter: ',',
             async: false,

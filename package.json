@@ -5,9 +5,9 @@
   "license": "ISC",
   "description": "Qidian Project Local Server",
   "scripts": {
-    "dev": "cross-env  NODE_ENV=local && gulp dev",
+    "dev": "cross-env NODE_ENV=local && gulp dev",
     "go": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
-    "gocombo": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp combo && gulp copy",
+    "gocombo": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
     "preview": "cross-env NODE_ENV=preview  gulp dev"
   },
   "devDependencies": {
