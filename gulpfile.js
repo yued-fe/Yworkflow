@@ -16,10 +16,10 @@ requireDir('./gulp');
 
 // 设置相关路径
 var paths = {
-    css: ['src/**/*.scss', 'src/**/*.css'],
-    js: ['src/**/*.js'], // js文件相关目录
-    sass: 'src/**/*.scss',
-    img: ['src/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF}'] // 图片相关
+    css: ['src/static/**/*.scss', 'src/**/*.css'],
+    js: ['src/static/**/*.js'], // js文件相关目录
+    sass: 'src/static/**/*.scss',
+    img: ['src/static/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF}'] // 图片相关
 };
 
 

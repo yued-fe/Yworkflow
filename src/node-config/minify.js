@@ -1,6 +1,6 @@
 /**
- * 压缩html相关配置
- * @type {[type]}
+ * 服务器render输出亚索html相关config
+ *
  */
 var minifyConfig =
     {

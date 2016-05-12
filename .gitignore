@@ -8,6 +8,14 @@ build
 dist/*
 dist
 
+#临时文件
+_prelease/
+_previews/
+_tmp/
+static/
+
+
+
 
 # Node Modules (use `npm install` to generate these)
 node_modules/*
@@ -17,8 +25,7 @@ node_modules
 
 # OS X Junk
 .DS_Store
-.DS_Store/*
-
+npm-debug.log
 
 # Not-Needed System Files
 *.swp
@@ -26,10 +33,5 @@ node_modules
 .svn/
 
 
-#临时文件
-_prelease/
-_previews/
-_tmp/
-static/
 
 
