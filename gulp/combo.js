@@ -22,6 +22,7 @@ var gulp = require('gulp');
 var del = require('del');
 var combo = require('../lib/util/combo');
 
+var argv = require('yargs').argv;
 
 var serverConf = require('../src/node-config/server');
 
@@ -32,9 +33,12 @@ var dateFormat = require('dateformat');
 
 
 
+
+
 /**
  * 执行combo,将预览版的html中的css和js url地址进行combo拼接
  */
+
 
 gulp.task('preview-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');

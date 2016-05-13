@@ -19,7 +19,7 @@ var bust = require('gulp-buster');
 
 // 设置相关路径
 var paths = {
-    sass: 'src/**/*.scss',
+    sass: 'src/static/**/*.scss',
     css: 'build',
     prelease:'_prelease'
 };
@@ -38,7 +38,7 @@ gulp.task('sass', function(cb) {
         // }))
 
     //对普通css只做格式化处理
-    gulp.src('src/**/*.css')
+    gulp.src('src/static/**/*.css')
         .pipe(plumber())
         .pipe(csscomb())
         .pipe(gulp.dest(paths.css))

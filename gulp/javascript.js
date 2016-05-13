@@ -10,11 +10,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var eslint = require('gulp-eslint');
+
+
 
 // 设置相关路径
 var paths = {
     des: 'build',
-    js: 'src/**/*.js', //js文件相关目录
+    js: 'src/static/**/*.js', //js文件相关目录
 };
 
 // JS检查
@@ -28,9 +31,12 @@ gulp.task('scripts', function(cb) {
     gulp.src(paths.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish))
-        .pipe(uglify())
+        // .pipe(jshint())
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
+        // .pipe(jshint.reporter(stylish))
+        // .pipe(uglify())
         .pipe(gulp.dest(paths.des))
     cb()
 });

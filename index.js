@@ -56,24 +56,19 @@ app.all('*', function(req, res, next) {
 app.use(cookieParser());
 
 
-    // app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
+// app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
 
+app.set('port', process.env.PORT || 3234); // 设置默认端口
 
-   app.set('port', process.env.PORT || 3234); // 默认端口
 if (process.env.NODE_ENV == 'local') {
     app.use(express.static(path.join(__dirname, 'build')));
-    app.set('views', path.join(__dirname, 'views')); // 设置模板页面 本地测试
+    app.set('views', path.join(__dirname, 'src/views')); // 设置模板页面 本地测试
 }
 
 if (process.env.NODE_ENV == 'preview') {
     app.use(express.static(path.join(__dirname, '_tmp')));
     app.set('views', path.join(__dirname, '_previews')); // 设置preview模板页面
 }
-
-
-
-// app.use(favicon(__dirname + '/static/qd_boss/favicon.ico'));
-
 
 app.set('view engine', 'ejs'); // 载入ejs模板
 app.engine('html', require('ejs').renderFile);
@@ -107,7 +102,7 @@ console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
  */
 
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
-var routerMap = require('./src/node-config/routermap.js');
+var routerMap = require('./src/node-config/dynamic_routermap.js');
 
 //ajaxmap仅供本地调试用,约定好格式即可
 var ajaxMap = require('./src/json/ajaxmap.js');
@@ -201,7 +196,7 @@ var configRouter = function(val) {
             if (process.env.NODE_ENV == 'preview') {
                 viewsPath = '/_previews'
             } else {
-                viewsPath = '/views'
+                viewsPath = 'src/views'
             }
             console.log('当前目录' + viewsPath)
             res.render(__dirname + viewsPath +templateFileName + '.html', data);

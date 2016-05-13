@@ -5,9 +5,11 @@
   "license": "ISC",
   "description": "Qidian Project Local Server",
   "scripts": {
-    "dev": "cross-env NODE_ENV=local && gulp dev",
+    "dev": "cross-env NODE_ENV=local  gulp dev",
     "go": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
-    "gocombo": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
+    "build": "gulp clean && gulp build",
+    "nocombo-publish": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
+    "publish": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
     "preview": "cross-env NODE_ENV=preview  gulp dev"
   },
   "devDependencies": {
@@ -24,6 +26,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-copy": "0.0.2",
     "gulp-csscomb": "^3.0.6",
+    "gulp-eslint": "^2.0.0",
     "gulp-header": "^1.7.1",
     "gulp-image": "^1.3.1",
     "gulp-image-resize": "^0.7.1",
@@ -44,7 +47,8 @@
     "imagemin-pngquant": "^4.0.0",
     "jshint-stylish": "^2.1.0",
     "require-dir": "^0.3.0",
-    "through2": "^2.0.1"
+    "through2": "^2.0.1",
+    "yargs": "^4.7.0"
   },
   "dependencies": {
     "body-parser": "~1.14.2",

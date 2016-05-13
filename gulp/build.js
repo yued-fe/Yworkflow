@@ -12,8 +12,7 @@ var bust = require('gulp-buster');
 var gulpCopy = require('gulp-copy');
 
 var paths = {
-    assets: 'assets',
-    sass: 'src/**/*.scss',
+    sass: 'src/static/**/*.scss',
     build: 'build',
     prelease: '_prelease'
 };
@@ -61,7 +60,7 @@ gulp.task('rev-fix',['rev-views'] ,function() {
  */
 gulp.task('rev-views', function(cb) {
     var manifest = gulp.src("hash-tag-map/rev-verionId.json");
-    return gulp.src("views/**/*.html") // Minify any CSS sources
+    return gulp.src("src/views/**/*.html") // Minify any CSS sources
         .pipe(revReplace({
             manifest: manifest
                 // prefix: cdnConfig.Domain + pkg.name + '/'
@@ -69,7 +68,6 @@ gulp.task('rev-views', function(cb) {
         .pipe(gulp.dest('_previews'))
         cb()
 });
-
 
 /**
  * 为了方便本地模拟读取静态资源的服务url根路径,临时将静态资源复制到_tmp目录下
@@ -82,7 +80,6 @@ gulp.task('copy',['rev-views','rev-fix'],function(){
         .pipe(gulp.dest('./_tmp/qd'))
         // cb()
 })
-
 
 /**
  * 生成不需要增加版本号的静态资源,直接将编译后的静态资源复制到_prelease目录

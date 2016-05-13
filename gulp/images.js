@@ -15,10 +15,10 @@ var folders = require('gulp-folders');
 
 
 var paths = {
-    img: ['src/**/*.jpg','src/**/*.png','src/**/*.gif'],// 图片相关
-    sass: 'src/**/*.scss',
+    img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}'],// 图片相关
+    sass: 'src/static/**/*.scss',
     build: 'build',
-    others:['src/**/*.mp3'],
+    others:['src/static/**/*.mp3'],
     prelease:'_prelease'
 };
 
@@ -43,7 +43,7 @@ gulp.task('images-copy', function(cb) {
 });
 
 gulp.task('sfile',['clean'], function(cb) {
-    gulp.src(['src/**/*','!src/**/*.css','!src/**/*.scss','!src/**/*.js','!src/**/*.ejs'])
+    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}'])
         // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
         .pipe(gulp.dest(paths.build))
     cb();

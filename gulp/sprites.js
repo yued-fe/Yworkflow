@@ -20,6 +20,7 @@ var plumber = require("gulp-plumber");
 var spritesmith = require('gulp.spritesmith');
 var imageResize = require('gulp-image-resize');
 var vinylPaths = require('vinyl-paths');
+var buffer = require('vinyl-buffer');
 var folders = require('gulp-folders');
 var PATHS = {
     spritesOriginalFiles: 'src/**/sprites/*.png'
@@ -46,7 +47,7 @@ var getFolders = function(dir) {
 }
 
 
-var scriptsPath = 'src/qd/images/sprites'; // folder to process
+var scriptsPath = 'src/static/qd/sprites'; // folder to process
 
 
 // task.sprites
@@ -54,24 +55,33 @@ gulp.task('spp', function() {
     // set target folders
     var folders = getFolders(scriptsPath);
     var iii = 1;
+    console.log('精灵图路径:' + folders);
+    var _spritesLength = folders.length;
     // generate image & sass files
+
     folders.map(function(folder) {
-        console.log('===== '+iii);
+        console.log('===== ' + iii);
         iii += 1;
-        console.log('原始路径:' + 'src/qd/images/sprites/' + folder + '/*.png');
+        console.log('原始路径:' + 'src/static/qd/images/sprites/' + folder + '/*.png');
         // console.log('src/qd/images/sprites' + folder + '.png');
-        var spriteData = gulp.src('src/qd/images/sprites/' + folder + '/*.png')
-            .pipe(spritesmith({
-                imgName: 'sprites-' + folder + '@2x.png',
-                cssName: folder + '-sprite' + '.scss',
-                algorithm: 'binary-tree',
-                padding: 4,
-                cssFormat: 'scss'
-            }));
-        console.log(folder + '图片out:' + 'build/'+ dir.img + '/' + folder);
-        console.log(folder + 'CSS out:' + 'build/' + dir.sprite + '/' + folder);
-        spriteData.img.pipe(gulp.dest('build/'+ dir.img + '/' + folder));
-        spriteData.css.pipe(gulp.dest('build/' + dir.sprite + '/' + folder));
+        var i = 0,
+            spriteData = [];
+        for (i; i < _spritesLength; i++) {
+            spriteData[i] = gulp.src('src/static/qd/images/sprites/' + folder + '/*.png')
+                .pipe(spritesmith({
+                    imgName: 'sprites-' + folder + '@2x.png',
+                    cssName: folder + '-sprite' + '.scss',
+                    algorithm: 'binary-tree',
+                    padding: 4,
+                    cssFormat: 'scss'
+                }));
+            console.log(folder + ' 图片 out:' + 'build/' + dir.img + '/' + folder);
+            console.log(folder + ' CSS out:' + 'build/' + dir.sprite + '/' + folder);
+            spriteData[i].img.pipe(gulp.dest('build/' + dir.img + '/' + folder));
+            spriteData[i].css.pipe(gulp.dest('build/' + dir.sprite + '/' + folder));
+        }
+
+
     });
 });
 
@@ -88,22 +98,6 @@ gulp.task('spp', function() {
  * 此task生成的为@2x的高清图
  */
 
-
-
-gulp.task('retinasprite', function(cb) {
-    console.log('开始生成精灵图');
-    var spriteData = gulp.src('src/qd/images/sprites/free/*.png')
-        .pipe(spritesmith({
-            imgName: 'sprite@2x.png',
-            cssName: '_sprite.scss',
-            algorithm: 'binary-tree',
-            padding: 10 //建议留白10像素
-        }))
-
-    spriteData.img.pipe(gulp.dest('build')) // 输出合成图片
-    spriteData.css.pipe(gulp.dest('build'))
-    console.log(chalk.green('[缩略] 生成高清图'))
-});
 
 
 // /**
