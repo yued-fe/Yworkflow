@@ -21,7 +21,7 @@ var dateFormat = require('dateformat'); //时间戳转换
 const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
 
-var comboAnswer = require('koa-combo-answer');
+// var comboAnswer = require('koa-combo-answer');
 var _ = require('underscore');
 
 //载入静态资源相关配置
@@ -56,7 +56,7 @@ app.all('*', function(req, res, next) {
 app.use(cookieParser());
 
 
-// app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
+app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
 
 app.set('port', process.env.PORT || 3234); // 设置默认端口
 
@@ -82,7 +82,6 @@ app.engine('html', require('ejs').renderFile);
  * 测试：oa
  * 生产：pro
  */
-
 
 console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
 // app.set('env', 'local');

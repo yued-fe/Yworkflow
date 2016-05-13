@@ -51,42 +51,64 @@ var scriptsPath = 'src/static/qd/sprites'; // folder to process
 
 
 // task.sprites
-gulp.task('spp', function() {
+gulp.task('spp', function(cb) {
     // set target folders
     var folders = getFolders(scriptsPath);
     var iii = 1;
     console.log('精灵图路径:' + folders);
     var _spritesLength = folders.length;
     // generate image & sass files
-
     folders.map(function(folder) {
-        console.log('===== ' + iii);
-        iii += 1;
-        console.log('原始路径:' + 'src/static/qd/images/sprites/' + folder + '/*.png');
-        // console.log('src/qd/images/sprites' + folder + '.png');
-        var i = 0,
-            spriteData = [];
+        console.log('原始路径:' + 'src/static/qd/sprites/' + folder + '/*.png');
+        var i = 0;
+        var spriteData = [];
         for (i; i < _spritesLength; i++) {
-            spriteData[i] = gulp.src('src/static/qd/images/sprites/' + folder + '/*.png')
+            spriteData[i] = gulp.src('src/static/qd/sprites/' + folder + '/*.png')
                 .pipe(spritesmith({
-                    imgName: 'sprites-' + folder + '@2x.png',
-                    cssName: folder + '-sprite' + '.scss',
+                    imgName: 'sprite-' + folder + '@2x.png',
+                    cssName: 'sprite' + folder + '.scss',
                     algorithm: 'binary-tree',
                     padding: 4,
                     cssFormat: 'scss'
                 }));
             console.log(folder + ' 图片 out:' + 'build/' + dir.img + '/' + folder);
             console.log(folder + ' CSS out:' + 'build/' + dir.sprite + '/' + folder);
-            spriteData[i].img.pipe(gulp.dest('build/' + dir.img + '/' + folder));
-            spriteData[i].css.pipe(gulp.dest('build/' + dir.sprite + '/' + folder));
-        }
+            spriteData[i].img.pipe(gulp.dest('build/qd/images/sprites/' + folder));
+            spriteData[i].css.pipe(gulp.dest('build/qd/css/sprites/' + folder));
 
+        }
+        console.log(chalk.green('[生成高清缩略图]' + 'sprite-' + folder + '@2x.png'));
 
     });
 });
 
 
+gulp.task('sdp',function(cb){
+    var spritessPath = 'src/static/qd/sprites'; // folder to process
+    console.log(chalk.green('[缩略] 生成标清图'))
+    var folders = getFolders(spritessPath);
+    console.log('合成图路径:' + folders);
+    var _spritesLength = folders.length;
 
+    var spriteData = [];
+
+    function createStandardSprite(folder){
+        console.log('build/qd/images/sprites/' + folder + '/' +  '*.png');
+         return gulp.src('build/qd/images/sprites/' + folder + '/' + '*.png')
+            .pipe(plumber())
+            .pipe(imageResize({
+                    width: '50%'
+            }))
+            .pipe(rename('sprite.png'))
+            .pipe(gulp.dest('build/qd/images/sprites/'+ folder))
+    }
+    var i=0;
+    for (i; i < _spritesLength; i++) {
+        console.log(folders[i]);
+            createStandardSprite(folders[i])
+    }
+
+})
 
 
 

@@ -79,7 +79,7 @@ gulp.task('dev', function() {
 // gulp
 gulp.task('default', ['watch', 'scripts']);
 //进行编译
-gulp.task('build', ['cleanbuild', 'sass', 'scripts','sfile']);
+gulp.task('build', ['sass', 'scripts','sfile']);
 //创建带版本号的静态资源
 gulp.task('build-static', ['clean', 'rev','rev-fix-url']);
 //创建替换所有静态资源

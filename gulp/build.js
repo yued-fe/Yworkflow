@@ -21,7 +21,7 @@ var paths = {
 /**
  * 生成带版本号的静态文件
  */
-gulp.task('rev', ['clean','sfile'], function(cb) {
+gulp.task('rev', function(cb) {
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
         dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],
@@ -45,7 +45,7 @@ gulp.task('rev', ['clean','sfile'], function(cb) {
  * 二次替换,防止js和css中有url没有被替换
  */
 
-gulp.task('rev-fix',['rev-views'] ,function() {
+gulp.task('rev-fix' ,function() {
     var manifest = gulp.src("hash-tag-map/rev-verionId.json");
     return gulp.src(['_prelease/**/*.{js,ejs,css}']) // Minify any CSS sources
         .pipe(revReplace({
@@ -74,7 +74,7 @@ gulp.task('rev-views', function(cb) {
  * 这是一个坑,需要解决
  */
 
-gulp.task('copy',['rev-views','rev-fix'],function(){
+gulp.task('copy',function(){
         // del(['_tmp/**/*'])
         gulp.src('_prelease/**/*')
         .pipe(gulp.dest('./_tmp/qd'))

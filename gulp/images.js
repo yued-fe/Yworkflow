@@ -29,7 +29,6 @@ gulp.task('images', function(cb) {
     gulp.src(paths.img)
         .pipe(plumber())
         .pipe(image())
-        // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
         .pipe(gulp.dest(paths.build))
     cb();
 });
@@ -42,9 +41,8 @@ gulp.task('images-copy', function(cb) {
     cb();
 });
 
-gulp.task('sfile',['clean'], function(cb) {
+gulp.task('sfile', function(cb) {
     gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}'])
-        // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
         .pipe(gulp.dest(paths.build))
     cb();
 });

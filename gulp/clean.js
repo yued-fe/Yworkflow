@@ -20,7 +20,6 @@ var paths = {
 };
 
 
-
 gulp.task('cleanbuild', function(cb) {
     console.log(chalk.red('清理build目录'));
     del(['build/**/*'])

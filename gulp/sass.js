@@ -4,7 +4,7 @@
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");
-var browserSync = require('browser-sync');
+// var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
