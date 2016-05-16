@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@import "global";
+@import "mixin";
+.all-pro-wrap {
+	padding: 20px 0 0;
+}
+.range-sidebar {
+	width: 216px;
+	margin-right: 30px;
+	//选择站点
+	.site {
+		height: 29px;
+		@extend %bbe;
+		a {
+			display: inline-block;
+			width: 60px;
+			height: 29px;
+			font: 12px/25px $simsun;
+			text-align: center;
+			&.act {
+				height: 28px;
+				border-top: 2px solid $hover;
+				border-left: 1px solid #E6E6E6;
+				border-right: 1px solid #E6E6E6;
+				font-weight: 700;
+				color: $hover;
+				background: white;
+			}
+		}
+	}
+	//已选
+	.selected {
+		@extend %bbe;
+		@include mb(16px);
+		p {
+			padding: 14px 0 8px;
+			@extend %cf;
+		}
+		span {
+			display: block;
+			@include mb;
+			font: 700 12px/18px $simsun;
+		}
+		a {
+			float: left;
+			position: relative;
+			z-index: 1;
+			padding: 0 18px 0 4px;
+			border: 1px solid #E6E6E6;
+			height: 18px;
+			margin: 0 8px 8px 0;
+			font: 12px/18px $simsun;
+			cite {
+				position: absolute;
+				top: 0;
+				right: 2px;
+				font-size: 14px;
+				color: $A6;
+			}
+			&:hover .lbf-icon {
+				color: #E2A9A3;
+			}
+			&.all {
+				padding-right: 4px;
+				&:hover {
+					cursor: default;
+					color: inherit;
+				}
+				cite {
+					display: none;
+				}
+			}
+		}
+	}
+}
+/* 全部作品 完本 中li是左右排列，所以第一个和第二个都要去掉上边距和边线 */
+.book-img-text .all-img-list li{
+	&:first-child + li {
+		padding-top: 0;
+		border-top: none;
+	}
+}
+/* 条件筛选列表 */
+.select-list {
+	.work-filter {
+		@extend %bbe;
+		padding-bottom: 6px;
+		@include mb(15px);
+		&.tag {
+			border-bottom: none;
+		}
+	}
+	.work-filter h3 {
+		@include mb(15px);
+		font-size: 12px;
+		font-family: $simsun;
+	}
+	//筛选列表
+	.work-filter ul {
+		min-height: 27px;
+		@extend %cf;
+	}
+	.work-filter ul li {
+		float: left;
+		height: 20px;
+		padding: 0 4px;
+		margin-right: 8px;
+		@include mb(8px);
+		text-align: center;
+		&.more a {
+			position: relative;
+			padding-right: 10px;
+			z-index: 3;
+			color: $blue;
+			@include triangle;
+			span {
+				top: 7px;
+			}
+
+			&:hover {
+				color: $blue_hover;
+			}
+		}
+		a {
+			display: block;
+			font: 12px/20px $simsun;
+		}
+		&.act {
+			background: #333;
+			a {
+				color: white;
+			}
+		}
+		&.arrow {
+			a {
+				position: relative;
+				z-index: 3;
+			}
+			cite {
+				position: absolute;
+				z-index: 2;
+				top: 21px;
+				left: 50%;
+				margin-left: -5px;
+				border-top: 0 none;
+				border-right: 5px solid transparent;
+				border-bottom: 5px solid #E5E5E5;
+				border-left: 5px solid transparent;
+				width: 0;
+				height: 0;
+				i {
+					position: absolute;
+					z-index: 1;
+					top: 1px;
+					right: -5px;
+					border-top: 0 none;
+					border-right: 5px solid transparent;
+					border-bottom: 5px solid #F7F6F2;
+					border-left: 5px solid transparent;
+					width: 0;
+					height: 0;
+				}
+			}
+		}
+	}
+	//子分类
+	.sub-type {
+		position: relative;
+		z-index: 1;
+		clear: both;
+		width: 100%;
+		padding-bottom: 5px;
+		margin-top: -2px;
+		@include mb;
+		@extend %cf;
+		border-top: 1px solid #E5E5E5;
+		background: #F7F6F2;
+		dl {
+			padding: 8px 12px 0;
+		}
+		dd {
+			float: left;
+			margin-right: 10px;
+			font: 12px/28px $simsun;
+			word-wrap: break-word;
+			a {
+				display: inline-block;
+				text-align: center;
+				color: $gray6;
+				&:hover {
+					color: $hover;
+				}
+			}
+			&.act {
+				a {
+					min-width: 56px;
+					height: 20px;
+					line-height: 20px;
+					background: #333;
+					color: white;
+				}
+			}
+		}
+	}
+}
+.no-data {
+	width: 300px;
+	margin: 60px auto 30px;
+	text-align: center;
+	.no-result-img {
+		padding: 47px 0 13px;
+	}
+	h3 {
+		font: 16px/24px $fontbase;
+	}
+	p {
+		font: 14px/24px $simsun;
+		color: $A6;
+		.blue {
+			margin: 0 5px;
+		}
+	}
+}
+/* 全部作品表格列表，章节在第3列，1024时隐藏 */
+@media (max-width: 1025px) {
+	.rank-table-list.all {
+		col:nth-of-type(3), th:nth-of-type(3), tr td:nth-of-type(3) {
+			display: none;
+		}
+	}
+}

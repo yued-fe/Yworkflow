@@ -12,7 +12,7 @@ dist
 _prelease/
 _previews/
 _tmp/
-static/
+#static/
 
 
 

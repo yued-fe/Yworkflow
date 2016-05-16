@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// InputText
+// --------------------------------------------------
+
+.lbf-text-input {
+    border:1px solid $lbf-text-input-default-border;
+    border-top-color: $lbf-text-input-default-border-top;
+    width: $lbf-text-input-width;
+    height: $lbf-text-input-height;
+    padding: $lbf-text-input-padding;
+    font: $lbf-text-input-font;
+    color: $lbf-text-input-color;
+    background: $lbf-text-input-bg;
+    vertical-align: top;
+    outline: none;
+
+    @include box-shadow(inset 0px 1px 2px rgba(0, 0, 0, 0.1));
+
+    &:hover {
+        border-color: #b9b9b9;
+        border-top-color: $lbf-text-input-default-border-top;
+    }
+
+    &:focus {
+        border-color: $lbf-text-input-focus-border;
+    }
+
+    &-placeholder {
+        position: absolute;
+        margin-top: 4px;
+        margin-left: 7px;
+        line-height: $line-height-base;
+        cursor: $cursor-placeholder;
+        color: $lbf-text-input-placeholder;
+    }
+
+    &:-ms-input-placeholder {
+        color: $lbf-text-input-placeholder;
+    }
+
+    &.disabled,
+    &-disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        border-color: $lbf-text-input-disabled-border;
+        background: $gray-lighter;
+
+        @include box-shadow(none);
+
+        pointer-events: none;
+    }
+
+    &::-ms-clear,
+    &::-ms-reveal {
+        display:none;
+    }
+}
+
+.lbf-text-input-error {
+    border:1px solid $lbf-text-input-error-border;
+
+    &:hover,
+    &:focus {
+        border-color: $lbf-text-input-error-border;
+    }
+}
+
+
+

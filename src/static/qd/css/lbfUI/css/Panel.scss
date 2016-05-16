@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// Panel
+// --------------------------------------------------
+
+.lbf-panel {
+    position: absolute;
+    background-color: $lbf-panel-bg;
+    border: 1px solid $lbf-panel-border;
+    border: 1px solid $lbf-panel-border-ie \9;
+    *border: 1px solid $lbf-panel-border-ie;
+    border-radius: $lbf-panel-border-radius;
+    overflow: hidden;
+
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    @include background-clip(padding-box);
+
+    outline: none;
+
+    &-head {
+        padding: 15px 20px;
+        border-bottom: 1px solid #e5e5e5;
+        font-weight:bold;
+        font-size:16px;
+        height: 20px;
+        color:#333;
+    }
+
+    &-body {
+        position: relative;
+        overflow-y: auto;
+        min-height: 54px;
+        padding: 0;
+    }
+
+    &-foot {
+        position: relative;
+        padding: 19px 20px 20px;
+        background-color: $lbf-panel-bg;
+        border-top: 1px solid #e5e5e5;
+        *zoom: 1;
+        @include box-shadow(inset 0 1px 0 #ffffff);
+
+        &-l {
+
+        }
+        &-r {
+            float: right;
+
+            .lbf-button {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &-close {
+        position:absolute;
+        right: 17px;
+        top: 17px;
+        z-index: 9999;
+        display:inline-block;
+        width:16px;
+        height:16px;
+        font-size: 16px;
+        line-height: 17px;
+        overflow:hidden;
+        color: #999;
+        *width:14px;
+        *height:14px;
+        *background-image:url($image-path + "nodes/close.png");
+
+        &:hover {
+            color: #333;
+            *background-image:url($image-path + "nodes/close-hover.png");
+        }
+    }
+}
+
+/*
+.lbf-panel-head h3 {
+  margin: 0;
+  line-height: 30px;
+}
+*/
+
+.lbf-panel-foot div { margin-left:10px;}
+
+.lbf-panel-foot:before,
+.lbf-panel-foot:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.lbf-panel-foot:after {
+    clear: both;
+}
+
+.lbf-panel-foot .btn + .btn {
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.lbf-panel-foot .btn-group .btn + .btn {
+    margin-left: -1px;
+}
+
+.lbf-panel-foot .btn-block + .btn-block {
+    margin-left: 0;
+}
+
+
