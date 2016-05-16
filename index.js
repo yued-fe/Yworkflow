@@ -198,7 +198,8 @@ var configRouter = function(val) {
                 viewsPath = 'src/views'
             }
             console.log('当前目录' + viewsPath)
-            res.render(__dirname + viewsPath +templateFileName + '.html', data);
+            var _templateFileName = templateFileName.slice(1);//去除掉开头的斜杠
+            res.render(_templateFileName + '.html', data);
         });
     }
 }
