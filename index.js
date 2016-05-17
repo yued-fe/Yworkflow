@@ -29,14 +29,8 @@ var serverConf = require('./src/node-config/server');
 var staticConf = serverConf[envType]['static'];
 
 //域名别名，在本地环境读取实际目录用
-var domainAlias = {
-    'f.qidian.com': 'free.qidian.com',
-    'a.qidian.com': 'all.qidian.com',
-    's.qidian.com': 'search.qidian.com',
-    'fin.qidian.com': 'finish.qidian.com',
-    'r.qidian.com': 'rank.qidian.com',
-    'i.qidian.com': 'www.qidian.com'
-};
+//
+var domainAlias = require('./src/node-config/domain_alias')
 
 // 基础配置
 // app.use(compress()); // 启用Gizp压缩,放在顶部
@@ -101,7 +95,7 @@ console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
  */
 
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
-var routerMap = require('./src/node-config/dynamic_routermap.js');
+var routerMap = require('./src/node-config/local_dev_routermap.js');
 
 //ajaxmap仅供本地调试用,约定好格式即可
 var ajaxMap = require('./src/json/ajaxmap.js');
@@ -117,7 +111,8 @@ var ajaxPostMap = require('./src/json/ajaxpostmap.js');
 var getRouterDomain = function(originHost, routerKey, val) {
     let routerVal, views, cgi;
     let useDefault = false; //使用默认当前目录
-
+        console.log(originHost);
+    console.log(domainAlias[originHost]);
     if (domainAlias && domainAlias[originHost]) {
         originHost = domainAlias[originHost];
     }
@@ -171,7 +166,6 @@ var configRouter = function(val) {
             var _tmp = originHost.split(":");
             originHost = _tmp[0];
         }
-
         var routerDomain = getRouterDomain(originHost, req.url, val);
         if (false === routerDomain) {
             console.log("no domain find");

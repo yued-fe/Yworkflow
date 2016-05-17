@@ -45,7 +45,7 @@ gulp.task('dev', function() {
     nodemon({
             script: 'index.js',
             ext: 'js html scss css',
-            ignore: ['ejs', 'src/**/*', 'build', '_tmp', '_prelease', '_previews'],
+            ignore: ['ejs', 'src/static/**/*', 'build', '_tmp', '_prelease', '_previews'],
             env: {
                 "NODE_ENV": process.env.NODE_ENV
             }

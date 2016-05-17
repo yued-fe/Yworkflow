@@ -1,5 +1,7 @@
 /**
  * Created by renjiale on 2016/4/26.
+ * 共线上DynamticNodeServer使用的动态路由
+ * 注意此路由必须是动态render的路由，本地调试静态化请使用local_dev_routermap.js
  */
 
 var routerMap = {
