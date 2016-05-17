@@ -70,8 +70,10 @@ src/                          // 项目目录
 │   │ ├── ajaxpostmap.js ajax POST请求映射config
 │   │
 │   ├── node-config // **重要** Node框架机所依赖的config
+│   │ ├── domain_alias.js // 设置域名别名,框架机会根据header hosts头处理映射逻辑
 │   │ ├── dynamic_routermap.js   // Dynamic框架机路由映射config
 │   │ ├── static_routermap.js  //  Static框架机API和生成html路径映射config
+│   │ ├── local_dev_routermap.js // 本地调试动态和静态混合使用的路由config
 │   │ ├── minify.js // 服务端渲染 html 压缩级别config
 │   │ ├── server.js // 框架机环境、L5、资源路径等config
 │
@@ -128,5 +130,13 @@ src/                          // 项目目录
 1. Sprites精灵图，src 文件夹 > build 文件夹 完整映射。
 2. 本地combo模拟（由于需要nginx支持，本地调试较为繁琐，此功能滞后）
 
+
+####关于映射
+
+框架机为了解决多环境、多业务支持，本次起点改造通过多域名的方式，隔离和区分环境机器，有诸如`devr.qidian.com`,`oar.qidian.com`,`rank.qidian.com`等多套域名，对应开发环境有`localr.qidian.com`。
+
+若开发具体某个有二级频道的项目，请在`views`目录下以最终线上路由为基准新建项目文件夹，把相应的模板文件置于其中开发。
+
+请在`src/node-config/domain_alias.js`中配置域名映射，以便正常启动本地服务。
 
 
