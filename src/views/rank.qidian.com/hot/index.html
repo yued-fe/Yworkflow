@@ -71,9 +71,9 @@
         %>
 <head>
     <meta charset="UTF-8">
-    <title><%=pageTitle%> 起点中文网_阅文集团旗下网站</title>
-    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
-    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <title>人气榜单_起点中文网</title>
+    <meta name="description" content="起点中文网小说排行榜提供最新、流行、经典、精品原创小说排行榜,涵盖:玄幻小说排行榜,奇幻小说排行榜,武侠小说排行榜,仙侠小说排行榜,都市小说排行榜,历史小说排行榜,军事小说排行榜,竞技小说排行榜,灵异小说排行榜,二次元小说排行榜,免费小说排行榜,新书排行榜,完本小说排行榜,粉丝打赏排行榜">
+    <meta name="keywords" content="小说,人气榜单，排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜">
     <meta name="robots" content="all">
     <meta name="googlebot" content="all">
     <meta name="baiduspider" content="all">
@@ -90,9 +90,10 @@
         var speedTimer = [],
                 speedZero = new Date().getTime();
     </script>
+    <!-- end speedTimer[var, zero] -->
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/rank.css">
@@ -100,8 +101,6 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
-    <!-- end speedTimer[var, zero] -->
-
     <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
@@ -144,7 +143,7 @@
                 <div class="rank-list-row cf mb20">
                     <!-- start 原创风云榜 -->
                     <div class="rank-list">
-                        <h3 class="wrap-title">原创风云榜<i>&#183;</i>新书<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao"><em>&#124;</em>更多</a>
+                        <h3 class="wrap-title">原创风云榜<i>&#183;</i>新书<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao" data-bid="qd_C_rank_27"><em>&#124;</em>更多</a>
                         </h3>
                         <div class="book-list">
                             <% if (data.chartForbes.length === 0) { %>
@@ -154,21 +153,21 @@
                             </div>
                             <% } else {%>
                             <ul>
-                                <li class="unfold">
+                                <li class="unfold" data-rankid="1">
                                     <div class="book-wrap cf">
                                         <div class="book-info fl">
                                             <h3>NO.1</h3>
                                             <h4>
-                                                <a href="http://www.qidian.com/Book/<%= data['chartForbes'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartForbes'][0]['bookId'] %>"><%= data['chartForbes'][0]['bookName'] %></a>
+                                                <a href="http://www.qidian.com/Book/<%= data['chartForbes'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartForbes'][0]['bookId'] %>"><%= data['chartForbes'][0]['bookName'] %></a>
                                             </h4>
                                             <p class="digital"><em><%= data['chartForbes'][0]['monthTicketCnt'] %></em>月票</p>
                                             <p class="author">
-                                                <a class="type" href="<%= data['chartForbes'][0]['chanUrl'] %>" target="_blank"><%= data['chartForbes'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartForbes'][0]['authorId'] %>" target="_blank"><%= data['chartForbes'][0]['authorName'] %></a>
+                                                <a class="type" href="<%= data['chartForbes'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartForbes'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartForbes'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartForbes'][0]['authorName'] %></a>
                                             </p>
                                         </div>
                                         <div class="book-cover">
-                                            <a class="link" href="http://www.qidian.com/Book/<%= data['chartForbes'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartForbes'][0]['bookId'] %>">
-                                                <img src="<%= data['chartForbes'][0]['imageUrl'] %>" alt="">
+                                            <a class="link" href="http://www.qidian.com/Book/<%= data['chartForbes'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartForbes'][0]['bookId'] %>">
+                                                <img src="<%= data['chartForbes'][0]['imageUrl'] %>">
                                             </a>
                                             <span></span>
                                         </div>
@@ -176,10 +175,10 @@
                                 </li>
 
                      <% for(var i=1; i < data['chartForbes'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartForbes'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartForbes'][i]['bookId'] %>"><%= data['chartForbes'][i]['bookName'] %></a><i class="total"><%= data['chartForbes'][i]['monthTicketCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartForbes'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartForbes'][i]['bookId'] %>"><%= data['chartForbes'][i]['bookName'] %></a><i class="total"><%= data['chartForbes'][i]['monthTicketCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -190,7 +189,7 @@
                     <!-- end 原创风云榜 -->
                     <!-- start 24小时热销 -->
                     <div class="rank-list sort-list">
-                        <h3 class="wrap-title">24小时热销榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/hotsales"><em>&#124;</em>更多</a></h3>
+                        <h3 class="wrap-title">24小时热销榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/hotsales" data-bid="qd_C_rank_28"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartDaySales.length === 0) { %>
                             <div class="no-rank-data">
@@ -199,30 +198,30 @@
                             </div>
                             <% } else {%>
                             <ul>
-                                <li class="unfold">
+                                <li class="unfold" data-rankid="1">
                                     <div class="book-wrap cf">
                                         <div class="book-info fl">
                                             <h3>NO.1</h3>
                                             <h4>
-                                                <a href="http://www.qidian.com/Book/<%= data['chartDaySales'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartDaySales'][0]['bookId'] %>"><%= data['chartDaySales'][0]['bookName'] %></a></h4>
+                                                <a href="http://www.qidian.com/Book/<%= data['chartDaySales'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartDaySales'][0]['bookId'] %>"><%= data['chartDaySales'][0]['bookName'] %></a></h4>
                                             <p class="digital f16">销量冠军</p>
                                             <p class="author">
-                                                <a class="type" href="<%= data['chartDaySales'][0]['chanUrl'] %>" target="_blank"><%= data['chartDaySales'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartDaySales'][0]['authorId'] %>" target="_blank"><%= data['chartDaySales'][0]['authorName'] %></a>
+                                                <a class="type" href="<%= data['chartDaySales'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartDaySales'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartDaySales'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartDaySales'][0]['authorName'] %></a>
                                             </p>
                                         </div>
                                         <div class="book-cover">
-                                            <a class="link" href="http://www.qidian.com/Book/<%= data['chartDaySales'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartDaySales'][0]['bookId'] %>">
-                                                <img src="<%= data['chartDaySales'][0]['imageUrl'] %>" alt="">
+                                            <a class="link" href="http://www.qidian.com/Book/<%= data['chartDaySales'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartDaySales'][0]['bookId'] %>">
+                                                <img src="<%= data['chartDaySales'][0]['imageUrl'] %>">
                                             </a>
                                             <span></span>
                                         </div>
                                     </div>
                                 </li>
                                                   <% for(var i=1; i < data['chartDaySales'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%=  i+1 %>"><%=  i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartDaySales'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= data['chartDaySales'][i]['bookId'] %>"><%=
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartDaySales'][i]['bookId'] %>.aspx %>" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartDaySales'][i]['bookId'] %>"><%=
                                             data['chartDaySales'][i]['bookName'] %></a>
                                         <%
                                         var trend = data.chartDaySales[i]['trend'];
@@ -245,8 +244,8 @@
                     <!-- start 会员点击榜 -->
                     <div class="rank-list">
                         <div class="tab-title">
-                            <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">会员点击榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/click"><em>&#124;</em>更多</a></h3>
+                            <div class="tab-wrap"><a class="act" href="javascript:" data-aid="qd_C_rank_30">周</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_31">月</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_32">总</a></div>
+                            <h3 class="wrap-title">会员点击榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/click" data-bid="qd_C_rank_29"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -258,20 +257,20 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartWeekClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekClick'][0]['bookId'] %>"><%= data['chartWeekClick'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartWeekClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartWeekClick'][0]['bookId'] %>"><%= data['chartWeekClick'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartWeekClick'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartWeekClick'][0]['chanUrl'] %>" target="_blank"><%= data['chartWeekClick'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartWeekClick'][0]['authorId'] %>" target="_blank"><%= data['chartWeekClick'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartWeekClick'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartWeekClick'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartWeekClick'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartWeekClick'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartWeekClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekClick'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartWeekClick'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartWeekClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartWeekClick'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartWeekClick'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
@@ -279,10 +278,10 @@
                                     </li>
 
                          <% for(var i=1; i < data['chartWeekClick'].length; i++) { %>
-                                    <li>
+                                    <li data-rankid="<%=i+1 %>">
                                         <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                         <div class="name-box">
-                                            <a class="name" href="http://www.qidian.com/Book/<%= data['chartWeekClick'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekClick'][i]['bookId'] %>"><%= data['chartWeekClick'][i]['bookName'] %></a><i class="total"><%= data['chartWeekClick'][i]['clickCnt'] %></i>
+                                            <a class="name" href="http://www.qidian.com/Book/<%= data['chartWeekClick'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartWeekClick'][i]['bookId'] %>"><%= data['chartWeekClick'][i]['bookName'] %></a><i class="total"><%= data['chartWeekClick'][i]['clickCnt'] %></i>
                                         </div>
                                     </li>
                                     <% } %>
@@ -298,30 +297,30 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartMonthClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthClick'][0]['bookId'] %>"><%= data['chartMonthClick'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartMonthClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartMonthClick'][0]['bookId'] %>"><%= data['chartMonthClick'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartMonthClick'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartMonthClick'][0]['chanUrl'] %>" target="_blank">仙侠</a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartMonthClick'][0]['authorId'] %>" target="_blank"><%= data['chartMonthClick'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartMonthClick'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartMonthClick'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartMonthClick'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartMonthClick'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartMonthClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthClick'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartMonthClick'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartMonthClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartMonthClick'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartMonthClick'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartMonthClick'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartMonthClick'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthClick'][i]['bookId'] %>"><%= data['chartMonthClick'][i]['bookName'] %></a><i class="total"><%= data['chartMonthClick'][i]['clickCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartMonthClick'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartMonthClick'][i]['bookId'] %>"><%= data['chartMonthClick'][i]['bookName'] %></a><i class="total"><%= data['chartMonthClick'][i]['clickCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -337,20 +336,20 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartTotalClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartTotalClick'][0]['bookId'] %>"><%= data['chartTotalClick'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartTotalClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartTotalClick'][0]['bookId'] %>"><%= data['chartTotalClick'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartTotalClick'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartTotalClick'][0]['chanUrl'] %>" target="_blank"><%= data['chartTotalClick'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartTotalClick'][0]['authorId'] %>" target="_blank"><%= data['chartTotalClick'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartTotalClick'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartTotalClick'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartTotalClick'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartTotalClick'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartTotalClick'][0]['bookId'] %>.aspx" target="_blank" data-bid="3676417">
-                                                    <img src="<%= data['chartTotalClick'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartTotalClick'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartTotalClick'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartTotalClick'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
@@ -358,10 +357,10 @@
                                     </li>
 
                      <% for(var i=1; i < data['chartTotalClick'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartTotalClick'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartTotalClick'][i]['bookId'] %>"><%= data['chartTotalClick'][i]['bookName'] %></a><i class="total"><%= data['chartTotalClick'][i]['clickCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartTotalClick'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartTotalClick'][i]['bookId'] %>"><%= data['chartTotalClick'][i]['bookName'] %></a><i class="total"><%= data['chartTotalClick'][i]['clickCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -374,8 +373,8 @@
                     <!-- start 推荐票榜 -->
                     <div class="rank-list mr0">
                         <div class="tab-title">
-                            <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">推荐票榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/recom"><em>&#124;</em>更多</a></h3>
+                            <div class="tab-wrap"><a class="act" href="javascript:" data-aid="qd_C_rank_34">周</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_35">月</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_36">总</a></div>
+                            <h3 class="wrap-title">推荐票榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/recom" data-aid="qd_C_rank_33"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -387,30 +386,30 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekRecom'][0]['bookId'] %>"><%= data['chartWeekRecom'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartWeekRecom'][0]['bookId'] %>"><%= data['chartWeekRecom'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartWeekRecom'][0]['recomCnt'] %></em>推荐票</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartWeekRecom'][0]['chanUrl'] %>" target="_blank"><%= data['chartWeekRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartWeekRecom'][0]['authorId'] %>" target="_blank"><%= data['chartWeekRecom'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartWeekRecom'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartWeekRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartWeekRecom'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartWeekRecom'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekRecom'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartWeekRecom'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartWeekRecom'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartWeekRecom'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartWeekRecom'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartWeekRecom'][i]['bookId'] %>"><%= data['chartWeekRecom'][i]['bookName'] %></a><i class="total"><%= data['chartWeekRecom'][i]['recomCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartWeekRecom'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartWeekRecom'][i]['bookId'] %>"><%= data['chartWeekRecom'][i]['bookName'] %></a><i class="total"><%= data['chartWeekRecom'][i]['recomCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -427,30 +426,30 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthRecom'][0]['bookId'] %>"><%= data['chartMonthRecom'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartMonthRecom'][0]['bookId'] %>"><%= data['chartMonthRecom'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartMonthRecom'][0]['recomCnt'] %></em>推荐票</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartMonthRecom'][0]['chanUrl'] %>" target="_blank"><%= data['chartMonthRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartMonthRecom'][0]['authorId'] %>" target="_blank"><%= data['chartMonthRecom'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartMonthRecom'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartMonthRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartMonthRecom'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartMonthRecom'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthRecom'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartMonthRecom'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartMonthRecom'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartMonthRecom'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartMonthRecom'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartMonthRecom'][i]['bookId'] %>"><%= data['chartMonthRecom'][i]['bookName'] %></a><i class="total"><%= data['chartMonthRecom'][i]['recomCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartMonthRecom'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartMonthRecom'][i]['bookId'] %>"><%= data['chartMonthRecom'][i]['bookName'] %></a><i class="total"><%= data['chartMonthRecom'][i]['recomCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -466,30 +465,30 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartTotalRecom'][0]['bookId'] %>"><%= data['chartTotalRecom'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartTotalRecom'][0]['bookId'] %>"><%= data['chartTotalRecom'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartTotalRecom'][0]['recomCnt'] %></em>推荐票</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartTotalRecom'][0]['chanUrl'] %>" target="_blank"><%= data['chartTotalRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartTotalRecom'][0]['authorId'] %>" target="_blank"><%= data['chartTotalRecom'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartTotalRecom'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartTotalRecom'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartTotalRecom'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartTotalRecom'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartTotalRecom'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartTotalRecom'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartTotalRecom'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartTotalRecom'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                   <% for(var i=1; i < data['chartTotalRecom'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartTotalRecom'][i]['bookId'] %>"><%= data['chartTotalRecom'][i]['bookName'] %></a><i class="total"><%= data['chartTotalRecom'][i]['recomCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartTotalRecom'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartTotalRecom'][i]['bookId'] %>"><%= data['chartTotalRecom'][i]['bookName'] %></a><i class="total"><%= data['chartTotalRecom'][i]['recomCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -502,7 +501,7 @@
                     <!-- end 推荐票榜 -->
                     <!-- start 收藏榜 -->
                     <div class="rank-list">
-                            <h3 class="wrap-title">收藏榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/collect"><em>&#124;</em>更多</a></h3>
+                            <h3 class="wrap-title">收藏榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/collect" data-aid="qd_C_rank_37"><em>&#124;</em>更多</a></h3>
                             <div class="book-list">
                                 <% if (data.chartCollect.length === 0) { %>
                                 <div class="no-rank-data">
@@ -511,20 +510,20 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartCollect'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartCollect'][0]['bookId'] %>"><%= data['chartCollect'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartCollect'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartCollect'][0]['bookId'] %>"><%= data['chartCollect'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartCollect'][0]['collectCnt'] %></em>收藏数</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartCollect'][0]['chanUrl'] %>" target="_blank"><%= data['chartCollect'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartCollect'][0]['authorId'] %>" target="_blank"><%= data['chartCollect'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartCollect'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartCollect'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartCollect'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartCollect'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartCollect'][0]['bookId'] %>.aspx" target="_blank" data-bid="3676417">
-                                                    <img src="<%= data['chartCollect'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartCollect'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartCollect'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartCollect'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
@@ -532,10 +531,10 @@
                                     </li>
 
                   <% for(var i=1; i < data['chartCollect'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartCollect'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartCollect'][i]['bookId'] %>"><%= data['chartCollect'][i]['bookName'] %></a><i class="total"><%= data['chartCollect'][i]['collectCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartCollect'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartCollect'][i]['bookId'] %>"><%= data['chartCollect'][i]['bookName'] %></a><i class="total"><%= data['chartCollect'][i]['collectCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -547,8 +546,8 @@
                     <!-- start 完本榜 -->
                     <div class="rank-list">
                         <div class="tab-title">
-                            <div class="tab-wrap"><a class="act" href="javascript:">周</a><em>&#183;</em><a href="javascript:">月</a><em>&#183;</em><a href="javascript:">总</a></div>
-                            <h3 class="wrap-title">完本榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/fin"><em>&#124;</em>更多</a></h3>
+                            <div class="tab-wrap"><a class="act" href="javascript:" data-aid="qd_C_rank_39">周</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_40">月</a><em>&#183;</em><a href="javascript:" data-aid="qd_C_rank_41">总</a></div>
+                            <h3 class="wrap-title">完本榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/fin" data-aid="qd_C_rank_38"><em>&#124;</em>更多</a></h3>
                         </div>
                         <div class="tab-list">
                             <!-- 周 -->
@@ -560,20 +559,20 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                    <li class="unfold">
+                                    <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookWeek'][0]['bookId'] %>"><%= data['chartFinBookWeek'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookWeek'][0]['bookId'] %>"><%= data['chartFinBookWeek'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartFinBookWeek'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartFinBookWeek'][0]['chanUrl'] %>" target="_blank"><%= data['chartFinBookWeek'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookWeek'][0]['authorId'] %>" target="_blank"><%= data['chartFinBookWeek'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartFinBookWeek'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartFinBookWeek'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookWeek'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartFinBookWeek'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookWeek'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartFinBookWeek'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartFinBookWeek'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartFinBookWeek'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
@@ -581,10 +580,10 @@
                                     </li>
 
                      <% for(var i=1; i < data['chartFinBookWeek'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookWeek'][i]['bookId'] %>"><%= data['chartFinBookWeek'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookWeek'][i]['clickCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookWeek'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookWeek'][i]['bookId'] %>"><%= data['chartFinBookWeek'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookWeek'][i]['clickCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -600,20 +599,20 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                     <li class="unfold">
+                                     <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookMonth'][0]['bookId'] %>"><%= data['chartFinBookMonth'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookMonth'][0]['bookId'] %>"><%= data['chartFinBookMonth'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartFinBookMonth'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartFinBookMonth'][0]['chanUrl'] %>" target="_blank"><%= data['chartFinBookMonth'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookMonth'][0]['authorId'] %>" target="_blank"><%= data['chartFinBookMonth'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartFinBookMonth'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartFinBookMonth'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookMonth'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartFinBookMonth'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookMonth'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartFinBookMonth'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartFinBookMonth'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartFinBookMonth'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
@@ -621,10 +620,10 @@
                                     </li>
 
                      <% for(var i=1; i < data['chartFinBookMonth'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookMonth'][i]['bookId'] %>"><%= data['chartFinBookMonth'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookMonth'][i]['clickCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookMonth'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookMonth'][i]['bookId'] %>"><%= data['chartFinBookMonth'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookMonth'][i]['clickCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -640,30 +639,30 @@
                                 </div>
                                 <% } else {%>
                                 <ul>
-                                      <li class="unfold">
+                                      <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookTotal'][0]['bookId'] %>"><%= data['chartFinBookTotal'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookTotal'][0]['bookId'] %>"><%= data['chartFinBookTotal'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartFinBookTotal'][0]['clickCnt'] %></em>点击</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartFinBookTotal'][0]['chanUrl'] %>" target="_blank"><%= data['chartFinBookTotal'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookTotal'][0]['authorId'] %>" target="_blank"><%= data['chartFinBookTotal'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartFinBookTotal'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartFinBookTotal'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartFinBookTotal'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartFinBookTotal'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookTotal'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartFinBookTotal'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartFinBookTotal'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartFinBookTotal'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartFinBookTotal'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartFinBookTotal'][i]['bookId'] %>"><%= data['chartFinBookTotal'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookTotal'][i]['clickCnt'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartFinBookTotal'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartFinBookTotal'][i]['bookId'] %>"><%= data['chartFinBookTotal'][i]['bookName'] %></a><i class="total"><%= data['chartFinBookTotal'][i]['clickCnt'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -675,7 +674,7 @@
                     <!-- end 完本榜 -->
                     <!-- start 签约作家新书榜 -->
                     <div class="rank-list">
-                        <h3 class="wrap-title">签约作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook"><em>&#124;</em>更多</a></h3>
+                        <h3 class="wrap-title">签约作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook" data-aid="qd_C_rank_42"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartVipAuthorNewBook.length === 0) { %>
                             <div class="no-rank-data">
@@ -684,30 +683,30 @@
                             </div>
                             <% } else {%>
                             <ul>
-                                 <li class="unfold">
+                                 <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartVipAuthorNewBook'][0]['bookId'] %>"><%= data['chartVipAuthorNewBook'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartVipAuthorNewBook'][0]['bookId'] %>"><%= data['chartVipAuthorNewBook'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartVipAuthorNewBook'][0]['potentialVal'] %></em>潜力值</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartVipAuthorNewBook'][0]['chanUrl'] %>" target="_blank"><%= data['chartVipAuthorNewBook'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartVipAuthorNewBook'][0]['authorId'] %>" target="_blank"><%= data['chartVipAuthorNewBook'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartVipAuthorNewBook'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartVipAuthorNewBook'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartVipAuthorNewBook'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartVipAuthorNewBook'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartVipAuthorNewBook'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartVipAuthorNewBook'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartVipAuthorNewBook'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartVipAuthorNewBook'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartVipAuthorNewBook'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartVipAuthorNewBook'][i]['bookId'] %>"><%= data['chartVipAuthorNewBook'][i]['bookName'] %></a><i class="total"><%= data['chartVipAuthorNewBook'][i]['potentialVal'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartVipAuthorNewBook'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartVipAuthorNewBook'][i]['bookId'] %>"><%= data['chartVipAuthorNewBook'][i]['bookName'] %></a><i class="total"><%= data['chartVipAuthorNewBook'][i]['potentialVal'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -718,7 +717,7 @@
                     <!-- end 签约作家新书榜 -->
                     <!-- start 公众作家新书榜 -->
                     <div class="rank-list mr0">
-                        <h3 class="wrap-title">公众作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/pubnewbook"><em>&#124;</em>更多</a></h3>
+                        <h3 class="wrap-title">公众作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/pubnewbook" data-aid="qd_C_rank_43"><em>&#124;</em>更多</a></h3>
                         <div class="book-list">
                             <% if (data.chartPublicAuthor.length === 0) { %>
                             <div class="no-rank-data">
@@ -727,30 +726,30 @@
                             </div>
                             <% } else {%>
                             <ul>
-                                 <li class="unfold">
+                                 <li class="unfold" data-rankid="1">
                                         <div class="book-wrap cf">
                                             <div class="book-info fl">
                                                 <h3>NO.1</h3>
                                                 <h4>
-                                                    <a href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartPublicAuthor'][0]['bookId'] %>"><%= data['chartPublicAuthor'][0]['bookName'] %></a></h4>
+                                                    <a href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartPublicAuthor'][0]['bookId'] %>"><%= data['chartPublicAuthor'][0]['bookName'] %></a></h4>
                                                 <p class="digital"><em><%= data['chartPublicAuthor'][0]['potentialVal'] %></em>潜力值</p>
                                                 <p class="author">
-                                                    <a class="type" href="<%= data['chartPublicAuthor'][0]['chanUrl'] %>" target="_blank"><%= data['chartPublicAuthor'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartPublicAuthor'][0]['authorId'] %>" target="_blank"><%= data['chartPublicAuthor'][0]['authorName'] %></a>
+                                                    <a class="type" href="<%= data['chartPublicAuthor'][0]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['chartPublicAuthor'][0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['chartPublicAuthor'][0]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['chartPublicAuthor'][0]['authorName'] %></a>
                                                 </p>
                                             </div>
                                             <div class="book-cover">
-                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][0]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartPublicAuthor'][0]['bookId'] %>">
-                                                    <img src="<%= data['chartPublicAuthor'][0]['imageUrl'] %>" alt="">
+                                                <a class="link" href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][0]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['chartPublicAuthor'][0]['bookId'] %>">
+                                                    <img src="<%= data['chartPublicAuthor'][0]['imageUrl'] %>">
                                                 </a>
                                                 <span></span>
                                             </div>
                                         </div>
                                     </li>
                      <% for(var i=1; i < data['chartPublicAuthor'].length; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
                                     <div class="name-box">
-                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['chartPublicAuthor'][i]['bookId'] %>"><%= data['chartPublicAuthor'][i]['bookName'] %></a><i class="total"><%= data['chartPublicAuthor'][i]['potentialVal'] %></i>
+                                        <a class="name" href="http://www.qidian.com/Book/<%= data['chartPublicAuthor'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['chartPublicAuthor'][i]['bookId'] %>"><%= data['chartPublicAuthor'][i]['bookName'] %></a><i class="total"><%= data['chartPublicAuthor'][i]['potentialVal'] %></i>
                                     </div>
                                 </li>
                         <% } %>
@@ -775,11 +774,11 @@
     // 环境变量，会按照环境选择性打log
     g_data.envType = '<%= envType %>';
     // 用作统计PV
-    g_data.pageId = 'qd_P_all';
+    g_data.pageId = 'qd_P_rank_01';
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/rank/index.js'], function ($, SpeedReport, Index) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.index'], function ($, SpeedReport, Index) {
 
         // 页面逻辑入口
         new Index({});

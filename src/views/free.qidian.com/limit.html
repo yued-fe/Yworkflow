@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>起点中文网_阅文集团旗下网站</title>
-    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
-    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <title>限时免费_起点中文网</title>
+    <meta name="description" content="最热门的免费小说网,提供人气玄幻小说,奇幻小说,武侠小说,仙侠小说,都市小说,历史小说,军事小说,竞技小说,灵异小说,二次元小说,免费小说在线阅读与下载.大神作品齐聚起点,最新章节每日更新">
+    <meta name="keywords" content="免费小说,免费网络小说,免费玄幻小说,免费奇幻小说,免费武侠小说,免费仙侠小说,免费都市小说,免费历史小说,免费军事小说,免费竞技小说,免费灵异小说,免费二次元小说">
     <meta name="robots" content="all">
     <meta name="googlebot" content="all">
     <meta name="baiduspider" content="all">
@@ -21,10 +21,11 @@
         var speedTimer = [],
             speedZero = new Date().getTime();
     </script>
+    <!-- end speedTimer[var, zero] -->
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Checkbox.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
@@ -33,7 +34,6 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
-    <!-- end speedTimer[var, zero] -->
     <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
@@ -117,20 +117,20 @@
                                     <% for(var i=0;i< data.listInfo.length;i++){
                                        var item = data.listInfo[i];
                                     %>
-                                    <li>
+                                    <li data-rankid="<%= i+1%>">
                                         <div class="book-img-box">
                                             <%if(item['score']!=null&&item['score']!=""){%><div class="score"><%= item['score']%></div><%}%>
-                                            <a href="<%= item['bookUrl']%>" target="_blank"><img src="<%= item['imageUrl']%>"></a>
+                                            <a href="<%= item['bookUrl']%>" data-aid="qd_E03" data-bid="<%= item['bookId']%>" target="_blank"><img src="<%= item['imageUrl']%>"></a>
                                         </div>
                                         <div class="book-mid-info">
-                                            <h4><a href="<%= item['bookUrl']%>" target="_blank"><%= item['bookName']||'- -'%></a></h4>
+                                            <h4><a href="<%= item['bookUrl']%>" target="_blank" data-aid="qd_E04" data-bid="<%= item['bookId']%>"><%= item['bookName']||'- -'%></a></h4>
                                             <p class="author">
-                                                <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" target="_blank"><%= item['authorName']%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank"><%= item['chanName']%></a><em>|</em><span><%= item['bookStatus']%></span>
+                                                <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" target="_blank" data-aid="qd_E05"><%= item['authorName']%></a><em>|</em><a href="<%= item['chanUrl']%>" data-aid="qd_E06" target="_blank"><%= item['chanName']%></a><em>|</em><span><%= item['bookStatus']%></span>
                                             </p>
                                             <p class="intro">
                                                 <%= item['desc']||'- -'%>
                                             </p>
-                                            <p class="update"><a href="<%= item['lastChapterUrl']%>" target="_blank">最新更新  <%= item['lastChapterName']%></a><em>
+                                            <p class="update"><a href="<%= item['lastChapterUrl']%>" data-aid="qd_E07" data-chapterurl="<%= item['lastChapterUrl']%>" target="_blank">最新更新  <%= item['lastChapterName']%></a><em>
                                                 &#183;</em><span><%= item['lastUpdateTime']%></span>
                                             </p>
                                         </div>
@@ -140,7 +140,7 @@
                                                 <s>¥<%= item['price']%></s>
                                             </div>
                                             <p class="btn">
-                                                <a class="red-btn" href="<%= item['bookUrl']%>" target="_blank">免费阅读</a>
+                                                <a class="red-btn" href="<%= item['bookUrl']%>" target="_blank" data-aid="qd_E01">免费阅读</a>
                                                 <%
                                                 var bookInShelf='加入书架';
                                                 var inShelf='blue-btn';
@@ -149,7 +149,7 @@
                                                 inShelf='in-shelf';
                                                 }
                                                 %>
-                                                <a class="<%= inShelf%> add-book" href="javascript:"  data-bookId="<%= item['bookId']%>"><%= bookInShelf%></a>
+                                                <a class="<%= inShelf%> add-book" href="javascript:" data-aid="qd_E02" data-bookId="<%= item['bookId']%>"><%= bookInShelf%></a>
                                             </p>
                                         </div>
                                     </li>
@@ -180,14 +180,14 @@
                                 <% for(var i=0;i< data.nextFreeInfo.length;i++){
                                    var item = data.nextFreeInfo[i];
                                 %>
-                                <li>
+                                <li data-rankid="<%= i+1%>">
                                     <div class="img-box">
                                         <%if(item['score']!=null&&item['score']!=""){%><span><%= item['score']%></span><%}%>
-                                        <a href="<%= item['bookUrl']%>" target="_blank"><img src="<%= item['imageUrl']%>"></a>
+                                        <a href="<%= item['bookUrl']%>" target="_blank" data-aid="qd_E08" data-bid="<%= item['bookId']%>"><img src="<%= item['imageUrl']%>"></a>
                                     </div>
                                     <div class="book-info">
-                                        <h4><a href="<%= item['bookUrl']%>" target="_blank"><%= item['bookName']||'- -'%></a></h4>
-                                        <p class="author"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><a href="<%= item['authorUrl']%>" target="_blank"><%= item['authorName']%></a></p>
+                                        <h4><a href="<%= item['bookUrl']%>" target="_blank" data-aid="qd_E09" data-bid="<%= item['bookId']%>"><%= item['bookName']||'- -'%></a></h4>
+                                        <p class="author"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><a href="<%= item['authorUrl']%>" data-aid="qd_E10" target="_blank"><%= item['authorName']%></a></p>
                                         <p class="intro"><%= item['desc']||'- -'%></p>
                                     </div>
                                 </li>
@@ -222,13 +222,13 @@
     // 环境变量，会按照环境选择性打log
     g_data.envType = '<%= envType %>';
     // 用作统计PV
-    g_data.pageId = 'qd_p_qidian';
+    g_data.pageId = 'qd_P_limitfree';
     g_data.targetUrl = '//<%= staticConf.domainPrefix%>f.qidian.com';
     // 域名环境变量
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.free.limitedFree'], function ($, SpeedReport, LimitFree) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.free.limitedFree_0_1'], function ($, SpeedReport, LimitFree) {
 
         // 页面逻辑入口
         new LimitFree({});

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>起点中文网_阅文集团旗下网站</title>
-    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
     <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
     <meta name="robots" content="all">
     <meta name="googlebot" content="all">
@@ -23,15 +23,13 @@
         speedZero = new Date().getTime();
     </script>
     <link rel="shortcut icon" href="http://www.qidian.com/favicon.ico" type="image/icon" />
-    <% if (envType !== 'local'  ) { %>
-    <link rel="stylesheet" data-ignore="true" href="//<%= staticConf.staticDomain %>/c/=/qd/css/reset.css,/qd/css/global.css,/qd/css/font.css,/qd/css/header.css,/qd/css/index.css,/qd/css/module.css,/qd/css/layout.css,/qd/css/qd_popup.css,/qd/css/footer.css,/qd/css/lbfUI/css/ComboBox.css,/qd/css/lbfUI/css/Button.css?v=201604151201" />
-    <% } else {%>
+
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/index.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/index.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
@@ -39,7 +37,7 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Button.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Autocomplete.css">
     <!-- end speedTimer[var, zero] -->
-    <% } %>
+
     <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
@@ -277,7 +275,7 @@
     <div class="survey-box">
         <div class="center">
             <p>
-                <a class="go-survey" href="http://wj.qq.com/s/372817/ec0e" target="_blank"></a>
+                <a class="go-survey" href="http://wj.qq.com/s/533303/3766" target="_blank"></a>
                 <a class="close-survey" id="close-survey" href="javascript:"></a>
             </p>
         </div>
@@ -305,7 +303,7 @@
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index'], function ($, SpeedReport, Index) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index_0_2'], function ($, SpeedReport, Index) {
 
         // 页面逻辑入口
         new Index({});

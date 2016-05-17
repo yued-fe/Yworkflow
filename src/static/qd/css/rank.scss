@@ -58,6 +58,15 @@
 				margin-right: 5px;
 			}
 		}
+		.link {
+			float: right;
+			margin-top: 12px;
+			font: 12px/1 $simsun;
+			color: $gray6;
+			&:hover {
+				color: inherit;
+			}
+		}
 	}
 	//分类筛选
 	.type-list {
@@ -202,8 +211,7 @@
 /* 粉丝列表 */
 .fans-list {
 	float: left;
-	width: 228px;
-	margin-right: 14px;
+	margin-right: 30px;
 	&.mr0 {
 		margin-right: 0;
 	}
@@ -217,7 +225,7 @@
 				margin-right: 15px;
 			}
 			&.col-2 {
-				margin-right: 30px;
+				margin-right: 28px;
 			}
 			&.col-3 {
 				float: right;
@@ -226,6 +234,10 @@
 	}
 	li {
 		@extend %cf;
+		border-top: 1px solid #E6E6E6;
+		&:first-child {
+			border-top: none;
+		}
 		.number, a {
 			float: left;
 		}
@@ -279,6 +291,9 @@
 @media (max-width: 1025px) {
 	.fans-list {
 		margin-bottom: 22px;
+	}
+	.rank-header .type-list em {
+		margin: 0 5px;
 	}
 }
 /* retina屏双倍图 */

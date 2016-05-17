@@ -59,7 +59,7 @@
                 <% for(var i=0; i < recomImgNewBook.length; i++) { %>
                 <li>
                     <div class="book-img">
-                        <a href="http://www.qidian.com/Book/<%= recomImgNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomImgNewBook[i]['bookId'] %>"><img src="<%= recomImgNewBook[i]['imageUrl'] %>" alt="<%= recomImgNewBook[i]['bookName'] %>">
+                        <a href="http://www.qidian.com/Book/<%= recomImgNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomImgNewBook[i]['bookId'] %>"><img class="lazy" data-original="<%= recomImgNewBook[i]['imageUrl'] %>" alt="<%= recomImgNewBook[i]['bookName'] %>">
                             <%
                             //评分小于7.0时不显示
                                 var score = recomImgNewBook[i]['praiseCnt']

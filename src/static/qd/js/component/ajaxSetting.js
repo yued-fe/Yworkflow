@@ -3,7 +3,7 @@
  * @author rainszhang
  * Created: 16-03-18
  */
-LBF.define('/qd/js/component/ajaxSetting.js', function (require, exports, module) {
+LBF.define('site.component.ajaxSetting', function (require, exports, module) {
     var $ = require('lib.jQuery');
     // var JSON = require('lang.JSON');
     var Cookie = require('util.Cookie');

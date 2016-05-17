@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@import "global";
+@import "mixin";
+
+/* 频道页 */
+.pin-nav-wrap {
+	position: relative;
+	z-index: 10;
+	top: 0;
+	.box-center {
+		background: #3E3D43;
+	}
+}
+
+/* 1200 响应点样式变动 */
+@media (max-width: 1025px) {
+	.book-img-text .book-mid-info {
+		width: 380px;
+	}
+}

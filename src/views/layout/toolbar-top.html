@@ -9,7 +9,7 @@ mode1='act';
 %>
 <div class="tool-bar cf">
     <div class="view-mode" id="view-mode">
-        <a id="img-text" class="iconfont <%= mode2%>" href="javascript:" data-bid="qd_B41">&#xe618;</a><em>|</em><a id="only-text" class="iconfont  <%= mode1%>" href="javascript:" data-bid="qd_B42">&#xe61a;</a>
+        <a id="img-text" class="iconfont <%= mode2%>" href="javascript:" data-aid="qd_B40">&#xe618;</a><em>|</em><a id="only-text" class="iconfont  <%= mode1%>" href="javascript:" data-aid="qd_B41">&#xe61a;</a>
     </div>
     <div class="select-wrap">
         <%
@@ -29,22 +29,22 @@ mode1='act';
                     break;
         }
         %>
-        <a data-id="4" <%= updateTime%> href="javascript:" data-bid="qd_B36">更新时间<cite class="iconfont">&#xe625;</cite></a>
-        <a data-id="1" <%= clicks%> href="javascript:" data-bid="qd_B37">会员周点击<cite class="iconfont">&#xe625;</cite></a>
-        <a data-id="2" <%= voteCount%> href="javascript:" data-bid="qd_B38">总推荐票数<cite class="iconfont">&#xe625;</cite></a>
-        <a data-id="3" <%= totalWords%> href="javascript:" data-bid="qd_B39">总字数<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="4" <%= updateTime%> href="javascript:" data-aid="qd_B35">更新时间<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="1" <%= clicks%> href="javascript:" data-aid="qd_B36">会员周点击<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="2" <%= voteCount%> href="javascript:" data-aid="qd_B37">总推荐票数<cite class="iconfont">&#xe625;</cite></a>
+        <a data-id="3" <%= totalWords%> href="javascript:" data-aid="qd_B38">总字数<cite class="iconfont">&#xe625;</cite></a>
         <em>|</em>
-                                <span class="lbf-checkbox get-new-book <%if(data['paramList']['month']==3){%> lbf-checkbox-checked <%}%>" data-bid="qd_B40">
+                                <span class="lbf-checkbox get-new-book <%if(data['paramList']['month']==3){%> lbf-checkbox-checked <%}%>" data-aid="qd_B39">
                                     <input id="only" type="checkbox" <%if(data['paramList']['month']==3){%>checked<%}%>/>
                                 </span>
-        <label for="only" data-bid="qd_B40">只看3个月内新书</label>
+        <label for="only" data-aid="qd_B39">只看3个月内新书</label>
         <div class="sort-count count-info" id="sort-count">
             <div class="count-text">共<span><%= data['pageInfo']['totalCount']%></span>本相关作品
             </div>
             <div class="yiwen" id="yiwen">
-                <div class="iconfont">&#xe620;</div>
+                <div class="iconfont">&#xe624;</div>
                 <div class="hover-tip" id="hover-tip"><cite><b></b></cite>
-                    <p>由于政策和内容原因，部分作品暂时未能显示</p>
+                    <p>由于政策和内容原因，部分作品未能显示</p>
                 </div>
             </div>
             <i>|</i>

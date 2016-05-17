@@ -3,7 +3,7 @@
  * @author yangye
  * Created: 16-04-07
  */
-LBF.define('/qd/js/component/browserSupport.js', function (require, exports, module) {
+LBF.define('site.component.browserSupport', function (require, exports, module) {
     var $ = require('lib.jQuery');
 
     var report = {};

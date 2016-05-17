@@ -3,16 +3,16 @@
  * @author  luolei
  * Created: 2016-04-08
  */
-LBF.define('/qd/js/rank/index.js', function (require, exports, module) {
+LBF.define('site.rank.index', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
         ComboBox = require('ui.widget.ComboBox.ComboBox'),
-        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
-        report = require('/qd/js/component/report.js'),
-        Header = require('/qd/js/component/header.js'),
-        BrowserSupport = require('/qd/js/component/browserSupport.js'),
-         Url = require('/qd/js/component/url.js'),
-        Login = require('/qd/js/index/login.js');
+        ajaxSetting = require('site.component.ajaxSetting'),
+        report = require('site.component.report'),
+        Header = require('site.component.header_0_1'),
+        BrowserSupport = require('site.component.browserSupport'),
+        Url = require('site.component.url'),
+        Login = require('site.index.login');
 
     exports = module.exports = Node.inherit({
         /**
@@ -29,8 +29,8 @@ LBF.define('/qd/js/rank/index.js', function (require, exports, module) {
          */
         events: {
             'click .tab-wrap a': 'switchRankTab',
-            'click .sort-switcher a':'switchSortType',
-           'click .type-list a': 'chanIdSwitch'
+            'click .sort-switcher a': 'switchSortType',
+            'click .type-list a': 'chanIdSwitch'
         },
 
         /**
@@ -51,24 +51,24 @@ LBF.define('/qd/js/rank/index.js', function (require, exports, module) {
          */
 
 
-         switchSortType:function(e){
-            console.log('1');
-         },
+        switchSortType: function (e) {
+            //console.log('1');
+        },
 
         /**
          * 切换分类
          */
 
-         chanIdSwitch:function(e){
+        chanIdSwitch: function (e) {
             var _this = $(e.target);
             var _thisId = _this.attr('data-chanid');
-            console.log('切换列表');
+            //console.log('切换列表');
             //将列表模式的值设置到cookie中
             var _curentUrl = location.href;
             var _updateUrl = Url.setParam(_curentUrl, 'chn', _thisId);
-            console.log('更新' + _updateUrl);
+            //console.log('更新' + _updateUrl);
             location.href = _updateUrl;
-         },
+        },
 
         render: function () {
 

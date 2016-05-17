@@ -1,7 +1,7 @@
 /**
  * Created by renjiale on 2016/1/4.
  */
-LBF.define('/qd/js/component/url.js', function() {
+LBF.define('site.component.url', function() {
     var URL = {
         getParamVal: function(paramName) {
             var reg = new RegExp("(^|&)" + paramName + "=([^&]*)(&|$)", "i");

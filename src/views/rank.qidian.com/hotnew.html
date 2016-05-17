@@ -12,7 +12,7 @@
         var navHighLight = 2;
             var categoryNav =   data['paramList']["chanId"];//分类menu高亮
 
-
+        categoryNav = categoryNav.toString();
 
         var listTypeAct = 0;
 
@@ -43,6 +43,8 @@
             var sideBarHighlight = data['paramList']["rankType"];
             var needTime = 0;//不需要,1为需要
             var showUnit = '';
+            var keywords = '' //每个页面的keywords
+            var pageId = '' //report用，每个页面的ID
 
 
 
@@ -55,94 +57,122 @@
                     break;
                 case 1:
                     //原创风云榜需要显示时间控件,但点击当月新书后不需要控件。
-                    if (categoryNav === 0 ){
+                    if (categoryNav == '0' ){
                         needTime = 0
                     } else {
                         needTime = 1
                     }
 
-                    var act1='class=act';
-                     menuTitle='原创风云榜';
-                     menuSubTitle = '当月VIP作品月票数排行';
-                     showUnit='月票';
+                        var act1='class=act';
+                        menuTitle='原创风云榜';
+                        menuSubTitle = '当月VIP作品月票数排行';
+                        showUnit='月票';
+                        keywords='小说,原创文学风云榜单，月票榜，排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_02';
                     break;
                 case 2:
-                    var act2='class=act';
-                     menuTitle='24小时热销榜';
-                     menuSubTitle = '当日vip作品销量排行';
-                     showUnit = '';
+                        var act2='class=act';
+                        menuTitle='24小时热销榜';
+                        menuSubTitle = '当日vip作品销量排行';
+                        showUnit = '';
+                        keywords='小说,24小时热销榜单，销量榜，排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_03';
                     break;
                 case 3:
-                    var act3='class=act';
-                     menuTitle='会员点击榜';
-                     menuSubTitle = '会员用户点击量排行';
-                     showUnit = '点击';
+                        var act3='class=act';
+                        menuTitle='会员点击榜';
+                        menuSubTitle = '会员用户点击量排行';
+                        showUnit = '点击';
+                        keywords='小说,会员点击榜单，点击榜，排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_04';
                     break;
                 case 4:
-                    var act4='class=act';
-                    menuTitle='推荐票榜';
-                    menuSubTitle = '作品推荐票数排行';
-                    showUnit = '推荐';
+                        var act4='class=act';
+                        menuTitle='推荐票榜';
+                        menuSubTitle = '作品推荐票数排行';
+                        showUnit = '推荐';
+                        keywords='小说,推荐票榜单，排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_05';
                     break;
                 case 5:
-                    var act5='class=act';
-                     menuTitle='收藏榜';
-                     menuSubTitle = '历史总作品收藏数排行';
-                      showUnit = '收藏';
+                        var act5='class=act';
+                        menuTitle='收藏榜';
+                        menuSubTitle = '历史总作品收藏数排行';
+                        showUnit = '收藏';
+                        keywords='小说,收藏榜单，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_06';
                     break;
                 case 6:
-                    var act6='class=act';
-                    menuSubTitle = '';
-                    menuTitle='VIP更新榜';
-                     showUnit = '';
+                        var act6='class=act';
+                        menuSubTitle = '';
+                        menuTitle='VIP更新榜';
+                        showUnit = '';
+                        keywords='小说,VIP更新榜单，vip小说，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_07';
                     break;
                 case 7:
-                    var act7='class=act';
-                    menuSubTitle = 'vip作品被加入书架数量的排行';
-                     menuTitle='VIP收藏榜';
-                      showUnit = '收藏';
+                        var act7='class=act';
+                        menuSubTitle = 'vip作品被加入书架数量的排行';
+                        menuTitle='VIP收藏榜';
+                        showUnit = '收藏';
+                        keywords='小说,VIP收藏榜单，vip小说，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_08';
                     break;
                 case 8:
-                    var act8='class=act';
-                    menuSubTitle = 'vip作品被打赏金额的排行';
-                     menuTitle='本周VIP打赏榜';
-                      showUnit = '月票';
+                        var act8='class=act';
+                        menuSubTitle = 'vip作品被打赏金额的排行';
+                        menuTitle='本周VIP打赏榜';
+                        showUnit = '月票';
+                        keywords='小说,VIP打赏榜，vip小说，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_09';
                     break;
                 case 9:
-                    var act9='class=act';
-                    menuSubTitle = '会员用户点击量排行';
-                     menuTitle='完本榜';
-                     showUnit = '点击';
+                        var act9='class=act';
+                        menuSubTitle = '会员用户点击量排行';
+                        menuTitle='完本榜';
+                        showUnit = '点击';
+                        keywords='小说,完本小说榜单，完本小说，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_10';
                     break;
                 case 10:
-                    var act10='class=act';
-                    menuSubTitle = '已签约作者新作潜力值排行';
-                     menuTitle='签约作家新书榜';
-                      showUnit = '潜力值';
+                        var act10='class=act';
+                        menuSubTitle = '已签约作者新作潜力值排行';
+                        menuTitle='签约作家新书榜';
+                        showUnit = '潜力值';
+                        keywords='小说,签约作家新书榜，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_11';
                     break;
                 case 11:
-                    var act11='class=act';
-                    menuSubTitle = '未签约作者新作潜力值排行';
-                     menuTitle='公众作者新书榜';
-                     showUnit = '潜力值';
+                        var act11='class=act';
+                        menuSubTitle = '未签约作者新作潜力值排行';
+                        menuTitle='公众作者新书榜';
+                        showUnit = '潜力值';
+                        keywords='小说,公众作家新书榜，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_12';
                     break;
                 case 12:
-                    var act12='class=act';
-                    menuSubTitle = '新作者签约作品潜力值排行';
-                     menuTitle='新人签约新书榜';
-                     showUnit = '潜力值';
+                        var act12='class=act';
+                        menuSubTitle = '新作者签约作品潜力值排行';
+                        menuTitle='新人签约新书榜';
+                        showUnit = '潜力值';
+                        keywords='小说,新人签约新书榜，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_13';
                     break;
                 case 13:
-                    var act13='class=act';
-                    menuSubTitle = '新作者作品潜力值排行';
-                     menuTitle='新人作者新书榜';
-                     showUnit = '潜力值';
+                        var act13='class=act';
+                        menuSubTitle = '新作者作品潜力值排行';
+                        menuTitle='新人作者新书榜';
+                        showUnit = '潜力值';
+                        keywords='小说,新人作家新书榜，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_14';
                     break;
                 case 14:
-                    var act14='class=act';
-                    menuSubTitle = '';
-                     menuTitle='打赏粉丝榜';
-                     showUnit = '打赏起点币';
+                        var act14='class=act';
+                        menuSubTitle = '';
+                        menuTitle='打赏粉丝榜';
+                        showUnit = '打赏起点币';
+                        keywords='小说,打赏粉丝榜，小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜';
+                        pageId='qd_P_rank_15';
                     break;
             }
 
@@ -243,9 +273,9 @@
         %>
 <head>
     <meta charset="UTF-8">
-    <title><%= menuTitle %>_起点中文网_阅文集团旗下网站</title>
-    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
-    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <title><%= menuTitle %>_起点中文网</title>
+    <meta name="description" content="起点中文网小说排行榜提供最新、流行、经典、精品原创小说排行榜,涵盖:玄幻小说排行榜,奇幻小说排行榜,武侠小说排行榜,仙侠小说排行榜,都市小说排行榜,历史小说排行榜,军事小说排行榜,竞技小说排行榜,灵异小说排行榜,二次元小说排行榜,免费小说排行榜,新书排行榜,完本小说排行榜,粉丝打赏排行榜">
+    <meta name="keywords" content="<%= keywords %>">
     <meta name="robots" content="all">
     <meta name="googlebot" content="all">
     <meta name="baiduspider" content="all">
@@ -263,9 +293,11 @@
         var speedTimer = [],
                 speedZero = new Date().getTime();
     </script>
+    <!-- end speedTimer[var, zero] -->
+
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
@@ -275,7 +307,6 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/ComboBox.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Button.css">
-    <!-- end speedTimer[var, zero] -->
     <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
@@ -303,16 +334,16 @@
                         <!-- rankType == 8 VIP打赏榜时没有btn-box这个div，单独显示切换按钮 -->
                         <% if (sideBarHighlight == 8) { %>
                         <div class="view-mode" id="view-mode">
-                            <a class="img-text iconfont <%=actFullView %>" id="" href="javascript:">&#xe619;</a><em>|</em><a class="only-text iconfont  <%=actListView %>" id="" href="javascript:">&#xe61a;</a>
+                            <a class="img-text iconfont <%=actFullView %>" href="javascript:" data-aid="qd_C_rank_16">&#xe619;</a><em>|</em><a class="only-text iconfont  <%=actListView %>" href="javascript:" data-aid="qd_C_rank_17">&#xe61a;</a>
                         </div>
                         <% } %>
 
                         <!-- rankType == 3,4,9 时 显示周月总切换 -->
                         <% if (sideBarHighlight == 3 || sideBarHighlight == 4 || sideBarHighlight == 9) {      %>
                         <div class="rank-tab-box" data-rank-type="<%= sideBarHighlight %>">
-                            <a <%= actRankWeek%> href="javascript:" data-rank-type="1">周榜</a>
-                            <a <%= actRankMonth%> href="javascript:" data-rank-type="2">月榜</a>
-                            <a <%= actRankTotal%> href="javascript:" data-rank-type="3">总榜</a>
+                            <a <%= actRankWeek%> href="javascript:" data-rank-type="1" data-aid="qd_C_rank_47">周榜</a>
+                            <a <%= actRankMonth%> href="javascript:" data-rank-type="2" data-aid="qd_C_rank_48">月榜</a>
+                            <a <%= actRankTotal%> href="javascript:" data-rank-type="3" data-aid="qd_C_rank_49">总榜</a>
                         </div>
                         <% } %>
 
@@ -421,20 +452,20 @@ var _currentMonth = (new Date().getMonth()) + 1
                     <div class="book-img-text">
                         <ul>
                     <% for(var i=0; i < data['bookList'].length; i++) { %>
-                            <li>
+                            <li data-rankid="<%=i+1 %>">
                                 <div class="book-img-box">
                                     <span class="rank-tag no<%= data['bookList'][i]['no']%>"><%= data['bookList'][i]['no']%><cite></cite></span>
-                                    <a href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank"><img src="<%= data['bookList'][i]['imageUrl'] %>"></a>
+                                    <a href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_20" data-bid="<%= data['bookList'][i]['bookId'] %>"><img src="<%= data['bookList'][i]['imageUrl'] %>"></a>
                                 </div>
                                 <div class="book-mid-info">
-                                    <h4><a href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank"><%= data['bookList'][i]['bookName'] %></a></h4>
+                                    <h4><a href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_21" data-bid="<%= data['bookList'][i]['bookId'] %>"><%= data['bookList'][i]['bookName'] %></a></h4>
                                     <p class="author">
-                                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['bookList'][i]['authorId'] %>" target="_blank"><%= data['bookList'][i]['authorName'] %></a><em>|</em><a href="<%= data['bookList'][i]['chanUrl'] %>" target="_blank"><%= data['bookList'][i]['chanName'] %></a><em>|</em><span><%= data['bookList'][i]['actStatus'] %></span>
+                                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['bookList'][i]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['bookList'][i]['authorName'] %></a><em>|</em><a href="<%= data['bookList'][i]['chanUrl'] %>" target="_blank" data-aid="qd_C_rank_23"><%= data['bookList'][i]['chanName'] %></a><em>|</em><span><%= data['bookList'][i]['actStatus'] %></span>
                                     </p>
                                     <p class="intro">
                                         <%= data['bookList'][i]['desc'] %>
                                     </p>
-                                    <p class="update"><a href="<%= data['bookList'][i]['updChapterUrl'] %>" target="_blank">最新更新 <%= data['bookList'][i]['updChapterName'] %></a><em>&#183;</em><span><%= data['bookList'][i]['updTime'] %></span>
+                                    <p class="update"><a href="<%= data['bookList'][i]['updChapterUrl'] %>" target="_blank" data-aid="qd_C_rank_24" data-chapterUrl="<%= data['bookList'][i]['updChapterUrl'] %>">最新更新 <%= data['bookList'][i]['updChapterName'] %></a><em>&#183;</em><span><%= data['bookList'][i]['updTime'] %></span>
                                     </p>
                                 </div>
                                 <div class="book-right-info">
@@ -444,11 +475,11 @@ var _currentMonth = (new Date().getMonth()) + 1
                                         <% } %>
                                     </div>
                                     <p class="btn">
-                                        <a class="red-btn" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank">书籍详情</a>
+                                        <a class="red-btn" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank" data-aid="qd_C_rank_18" data-bid="<%= data['bookList'][i]['bookId'] %>">书籍详情</a>
                                         <% if (data['bookList'][i]['isKept'] == 0) { %>
-                                                <a class="blue-btn add-book" href="javascript:" data-bookId=<%= data['bookList'][i]['bookId'] %> >加入书架</a>
+                                                <a class="blue-btn add-book" href="javascript:" data-aid="qd_C_rank_19" data-bookId="<%= data['bookList'][i]['bookId'] %>">加入书架</a>
                                         <% } else {%>
-                                                <a class="in-shelf add-book" href="javascript:" data-bookId=<%= data['bookList'][i]['bookId'] %>>已在书架</a>
+                                                <a class="in-shelf add-book" href="javascript:" data-bookId="<%= data['bookList'][i]['bookId'] %>">已在书架</a>
                                         <% } %>
 
                                     </p>
@@ -521,18 +552,18 @@ var _currentMonth = (new Date().getMonth()) + 1
                             <tbody>
 
                         <% for(var i=0; i < data['bookList'].length; i++) { %>
-                            <tr>
+                            <tr data-rankid="<%=i+1 %>">
                                 <td><em class="number"><span class="rank-tag no<%= data['bookList'][i]['no']%>"><%= data['bookList'][i]['no']%><cite></cite></span></em></td>
                                 <td><a class="type" href="<%= data['bookList'][i]['chanUrl'] %>" target="_blank"><em>「</em><%= data['bookList'][i]['chanName'] %><em>」</em></a></td>
-                                <td><a class="name" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank"><%= data['bookList'][i]['bookName'] %></a></td>
-                                <td><a class="chapter" href="<%= data['bookList'][i]['updChapterUrl'] %>" target="_blank"><%= data['bookList'][i]['updChapterName'] %></a></td>
+                                <td><a class="name" href="http://www.qidian.com/Book/<%= data['bookList'][i]['bookId'] %>.aspx" target="_blank" data-bid="<%= data['bookList'][i]['bookId'] %>"><%= data['bookList'][i]['bookName'] %></a></td>
+                                <td><a class="chapter" href="<%= data['bookList'][i]['updChapterUrl'] %>" target="_blank" data-chapterurl="<%= data['bookList'][i]['updChapterUrl'] %>"><%= data['bookList'][i]['updChapterName'] %></a></td>
                                 <td class="month"><%= data['bookList'][i]['statistic'] %></td>
-                                <td><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['bookList'][i]['authorId'] %>" target="_blank"><%= data['bookList'][i]['authorName'] %></a></td>
+                                <td><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= data['bookList'][i]['authorId'] %>" target="_blank" data-aid="qd_C_rank_22"><%= data['bookList'][i]['authorName'] %></a></td>
                                 <td class="time"><%= data['bookList'][i]['updTime'] %></td>
                                 <% if (data['bookList'][i]['isKept'] == 0) { %>
-                                       <td><a class="blue add-book" href="javascript:" data-bookId=<%= data['bookList'][i]['bookId'] %>>加入书架</a></td>
+                                       <td><a class="blue add-book" href="javascript:" data-aid="qd_C_rank_19" data-bookId="<%= data['bookList'][i]['bookId'] %>">加入书架</a></td>
                                 <% } else {%>
-                                        <td><a class="gray add-book" href="javascript:" data-bookId=<%= data['bookList'][i]['bookId'] %>>已在书架</a></td>
+                                        <td><a class="gray add-book" href="javascript:" data-bookId="<%= data['bookList'][i]['bookId'] %>">已在书架</a></td>
                                 <% } %>
                             </tr>
                         <% } %>
@@ -547,7 +578,7 @@ var _currentMonth = (new Date().getMonth()) + 1
             </div>
             <!-- end 榜单区域 -->
             <!-- start 分页 -->
-            <div class="page-box cf">
+            <div class="page-box cf" data-aid="qd_C_rank_25">
                 <div class="pagination fr" id="page-container" data-page="<%= data['pageInfo']['pageIndex']%>" data-pageMax="<%= data['pageInfo']['pageMax']%>"></div>
             </div>
             <!-- end 分页 -->
@@ -564,12 +595,12 @@ var _currentMonth = (new Date().getMonth()) + 1
     // 环境变量，会按照环境选择性打log
     g_data.envType = '<%= envType %>';
     // 用作统计PV
-    g_data.pageId = 'qd_p_qidian';
+    g_data.pageId = '<%= pageId %>';
     // 域名环境变量
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.hotnew'], function ($, SpeedReport, HotNew) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.hotnew_0_1'], function ($, SpeedReport, HotNew) {
 
         // 页面逻辑入口
         new HotNew({});

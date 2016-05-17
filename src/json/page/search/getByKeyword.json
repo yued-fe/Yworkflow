@@ -2,7 +2,11 @@
   "code": 0,
   "msg": "成功",
   "data": {
-    "paramList": [],
+    "paramList": [
+      {
+        "kw":"123"
+      }
+    ],
     "pageInfo": {
       "totalCount": 13,
       "pageIndex": 1,
@@ -41,7 +45,7 @@
         "wordsCnt": "398万8千572",
         "authorUrl": "http://me.qidian.com/authorIndex.aspx?id=4088544",
         "bookType": 1,
-        "isInShelf": true
+        "isInShelf": false
       },
       {
         "bookId": "2083259",

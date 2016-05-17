@@ -3,7 +3,7 @@
  * @author yangye
  * Created: 16-04-11
  */
-LBF.define('/qd/js/component/viewTab.js', function (require, exports, module) {
+LBF.define('site.component.viewTab', function (require, exports, module) {
     var $ = require('lib.jQuery');
 
     /**

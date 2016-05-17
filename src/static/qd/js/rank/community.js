@@ -8,7 +8,7 @@ LBF.define('site.rank.community', function (require, exports, module) {
         Node = require('ui.Nodes.Node'),
         ajaxSetting = require('site.component.ajaxSetting'),
         report = require('site.component.report'),
-        Header = require('site.component.header'),
+        Header = require('site.component.header_0_1'),
         BrowserSupport = require('site.component.browserSupport'),
         Login = require('site.index.login');
 

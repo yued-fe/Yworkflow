@@ -3,16 +3,19 @@
  * @author yangye & rainszhang
  * Created: 16-03-14
  */
-LBF.define('/qd/js/index/login.js', function (require, exports, module) {
+LBF.define('site.index.login', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Cookie = require('util.Cookie');
 
     var body = $('body');
+    var _url = "http://avd.qidian.com/OALoginJump.aspx?ReturnUrl=" + encodeURIComponent(parent.location.href);
+    var ifrUrl = 'http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=top&style=0&pm=1&returnURL='+ encodeURIComponent(_url);
+    //var ifrUrl = 'http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=iframe&style=2&pm=2&returnURL=http%3A%2F%2Favd.qidian.com%2FOALoginjump.aspx%3Fqd_skip%3D1%26&ReturnUrl='+encodeURIComponent(location.hostname);
     var popop = [
         '<div id="login-popup" class="popup-wrap login-popup">',
         '<a class="close-popup" href="javascript:"></a>',
         '<div class="popup-box">',
-        '<iframe frameborder=0 src="http://login.qidian.com/Login.php?appId=10&areaId=1&popup=1&target=iframe&style=2&pm=2&returnURL=http%3A%2F%2Favd.qidian.com%2FOALoginjump.aspx%3Fqd_skip%3D1%26ReturnUrl%3Dhttp%253A%252F%252Fdevi.qidian.com" name="frameLG" id="frameLG"></iframe>',
+        '<iframe id="loginIfr" src="'+ifrUrl+'" frameborder=0 name="frameLG" id="frameLG"></iframe>',
         '</div>',
         '</div>'
     ].join('');
@@ -102,11 +105,12 @@ LBF.define('/qd/js/index/login.js', function (require, exports, module) {
                     }
                     $('#msg-btn').find('i').text(data.data.msgCnt);
                     $('#top-msg').text(data.data.msgCnt);
-                    if (data.data.bsCnt == 0) {
+                    //产品要求去除书架数量显示
+                    /*if (data.data.bsCnt == 0) {
                         $('#shelf-num, #pin-shelf').hide();
                     } else {
                         $('#shelf-num, #pin-shelf').show().text(data.data.bsCnt);
-                    }
+                    }*/
 
                     // 产品暂把头像逻辑去除了
                     // $('#min-photo').attr('src', 'http://me.qidian.com/Images/UserImages/100x100/' + data.data.headImg + '.jpg');
@@ -137,11 +141,12 @@ LBF.define('/qd/js/index/login.js', function (require, exports, module) {
             $('.sign-in').removeClass('hidden');
             $('.sign-out').addClass('hidden');
             $('#user-name, #nav-user-name').text(_userName);
-            if (!Cookie.get('bsc')) {
+            //产品要求去除书架数量显示
+            /*if (!Cookie.get('bsc')) {
                 $('#shelf-num, #pin-shelf').hide();
             } else {
                 $('#shelf-num, #pin-shelf').show().text(bookShelf);
-            }
+            }*/
             // 产品暂把头像逻辑去除了
             // var _userPhoto = userInfo.split('&')[5].split('=').pop();
             // $('#min-photo').attr('src', 'http://me.qidian.com/Images/UserImages/100x100/' + _userPhoto + '.jpg');
@@ -162,6 +167,7 @@ LBF.define('/qd/js/index/login.js', function (require, exports, module) {
                     $('.sign-out').removeClass('hidden');
                     $('#shelf-num, #pin-shelf').hide().text('');
                     $('#web-dropdown').find('.not-logged').show().end().find('.logged-in').hide();
+                    location.reload();
                 });
             });
         },

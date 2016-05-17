@@ -1,16 +1,14 @@
 /**
- * 活动页面的ajax路由映射动通用路径是activity.qidian.com/ + 路由
+ * @fileOverview
+ * @author rainszhang & luolei
+ * Created: 16-5-12
  */
 
-
+// key: ajax路由名称
+// value: 对应的模拟json基于 dev/ 文件夹的路径
 var routerMap ={
-	//key:ajax路由名称 value: 对应的模拟json基于 dev/ 文件夹的路径
-	'/ajax/show/getList':'/ajax/show/515/list',
-	'/ajax/2016/515/author/comment':'/ajax/2016/515/author/comment'
-}
 
-
-
+};
 
 module.exports = routerMap;
 

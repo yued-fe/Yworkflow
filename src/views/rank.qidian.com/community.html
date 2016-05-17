@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>打赏粉丝排行榜 起点中文网_阅文集团旗下网站</title>
+    <title>打赏粉丝排行榜_起点中文网</title>
     <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
     <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
     <meta name="robots" content="all">
@@ -21,10 +21,11 @@
         var speedTimer = [],
                 speedZero = new Date().getTime();
     </script>
+    <!-- end speedTimer[var, zero] -->
 
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
@@ -32,7 +33,7 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
-    <!-- end speedTimer[var, zero] -->
+
 
     <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
@@ -76,8 +77,8 @@
                 <h3>打赏粉丝榜<span>对作品打赏贡献最多的粉丝排行</span></h3>
                 <!-- start 日榜总榜切换 -->
                 <div class="rank-tab-box">
-                    <a <%=actDayView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=1">日榜</a>
-                    <a <%=actTotalView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=2">总榜</a>
+                    <a <%=actDayView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=1" data-aid="qd_C_rank_61">日榜</a>
+                    <a <%=actTotalView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=2" data-aid="qd_C_rank_62">总榜</a>
                 </div>
                 <!-- end 日榜总榜切换 -->
             </div>
@@ -93,7 +94,7 @@
                             <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=0; i < 25; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
@@ -106,7 +107,7 @@
                             <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=25; i < 50; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
@@ -120,7 +121,7 @@
                             <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                <% for(var i=50; i < 75; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
@@ -133,7 +134,7 @@
                             <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
                             <ul>
                                 <% for(var i=75; i < 100; i++) { %>
-                                <li>
+                                <li data-rankid="<%=i+1 %>">
                                     <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
                                 </li>
                                 <% } %>
@@ -163,7 +164,7 @@
     // 环境变量，会按照环境选择性打log
     g_data.envType = '<%= envType %>';
     // 用作统计PV
-    g_data.pageId = 'qd_p_qidian';
+    g_data.pageId = 'qd_P_rank_15';
     // 域名环境变量
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>

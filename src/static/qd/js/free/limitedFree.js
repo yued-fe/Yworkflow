@@ -11,11 +11,11 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
         Node = require('ui.Nodes.Node'),
         ajaxSetting = require('site.component.ajaxSetting'),
         Checkbox = require('ui.Nodes.Checkbox'),
-        report = require('site.component.report'),
-        Header = require('site.component.header'),
+    //report = require('site.component.report'),
+        Header = require('site.component.header_0_1'),
         BrowserSupport = require('site.component.browserSupport'),
         Pagination = require('ui.Nodes.Pagination'),
-        //addBook.js中已经引用了login.js，因此引用了它则无需再引用login.js
+    //addBook.js中已经引用了login.js，因此引用了它则无需再引用login.js
         Addbook = require('site.free.addBook'),
         Cookie = require('util.Cookie'),
         LightTip = require('ui.widget.LightTip.LightTip');
@@ -35,9 +35,7 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          */
         events: {
             'click #free-type-tab li': 'freeTypeSwitch',
-            'click .add-book':'addToBookShelf',
-            'click .close-popup':'hideLoginPopup'
-
+            'click .add-book': 'addToBookShelf'
         },
 
         /**
@@ -71,23 +69,9 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          */
         init: function () {
             //上报系统
-            report.send();
+            //report.send();
             //限免倒计时
             this.freeCountDown();
-            /**
-             * 登录成功回调函数 - 沿用起点老站里的代码
-             * @method callBack
-             */
-            //QiDian_OA_Login.callBack = function () {
-            //    if (Cookie.get('cmfuToken')) {
-            //        // 登录态未超时，或，初次登录成功拉取用户信息
-            //        Login.getUserMsg();
-            //    } else if (Cookie.get('mdltk')) {
-            //        // 弱登录态（如：登录超时）时拉取用户信息
-            //        Login.weekLoginStatus();
-            //    }
-            //    Login.hideLoginPopup();
-            //};
         },
         /**
          * 免费种类切换
@@ -97,10 +81,10 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
         freeTypeSwitch: function (e) {
             var target = $(e.target);
             var pageType = parseInt(target.attr('type'));
-            if(pageType==1){
-                location.href=g_data.targetUrl;
-            }else{
-                location.href=g_data.targetUrl+'/all';
+            if (pageType == 1) {
+                location.href = g_data.targetUrl;
+            } else {
+                location.href = g_data.targetUrl + '/all';
             }
 
             //target.addClass('act').siblings().removeClass('act');
@@ -111,6 +95,16 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          * @method freeCountDown
          */
         freeCountDown: function () {
+            //需要重复执行的免费阅读禁用方法
+            function disableFreeBtn() {
+                //给免费阅读加上disabled样式
+                $('#limit-list li a.red-btn').addClass('disabled');
+                //如果是disabled，点击无法跳转
+                $('#limit-list li a.disabled').click(function () {
+                    return false;
+                });
+            }
+            //开始请求
             $.ajax({
                 type: 'GET',
                 url: '/ajax/Free/getSysTime',
@@ -142,8 +136,16 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
                                 $(hour_elem).text(hour < 10 ? "0" + hour : hour);
                                 $(minute_elem).text(minute < 10 ? "0" + minute : minute);
                                 $(second_elem).text(second < 10 ? "0" + second : second);
+                                //在每次倒数时判断是否<=0，true时，实时把按钮禁用
+                                if (remaining <= 0) {
+                                    disableFreeBtn();
+                                }
                             } else {
                                 clearInterval(timer);
+                            }
+                            //首次刷新页面时判断是否剩余时间是否 <= 0，true时把按钮禁用
+                            if (remaining <= 0) {
+                                disableFreeBtn();
                             }
                         }, 1000);
                     }
@@ -154,17 +156,9 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          * 加入书架
          * @method addToBookShelf
          */
-        addToBookShelf:function(e){
+        addToBookShelf: function (e) {
             //引用Addbook.js中的加入书架方法
-            Addbook.addToBookShelf(e,'blue-btn','in-shelf');
-        },
-        /**
-         * 关闭登录弹窗
-         * @method hideLoginPopup
-         */
-        hideLoginPopup:function(){
-            //引用Addbook.js中的去除login窗口方法
-            Addbook.hideCurrentPopup();
+            Addbook.addToBookShelf(e, 'blue-btn', 'in-shelf');
         }
     })
 });

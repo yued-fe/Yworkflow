@@ -15,6 +15,7 @@
 .view-mode {
 	position: absolute;
 	top: 0;
+	z-index: 2;
 	right: 12px;
 	margin-top: 12px;
 	.iconfont {
@@ -66,7 +67,7 @@
 			width: 102px;
 			height: 136px;
 			overflow: hidden;
-			box-shadow: 0 0 5px rgba(0, 0, 0, .6);
+			box-shadow: 0 1px 6px rgba(0, 0, 0, .35);
 			img {
 				width: 102px;
 				height: 136px;
@@ -370,10 +371,17 @@ span.rank-tag {
 /* 文字小说列表，表格列表 */
 .rank-table-list {
 	text-align: left;
+	tbody tr {
+		transition: all .3s;
+		&:hover {
+			background: #F7F6F2;
+		}
+	}
 	th {
 		vertical-align: top;
 		height: 20px;
 		font: 700 12px/16px $simsun;
+		text-align: left;
 		&.right {
 			text-align: right;
 		}
@@ -391,7 +399,7 @@ span.rank-tag {
 			}
 		}
 		.type {
-			margin-left: -8px;
+			margin-left: -6px;
 			color: $gray8;
 			em {
 				color: $gray8;
@@ -437,6 +445,9 @@ span.rank-tag {
 			display: block;
 			width: 90px;
 			@include word-wrap;
+			&:hover {
+				color: inherit;
+			}
 		}
 		.author, .total {
 			color: $gray9;
@@ -462,18 +473,17 @@ span.rank-tag {
 		}
 	}
 }
-em.number {
+.rank-box em.number, .rank-body em.number {
+	display: block;
 	height: 40px;
 	position: relative;
 	span.rank-tag {
 		top: 10px;
 		min-width: auto;
-		margin-top: 4px;
 		height: 18px;
 		color: $gray6;
 		background: none;
 		font-size: 14px;
-		line-height: 1;
 		filter: alpha(opacity=100);
 		&.no1, &.no2, &.no3 {
 			color: white;
@@ -504,10 +514,18 @@ em.number {
 	@include mb(24px);
 	background: #F7F6F2;
 	//全部作品，完本，免费的工具条中加入统计信息样式
+	.select-wrap {
+		position: relative;
+	}
 	.sort-count {
-		padding-right: 68px;
-		p {
+		//用浮动会造成ie7下掉问题
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 68px;
+		.count-text {
 			float: left;
+			margin-right: 5px;
 		}
 		i {
 			float: left;
@@ -515,6 +533,56 @@ em.number {
 			padding-left: 10px;
 			color: #E6E6E6;
 			font: 14px/18px Arial;
+		}
+		.yiwen {
+			float: left;
+			position: relative;
+			z-index: 1;
+			.iconfont {
+				margin: 0 0 0;
+				font-size: 14px;
+				font-weight: 400;
+				color: $A6;
+				cursor: pointer;
+				-webkit-text-stroke-width: 0;
+			}
+		}
+		.hover-tip {
+			display: none;
+			position: absolute;
+			top: 36px;
+			left: -125px;
+			z-index: 1;
+			width: 230px;
+			height: 28px;
+			border: 1px solid #D2D2D2;
+			text-align: center;
+			background: #FFF;
+			p {
+				font: 12px/28px $simsun;
+			}
+			cite {
+				position: absolute;
+				top: -6px;
+				left: 125px;
+				border-top: 0 none;
+				border-right: 5px solid transparent;
+				border-bottom: 5px solid #D2D2D2;
+				border-left: 5px solid transparent;
+				width: 0;
+				height: 0;
+				b {
+					position: absolute;
+					top: 1px;
+					right: -5px;
+					border-top: 0 none;
+					border-right: 5px solid transparent;
+					border-bottom: 5px solid #FFF;
+					border-left: 5px solid transparent;
+					width: 0;
+					height: 0;
+				}
+			}
 		}
 	}
 	.count-info {
@@ -616,7 +684,7 @@ em.number {
 				display: block;
 				width: 72px;
 				height: 96px;
-				box-shadow: 0 0 5px rgba(0, 0, 0, .6);
+				box-shadow: 0 0 6px rgba(0, 0, 0, .35);
 				overflow: hidden;
 				img {
 					width: 72px;
@@ -735,13 +803,17 @@ em.number {
 	.rank-list.mr0 {
 		margin-right: 30px;
 	}
-	.rank-header .type-list em {
-		margin: 0;
-	}
 	.book-img-text .all-img-list li {
 		width: 372px;
 	}
 	.book-img-text .all-img-list li .book-mid-info {
-		width: 220px;
+		width: 240px;
+	}
+	.book-img-text .book-mid-info {
+		width: 380px;
+	}
+	.book-img-text .book-mid-info p.author a.name {
+		max-width: 50px;
+		@include word-wrap-multi;
 	}
 }

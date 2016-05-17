@@ -36,7 +36,7 @@
 	//已选
 	.selected {
 		@extend %bbe;
-		@include mb(16px);
+		@include mb(15px);
 		p {
 			padding: 14px 0 8px;
 			@extend %cf;

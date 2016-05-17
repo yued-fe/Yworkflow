@@ -12,6 +12,9 @@
 	position: relative;
 	z-index: 10;
 	top: 0;
+	.box-center {
+		background: #3E3D43;
+	}
 }
 .search-container {
 	height: 40px;
@@ -38,7 +41,7 @@
 		height: 40px;
 		font: 18px/40px FZZCYSK;
 		letter-spacing: 4px;
-		text-indent:5px;
+		text-indent: 5px;
 		color: white;
 		text-align: center;
 		background: $red;
@@ -170,8 +173,8 @@
 	border-bottom: 1px solid #666;
 	margin-bottom: 24px;
 }
-/* 1024 响应点样式变动 */
-@media (max-width: 1025px) {
+/* 1200 响应点样式变动 */
+@media (max-width: 1200px) {
 	.book-img-text .book-mid-info {
 		width: 380px;
 	}

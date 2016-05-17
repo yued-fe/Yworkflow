@@ -48,14 +48,14 @@
                         hllast = 'class=red';
                     }
                     %>
-                <li>
+                <li data-rankid="<%= i+1%>">
                 <div class="book-img-box">
-                    <a href="<%= item['bookUrl']%>" data-bid="qd_B44" target="_blank"><img src="<%= item['imageUrl']%>"></a>
+                    <a href="<%= item['bookUrl']%>" data-bid="<%= item['bookId']%>" data-aid="qd_B43" target="_blank"><img src="<%= item['imageUrl']%>"></a>
                 </div>
                 <div class="book-mid-info">
-                    <h4><a href="<%= item['bookUrl']%>" target="_blank" data-bid="qd_B45"><%= item['bookName']||'- -'%></a></h4>
+                    <h4><a href="<%= item['bookUrl']%>" target="_blank" data-aid="qd_B44" data-bid="<%= item['bookId']%>"><%= item['bookName']||'- -'%></a></h4>
                     <p class="author">
-                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" data-bid="qd_B46" target="_blank"><%= item['authorName']||'- -'%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank" data-bid="qd_B47"><%= item['chanName']||'- -'%></a><i>&#183;</i><a class="go-sub-type" data-typeid="<%= item['chanId']%>" data-subtypeid="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']||'- -'%></a><em>|</em><span ><%= item['bookStatus']%></span>
+                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" data-aid="qd_B45" target="_blank"><%= item['authorName']||'- -'%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank" data-aid="qd_B46"><%= item['chanName']||'- -'%></a><i>&#183;</i><a class="go-sub-type" data-typeid="<%= item['chanId']%>" data-subtypeid="<%= item['subCateId']%>" href="javascript:" data-aid="qd_B47"><%= item['subCateName']||'- -'%></a><em>|</em><span ><%= item['bookStatus']%></span>
                     </p>
                     <p class="intro">
                         <%= item['desc']||'- -'%>
@@ -135,12 +135,12 @@
             update = '- -';
             }
             %>
-            <tr>
-                <td class="td-one"><a class="type" href="<%= item['chanUrl']%>" data-bid="qd_B47" target="_blank"><em>「</em><%= item['chanName']||'- -'%></a><i class="point">&#183;</i><a class="go-sub-type" data-typeId="<%= item['chanId']%>" data-subtypeId="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']%><em>」</em></a></td>
-                <td><a class="name" href="<%= item['bookUrl']%>" data-bid="qd_B45" target="_blank"><%= item['bookName']||'- -'%></a></td>
+            <tr data-rankid="<%= i+1%>">
+                <td class="td-one"><a class="type" href="<%= item['chanUrl']%>" data-aid="qd_B46" target="_blank"><em>「</em><%= item['chanName']||'- -'%></a><i class="point">&#183;</i><a class="go-sub-type" data-typeId="<%= item['chanId']%>" data-subtypeId="<%= item['subCateId']%>" href="javascript:" data-aid="qd_B47"><%= item['subCateName']%><em>」</em></a></td>
+                <td><a class="name" href="<%= item['bookUrl']%>" data-bid="<%= item['bookId']%>" data-aid="qd_B44" target="_blank"><%= item['bookName']||'- -'%></a></td>
                 <td><a class="chapter" href="<%= item['lastChapterUrl']%>" data-chapterurl="<%= item['lastChapterUrl']%>" target="_blank"><%= item['lastChapterName']||'- -'%></a></td>
                 <td><span class="total"><%= item['wordCnt']||'- -'%></span></td>
-                <td><a class="author" href="<%= item['authorUrl']%>" target="_blank" data-bid="qd_B46"><%= item['authorName']%></a></td>
+                <td><a class="author" href="<%= item['authorUrl']%>" target="_blank" data-aid="qd_B45"><%= item['authorName']%></a></td>
                 <td class="date"><%= update%></td>
             </tr>
             <%}%>
@@ -154,7 +154,7 @@
 </div>
 <!-- start 分页 -->
 <div class="page-box cf">
-    <div class="pagination fr" id="page-container" data-pageMax="<%= data['pageInfo']['pageMax']%>" data-page="<%= data['pageInfo']['page']%>"></div>
+    <div class="pagination fr" data-aid="qd_B42" id="page-container" data-pageMax="<%= data['pageInfo']['pageMax']%>" data-page="<%= data['pageInfo']['page']%>"></div>
 </div>
 <!-- end 分页 -->
 <%}%>
