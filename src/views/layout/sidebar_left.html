@@ -68,65 +68,65 @@
         只有在选择项不为'全部'时，才能够将其选择的结果放入selectedArr数组中,这里的放入顺序是固定的
         */
         /*
-            第一项
+        第一项
         */
         if(type!=-1){
-            if( subType!=-1){
-                selectedArr.push({
-                name:data['paramList']['subCateName'],
-                type:'category'
-                });
-            }else{
-                selectedArr.push({
-                name:data['paramList']['chanName'],
-                type:'subCategory'
-                });
-            }
+        if( subType!=-1){
+        selectedArr.push({
+        name:data['paramList']['subCateName'],
+        type:'category'
+        });
+        }else{
+        selectedArr.push({
+        name:data['paramList']['chanName'],
+        type:'subCategory'
+        });
+        }
         }
         /*
-            第二项
+        第二项
         */
         if(action!=-1 && action!='hidden'){
-            selectedArr.push({
-            name:actionArr[action],
-            type:'action'
-            });
+        selectedArr.push({
+        name:actionArr[action],
+        type:'action'
+        });
         }
         /*
-            第三项
+        第三项
         */
         if(vip!=-1 && vip!='hidden'){
-            selectedArr.push({
-            name:vipArr[vip],
-            type:'vip'
-            });
+        selectedArr.push({
+        name:vipArr[vip],
+        type:'vip'
+        });
         }
         /*
-            第四项
+        第四项
         */
         if(size!=-1){
-            selectedArr.push({
-            name:sizeArr[size],
-            type:'size'
-            });
+        selectedArr.push({
+        name:sizeArr[size],
+        type:'size'
+        });
         }
         /*
-            第五项
+        第五项
         */
         if(sign!=-1){
-            selectedArr.push({
-            name:signArr[sign],
-            type:'sign'
-            });
+        selectedArr.push({
+        name:signArr[sign],
+        type:'sign'
+        });
         }
         /*
-            第六项
+        第六项
         */
         if(decodeURI(tag)!='全部'&& tag!=-1){
-            selectedArr.push({
-            name:decodeURI(tag),
-            type:'tag'
-            });
+        selectedArr.push({
+        name:decodeURI(tag),
+        type:'tag'
+        });
         }
         %>
         <p><span>已选</span>
@@ -150,35 +150,35 @@
         <!-- start 作品分类 -->
         <div class="work-filter type-filter">
             <%  var typeId = parseInt(data['paramList']['chanId']);
-                var subTypeId = parseInt(data['paramList']['subCateId']);
+            var subTypeId = parseInt(data['paramList']['subCateId']);
             %>
             <%
-                var all='class=act';
-                var xh='';
-                var qh='';
-                var wx='';
-                var xx='';
-                if(typeId!=-1){
-                    all='';
-                    /*
-                        如果没有三级分类，则二级分类有箭头，并点亮，否则二级分类有箭头但不点亮
-                    */
-                    if(subTypeId==-1){
-                        switch(typeId){
-                            case 21:xh='act arrow';break;
-                            case 1:qh='act arrow';break;
-                            case 2:wx='act arrow';break;
-                            case 22:xx='act arrow';break;
-                        }
-                    }else{
-                        switch(typeId){
-                            case 21:xh='arrow';break;
-                            case 1:qh='arrow';break;
-                            case 2:wx='arrow';break;
-                            case 22:xx='arrow';break;
-                        }
-                    }
-                }
+            var all='class=act';
+            var xh='';
+            var qh='';
+            var wx='';
+            var xx='';
+            if(typeId!=-1){
+            all='';
+            /*
+            如果没有三级分类，则二级分类有箭头，并点亮，否则二级分类有箭头但不点亮
+            */
+            if(subTypeId==-1){
+            switch(typeId){
+            case 21:xh='act arrow';break;
+            case 1:qh='act arrow';break;
+            case 2:wx='act arrow';break;
+            case 22:xx='act arrow';break;
+            }
+            }else{
+            switch(typeId){
+            case 21:xh='arrow';break;
+            case 1:qh='arrow';break;
+            case 2:wx='arrow';break;
+            case 22:xx='arrow';break;
+            }
+            }
+            }
             %>
             <h3>分类</h3>
             <!-- 第一行一级分类 cite和i是嵌套的小三角-->
@@ -192,32 +192,32 @@
             <!-- 点击后展示对应的子分类 默认隐藏 目前是为了展示选中一级分类时的状态 -->
             <!-- 跳转回显页面时，先隐藏所有的sub-type，然后重新显示对应行的子分类 -->
             <%
-                var subTypes = 'hidden';
-                var xuanhuan = 'hidden';
-                var qihuan = 'hidden';
-                var wuxia = 'hidden';
-                var xianxia = 'hidden';
-                if(data['paramList']['typeId']!=-1){
-                    if( typeId==21||typeId==1||typeId==2||typeId==22){
-                        subTypes='';
-                    }
-                    switch(typeId){
-                        case 21:xuanhuan='';break;
-                        case 1:qihuan='';break;
-                        case 2:wuxia='';break;
-                        case 22:xianxia='';break;
-                    }
-                }
+            var subTypes = 'hidden';
+            var xuanhuan = 'hidden';
+            var qihuan = 'hidden';
+            var wuxia = 'hidden';
+            var xianxia = 'hidden';
+            if(data['paramList']['typeId']!=-1){
+            if( typeId==21||typeId==1||typeId==2||typeId==22){
+            subTypes='';
+            }
+            switch(typeId){
+            case 21:xuanhuan='';break;
+            case 1:qihuan='';break;
+            case 2:wuxia='';break;
+            case 22:xianxia='';break;
+            }
+            }
             %>
             <div class="sub-type <%= subTypes%>">
                 <!--玄幻start-->
                 <dl class="<%= xuanhuan%>">
                     <% var xhArr=[
-                        {id:8,name:'东方玄幻',hl:subTypeId==8?'act':''},
-                        {id:73,name:'异界大陆',hl:subTypeId==73?'act':''},
-                        {id:58,name:'异界争霸',hl:subTypeId==58?'act':''},
-                        {id:78,name:'远古神话',hl:subTypeId==78?'act':''}
-                        ];
+                    {id:8,name:'东方玄幻',hl:subTypeId==8?'act':''},
+                    {id:73,name:'异界大陆',hl:subTypeId==73?'act':''},
+                    {id:58,name:'异界争霸',hl:subTypeId==58?'act':''},
+                    {id:78,name:'远古神话',hl:subTypeId==78?'act':''}
+                    ];
                     %>
                     <%for(var i=0;i< xhArr.length;i++){%>
                     <dd data-subtype="<%= xhArr[i]['id']%>" class="<%= xhArr[i]['hl']%>"><a href="javascript:"><%= xhArr[i]['name']%></a></dd>
@@ -227,10 +227,10 @@
                 <!--奇幻start-->
                 <dl class="<%= qihuan%>">
                     <% var qhArr=[
-                        {id:38,name:'魔法校园',hl:subTypeId==38?'act':''},
-                        {id:62,name:'西方奇幻',hl:subTypeId==62?'act':''},
-                        {id:201,name:'领主贵族',hl:subTypeId==201?'act':''},
-                        {id:202,name:'亡灵异族',hl:subTypeId==202?'act':''}
+                    {id:38,name:'魔法校园',hl:subTypeId==38?'act':''},
+                    {id:62,name:'西方奇幻',hl:subTypeId==62?'act':''},
+                    {id:201,name:'领主贵族',hl:subTypeId==201?'act':''},
+                    {id:202,name:'亡灵异族',hl:subTypeId==202?'act':''}
                     ];
                     %>
                     <%for(var i=0;i< qhArr.length;i++){%>
@@ -274,23 +274,23 @@
             var ls='';
             var yx='';
             if(typeId!=-1){
-                if(subTypeId==-1){
-                    switch(typeId){
-                        case 4:ds='act arrow';break;
-                        case 15:zc='act arrow';break;
-                        case 6:js='act arrow';break;
-                        case 5:ls='act arrow';break;
-                        case 7:yx='act arrow';break;
-                    }
-                }else{
-                    switch(typeId){
-                        case 4:ds='arrow';break;
-                        case 15:zc='arrow';break;
-                        case 6:js='arrow';break;
-                        case 5:ls='arrow';break;
-                        case 7:yx='arrow';break;
-                    }
-                }
+            if(subTypeId==-1){
+            switch(typeId){
+            case 4:ds='act arrow';break;
+            case 15:zc='act arrow';break;
+            case 6:js='act arrow';break;
+            case 5:ls='act arrow';break;
+            case 7:yx='act arrow';break;
+            }
+            }else{
+            switch(typeId){
+            case 4:ds='arrow';break;
+            case 15:zc='arrow';break;
+            case 6:js='arrow';break;
+            case 5:ls='arrow';break;
+            case 7:yx='arrow';break;
+            }
+            }
             }
             %>
 
@@ -310,16 +310,16 @@
             var lishi = 'hidden';
             var youxi = 'hidden';
             if(data['paramList']['typeId']!=-1){
-                if( typeId==4||typeId==15||typeId==6||typeId==5||typeId==7){
-                    subTypes2='';
-                }
-                switch(typeId){
-                    case 4:dushi='';break;
-                    case 15:zhichang='';break;
-                    case 6:junshi='';break;
-                    case 5:lishi='';break;
-                    case 7:youxi='';break;
-                }
+            if( typeId==4||typeId==15||typeId==6||typeId==5||typeId==7){
+            subTypes2='';
+            }
+            switch(typeId){
+            case 4:dushi='';break;
+            case 15:zhichang='';break;
+            case 6:junshi='';break;
+            case 5:lishi='';break;
+            case 7:youxi='';break;
+            }
             }
             %>
             <div class="sub-type <%= subTypes2%>">
@@ -408,21 +408,21 @@
             var ly='';
             var ecy='';
             if(typeId!=-1){
-                if(subTypeId==-1){
-                    switch(typeId){
-                        case 8:jj='act arrow';break;
-                        case 9:kh='act arrow';break;
-                        case 10:ly='act arrow';break;
-                        case 12:ecy='act arrow';break;
-                    }
-                }else{
-                    switch(typeId){
-                        case 8:jj='arrow';break;
-                        case 9:kh='arrow';break;
-                        case 10:ly='arrow';break;
-                        case 12:ecy='arrow';break;
-                    }
-                }
+            if(subTypeId==-1){
+            switch(typeId){
+            case 8:jj='act arrow';break;
+            case 9:kh='act arrow';break;
+            case 10:ly='act arrow';break;
+            case 12:ecy='act arrow';break;
+            }
+            }else{
+            switch(typeId){
+            case 8:jj='arrow';break;
+            case 9:kh='arrow';break;
+            case 10:ly='arrow';break;
+            case 12:ecy='arrow';break;
+            }
+            }
             }
             %>
             <ul class="row-3" type="category">
@@ -439,15 +439,15 @@
             var lingyi = 'hidden';
             var erciyuan = 'hidden';
             if(data['paramList']['typeId']!=-1){
-                if( typeId==8||typeId==9||typeId==10||typeId==12){
-                    subTypes3='';
-                }
-                switch(typeId){
-                    case 8:jingji='';break;
-                    case 9:kehuan='';break;
-                    case 10:lingyi='';break;
-                    case 12:erciyuan='';break;
-                }
+            if( typeId==8||typeId==9||typeId==10||typeId==12){
+            subTypes3='';
+            }
+            switch(typeId){
+            case 8:jingji='';break;
+            case 9:kehuan='';break;
+            case 10:lingyi='';break;
+            case 12:erciyuan='';break;
+            }
             }
             %>
             <div class="sub-type <%= subTypes3%>">
@@ -521,11 +521,11 @@
             <%
             var loading,finished,all='';
             if(data['paramList']['action']==0){
-                var loading = 'class=act';
+            var loading = 'class=act';
             }else if(data['paramList']['action']==1){
-                var finished = 'class=act'
+            var finished = 'class=act'
             }else{
-                var all = 'class=act'
+            var all = 'class=act'
             }
             %>
             <h3>状态</h3>
@@ -542,11 +542,11 @@
         <%
         var free,vip,all='';
         if(data['paramList']['vip']==0){
-            var free = 'class=act';
+        var free = 'class=act';
         }else if(data['paramList']['vip']==1){
-            var vip = 'class=act'
+        var vip = 'class=act'
         }else{
-            var all = 'class=act'
+        var all = 'class=act'
         }
         %>
         <div class="work-filter vip-filter">
@@ -566,17 +566,17 @@
             <%
             var below30,bet30and50,bet50and100,bet100and200,above200,all='';
             if(data['paramList']['size']==1){
-                var below30 = 'class=act';
+            var below30 = 'class=act';
             }else if(data['paramList']['size']==2){
-                var bet30and50 = 'class=act'
+            var bet30and50 = 'class=act'
             }else if(data['paramList']['size']==3){
-                var bet50and100 = 'class=act'
+            var bet50and100 = 'class=act'
             }else if(data['paramList']['size']==4){
-                var bet100and200 = 'class=act'
+            var bet100and200 = 'class=act'
             }else if(data['paramList']['size']==5){
-                var above200 = 'class=act'
+            var above200 = 'class=act'
             }else{
-                var all = 'class=act'
+            var all = 'class=act'
             }
             %>
             <h3>字数</h3>
@@ -595,11 +595,11 @@
             <%
             var signWork,goodWork,all='';
             if(data['paramList']['sign']==1){
-                var signWork = 'class=act';
+            var signWork = 'class=act';
             }else if(data['paramList']['sign']==2){
-                var goodWork = 'class=act'
+            var goodWork = 'class=act'
             }else{
-                var all = 'class=act'
+            var all = 'class=act'
             }
             %>
             <h3>品质</h3>
@@ -618,12 +618,12 @@
             var n;
             var topTags=['全部','豪门','孤儿','盗贼','特工','黑客','明星','特种兵','杀手','老师','学生'];
             if(tag==-1){
-                tag='全部';
+            tag='全部';
             }
             for(n=0;n < topTags.length;n++){
-                if(tag==topTags[n]){
-                break;
-                }
+            if(tag==topTags[n]){
+            break;
+            }
             }
             %>
             <ul type="tag">
@@ -631,9 +631,9 @@
                 for(var i =0;i < topTags.length;i++ ){
                 if(i==0){
                 %>
-                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:" data-aid="qd_B32"><%= topTags[i]%></a></li>
+                <li  data-aid="qd_B32" <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:"><%= topTags[i]%></a></li>
                 <%}else{%>
-                <li <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:" data-aid="qd_B33" data-tid="<%= topTags[i]%>"><%= topTags[i]%></a></li>
+                <li data-aid="qd_B33" <%if(tag==topTags[i]){%>class='act'<%}%>><a href="javascript:" data-tid="<%= topTags[i]%>"><%= topTags[i]%></a></li>
                 <%}}%>
 
                 <!-- 预先被隐藏的标签 -->
@@ -648,10 +648,10 @@
                 if(n < topTags.length){%>
                 <li class="more" id="unfold"><a href="javascript:" data-aid="qd_B34">展开<span><i></i></span></a></li>
                 <%for(var i=0;i< hiddenList.length;i++){%>
-                <li class="hidden"><a href="javascript:"><%= hiddenList[i]%></a></li>
+                <li data-aid="qd_B35" class="hidden"><a href="javascript:" data-tid="<%= hiddenList[i]%>"><%= hiddenList[i]%></a></li>
                 <%}}else{
                 for(var i=0;i< hiddenList.length;i++){%>
-                <li <%if(tag==hiddenList[i]){%>class='act'<%}%>><a href="javascript:" data-aid="qd_B35" data-tid="<%= hiddenList[i]%>"><%= hiddenList[i]%></a></li>
+                <li data-aid="qd_B35" <%if(tag==hiddenList[i]){%>class='act'<%}%>><a href="javascript:" data-tid="<%= hiddenList[i]%>"><%= hiddenList[i]%></a></li>
                 <%}
                 }%>
             </ul>
