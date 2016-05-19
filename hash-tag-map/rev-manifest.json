@@ -1,3 +1,12 @@
 {
-  "css/index.css": "css/index.eeb6a.css"
+  "welcome/css/index.css": "welcome/css/index.eeb6a.css",
+  "welcome/images/sprites/icon-close.png": "welcome/images/sprites/icon-close.ca6e1.png",
+  "welcome/images/sprites/icon-collect-active.png": "welcome/images/sprites/icon-collect-active.b71d6.png",
+  "welcome/images/sprites/icon-collect.png": "welcome/images/sprites/icon-collect.cafab.png",
+  "welcome/images/sprites/icon-ding-active.png": "welcome/images/sprites/icon-ding-active.bdd18.png",
+  "welcome/images/sprites/icon-ding.png": "welcome/images/sprites/icon-ding.61b03.png",
+  "welcome/images/sprites/icon-disable-reward.png": "welcome/images/sprites/icon-disable-reward.6f7af.png",
+  "welcome/images/sprites/icon-dislike-active.png": "welcome/images/sprites/icon-dislike-active.f6245.png",
+  "welcome/images/css/sprite/sprite.scss": "welcome/images/css/sprite/sprite.d74cf.scss",
+  "welcome/images/images/sprite/sprite@2x.png": "welcome/images/images/sprite/sprite@2x.84498.png"
 }

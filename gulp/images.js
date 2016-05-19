@@ -26,7 +26,7 @@ var paths = {
 // sass task
 gulp.task('images', function(cb) {
 
-    gulp.src(paths.img)
+    gulp.src(paths.img,'!**/sprites/*')
         .pipe(plumber())
         .pipe(image())
         .pipe(gulp.dest(paths.build))
@@ -42,7 +42,7 @@ gulp.task('images-copy', function(cb) {
 });
 
 gulp.task('sfile', function(cb) {
-    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}'])
+    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}','!**/sprites'])
         .pipe(gulp.dest(paths.build))
     cb();
 });

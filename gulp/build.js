@@ -23,7 +23,7 @@ var paths = {
     prelease: '_prelease'
 };
 
-console.log('静态文件路径名: ' + PROJECT_CONFIG.gtimgName);
+// console.log('静态文件路径名: ' + PROJECT_CONFIG.gtimgName);
 /**
  * 生成带版本号的静态文件
  */

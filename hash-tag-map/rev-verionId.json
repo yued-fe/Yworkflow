@@ -1,3 +1,12 @@
 {
-  "css/index.css": "css/index.0.1.css"
+  "welcome/css/index.css": "welcome/css/index.0.1.css",
+  "welcome/images/sprites/icon-close.png": "welcome/images/sprites/icon-close.0.1.png",
+  "welcome/images/sprites/icon-collect-active.png": "welcome/images/sprites/icon-collect-active.0.1.png",
+  "welcome/images/sprites/icon-collect.png": "welcome/images/sprites/icon-collect.0.1.png",
+  "welcome/images/sprites/icon-ding-active.png": "welcome/images/sprites/icon-ding-active.0.1.png",
+  "welcome/images/sprites/icon-ding.png": "welcome/images/sprites/icon-ding.0.1.png",
+  "welcome/images/sprites/icon-disable-reward.png": "welcome/images/sprites/icon-disable-reward.0.1.png",
+  "welcome/images/sprites/icon-dislike-active.png": "welcome/images/sprites/icon-dislike-active.0.1.png",
+  "welcome/images/css/sprite/sprite.scss": "welcome/images/css/sprite/sprite.0.1.scss",
+  "welcome/images/images/sprite/sprite@2x.png": "welcome/images/images/sprite/sprite@2x.0.1.png"
 }
