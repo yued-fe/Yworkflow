@@ -1,5 +1,5 @@
 /**
- * 服务器render输出亚索html相关config
+ * 服务器render输出压缩html相关config
  *
  */
 var minifyConfig =

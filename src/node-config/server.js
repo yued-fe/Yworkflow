@@ -5,12 +5,7 @@
  */
 
 var domainMap = {
-    'free'      : 'f.qidian.com',
-    'rank'      : 'r.qidian.com',
-    'search'    : 'se.qidian.com',
-    'all'       : 'a.qidian.com',
-    'finish'    : 'fin.qidian.com',
-    'www'       : 'i.qidian.com'
+    'yued'      : 'y.qidian.com',
 }
 
 var serverConfig = {
@@ -24,14 +19,14 @@ var serverConfig = {
 		"static":{	//静态文件配置
             "domainPrefix" : "local",
 			"staticDomain": "devqidian.gtimg.com",
-			"staticPath":"//local.qidian.com:3234/qd",
+			"staticPath":"//local.qidian.com:2324/yued",
 			"lbf": {
 				"conf": {
 					"paths": {
-						"site": "//local.qidian.com:3234/qd/js"
+						"site": "//local.qidian.com:3234/yued/js"
 					},
 					"vars": {
-						"theme": "//local.qidian.com:3234/qd/css"
+						"theme": "//local.qidian.com:3234/yued/css"
 					},
 					"combo": false,
 					"debug": true

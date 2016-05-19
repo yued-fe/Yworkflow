@@ -3,6 +3,7 @@
  * Author: Luolei
  */
 
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");

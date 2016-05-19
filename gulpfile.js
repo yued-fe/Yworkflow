@@ -2,6 +2,9 @@
  * Author:luolei
  */
 
+var PROJECT_CONFIG = require('./.yconfig'); //载入项目基础配置
+
+
 //引入 gulp
 var gulp = require('gulp');
 var requireDir = require('require-dir');

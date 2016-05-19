@@ -4,7 +4,7 @@
  * Author: Luolei
  */
 
-
+var PROJECT_CONFIG = require('../.yconfig');
 var gulp = require('gulp');
 
 var del = require('del');
@@ -29,10 +29,10 @@ var PATHS = {
 
 // directory
 var dir = {
-    source: 'src/qd/images/sprites',
-    scss: 'src/qd/css',
-    img: 'qd/images/sprites',
-    sprite: 'qd/sprite'
+    source: 'src/' + PROJECT_CONFIG.gtimgName + '/images/sprites',
+    scss: 'src/' + PROJECT_CONFIG.gtimgName + '/css',
+    img:  PROJECT_CONFIG.gtimgName + '/images/sprites',
+    sprite: PROJECT_CONFIG.gtimgName + '/sprite'
 };
 
 /**

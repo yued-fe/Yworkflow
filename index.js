@@ -5,6 +5,9 @@
 
 'use strict'
 
+var PROJECT_CONFIG = require('./.yconfig'); //载入项目基础配置
+
+
 var express = require('express');
 var app = express();
 var http = require('http');
@@ -32,6 +35,8 @@ var staticConf = serverConf[envType]['static'];
 //
 var domainAlias = require('./src/node-config/domain_alias')
 
+var PROJECT_CONFIG = require('./.yconfig');
+
 // 基础配置
 // app.use(compress()); // 启用Gizp压缩,放在顶部
 app.use(morgan('dev')); // 日志
@@ -52,7 +57,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
 
-app.set('port', process.env.PORT || 3234); // 设置默认端口
+app.set('port', process.env.PORT || PROJECT_CONFIG.port); // 设置默认端口
 
 if (process.env.NODE_ENV == 'local') {
     app.use(express.static(path.join(__dirname, 'build')));
@@ -77,17 +82,14 @@ app.engine('html', require('ejs').renderFile);
  * 生产：pro
  */
 
-console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
-// app.set('env', 'local');
 
+// app.set('env', 'local');
 
 /**
  * ================================================
  * 路由区域
  * ================================================
  */
-
-
 
 
 /**
@@ -351,10 +353,8 @@ app.get('/404', function(req, res) {
     res.render('404.html');
 });
 
-
-
-
 // 启动server
+console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
 
 app.listen(app.get('port'), function() {
     console.log(chalk.green('[服务器启动],端口: ' + app.get('port')));

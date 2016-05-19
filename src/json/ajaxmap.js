@@ -9,16 +9,8 @@
 var routerMap ={
 
 	// 加入书架
-	'/ajax/BookShelf/add': '/ajax/BookShelf/add',
+	'/ajax/yued': '/ajax/yued/getUser.json',
 
-	// 拉取限时免费时间戳
-	'/ajax/Free/getSysTime': '/ajax/Free/getSysTime',
-
-	// 搜索自动完成
-	'/ajax/Search/AutoComplete': '/ajax/Search/AutoComplete',
-
-	// 拉取用户信息
-	'/ajax/UserInfo/GetUserInfo': '/ajax/UserInfo/GetUserInfo'
 };
 
 module.exports = routerMap;

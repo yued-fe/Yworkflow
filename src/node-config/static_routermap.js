@@ -11,11 +11,7 @@
   */
 
  var routerMap = {
-     '/home': '/index.html',
-     '/rank': '/rank/index.html',
-     '/erciyuan': '/erciyuan/index.html',
-     '/rankshow': '/rank/a/show.html',
-     '/free': '/free/index.html'
+     '/home': '/index.html'
  }
 
 

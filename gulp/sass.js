@@ -1,6 +1,8 @@
 /**
  * Sass
  */
+
+var PROJECT_CONFIG = require('../.yconfig');
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");
