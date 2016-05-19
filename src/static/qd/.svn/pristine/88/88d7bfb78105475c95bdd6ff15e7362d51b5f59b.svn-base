@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// NumberSpinner
+// --------------------------------------------------
+
+.lbf-numberspinner {
+    position:relative;
+    padding:0 24px;
+    @include inline-block();
+
+    & &-input {
+        width: $lbf-numberspinner-width;
+        text-align:center;
+        border-color: $lbf-numberspinner-focus-border;
+        *margin-top:-1px;
+
+        &:hover,
+        &:focus {
+            border-color: $lbf-numberspinner-focus-border;
+        }
+    }
+
+    & &-decrease,
+    & &-increase {
+        position:absolute;
+        top:0;
+        border-color: $lbf-numberspinner-focus-border;
+        width: $lbf-numberspinner-button-width;
+        padding: $lbf-numberspinner-padding;
+
+        @include user-select(none);
+        @include box-shadow(none);
+
+        border-radius: 0;
+    }
+
+    & &-decrease {
+        left:0;
+        border-right:0 none;
+    }
+
+    & &-increase {
+        right:0;
+        border-left:0 none;
+    }
+}
+

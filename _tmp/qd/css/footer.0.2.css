@@ -1,0 +1,110 @@
+@charset 'UTF-8';
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+.footer {
+    background: #fafafa; 
+    text-align: center;
+}
+.footer .box-center {
+    padding: 20px 0;
+    background: #fafafa;
+}
+.footer .friend-link {
+    overflow: hidden; 
+    padding-bottom: 12px;
+}
+.footer .friend-link em {
+    margin-right: 16px;
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun; 
+    font-size: 12px;
+}
+.footer .friend-link em, .footer .footer-menu em {
+    color: #1a1a1a;
+}
+.footer .friend-link a, .footer .footer-menu a {
+    margin-right: 16px;
+    color: #1a1a1a; 
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun;
+    font-size: 12px;
+    line-height: 18px;
+}
+.footer .friend-link a:hover, .footer .footer-menu a:hover {
+    color: #ed4259;
+}
+.footer .footer-menu {
+    padding: 0 0 15px;
+}
+.footer .footer-menu a {
+    color: #666;
+}
+.footer .copy-right p, .footer .safety-box p {
+    overflow: hidden; 
+    height: 20px;
+    color: #a6a6a6;
+    font: 12px/20px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.footer .copy-right span, .footer .safety-box span {
+    margin-right: 5px;
+    font-family: Arial;
+}
+.footer .safety-img {
+    padding: 20px 0;
+}
+.footer .safety-img a {
+    width: 140px;
+    height: 52px;
+    margin-right: 14px;
+    border: 1px solid #ededed; 
+    background-image: url(/qd/images/foot_site.0.1.png?max_age=31536000);
+}
+.footer .safety-img a.site1 {
+    background-position: 0 0;
+}
+.footer .safety-img a.site2 {
+    background-position: 0 -52px;
+}
+.footer .safety-img a.site3 {
+    background-position: 0 -104px;
+}
+.footer .safety-img a.site4 {
+    background-position: 0 -156px;
+}
+.footer .safety-img a.site5 {
+    background-position: 0 -208px;
+}
+.footer .safety-img a.site6 {
+    background-position: 0 -260px;
+}
+.footer .safety-img a.site7 {
+    background-position: 0 -312px;
+}
+
+@media (max-width: 1025px) {
+    .footer .safety-img a {
+        width: 138px;
+        height: 50px; 
+        margin-right: 4px;
+    }
+}

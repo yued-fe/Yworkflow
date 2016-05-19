@@ -1,0 +1,222 @@
+<!-- start 排行榜 -->
+<div class="rank-wrap box-center mb20">
+    <div id="rank-list-row" class="rank-list-row cf mb20">
+        <!-- start 原创风云榜 -->
+        <div class="rank-list" data-aid="qd_A107">
+            <h3 class="wrap-title">原创风云榜<i>&#183;</i>新书<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/yuepiao" target="_blank" data-aid="qd_A108"><em>&#124;</em>更多</a>
+            </h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartForbes[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartForbes[0]['bookId'] %>"><%=
+                                        chartForbes[0]['bookName'] %></a>
+                                </h4>
+                                <p class="digital"><em><%= chartForbes[0]['monthTicketCnt'] %></em>月票</p>
+                                <p class="author">
+                                    <a class="type" href="<%= chartForbes[0]['chanUrl'] %>" target="_blank"><%=
+                                        chartForbes[0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartForbes[0]['authorId'] %>" target="_blank"><%=
+                                        chartForbes[0]['authorName'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartForbes[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartForbes[0]['bookId'] %>">
+                                    <img src="<%= chartForbes[0]['imageUrl'] %>" alt="<%= chartForbes[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartForbes.length; i++) { %>
+                    <li>
+                        <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartForbes[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartForbes[i]['bookId'] %>"><%=
+                                chartForbes[i]['bookName'] %></a><i class="total"><%=
+                            chartForbes[i]['monthTicketCnt'] %></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 原创风云榜 -->
+        <!-- start 24小时热销榜 -->
+        <div class="rank-list sort-list" data-aid="qd_A109">
+            <h3 class="wrap-title">24小时热销榜</h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartDaySales[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartDaySales[0]['bookId'] %>"><%=
+                                        chartDaySales[0]['bookName'] %></a></h4>
+                                <p class="digital f16">销量冠军</p>
+                                <p class="author">
+                                    <a class="type" href="<%= chartDaySales[0]['chanUrl'] %>" target="_blank"><%=
+                                        chartDaySales[0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartDaySales[0]['authorId']  %>" target="_blank"><%=
+                                        chartDaySales[0]['authorName'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartDaySales[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartDaySales[0]['bookId'] %>">
+                                    <img src="<%= chartDaySales[0]['imageUrl'] %>" alt="<%= chartDaySales[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartDaySales.length; i++) { %>
+                    <li>
+                        <div class="num-box"><span class="num<%=  i+1 %>"><%=  i+1 %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartDaySales[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartDaySales[i]['bookId'] %>"><%=chartDaySales[i]['bookName'] %></a>
+                            <%
+                                var trend = chartDaySales[i]['trend'];
+                                var rank = ''
+                                if (trend == 1) { %>
+                                <span class="iconfont up">&#xe626;</span>
+                            <% } else if(trend == -1) { %>
+                                <span class="iconfont">&#xe625;</span>
+                            <% } else { %>
+                                <span class="iconfont">&#xe627;</span>
+                            <% } %>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 24小时热销榜 -->
+        <!-- start 周点击榜-->
+        <div class="rank-list" data-aid="qd_A111">
+            <h3 class="wrap-title">
+                周点击榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/click" target="_blank" data-aid="qd_A112"><em>&#124;</em>更多</a></h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartWeekClick[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekClick[0]['bookId'] %>"><%=
+                                        chartWeekClick[0]['bookName'] %></a></h4>
+                                <p class="digital"><em><%= chartWeekClick[0]['clickCnt'] %></em>点击</p>
+                                <p class="author">
+                                    <a class="type" href="<%= chartWeekClick[0]['chanUrl'] %>" target="_blank"><%=
+                                        chartWeekClick[0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartWeekClick[0]['authorId']  %>" target="_blank"><%=
+                                    chartWeekClick[0]['authorName'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartWeekClick[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekClick[0]['bookId'] %>">
+                                    <img src="<%= chartWeekClick[0]['imageUrl']  %>" alt="<%= chartWeekClick[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartWeekClick.length; i++) { %>
+                    <li>
+                        <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartWeekClick[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekClick[i]['bookId'] %>"><%=
+                                chartWeekClick[i]['bookName'] %></a><i class="total"><%= chartWeekClick[i]['clickCnt']
+                            %></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 周点击榜 -->
+        <!-- start 周推荐票榜-->
+        <div class="rank-list" data-aid="qd_A113">
+            <h3 class="wrap-title">
+                周推荐票榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/recom" target="_blank" data-aid="qd_A114"><em>&#124;</em>更多</a></h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartWeekRecom[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekRecom[0]['bookId'] %>"><%=
+                                        chartWeekRecom[0]['bookName'] %></a></h4>
+                                <p class="digital"><em><%= chartWeekRecom[0]['recomCnt'] %></em>推荐票</p>
+                                <p class="author">
+                                    <a class="type" href="<%= chartWeekRecom[0]['chanUrl'] %>" target="_blank"><%=
+                                        chartWeekRecom[0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartWeekRecom[0]['authorId']  %>" target="_blank"><%=
+                                    chartWeekRecom[0]['authorName'] %></a></p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartWeekRecom[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekRecom[0]['bookId'] %>">
+                                    <img src="<%= chartWeekRecom[0]['imageUrl'] %>" alt="<%= chartWeekRecom[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartWeekRecom.length; i++) { %>
+                    <li>
+                        <div class="num-box"><span class="num<%= i+1 %>"><%= i+1 %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartWeekRecom[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartWeekRecom[i]['bookId'] %>"><%=
+                                chartWeekRecom[i]['bookName'] %></a><i class="total"><%= chartWeekRecom[i]['recomCnt']
+                            %></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 周推荐票榜单 -->
+        <!-- start 签约作家新书榜 -->
+        <div class="rank-list mr0" data-aid="qd_A115">
+            <h3 class="wrap-title">
+                签约作家新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook" target="_blank" data-aid="qd_A116"><em>&#124;</em>更多</a></h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartVipAuthorNewBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartVipAuthorNewBook[0]['bookId'] %>"><%=
+                                        chartVipAuthorNewBook[0]['bookName'] %></a></h4>
+                                <p class="digital"><em><%= chartVipAuthorNewBook[0]['potentialVal'] %></em>潜力值</p>
+                                <p class="author"><a class="type" href="<%= chartVipAuthorNewBook[0]['chanUrl'] %>" target="_blank"><%=
+                                    chartVipAuthorNewBook[0]['chanName'] %></a><i>&#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartVipAuthorNewBook[0]['authorId'] %>" target="_blank"><%=
+                                    chartVipAuthorNewBook[0]['authorName'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartVipAuthorNewBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartVipAuthorNewBook[0]['bookId'] %>">
+                                    <img src="<%= chartVipAuthorNewBook[0]['imageUrl']  %>" alt="<%= chartVipAuthorNewBook[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartVipAuthorNewBook.length; i++) { %>
+                    <li>
+                        <div class="num-box"><span class="num<%= i+1  %>"><%= i+1  %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartVipAuthorNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartVipAuthorNewBook[i]['bookId'] %>"><%= chartVipAuthorNewBook[i]['bookName']
+                                %></a><i class="total"><%= chartVipAuthorNewBook[i]['potentialVal'] %></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 签约作家新书榜 -->
+    </div>
+    <a class="load-more" id="load-more" href="javascript:"><em>展开更多</em><span id="btn-more"><i></i></span></a>
+</div>
+<!-- end 排行榜-->

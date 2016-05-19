@@ -1,0 +1,125 @@
+@charset 'UTF-8';
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, a, blockquote, th, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 14px;
+}
+
+ol, ul, li {
+    list-style: none outside none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+fieldset, img {
+    border: 0 none;
+}
+
+body {
+    background: white;
+    color: #262626;
+    font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+    text-align: left;
+
+    -webkit-font-smoothing: antialiased;
+       -moz-font-smoothing: antialiased;
+}
+
+input::-moz-focus-inner {
+    padding: 0; 
+    border: none;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    outline: none;
+    color: #262626; 
+    text-decoration: none;
+}
+a:hover {
+    color: #ed4259;
+    transition: all .2s;
+}
+
+textarea {
+    outline: none;
+    font: 14px/1.8 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+    resize: none;
+}
+
+select {
+    font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+
+input, button {
+    border: none;
+    outline: none;
+    font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+i, em, cite {
+    font-style: normal;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #ccc;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #ccc;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #ccc;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+p {
+    word-break: break-all;
+}

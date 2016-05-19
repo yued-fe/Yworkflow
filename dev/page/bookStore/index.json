@@ -1,0 +1,228 @@
+{
+  "code": 0,
+  "msg": "请求成功",
+  "chanUpdCnt": {
+    "qihuan": {
+      "cnt": 10657,
+      "type": 1
+    },
+    "wuxia": {
+      "cnt": 6203,
+      "type": 0
+    },
+    "dushi": {
+      "cnt": 28752,
+      "type": 1
+    },
+    "lishi": {
+      "cnt": 7027,
+      "type": 0
+    },
+    "junshi": {
+      "cnt": 1737,
+      "type": 0
+    },
+    "youxi": {
+      "cnt": 7174,
+      "type": 0
+    },
+    "jingji": {
+      "cnt": 633,
+      "type": 0
+    },
+    "kehuan": {
+      "cnt": 16497,
+      "type": 1
+    },
+    "lingyi": {
+      "cnt": 5988,
+      "type": 0
+    },
+    "erciyuan": {
+      "cnt": 7233,
+      "type": 0
+    },
+    "zhichang": {
+      "cnt": 1520,
+      "type": 0
+    },
+    "xuanhuan": {
+      "cnt": 63889,
+      "type": 0
+    },
+    "xianxia": {
+      "cnt": 18557,
+      "type": 0
+    },
+    "mm": {
+      "cnt": 114358,
+      "type": 0
+    }
+  },
+  "defaultSearch": {
+    "keywords": "我真是大明星"
+  },
+  "data": {
+    "paramList": {
+      "chanId": 12,
+      "subCateId": 66,
+      "tag": "%E8%B1%AA%E9%97%A8",
+      "size": 1,
+      "action":"1",
+      "orderId": "2",
+      "page": "5",
+      "update": "1",
+      "vip": 1,
+      "sign": 1,
+      "month": "-1",
+      "show": "1",
+      "chanName":"科幻",
+      "subCateName":"未来世界"
+    },
+    "pageInfo": {
+      "totalCount": 5,
+      "pageIndex": 2,
+      "pageNum": 4,
+      "pageMax": 10
+    },
+    "listInfo": [
+      {
+        "bookId": 1003347845,
+        "bookName": "炉石传说：破碎的世界",
+        "bookUrl": "http://www.baidu.com",
+        "desc": "炉石传说：破碎的世界",
+        "chanId": "7 ",
+        "chanName": "游戏",
+        "chanUrl": "http://www.baidu.com",
+        "subCateId": "240 ",
+        "subCateName": "游戏异界",
+        "subCateUrl": "http://www.baidu.com",
+        "lastChapterId": "94372330 ",
+        "lastChapterName": "第798章 班花的小字条 ",
+        "lastChapterUrl": "http://www.baidu.com",
+        "lastUpdateTime": "2015-08-20 20:37 ",
+        "wordCnt": "300万",
+        "authorId": 3993363,
+        "authorName": "琦文可舞",
+        "authorUrl": "http://www.baidu.com",
+        "clickCnt": "300万",
+        "recomendCnt": "300万",
+        "bookType": "1 ",
+        "isVip": "1 ",
+        "bookStatus": "是否连载 ",
+        "signStatus": "是否签约 ",
+        "isInShelf": "false ",
+        "imageUrl": "http://image.cmfu.com/books/1.jpg"
+      },
+      {
+        "bookId": 1003347845,
+        "bookName": "炉石传说：破碎的世界",
+        "bookUrl": "http://www.baidu.com",
+        "desc": "炉石传说：破碎的世界",
+        "chanId": "7 ",
+        "chanName": "游戏",
+        "chanUrl": "http://www.baidu.com",
+        "subCateId": "240 ",
+        "subCateName": "游戏异界",
+        "subCateUrl": "http://www.baidu.com",
+        "lastChapterId": "94372330 ",
+        "lastChapterName": "第798章 班花的小字条 ",
+        "lastChapterUrl": "http://www.baidu.com",
+        "lastUpdateTime": "2015-08-20 20:37 ",
+        "wordCnt": "300万",
+        "authorId": 3993363,
+        "authorName": "琦文可舞",
+        "authorUrl": "http://www.baidu.com",
+        "clickCnt": "300万",
+        "recomendCnt": "300万",
+        "bookType": "1 ",
+        "isVip": "1 ",
+        "bookStatus": "是否连载 ",
+        "signStatus": "是否签约 ",
+        "isInShelf": "false ",
+        "imageUrl": "http://image.cmfu.com/books/1.jpg"
+      },{
+        "bookId": 1003347845,
+        "bookName": "炉石传说：破碎的世界",
+        "bookUrl": "http://www.baidu.com",
+        "desc": "炉石传说：破碎的世界",
+        "chanId": "7 ",
+        "chanName": "游戏",
+        "chanUrl": "http://www.baidu.com",
+        "subCateId": "240 ",
+        "subCateName": "游戏异界",
+        "subCateUrl": "http://www.baidu.com",
+        "lastChapterId": "94372330 ",
+        "lastChapterName": "第798章 班花的小字条 ",
+        "lastChapterUrl": "http://www.baidu.com",
+        "lastUpdateTime": "2015-08-20 20:37 ",
+        "wordCnt": "300万",
+        "authorId": 3993363,
+        "authorName": "琦文可舞",
+        "authorUrl": "http://www.baidu.com",
+        "clickCnt": "300万",
+        "recomendCnt": "300万",
+        "bookType": "1 ",
+        "isVip": "1 ",
+        "bookStatus": "是否连载 ",
+        "signStatus": "是否签约 ",
+        "isInShelf": "false ",
+        "imageUrl": "http://image.cmfu.com/books/1.jpg"
+      },{
+        "bookId": 1003347845,
+        "bookName": "炉石传说：破碎的世界",
+        "bookUrl": "http://www.baidu.com",
+        "desc": "炉石传说：破碎的世界",
+        "chanId": "7 ",
+        "chanName": "游戏",
+        "chanUrl": "http://www.baidu.com",
+        "subCateId": "240 ",
+        "subCateName": "游戏异界",
+        "subCateUrl": "http://www.baidu.com",
+        "lastChapterId": "94372330 ",
+        "lastChapterName": "第798章 班花的小字条 ",
+        "lastChapterUrl": "http://www.baidu.com",
+        "lastUpdateTime": "2015-08-20 20:37 ",
+        "wordCnt": "300万",
+        "authorId": 3993363,
+        "authorName": "琦文可舞",
+        "authorUrl": "http://www.baidu.com",
+        "clickCnt": "300万",
+        "recomendCnt": "300万",
+        "bookType": "1 ",
+        "isVip": "1 ",
+        "bookStatus": "是否连载 ",
+        "signStatus": "是否签约 ",
+        "isInShelf": "false ",
+        "imageUrl": "http://image.cmfu.com/books/1.jpg"
+      },{
+        "bookId": 1003347845,
+        "bookName": "炉石传说：破碎的世界",
+        "bookUrl": "http://www.baidu.com",
+        "desc": "炉石传说：破碎的世界",
+        "chanId": "7 ",
+        "chanName": "游戏",
+        "chanUrl": "http://www.baidu.com",
+        "subCateId": "240 ",
+        "subCateName": "游戏异界",
+        "subCateUrl": "http://www.baidu.com",
+        "lastChapterId": "94372330 ",
+        "lastChapterName": "第798章 班花的小字条 ",
+        "lastChapterUrl": "http://www.baidu.com",
+        "lastUpdateTime": "2015-08-20 20:37 ",
+        "wordCnt": "300万",
+        "authorId": 3993363,
+        "authorName": "琦文可舞",
+        "authorUrl": "http://www.baidu.com",
+        "clickCnt": "300万",
+        "recomendCnt": "300万",
+        "bookType": "1 ",
+        "isVip": "1 ",
+        "bookStatus": "是否连载 ",
+        "signStatus": "是否签约 ",
+        "isInShelf": "false ",
+        "imageUrl": "http://image.cmfu.com/books/1.jpg"
+      }
+    ]
+  }
+}

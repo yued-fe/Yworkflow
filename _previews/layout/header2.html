@@ -1,0 +1,56 @@
+<script>
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+        if (arr = document.cookie.match(reg))
+
+            return (arr[2]);
+        else
+            return null;
+    }
+    if (getCookie('ns') != 2) {
+        location.href = 'http://www.qidian.com';
+    }
+</script>
+<!-- start 顶部导航 -->
+<div class="top-nav">
+    <div class="box-center cf">
+        <div class="login-box fr">
+            <div class="sign-in hidden">
+                <span>你好，</span><a class="black" id="user-name" href="http://me.qidian.com" target="_blank" data-aid="qd_A08"></a><em>|</em><a class="black" id="msg-btn" href="http://me.qidian.com/msg/systems.aspx?page=1" target="_blank" data-aid="qd_A09">消息<cite id="msg-box">(<i></i>)</cite></a><em>|</em><a id="exit-btn" href="javascript:" data-aid="qd_A10">退出</a>
+            </div>
+            <div class="sign-out">
+                <a id="login-btn" class="black" href="javascript:" data-aid="qd_A06">登录</a><em>|</em><a id="reg-btn" href="http://reg.qidian.com" target="_blank" data-aid="qd_A07">注册</a>
+            </div>
+        </div>
+        <div class="nav-link fl">
+            <a class="act" href="//<%= staticConf.domainPrefix %>i.qidian.com" data-aid="qd_A149">起点中文网</a>
+            <a href="http://www.qdmm.com" target="_blank" data-aid="qd_A01">起点女生网</a><em>|</em>
+            <!--<a href="http://k.qidian.com/Default.aspx" target="_blank" data-aid="qd_A02">起点文学网</a><em>|</em>-->
+            <a href="http://chuangshi.qq.com" target="_blank" data-aid="qd_A03">创世中文网</a><em>|</em>
+            <a href="http://yunqi.qq.com" target="_blank" data-aid="qd_A04">云起书院</a><em>|</em>
+            <a class="black" id="back-old" href="http://www.qidian.com" data-aid="qd_A05" target="_blank">返回旧版</a>
+        </div>
+    </div>
+</div>
+<!-- end 顶部导航 -->
+<!-- start logo & 搜索 -->
+<div class="logo-wrap box-center">
+    <div class="box-center cf">
+        <div class="book-shelf fr">
+            <a href="http://me.qidian.com/bookCase/bookCase.aspx?caseId=-2" target="_blank" data-aid="qd_A14"><em class="iconfont shelf">&#xe60c;</em><i>我的书架</i>
+                <!-- 产品要求去除 -->
+                <!--<span id="shelf-num"></span>-->
+            </a>
+        </div>
+        <div class="logo fl">
+            <a href="//<%= staticConf.domainPrefix %>i.qidian.com" data-aid="qd_A150"></a>
+        </div>
+        <div class="search-wrap fl">
+            <p><input class="search-box" id="s-box" type="text" placeholder="<%= defaultSearch['keywords']%>"></p>
+            <a id="search-btn" class="search-btn" href="javascript:" data-aid="qd_A12"><em class="iconfont">
+                &#xe60d;</em></a>
+        </div>
+    </div>
+</div>
+<!-- end logo & 搜索 -->

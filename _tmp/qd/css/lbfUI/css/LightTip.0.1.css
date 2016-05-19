@@ -1,0 +1,30 @@
+/**
+ * $author yangye
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-light-tip {
+    display: inline-block;
+    *display: inline;
+    position: absolute;
+    max-width: 240px;
+    padding: 10px 20px;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    outline: none;
+    background: #3e3d43;
+    background: rgba(62, 61, 67, .9); 
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding-box;
+            background-clip: padding-box;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    color: #fff;
+    text-align: center;
+
+    *zoom: 1;
+}

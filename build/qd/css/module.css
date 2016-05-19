@@ -1,0 +1,1198 @@
+@charset 'UTF-8';
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+.classify-list dd, .book-list-wrap .book-list li, .rank-list .book-list li {
+    overflow: hidden;
+
+    *zoom: 1;
+}
+
+/* 标题下边框线 */
+h3.wrap-title {
+    border-bottom: 1px solid #666;
+}
+
+.book-list-wrap .book-list li, .rank-list .book-list li.unfold, .rank-list .book-list li .name-box {
+    border-bottom: 1px solid #ebebeb;
+}
+
+/* 固定导航条*/
+.pin-nav-wrap {
+    position: fixed;
+    z-index: 100000;
+    top: -43px;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    background: #3e3d43;
+    transition: .5s all; 
+    -webkit-transform: translateZ(0);
+}
+.pin-nav-wrap.show {
+    top: 0;
+}
+.pin-nav-wrap .nav-list {
+    height: 42px;
+    margin-left: -10px;
+}
+.pin-nav-wrap .nav-list li {
+    float: left;
+}
+.pin-nav-wrap .nav-list li.act a {
+    height: 40px;
+    border-top: 2px solid #ed4259;
+    background: #2b2a2e;
+    line-height: 38px;
+    transition: none;
+}
+.pin-nav-wrap .nav-list li.act a span {
+    position: absolute;
+    top: 17px;
+    width: 0;
+    height: 0; 
+    border-top: 0 none;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid white;
+    border-left: 4px solid transparent;
+}
+.pin-nav-wrap .nav-list li.act .dropdown {
+    display: block;
+    -webkit-animation: .15s ease-out backwards;
+       -moz-animation: .15s ease-out backwards;
+        -ms-animation: .15s ease-out backwards;
+            animation: .15s ease-out backwards;
+    -webkit-animation-name: fadeinT;
+       -moz-animation-name: fadeinT;
+        -ms-animation-name: fadeinT;
+            animation-name: fadeinT;
+}
+.pin-nav-wrap .nav-list li.site {
+    width: 95px;
+    margin-right: 28px;
+}
+.pin-nav-wrap .nav-list li.site a {
+    width: 95px;
+    color: white;
+}
+.pin-nav-wrap .nav-list li.site a.pin-logo {
+    display: block;
+    width: 95px;
+    height: 42px;
+    background-image: url('/qd/images/pin_logo_1x.png');
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+}
+.pin-nav-wrap .nav-list li.site .dropdown {
+    width: 125px;
+}
+.pin-nav-wrap .nav-list li.site.act a {
+    height: 38px;
+}
+.pin-nav-wrap .nav-list li a {
+    display: block;
+    overflow: hidden; 
+    position: relative;
+    height: 42px;
+    padding: 0 15px;
+    color: #ccc;
+    font: 14px/42px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.pin-nav-wrap .nav-list li a:hover {
+    color: white;
+}
+.pin-nav-wrap .nav-list li a span {
+    position: absolute;
+    top: 19px;
+    right: 15px; 
+    width: 0;
+    height: 0;
+    border-top: 4px solid #ccc;
+    border-right: 4px solid transparent;
+    border-bottom: 0 none;
+    border-left: 4px solid transparent;
+}
+.pin-nav-wrap .nav-list li.more a {
+    width: 44px;
+}
+.pin-nav-wrap .nav-list li.more .dropdown {
+    width: 74px;
+}
+.pin-nav-wrap .nav-list li .dropdown {
+    display: none;
+    position: relative;
+    background: #2b2a2e;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+.pin-nav-wrap .nav-list li .dropdown a {
+    height: auto;
+    padding: 2px 15px;
+    border-top: none; 
+    color: #ccc;
+    font: 14px/38px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.pin-nav-wrap .nav-list li .dropdown a:hover {
+    background: black; 
+    color: white;
+}
+.pin-nav-wrap .min-user .iconfont {
+    display: inline-block;
+    color: white; 
+    font-size: 17px;
+    vertical-align: middle;
+}
+.pin-nav-wrap .min-user .iconfont:hover {
+    background: none;
+}
+.pin-nav-wrap .min-user li {
+    position: relative;
+    z-index: 11;
+}
+.pin-nav-wrap .min-user li .pin-input {
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 42px;
+    width: 40px;
+    height: 26px;
+    opacity: 0;
+    border-bottom: 2px solid white;
+    background: #3e3d43;
+    color: #e6e6e6;
+    color: rgba(255, 255, 255, .7);
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun;
+    font-size: 14px;
+
+    *color: #e6e6e6;
+    filter: alpha(opacity=0);
+}
+.pin-nav-wrap .min-user li.book-shelf a:hover {
+    background: #2b2a2e;
+}
+.pin-nav-wrap .min-user li.book-shelf i {
+    margin-left: 5px;
+}
+.pin-nav-wrap .min-user li.book-shelf cite {
+    display: inline-block;
+    margin: -2px 0 0 4px;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #ed4259; 
+    color: white;
+    font-family: Arial;
+    font-size: 11px;
+    line-height: 1.4;
+    vertical-align: middle;
+}
+.pin-nav-wrap .min-user li.book-shelf cite strong {
+    font-weight: 400;
+}
+.pin-nav-wrap .min-user li.book-shelf em {
+    margin-top: -2px;
+
+    *margin-top: 0;
+}
+.pin-nav-wrap .min-user li a {
+    position: relative;
+    z-index: 10;
+    margin-right: 0;
+    background: none;
+    color: white;
+}
+.pin-nav-wrap .min-user li.line {
+    height: 24px;
+    margin: 10px 0 0;
+    border-right: 1px solid #515056;
+}
+.pin-nav-wrap .min-user li.sign-out {
+    position: relative; 
+    padding: 0 6px 0 15px;
+}
+.pin-nav-wrap .min-user li.sign-out a {
+    display: inline;
+    margin-right: 8px;
+    padding: 0;
+    color: #ccc;
+}
+.pin-nav-wrap .min-user li.sign-out a:hover {
+    color: white;
+}
+.pin-nav-wrap .min-user li.sign-in a {
+    min-width: 80px; 
+    padding: 0 20px 0 10px;
+}
+.pin-nav-wrap .min-user li.sign-in a i {
+    padding-right: 5px;
+}
+.pin-nav-wrap .min-user li.sign-in .dropdown {
+    position: absolute;
+    top: 42px;
+    right: 0; 
+    width: 100%;
+}
+.pin-nav-wrap .min-user li.sign-in .dropdown a {
+    padding: 0 10px;
+    text-align: left;
+}
+.pin-nav-wrap .min-user li.sign-in .dropdown a.pin-user-name {
+    overflow: hidden; 
+    height: 32px;
+}
+.pin-nav-wrap .min-user li.sign-in .dropdown a i {
+    padding-right: 0;
+}
+
+/* 主导航 作品分类有下拉 作品分类的样式 */
+#type-hover .classify-list {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 40px;
+    box-shadow: 0 3px 5px #ccc;
+}
+
+.red {
+    color: #bf2c24;
+}
+
+/* 作品分类下拉样式 */
+.classify-list {
+    position: relative;
+    top: -10px;
+    width: 214px;
+    height: 420px; 
+    border: 1px solid #e6e6e6;
+    border-top: none;
+}
+.classify-list dd {
+    float: left;
+    width: 50%;
+    height: 60px;
+    background: #f7f6f2;
+}
+.classify-list dd a {
+    display: block;
+    color: #333;
+}
+.classify-list dd a cite {
+    display: block;
+    overflow: hidden; 
+    position: relative;
+    width: 85px;
+    height: 43px;
+    padding-top: 17px;
+    padding-left: 17px;
+}
+.classify-list dd a cite .rec {
+    display: inline-block;
+    width: 7px;
+    height: 8px;
+    margin-top: -6px;
+    margin-left: 3px;
+    background: url('/qd/images/index/rec.png') no-repeat; 
+    vertical-align: middle;
+
+    *margin-top: -3px;
+}
+.classify-list dd a cite .info {
+    float: left;
+    max-width: 42px;
+}
+.classify-list dd a cite .info i, .classify-list dd a cite .info b {
+    display: block;
+    cursor: pointer;
+    text-align: left;
+}
+.classify-list dd a cite .info i {
+    font: 14px/1 'PingFangSC-Regular', '-apple-system', Simsun;
+    transition: ease-out .2s; 
+    white-space: nowrap;
+}
+.classify-list dd a cite .info b {
+    color: #999;
+    font: 12px/1.5 Arial;
+    transition: all .5s;
+}
+.classify-list dd a cite em {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 8px 0 0;
+    transition: ease-out .3s;
+}
+.classify-list dd a cite em.lingyi {
+    margin-top: 0;
+}
+.classify-list dd a cite em.jingji, .classify-list dd a cite em.erciyuan {
+    margin-top: 1px;
+}
+.classify-list dd a:hover {
+    color: #ed4259;
+}
+.classify-list dd a:hover cite em {
+    margin: 2px 11px 0 -3px;
+}
+.classify-list dd a:hover cite em.lingyi {
+    margin: 0 11px 0 -3px;
+}
+.classify-list dd a:hover cite em.jingji, .classify-list dd a:hover cite em.erciyuan {
+    margin: 1px 11px 0 -3px;
+}
+.classify-list dd a:hover cite b {
+    color: #ed4259;
+}
+.classify-list dd.even {
+    background: #fcfcfa;
+}
+
+/* 区块标题 */
+h3.wrap-title {
+    overflow: hidden;
+    height: 24px;
+    padding-bottom: 4px;
+    color: #1a1a1a; 
+    font-family: FZZCYSK;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+
+    *line-height: 1;
+}
+h3.wrap-title span {
+    margin-left: 5px;
+}
+h3.wrap-title em, h3.wrap-title a {
+    color: #3f5a93; 
+    font: 12px/1 Arail, 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+h3.wrap-title em:hover, h3.wrap-title a:hover {
+    color: #2972cc;
+}
+h3.wrap-title em, h3.wrap-title i {
+    margin: 0 5px;
+    font-family: Arail, 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+h3.wrap-title .more {
+    display: inline;
+    opacity: 0;
+    transition: all .3s; 
+
+    filter: alpha(opacity=0);
+}
+
+/* 区块里的更多 */
+.book-list-wrap:hover .more {
+    opacity: 100;
+
+    filter: alpha(opacity=100);
+}
+
+/* 书列表区块容器 */
+.book-list-wrap {
+    width: 216px;
+}
+.book-list-wrap .book-list li {
+    height: 31px;
+
+    *vertical-align: bottom;
+}
+.book-list-wrap .book-list li a {
+    float: left;
+    font: 14px/32px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.book-list-wrap .book-list li a.channel {
+    overflow: hidden;
+    min-width: 56px;
+    height: 32px;
+    margin-left: -8px;
+    color: #808080;
+}
+.book-list-wrap .book-list li a.channel em {
+    font-family: 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+    font-size: 13px;
+}
+.book-list-wrap .book-list li a.name {
+    overflow: hidden;
+    max-width: 95px;
+    margin-left: -3px;
+    color: #1a1a1a; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.book-list-wrap .book-list li a:hover {
+    color: #ed4259;
+}
+.book-list-wrap .book-list li.str3 .channel {
+    width: 70px;
+}
+.book-list-wrap .book-list li.str3 .name {
+    width: 80px;
+}
+.book-list-wrap .book-list li .author, .book-list-wrap .book-list li .rec {
+    float: right;
+    overflow: hidden;
+    width: 64px;
+    color: #b3b3b3;
+    font: 12px/32px 'PingFangSC-Regular', '-apple-system', Simsun;
+    text-align: right;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+.book-list-wrap .book-list li.color-type_1 a {
+    color: #bf2c24;
+}
+.book-list-wrap .book-list li.color-type_1 a:hover {
+    color: #ed4259;
+}
+.book-list-wrap .book-list li.color-type_1 .author {
+    color: #a6a6a6;
+}
+.book-list-wrap .book-list li.color-type_1 .author:hover {
+    color: #ed4259;
+}
+.book-list-wrap .book-list li.bd0 {
+    border-bottom: none;
+}
+.book-list-wrap .book-list li.bd0 .name {
+    overflow: hidden;
+    width: 140px;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+.book-list-wrap .book-list li.bd0 span {
+    width: 26px;
+}
+
+/* 立体书封容器 */
+.book-wrap {
+    padding: 15px 0;
+}
+.book-wrap .book-info {
+    width: 124px;
+}
+.book-wrap .book-info h3 {
+    width: 36px;
+    height: 18px;
+    margin-bottom: 3px; 
+    background: #bf2c24;
+    color: white;
+    font: 700 14px/18px Arial;
+    text-align: center;
+}
+.book-wrap .book-info h4 {
+    overflow: hidden;
+    height: 24px;
+    color: #1a1a1a; 
+    font: 16px/24px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+.book-wrap .book-info p.digital {
+    overflow: hidden;
+    height: 24px;
+    margin-bottom: 4px;
+    padding: 3px 0 0;
+    color: #bf2c24; 
+    font-size: 12px;
+}
+.book-wrap .book-info p.digital em {
+    font-family: Arial; 
+    font-size: 18px;
+}
+.book-wrap .book-info p.digital.f16 {
+    font-size: 16px;
+}
+.book-wrap .book-info p.author {
+    overflow: hidden;
+    height: 16px;
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun; 
+    font-size: 12px;
+}
+.book-wrap .book-info p.author i {
+    margin: 0 5px;
+    font-family: Arial;
+}
+.book-wrap .book-info p.author a {
+    color: #a6a6a6;
+}
+.book-wrap .book-info p.author a.type:hover {
+    color: #ed4259;
+}
+.book-wrap .book-info p.author a.writer:hover {
+    color: #000;
+}
+.book-wrap .book-info .tag {
+    display: block;
+    overflow: hidden; 
+    width: 50px;
+    height: 18px;
+    margin-bottom: 2px;
+    padding: 0 3px;
+    border: 1px solid #bf2c24;
+    color: #bf2c24;
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+.book-wrap .book-info .desc {
+    overflow: hidden; 
+    height: 16px;
+    color: #666;
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun;
+    font-size: 12px;
+}
+.book-wrap .book-cover {
+    float: right;
+    position: relative;
+    z-index: 4;
+    width: 52px;
+    margin-top: -3px;
+    margin-right: 8px;
+    text-align: center;
+}
+.book-wrap .book-cover .link {
+    position: relative;
+    z-index: 10;
+}
+.book-wrap .book-cover img {
+    width: 60px;
+    height: 87px;
+}
+.book-wrap .book-cover span {
+    position: absolute;
+    z-index: 1;
+}
+
+/* IE9以上开启立体书封效果 */
+html:root .book-cover {
+    -webkit-transform: perspective(60px) rotateY(-10deg);
+       -moz-transform: perspective(60px) rotateY(-10deg);
+            transform: perspective(60px) rotateY(-10deg);
+    /* 封底 */
+    /* 白色书页填充 */
+    /* 投影 */
+}
+html:root .book-cover:before {
+    position: absolute;
+    z-index: 3;
+    top: 3%;
+    left: 10%;
+    width: 100%;
+    height: 90%;
+    background-color: #999;
+}
+html:root .book-cover:after {
+    position: absolute;
+    z-index: 2;
+    top: 2%;
+    left: 100%;
+    width: 10%;
+    height: 92%;
+    background-color: #efefef;
+    box-shadow: inset 0 0 5px #333; 
+    content: ' ';
+    -webkit-transform: perspective(60px) rotateY(30deg);
+       -moz-transform: perspective(60px) rotateY(30deg);
+            transform: perspective(60px) rotateY(30deg);
+}
+html:root .book-cover span {
+    position: absolute;
+    z-index: 1;
+    top: 83.5%;
+    left: 7px;
+    width: 20px;
+    height: 10px;
+    box-shadow: 25px 0 5px 5px #adadad;
+    content: ' ';
+    -webkit-transform: perspective(74px) rotateX(-70deg) rotateY(-5deg);
+       -moz-transform: perspective(74px) rotateX(-70deg) rotateY(-5deg);
+            transform: perspective(74px) rotateX(-70deg) rotateY(-5deg);
+}
+html:root .book-cover img {
+    width: 52px;
+    height: 87px;
+}
+
+/* 平面书封面 */
+.book-img {
+    width: 72px;
+    height: 96px;
+    margin-right: 12px;
+}
+.book-img a {
+    display: block;
+    overflow: hidden; 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .35), 0 0 5px #f9f2e9 inset;
+}
+.book-img a img {
+    width: 100%;
+    height: 100%;
+    color: #fcfcfa; 
+    -webkit-transition: -webkit-transform .3s ease-out;
+       -moz-transition:    -moz-transform .3s ease-out;
+        -ms-transition:     -ms-transform .3s ease-out;
+            transition:         transform .3s ease-out;
+}
+.book-img a img:hover {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+         -o-transform: scale(1.1);
+            transform: scale(1.1);
+}
+.book-img a span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 17px;
+    padding: 0 3px 0 2px;
+    border-radius: 0 5px 0 0; 
+    background: #ed4259;
+    color: white;
+    font: 12px/18px Arial;
+    text-align: center;
+}
+
+/* 排行榜 */
+.rank-list {
+    float: left;
+    position: relative;
+    z-index: 1;
+    width: 216px;
+    margin-right: 30px;
+}
+.rank-list .mr0 {
+    margin-right: 0;
+}
+.rank-list:hover .more {
+    opacity: 100;
+
+    filter: alpha(opacity=100);
+}
+.rank-list .book-list li {
+    height: 31px;
+
+    *vertical-align: bottom;
+}
+.rank-list .book-list li:hover .name-box .arrow-up {
+    background: #ed4259;
+}
+.rank-list .book-list li.bd0 .name-box, .rank-list .book-list li:last-of-type .name-box {
+    border-bottom: none;
+}
+.rank-list .book-list li.unfold {
+    overflow: visible;
+    height: 114px;
+}
+.rank-list .book-list li.unfold i {
+    color: #a6a6a6;
+}
+.rank-list .book-list li .num-box {
+    float: left;
+    width: 28px;
+    height: 32px;
+}
+.rank-list .book-list li .num-box span {
+    display: block;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
+    margin-left: -1px;
+    background: #ededed;
+    color: #666;
+    font: 700 14px/16px Arial;
+    text-align: center;
+    letter-spacing: -1px;
+}
+.rank-list .book-list li .num-box span.num2 {
+    background: #e67225; 
+    color: white;
+}
+.rank-list .book-list li .num-box span.num3 {
+    background: #e6bf25; 
+    color: white;
+}
+.rank-list .book-list li .name-box {
+    float: left;
+    position: relative;
+    height: 30px;
+}
+.rank-list .book-list li .name-box a {
+    float: left;
+    font: 14px/31px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.rank-list .book-list li .name-box a.name {
+    overflow: hidden;
+    overflow: hidden;
+    width: 116px;
+    height: 31px;
+    color: #1a1a1a; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.rank-list .book-list li .name-box a:hover {
+    color: #ed4259;
+}
+.rank-list .book-list li .name-box.rec a {
+    color: #bf2c24;
+}
+.rank-list .book-list li .name-box.rec .author {
+    color: #b3b3b3;
+}
+.rank-list .book-list li .name-box.rec .author:hover {
+    color: #ed4259;
+}
+.rank-list .book-list li .name-box.bd0 {
+    border-bottom: none;
+}
+.rank-list .book-list li .name-box i.total {
+    float: right;
+    overflow: hidden;
+    width: 72px;
+    color: #b3b3b3;
+    font: 12px/32px 'PingFangSC-Regular', '-apple-system', Simsun;
+    text-align: right;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+.rank-list .book-list li .name-box span {
+    position: absolute;
+    right: 0;
+    color: #bfbfbf; 
+    font: 12px/31px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+    text-align: right;
+}
+.rank-list .book-list li .name-box span.up {
+    color: #666;
+}
+
+/* 排序的榜单列表（24小时热销） */
+.sort-list .book-list li .name-box a.name {
+    overflow: hidden;
+    width: 178px;
+    padding-right: 10px;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+/* 3d focus-slide */
+.roundabout-holder {
+    width: 156px;
+    height: 112px;
+}
+.roundabout-holder img {
+    width: 100%;
+}
+
+.roundabout {
+    display: none;
+    position: relative;
+}
+.roundabout li {
+    position: absolute;
+    width: 84px;
+    height: 112px;
+    -webkit-box-shadow: 0 1px 8px #7f7f7f;
+       -moz-box-shadow: 0 1px 8px #7f7f7f;
+            box-shadow: 0 1px 8px #7f7f7f;
+    cursor: pointer;
+}
+.roundabout li img {
+    height: 100%;
+}
+.roundabout li.book1 {
+    z-index: 280; 
+    top: -13px;
+    left: 18px;
+}
+.roundabout li.book2 {
+    z-index: 145; 
+    top: -1px;
+    left: 75px;
+}
+.roundabout li.book3 {
+    z-index: 145; 
+    top: -1px;
+    left: -20px;
+}
+
+/* 3d focus-slide textWrap */
+.info-text {
+    width: 192px;
+    margin: 0 auto;
+    text-align: center;
+}
+.info-text h3 {
+    overflow: hidden; 
+    height: 24px;
+    margin-bottom: 5px;
+    font: 700 16px/24px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+.info-text h3 a {
+    color: #1a1a1a;
+}
+.info-text h3 a:hover {
+    color: #ed4259;
+}
+.info-text .author {
+    padding: 3px 0 5px;
+    color: #bf2c24;
+    font: 12px/16px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.info-text .author a {
+    color: #bf2c24;
+}
+.info-text .author a:hover {
+    color: #ed4259;
+}
+.info-text .author em {
+    margin: 0 5px; 
+    font-family: Arial;
+}
+.info-text .total {
+    margin-bottom: 10px;
+    font: 12px/18px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.info-text .total b {
+    font-family: Arial; 
+    font-size: 18px;
+}
+.info-text .intro {
+    overflow: hidden;
+    height: 80px;
+    margin-bottom: 20px;
+    color: #626260;
+    font: 12px/20px 'PingFangSC-Regular', '-apple-system', Simsun; 
+    text-align: left;
+}
+
+/* 排行榜分页 */
+.page-box {
+    padding: 40px 0;
+}
+.page-box .pagination {
+    overflow: hidden;
+
+    *zoom: 1;
+}
+.page-box .pagination ul {
+    float: left;
+}
+.page-box .pagination li {
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+}
+.page-box .pagination li a {
+    float: left;
+    height: 22px;
+    padding: 0 7px;
+    border: 1px solid white; 
+    font: 14px/22px Arial;
+}
+.page-box .pagination li a:hover {
+    border: 1px solid #ed4259;
+}
+.page-box .pagination .lbf-pagination-prev, .page-box .pagination .lbf-pagination-next {
+    font-family: simsun;
+    line-height: 24px;
+}
+.page-box .pagination .lbf-pagination-current {
+    border: 1px solid #ed4259;
+    background: #ed4259;
+    color: white;
+}
+.page-box .pagination .lbf-pagination-disabled {
+    color: #ccc;
+    cursor: default;
+}
+.page-box .pagination .lbf-pagination-disabled:hover {
+    border: none; 
+    background: none;
+}
+.page-box .pagination .lbf-pagination-jump {
+    float: left;
+}
+.page-box .pagination .lbf-pagination-jump input {
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-right: 10px;
+    border: 1px solid #f2f2f2;
+    font: 12px/22px Arial; 
+    text-align: center;
+    vertical-align: middle;
+}
+.page-box .pagination .lbf-pagination-jump input:focus {
+    border: 1px solid #bbdaff;
+}
+.page-box .pagination .lbf-pagination-jump .lbf-pagination-go {
+    display: inline-block;
+    width: 34px;
+    height: 22px;
+    border: 1px solid #f2f2f2;
+    font: 12px/22px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif'; 
+    text-align: center;
+    vertical-align: middle;
+}
+.page-box .pagination .lbf-pagination-jump .lbf-pagination-go:hover {
+    border: 1px solid #ed4259;
+}
+
+/* LightTips提示内的容器 */
+.simple-tips {
+    width: 240px;
+    margin: 0 auto;
+    padding: 11px 0;
+}
+
+/* circle loading */
+:root .la-ball-pulse {
+    font-size: 0;
+}
+:root .la-ball-pulse span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 8px 0 0;
+    border: 0 solid currentColor;
+    border-radius: 100%;
+    background: #666;
+    background-color: currentColor;
+    -webkit-animation: ball-pulse 1s ease infinite;
+       -moz-animation: ball-pulse 1s ease infinite;
+         -o-animation: ball-pulse 1s ease infinite;
+            animation: ball-pulse 1s ease infinite;
+}
+:root .la-ball-pulse span:nth-child(1) {
+    -webkit-animation-delay: -200ms;
+       -moz-animation-delay: -200ms;
+         -o-animation-delay: -200ms;
+            animation-delay: -200ms;
+}
+:root .la-ball-pulse span:nth-child(2) {
+    -webkit-animation-delay: -100ms;
+       -moz-animation-delay: -100ms;
+         -o-animation-delay: -100ms;
+            animation-delay: -100ms;
+}
+:root .la-ball-pulse span:nth-child(3) {
+    -webkit-animation-delay: 0;
+       -moz-animation-delay: 0;
+         -o-animation-delay: 0;
+            animation-delay: 0;
+}
+
+/*
+ * Animation circle loading
+ */
+@-webkit-keyframes ball-pulse {
+    0%, 60%, 100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    30% {
+        opacity: .1;
+        -webkit-transform: scale(.01);
+                transform: scale(.01);
+    }
+}
+
+@-moz-keyframes ball-pulse {
+    0%, 60%, 100% {
+        opacity: 1;
+        -moz-transform: scale(1);
+             transform: scale(1);
+    }
+    30% {
+        opacity: .1;
+        -moz-transform: scale(.01);
+             transform: scale(.01);
+    }
+}
+
+@-o-keyframes ball-pulse {
+    0%, 60%, 100% {
+        opacity: 1;
+        -o-transform: scale(1);
+           transform: scale(1);
+    }
+    30% {
+        opacity: .1;
+        -o-transform: scale(.01);
+           transform: scale(.01);
+    }
+}
+
+@keyframes ball-pulse {
+    0%, 60%, 100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+           -moz-transform: scale(1);
+             -o-transform: scale(1);
+                transform: scale(1);
+    }
+    30% {
+        opacity: .1;
+        -webkit-transform: scale(.01);
+           -moz-transform: scale(.01);
+             -o-transform: scale(.01);
+                transform: scale(.01);
+    }
+}
+
+@-webkit-keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+                transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    }
+    0% {
+        opacity: 0; 
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+                transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1; 
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+                transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: .7; 
+        -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+                transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    }
+    0% {
+        opacity: 0; 
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+                transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1; 
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+                transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: .7; 
+        -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+    }
+}
+
+.bounceIn {
+    -webkit-animation-name: bounceIn;
+            animation-name: bounceIn;
+    -webkit-animation-duration: .75s;
+            animation-duration: .75s;
+}
+
+@-webkit-keyframes fadeinT {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeinT {
+    0% {
+        opacity: 0;
+        -moz-transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
+}
+
+@-ms-keyframes fadeinT {
+    0% {
+        opacity: 0;
+        -ms-transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -ms-transform: translateY(0);
+    }
+}
+
+@keyframes fadeinT {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* retina屏双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    .pin-nav-wrap .nav-list li.site a.pin-logo {
+        background-image: url('/qd/images/pin_logo_3x.png');
+        background-repeat: no-repeat; 
+        background-size: 80px;
+    }
+    .focus-wrap .classify-list dd a cite .rec {
+        background: url('/qd/images/index/rec2x.png') no-repeat;
+        background-size: 100%;
+    }
+}

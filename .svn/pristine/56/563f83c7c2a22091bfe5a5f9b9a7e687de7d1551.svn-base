@@ -1,0 +1,162 @@
+<!-- start 作品分类导航-->
+<div class="classify-list mr10 fl" id="classify-list">
+    <dl>
+        <dd>
+            <a href="http://xuanhuan.qidian.com/" target="_blank" data-aid="qd_A68">
+                <cite>
+                    <em class="iconfont">&#xe611;</em>
+                                    <span class="info">
+                                        <i>玄幻<% if (chanUpdCnt['xuanhuan']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['xuanhuan']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://qihuan.qidian.com/" target="_blank" data-aid="qd_A69">
+                <cite>
+                    <em class="iconfont">&#xe609;</em>
+                                    <span class="info">
+                                        <i>奇幻<% if (chanUpdCnt['qihuan']['type'] == 1) { %><strong class="rec"></strong><% } %>
+                                        </i>
+                                        <b><%= chanUpdCnt['qihuan']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd class="even">
+            <a href="http://wuxia.qidian.com/" target="_blank" data-aid="qd_A70">
+                <cite>
+                    <em class="iconfont">&#xe60f;</em>
+                                    <span class="info">
+                                        <i>武侠<% if (chanUpdCnt['wuxia']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['wuxia']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+
+            </dd>
+        <dd class="even">
+            <a href="http://xianxia.qidian.com/" target="_blank" data-aid="qd_A71">
+                <cite>
+                    <em class="iconfont">&#xe610;</em>
+                                    <span class="info">
+                                        <i>仙侠<% if (chanUpdCnt['xianxia']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['xianxia']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://dushi.qidian.com/" target="_blank" data-aid="qd_A72">
+                <cite>
+                    <em class="iconfont">&#xe600;</em>
+                                    <span class="info">
+                                        <i>都市<% if (chanUpdCnt['dushi']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['dushi']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://zhichang.qidian.com/" target="_blank" data-aid="qd_A73">
+                <cite>
+                    <em class="iconfont">&#xe614;</em>
+                                    <span class="info">
+                                        <i>职场<% if (chanUpdCnt['zhichang']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['zhichang']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd class="even">
+            <a href="http://junshi.qidian.com/" target="_blank" data-aid="qd_A74">
+                <cite>
+                    <em class="iconfont">&#xe602;</em>
+                                    <span class="info">
+                                        <i>军事<% if (chanUpdCnt['junshi']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['junshi']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd class="even">
+            <a href="http://lishi.qidian.com/" target="_blank" data-aid="qd_A75">
+                <cite>
+                    <em class="iconfont">&#xe616;</em>
+                                    <span class="info">
+                                        <i>历史<% if (chanUpdCnt['lishi']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['lishi']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://youxi.qidian.com/" target="_blank" data-aid="qd_A76">
+                <cite>
+                    <em class="iconfont">&#xe613;</em>
+                                    <span class="info">
+                                        <i>游戏<% if (chanUpdCnt['youxi']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['youxi']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://jingji.qidian.com/" target="_blank" data-aid="qd_A77">
+                <cite>
+                    <em class="iconfont jingji">&#xe601;</em>
+                                    <span class="info">
+                                        <i>体育<% if (chanUpdCnt['jingji']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['jingji']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd class="even">
+            <a href="http://kehuan.qidian.com/" target="_blank" data-aid="qd_A78">
+                <cite>
+                    <em class="iconfont">&#xe603;</em>
+                                    <span class="info">
+                                        <i>科幻<% if (chanUpdCnt['kehuan']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['kehuan']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd class="even">
+            <a href="http://lingyi.qidian.com/" target="_blank" data-aid="qd_A79">
+                <cite>
+                    <em class="iconfont lingyi">&#xe606;</em>
+                                    <span class="info">
+                                        <i>灵异<% if (chanUpdCnt['lingyi']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['lingyi']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://www.qdmm.com/" target="_blank" data-aid="qd_A80">
+                <cite>
+                    <em class="iconfont">&#xe607;</em>
+                                    <span class="info">
+                                        <i>女生网<% if (chanUpdCnt['mm']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['mm']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+        <dd>
+            <a href="http://2cy.qidian.com/" target="_blank" data-aid="qd_A81">
+                <cite>
+                    <em class="iconfont erciyuan">&#xe617;</em>
+                                    <span class="info">
+                                        <i>二次元<% if (chanUpdCnt['erciyuan']['type'] == 1) { %><strong class="rec"></strong><% } %></i>
+                                        <b><%= chanUpdCnt['erciyuan']['cnt'] %></b>
+                                    </span>
+                </cite>
+            </a>
+        </dd>
+    </dl>
+</div>
+<!-- end 作品分类导航-->

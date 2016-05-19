@@ -1,0 +1,70 @@
+@charset 'UTF-8';
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+.popup-wrap {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 30%;
+    left: 50%;
+    margin-left: -345px;
+    background: white;
+}
+.popup-wrap .close-popup {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 36px;
+    height: 36px;
+    background: url('/qd/images/btn_close.0.1.png') no-repeat;
+}
+.popup-wrap.login-popup {
+    z-index: 9999999999; 
+    width: 690px;
+    height: 310px;
+}
+.popup-wrap .popup-box {
+    height: 100%;
+    background: white;
+}
+.popup-wrap .popup-box iframe {
+    z-index: 9999999;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+}
+
+.mask {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    background: #000; 
+
+    filter: alpha(opacity=70);
+}

@@ -1,0 +1,74 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-state {
+    padding: 3px 12px;
+    border: 1px solid #e4e4e4;
+    -webkit-border-radius: 1px;
+       -moz-border-radius: 1px;
+            border-radius: 1px;
+    background-color: #f1f1f1;
+    color: #333; 
+    font-size: 12px;
+    font-weight: bold;
+}
+.lbf-state .lbf-state-title {
+    color: #333; 
+    font-size: 14px;
+}
+.lbf-state-success {
+    border-color: #5cb85c;
+    background-color: #5cb85c;
+}
+.lbf-state-warning {
+    border-color: #f0ad4e;
+    background-color: #f0ad4e;
+}
+.lbf-state-error {
+    border-color: #d9534f;
+    background-color: #d9534f;
+}
+.lbf-state-info {
+    border-color: #5bc0de;
+    background-color: #5bc0de;
+}
+.lbf-state .lbf-state-close {
+    display: inline-block;
+    *display: inline;
+    float: right;
+    overflow: hidden;
+    width: 13px;
+    height: 16px;
+    margin: 1px 0 0 0;
+    background: none;
+    color: #333;
+    font-size: 14px;
+
+    *zoom: 1;
+    *margin: 2px 0 0 0;
+    *background-image: url('//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/nodes/close.png');
+}
+.lbf-state .lbf-state-close:hover {
+    background: none;
+    color: #333;
+
+    *background-image: url('//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/nodes/close-hover.png');
+}
+.lbf-state-success, .lbf-state-warning, .lbf-state-error, .lbf-state-info {
+    color: #fff;
+}
+.lbf-state-success .lbf-state-title, .lbf-state-warning .lbf-state-title, .lbf-state-error .lbf-state-title, .lbf-state-info .lbf-state-title {
+    margin: 0 6px 0 0;
+    color: #fff;
+}
+.lbf-state-success .lbf-state-close, .lbf-state-warning .lbf-state-close, .lbf-state-error .lbf-state-close, .lbf-state-info .lbf-state-close {
+    color: #fff;
+}
+.lbf-state-success .lbf-state-close:hover, .lbf-state-warning .lbf-state-close:hover, .lbf-state-error .lbf-state-close:hover, .lbf-state-info .lbf-state-close:hover {
+    color: #fff;
+}

@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+
+@import "global";
+@import "mixin";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, a, blockquote, th, textarea, th, td {
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 14px;
+}
+ol, ul, li {
+	list-style: none outside none;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+fieldset, img {
+	border: 0 none;
+}
+body {
+	font-family: $fontbase;
+	text-align: left;
+	color: #262626;
+	background: white;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+}
+input::-moz-focus-inner {
+	border: none;
+	padding: 0;
+}
+a img {
+	border: none;
+}
+a {
+	outline: none;
+	text-decoration: none;
+	color: #262626;
+	&:hover {
+		color: $hover;
+		transition: all .2s;
+	}
+}
+textarea {
+	outline: none;
+	font: 14px/1.8 $fontbase;
+	resize: none;
+}
+select {
+	font-family: $fontbase;
+}
+input, button {
+	border: none;
+	outline: none;
+	font-family: $fontbase;
+}
+input::-ms-clear {
+	display: none;
+}
+label {
+	cursor: pointer;
+}
+i, em, cite {
+	font-style: normal;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #CCC;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #CCC;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	color: #CCC;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	color: #CCC;
+}
+p {
+	word-break: break-all;
+}

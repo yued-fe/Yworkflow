@@ -1,0 +1,294 @@
+{
+  "code": 0,
+  "data": {
+    "bookList": [
+      {
+        "bookId": 1002491915,
+        "bookName": "怒瀚",
+        "authorId": 2574594,
+        "authorName": "新兵扛老枪",
+        "chanId": 9,
+        "chanName": "科幻",
+        "chanUrl": "http://kehuan.qidian.com",
+        "desc": "叶子抖落身上的雨：打湿我根，给你讲怒汉推车的故事。雨滴抱住风儿的手：带我看景，给你讲怒汉推车的故事。风儿撩起女孩的裙：伴我起舞，给你讲怒汉推车的故事。女孩羞红了脸，悄悄去问世界：“",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1002491915/1002491915.jpg",
+        "updChapterId": "307322378",
+        "updChapterName": "第六十九章：我的高尚（敬沉迷书幻盟主）",
+        "updTime": "05-05 17:58",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1002491915,307322378.aspx",
+        "monthTicketCnt": 10056,
+        "isKept": 0,
+        "statistic": 10056,
+        "no":1
+      },
+      {
+        "bookId": 1001730574,
+        "bookName": "史上最强师兄",
+        "authorId": 3862340,
+        "authorName": "八月飞鹰",
+        "chanId": 21,
+        "chanName": "玄幻",
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "desc": "燕赵歌第一次穿越，穿到了武道文明繁盛至极的异世界，一头撞进包罗万象，遍收天下经典的神宫藏书楼里，但随后便是一场天地大劫，连神宫也破灭了。接下来居然第二次穿越，灵魂来到了同一个世界，",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1001730574/1001730574.jpg",
+        "updChapterId": "307359855",
+        "updChapterName": "192.高哲，你是想再死一次对吗？",
+        "updTime": "05-06 11:00",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1001730574,307359855.aspx",
+        "monthTicketCnt": 7672,
+        "isKept": 0,
+        "statistic": 7672,
+        "no":2
+      },
+      {
+        "bookId": 3688228,
+        "bookName": "纨绔邪皇",
+        "authorId": 4362276,
+        "authorName": "开荒",
+        "chanId": 21,
+        "chanName": "玄幻",
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "desc": "天圣二十七年九月十七，当安国公世子嬴冲在咸阳城勾栏巷被天外陨星砸晕的时候，大秦国师守正道人手持玄宙天珠坐化于城外白云观内。——这是一个关于纨绔的故事，一个关于万古邪皇的故事。",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/3688228/3688228.jpg",
+        "updChapterId": "307334396",
+        "updChapterName": "一二五章 暗城之谋（求订阅求月票）",
+        "updTime": "05-06 08:16",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688228,307334396.aspx",
+        "monthTicketCnt": 6416,
+        "isKept": 0,
+        "statistic": 6416,
+        "no":3
+      },
+      {
+        "bookId": 1003242530,
+        "bookName": "孺子帝",
+        "authorId": 2640931,
+        "authorName": "冰临神下",
+        "chanId": 5,
+        "chanName": "历史",
+        "chanUrl": "http://lishi.qidian.com",
+        "desc": "三位皇帝接连驾崩，从来没人注意过的皇子莫名其妙地继位，身陷重重危险之中。太后不喜欢他，时刻想要再立一名更年幼、更听话的新皇帝；同父异母的兄弟不喜欢他，认为他夺走了本属于自己的皇位；",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1003242530/1003242530.jpg",
+        "updChapterId": "307353887",
+        "updChapterName": "第八十三章 话别",
+        "updTime": "05-06 08:24",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1003242530,307353887.aspx",
+        "monthTicketCnt": 5420,
+        "isKept": 0,
+        "statistic": 5420,
+        "no":4
+      },
+      {
+        "bookId": 1001818845,
+        "bookName": "二次元帝国",
+        "authorId": 3848856,
+        "authorName": "魔道弟子",
+        "chanId": 4,
+        "chanName": "都市",
+        "chanUrl": "http://dushi.qidian.com",
+        "desc": "这是一个最好的时代！日本肉漫横行，作品之中充斥着时代的暴躁，毫无感动，没有《棋魂》、没有《名侦探柯南》、没有《海贼王》、没有《龙珠》、更没有《火影忍者》。那些曾经在轻小说界掀起狂潮",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1001818845/1001818845.jpg",
+        "updChapterId": "307351654",
+        "updChapterName": "第一四一章 青，做夫妻吧！【一千四百】",
+        "updTime": "05-06 02:37",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1001818845,307351654.aspx",
+        "monthTicketCnt": 3964,
+        "isKept": 0,
+        "statistic": 3964,
+        "no":5
+      },
+      {
+        "bookId": 1002014560,
+        "bookName": "黑暗主宰",
+        "authorId": 3673539,
+        "authorName": "零下九十度",
+        "chanId": 21,
+        "chanName": "玄幻",
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "desc": "黑暗笼罩星空，谁为主宰？！这是一个原本励志成为科学家的少年，转职后崛起奋斗的故事。曾经的他为人类、为科研，而如今，他只想成为那星空下的最强者！————PS：已完本《超神建模师》、《",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1002014560/1002014560.jpg",
+        "updChapterId": "307354973",
+        "updChapterName": "第一百一十九章 花样作死",
+        "updTime": "05-06 09:11",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1002014560,307354973.aspx",
+        "monthTicketCnt": 2538,
+        "isKept": 0,
+        "statistic": 2538,
+        "no":6
+      },
+      {
+        "bookId": 1002391954,
+        "bookName": "寻情仙使",
+        "authorId": 4363040,
+        "authorName": "陈风笑",
+        "chanId": 22,
+        "chanName": "仙侠",
+        "chanUrl": "http://xianxia.qidian.com",
+        "desc": "李永生从仙界到位面做观风使，这是仙界体察民意了解实情的职务。不过他主动下界，除了要完成任务，还有很重要的一点，那就是寻找在下界转生的仙侣。如何在不暴露身份的情况下找到她呢？对观风使",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1002391954/1002391954.jpg",
+        "updChapterId": "307352006",
+        "updChapterName": "第九十二章 缺水的悲哀（一更）",
+        "updTime": "05-06 03:38",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1002391954,307352006.aspx",
+        "monthTicketCnt": 2504,
+        "isKept": 0,
+        "statistic": 2504,
+        "no":7
+      },
+      {
+        "bookId": 3686542,
+        "bookName": "恶魔囚笼",
+        "authorId": 1135414,
+        "authorName": "颓废龙",
+        "chanId": 7,
+        "chanName": "游戏",
+        "chanUrl": "http://youxi.qidian.com",
+        "desc": "一款不受任何保护的地下游戏，一群追逐权利、财富、生命的玩家！命不久矣的秦然，选择进入其中——为了活下去的机会！",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/3686542/3686542.jpg",
+        "updChapterId": "307350242",
+        "updChapterName": "第二十四章 还有困惑",
+        "updTime": "05-06 01:06",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3686542,307350242.aspx",
+        "monthTicketCnt": 1248,
+        "isKept": 0,
+        "statistic": 1248,
+        "no":8
+      },
+      {
+        "bookId": 1003243719,
+        "bookName": "至尊主播",
+        "authorId": 4266624,
+        "authorName": "兔子来了",
+        "chanId": 4,
+        "chanName": "都市",
+        "chanUrl": "http://dushi.qidian.com",
+        "desc": "系统任务：成为至尊主播。林逸大脑里莫名其妙多了一个神奇的系统，这个系统可以让他穿梭世界！从此，林逸带着观众们，见识真人版的仪琳、赵敏、黄蓉、婠婠、天山童姥、东方不败、白素贞、玉皇大",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1003243719/1003243719.jpg",
+        "updChapterId": "307324575",
+        "updChapterName": "第一百三十七章 被打脸了！",
+        "updTime": "05-05 18:39",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1003243719,307324575.aspx",
+        "monthTicketCnt": 1172,
+        "isKept": 0,
+        "statistic": 1172,
+        "no":9
+      },
+      {
+        "bookId": 1002225021,
+        "bookName": "超级红包",
+        "authorId": 6109217,
+        "authorName": "我是店长",
+        "chanId": 4,
+        "chanName": "都市",
+        "chanUrl": "http://dushi.qidian.com",
+        "desc": "某天，张小凡被拉进一个神仙聊天群，里面有一群活神仙，喜欢聊天灌水，偶尔还会发几个红包。潜伏其中的张小凡，小手一抖，红包到手。恭喜你，抢到财神的金元宝；恭喜你，抢到太上老君的九转还魂",
+        "actStatus": "连载中",
+        "imageUrl": "http://image.cmfu.com/books/1002225021/1002225021.jpg",
+        "updChapterId": "307357530",
+        "updChapterName": "第126章 裁缝和红包",
+        "updTime": "05-06 10:28",
+        "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1002225021,307357530.aspx",
+        "monthTicketCnt": 1038,
+        "isKept": 0,
+        "statistic": 1038,
+        "no":10
+      }
+    ],
+    "pageDetail": {
+      "rankDesc": "当月VIP作品月票数排行"
+    },
+    "paramList": {
+      "year": "2016",
+      "month": "05",
+      "chanId": 102,
+      "listType": 1,
+      "rankType": 1
+    },
+    "pageInfo": {
+      "totalCount": 100,
+      "pageIndex": 1,
+      "pageMax": 10,
+      "pageNum": 10
+    },
+    "timeStamp": 1462505175000
+  },
+  "msg": "成功",
+  "defaultSearch": {
+    "keywords": "从前有座灵剑山"
+  },
+  "chanUpdCnt": {
+    "qihuan": {
+      "cnt": 11123,
+      "type": 1
+    },
+    "wuxia": {
+      "cnt": 6578,
+      "type": 0
+    },
+    "dushi": {
+      "cnt": 30619,
+      "type": 1
+    },
+    "lishi": {
+      "cnt": 7439,
+      "type": 0
+    },
+    "junshi": {
+      "cnt": 1828,
+      "type": 0
+    },
+    "youxi": {
+      "cnt": 7634,
+      "type": 0
+    },
+    "jingji": {
+      "cnt": 690,
+      "type": 0
+    },
+    "kehuan": {
+      "cnt": 17676,
+      "type": 0
+    },
+    "lingyi": {
+      "cnt": 6851,
+      "type": 0
+    },
+    "erciyuan": {
+      "cnt": 7879,
+      "type": 0
+    },
+    "zhichang": {
+      "cnt": 1605,
+      "type": 0
+    },
+    "xuanhuan": {
+      "cnt": 68383,
+      "type": 0
+    },
+    "xianxia": {
+      "cnt": 20039,
+      "type": 1
+    },
+    "mm": {
+      "cnt": 117252,
+      "type": 0
+    }
+  },
+  "adBanner1": {
+    "title": "",
+    "adJumpUrl": "http://game.qidian.com/game/xbjz/login.aspx",
+    "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/992b505ec0195a083c0941c720f5eb04/0",
+    "adCategoryName": "游戏",
+    "colorType": 0,
+    "type": 1
+  }
+}

@@ -1,0 +1,281 @@
+@charset 'UTF-8';
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+.range-sidebar .selected p, .select-list .work-filter ul, .select-list .sub-type {
+    overflow: hidden;
+
+    *zoom: 1;
+}
+
+/* 标题下边框线 */
+.range-sidebar .site, .range-sidebar .selected, .select-list .work-filter {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.all-pro-wrap {
+    padding: 20px 0 0;
+}
+
+.range-sidebar {
+    width: 216px;
+    margin-right: 30px;
+}
+.range-sidebar .site {
+    height: 29px;
+}
+.range-sidebar .site a {
+    display: inline-block;
+    width: 60px;
+    height: 29px;
+    font: 12px/25px 'PingFangSC-Regular', '-apple-system', Simsun;
+    text-align: center;
+}
+.range-sidebar .site a.act {
+    height: 28px;
+    border-top: 2px solid #ed4259;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    background: white; 
+    color: #ed4259;
+    font-weight: 700;
+}
+.range-sidebar .selected {
+    margin-bottom: 15px;
+}
+.range-sidebar .selected p {
+    padding: 14px 0 8px;
+}
+.range-sidebar .selected span {
+    display: block;
+    margin-bottom: 10px;
+    font: 700 12px/18px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.range-sidebar .selected a {
+    float: left;
+    position: relative;
+    z-index: 1;
+    height: 18px;
+    margin: 0 8px 8px 0;
+    padding: 0 18px 0 4px;
+    border: 1px solid #e6e6e6;
+    font: 12px/18px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.range-sidebar .selected a cite {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    color: #a6a6a6; 
+    font-size: 14px;
+}
+.range-sidebar .selected a:hover .lbf-icon {
+    color: #e2a9a3;
+}
+.range-sidebar .selected a.all {
+    padding-right: 4px;
+}
+.range-sidebar .selected a.all:hover {
+    color: inherit; 
+    cursor: default;
+}
+.range-sidebar .selected a.all cite {
+    display: none;
+}
+
+/* 全部作品 完本 中li是左右排列，所以第一个和第二个都要去掉上边距和边线 */
+.book-img-text .all-img-list li:first-child + li {
+    padding-top: 0;
+    border-top: none;
+}
+
+/* 条件筛选列表 */
+.select-list .work-filter {
+    margin-bottom: 15px; 
+    padding-bottom: 6px;
+}
+.select-list .work-filter.tag {
+    border-bottom: none;
+}
+
+.select-list .work-filter h3 {
+    margin-bottom: 15px;
+    font-family: 'PingFangSC-Regular', '-apple-system', Simsun; 
+    font-size: 12px;
+}
+
+.select-list .work-filter ul {
+    min-height: 27px;
+}
+
+.select-list .work-filter ul li {
+    float: left;
+    height: 20px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+    text-align: center;
+}
+.select-list .work-filter ul li.more a {
+    position: relative;
+    z-index: 3;
+    padding-right: 10px;
+    color: #3f5a93;
+}
+.select-list .work-filter ul li.more a span {
+    position: absolute;
+    top: 5px;
+    right: -3px;
+    width: 0;
+    height: 0; 
+    border-top: 5px solid #3f5a93;
+    border-right: 5px solid transparent;
+    border-bottom: 0 none;
+    border-left: 5px solid transparent;
+}
+.select-list .work-filter ul li.more a span i {
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    width: 0;
+    height: 0; 
+    border-top: 5px solid #fff;
+    border-right: 5px solid transparent;
+    border-bottom: 0 none;
+    border-left: 5px solid transparent;
+}
+.select-list .work-filter ul li.more a span.up {
+    border-top: 0 none;
+    border-bottom: 5px solid #3f5a93;
+}
+.select-list .work-filter ul li.more a span.up i {
+    top: 2px;
+    border-top: 0 none;
+    border-bottom: 5px solid #fff;
+}
+.select-list .work-filter ul li.more a span {
+    top: 7px;
+}
+.select-list .work-filter ul li.more a:hover {
+    color: #2972cc;
+}
+.select-list .work-filter ul li a {
+    display: block;
+    font: 12px/20px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.select-list .work-filter ul li.act {
+    background: #333;
+}
+.select-list .work-filter ul li.act a {
+    color: white;
+}
+.select-list .work-filter ul li.arrow a {
+    position: relative;
+    z-index: 3;
+}
+.select-list .work-filter ul li.arrow cite {
+    position: absolute;
+    z-index: 2;
+    top: 21px;
+    left: 50%;
+    width: 0;
+    height: 0; 
+    margin-left: -5px;
+    border-top: 0 none;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #e5e5e5;
+    border-left: 5px solid transparent;
+}
+.select-list .work-filter ul li.arrow cite i {
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    right: -5px;
+    width: 0;
+    height: 0; 
+    border-top: 0 none;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #f7f6f2;
+    border-left: 5px solid transparent;
+}
+
+.select-list .sub-type {
+    clear: both;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-top: -2px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-top: 1px solid #e5e5e5;
+    background: #f7f6f2;
+}
+.select-list .sub-type dl {
+    padding: 8px 12px 0;
+}
+.select-list .sub-type dd {
+    float: left;
+    margin-right: 10px;
+    font: 12px/28px 'PingFangSC-Regular', '-apple-system', Simsun;
+    word-wrap: break-word;
+}
+.select-list .sub-type dd a {
+    display: inline-block;
+    color: #666; 
+    text-align: center;
+}
+.select-list .sub-type dd a:hover {
+    color: #ed4259;
+}
+.select-list .sub-type dd.act a {
+    min-width: 56px;
+    height: 20px;
+    background: #333;
+    color: white; 
+    line-height: 20px;
+}
+
+.no-data {
+    width: 300px;
+    margin: 60px auto 30px;
+    text-align: center;
+}
+.no-data .no-result-img {
+    padding: 47px 0 13px;
+}
+.no-data h3 {
+    font: 16px/24px 'PingFangSC-Regular', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Microsoft YaHei', 'sans-serif';
+}
+.no-data p {
+    color: #a6a6a6; 
+    font: 14px/24px 'PingFangSC-Regular', '-apple-system', Simsun;
+}
+.no-data p .blue {
+    margin: 0 5px;
+}
+
+/* 全部作品表格列表，章节在第3列，1024时隐藏 */
+@media (max-width: 1025px) {
+    .rank-table-list.all col:nth-of-type(3), .rank-table-list.all th:nth-of-type(3), .rank-table-list.all tr td:nth-of-type(3) {
+        display: none;
+    }
+}

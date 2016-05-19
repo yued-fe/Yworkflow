@@ -1,0 +1,23 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-gotop a {
+  position: fixed;
+  right: 45px;
+  bottom: 45px;
+  display: block;
+  width: 38px;
+  height: 38px;
+  opacity: 0.5;
+  background: url("//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/Gotop/gotop.png") no-repeat 0 0;
+  filter: alpha(opacity=50); }
+  .lbf-gotop a:hover {
+    opacity: 1;
+    filter: alpha(opacity=100); }
+
+/*# sourceMappingURL=Gotop.css.map */

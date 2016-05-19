@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+@import "variables";
+@import "mixins";
+
+//
+// Checkbox
+// --------------------------------------------------
+
+.lbf-checkbox {
+  position: relative;
+
+  @include inline-block();
+
+  width: 22px;
+  height: 22px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: url($image-path + "Checkbox/checkbox.png") no-repeat;
+  background-position: 0 0;
+
+  &.lbf-checkbox-hover {
+    background-position: -24px 0;
+  }
+  &.lbf-checkbox-checked {
+    background-position: -48px 0;
+  }
+  &.lbf-checkbox-disabled {
+    cursor: default;
+    background-position: -72px 0;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+  &.lbf-checkbox-checked.lbf-checkbox-disabled,
+  &.lbf-checkbox-disabled.lbf-checkbox-checked {
+    background-position: -96px 0;
+  }
+
+  &.lbf-checkbox-checked.lbf-checkbox-halfchecked,
+  &.lbf-checkbox-halfchecked {
+    background-position: 0 -24px;
+  }
+
+  &.lbf-checkbox-halfchecked:hover {
+    background-position: -24px -24px;
+  }
+
+  &.lbf-checkbox-halfchecked.lbf-checkbox-disabled,
+  &.lbf-checkbox-disabled.lbf-checkbox-halfchecked {
+    background-position: -72px -24px;
+  }
+}
+
+

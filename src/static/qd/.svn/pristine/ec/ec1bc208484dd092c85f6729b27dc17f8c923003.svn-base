@@ -1,0 +1,614 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@import "global";
+@import "mixin";
+.top-nav {
+	border-bottom: 1px solid #E5E5E5;
+	height: 35px;
+	background: #F7F7F7;
+	.box-center {
+		background: #F7F7F7;
+		border-bottom: 1px solid #E5E5E5;
+	}
+	a, em {
+		float: left;
+	}
+	a {
+		height: 35px;
+		font: 12px/35px $simsun;
+		color: $gray8;
+		overflow: hidden;
+		&.black {
+			color: #262626;
+		}
+		&:hover {
+			color: $hover;
+		}
+		&.act {
+			position: relative;
+			border-right: 1px solid #E5E5E5;
+			border-left: 1px solid #E5E5E5;
+			margin-bottom: -1px;
+			height: 36px;
+			width: 80px;
+			max-width: 80px;
+			margin-right: 10px;
+			text-align: center;
+			color: #575757;
+			background: #FFF;
+			&:hover {
+				color: $hover;
+			}
+		}
+	}
+	em {
+		margin: 0 10px;
+		font: 12px/35px Arial;
+		color: #D9D9D9;
+	}
+	.login-box {
+		span {
+			float: left;
+			font: 12px/35px $simsun;
+			color: $A6;
+		}
+		a {
+			color: $A6;
+			&.black {
+				color: $black;
+			}
+			&:hover, i {
+				color: $hover;
+			}
+		}
+
+	}
+	.sign-in i.black {
+		color: #262626;
+	}
+	a:hover i.black {
+		color: $hover;
+	}
+}
+/* logo、搜书、书架 */
+.logo-wrap {
+	width: 100%;
+	height: 84px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	//防止浏览器放大后边界溢出
+	overflow: hidden;
+	.box-center {
+		position: relative;
+	}
+	.left-link {
+		width: 174px;
+		left: 224px;
+	}
+	.right-link {
+		width: 282px;
+		right: 124px;
+	}
+	.left-link, .right-link {
+		position: absolute;
+		height: 84px;
+	}
+	.logo {
+		width: 217px;
+		height: 51px;
+		margin: 17px 184px 0 0;
+		a {
+			display: block;
+			width: 217px;
+			height: 51px;
+			background: url("/qd/images/logo.png") no-repeat;;
+		}
+	}
+	.search-wrap {
+		margin-top: 22px;
+		p {
+			float: left;
+			border: 1px solid #DBDBDB;
+			border-right: none;
+			width: 348px;
+			height: 38px;
+			overflow: hidden;
+			&:hover {
+				border-color: #C9C9C9;
+			}
+		}
+		.search-box {
+			width: 326px;
+			height: 38px;
+			padding: 0 11px;
+			font: 14px/38px $simsun;
+			&.placeholder {
+				color: #CCC;
+			}
+		}
+		.search-btn {
+			float: left;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			background-color: $red;
+			&:hover {
+				background-color: $hover;
+			}
+			em {
+				display: block;
+				margin-top: 10px;
+				font-size: 18px;
+				color: white;
+				*overflow: hidden;
+			}
+		}
+	}
+	.book-shelf {
+		width: 120px;
+		height: 40px;
+		background: #FFF;
+		overflow: hidden;
+		@extend .search-wrap;
+		a, em, i, span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		i {
+			width: 56px;
+			height: 38px;
+			line-height: 38px;
+			line-height: 36px \0
+		;
+			*line-height: 36px;
+			margin-right: 3px;
+			overflow: hidden;
+		}
+		a {
+			display: block;
+			width: 118px;
+			height: 38px;
+			font: 14px/1 $simsun;
+			text-align: center;
+			@include border($E6);
+			&:hover {
+				color: white;
+				background: $hover;
+				@include border($hover);
+				span {
+					color: $hover;
+					background: white;
+				}
+			}
+		}
+		em {
+			width: 16px;
+			margin-right: 5px;
+			margin-top: 4px \0
+		;
+			font-size: 16px;
+			line-height: 20px;
+			overflow: hidden;
+		}
+		@-moz-document url-prefix() {
+			em {
+				margin-top: 4px;
+			}
+		}
+	}
+}
+/* 主导航 */
+.main-nav-wrap {
+	background-color: #3E3D43;
+	@include mb;
+	.main-nav {
+		position: relative;
+		height: 40px;
+		background-color: #3E3D43;
+	}
+	.main-nav li {
+		float: left;
+		b {
+			font-weight: 400;
+			&.client, &.webgame {
+				float: left;
+				margin: 1px 5px 0 0;
+				font-size: 16px;
+				opacity: .8;
+				filter: alpha(opacity=80);
+			}
+		}
+		a {
+			float: left;
+			padding: 0 32px;
+			height: 38px;
+			font: 16px/38px $fontbase;
+			border-bottom: 2px solid #333;
+			color: white;;
+		}
+		&.nav-li a {
+			&.act {
+				color: white;
+				background-color: $hover;
+				border-bottom: 2px solid $hover;
+				&:hover {
+					height: 38px;
+					line-height: 38px;
+					border-top: none;
+					border-bottom: 2px solid $hover;
+					background: $hover;
+				}
+			}
+			&:hover {
+				height: 36px;
+				background-color: #252428;
+				line-height: 34px;
+				border-top: 2px solid $hover;
+				border-bottom: 2px solid #252428;
+				transition: none;
+			}
+		}
+		&.first {
+			position: relative;
+			width: 216px;
+			height: 40px;
+			margin-right: 30px;
+			background-color: #313035;
+			cursor: pointer;
+			b {
+				position: absolute;
+				top: 18px;
+				right: 18px;
+				margin-left: -5px;
+				border-top: 5px solid $A6;
+				border-right: 5px solid transparent;
+				border-bottom: 0 none;
+				border-left: 5px solid transparent;
+				width: 0;
+				height: 0;
+				transition: all .5s;
+				strong {
+					position: absolute;
+					top: -7px;
+					right: -5px;
+					border-top: 5px solid #333;
+					border-right: 5px solid transparent;
+					border-bottom: 0 none;
+					border-left: 5px solid transparent;
+					width: 0;
+					height: 0;
+				}
+			}
+			&:hover {
+				span {
+					background-color: #252428;
+				}
+				b {
+					border-top: 5px solid white;
+					strong {
+						border-top: 5px solid #252428;
+					}
+				}
+			}
+
+			span {
+				display: block;
+				padding: 0 0 0 18px;
+				font: 16px/38px $fontbase;
+				color: white;
+				background-color: #313035;
+				transition: all .5s;
+				em {
+					float: left;
+					width: 16px;
+					height: 14px;
+					margin: 13px 8px 0 0;
+					vertical-align: middle;
+					_overflow: hidden;
+					i {
+						display: block;
+						width: 16px;
+						height: 2px;
+						margin-bottom: 4px;
+						background: #D5D5D6;
+					}
+				}
+			}
+		}
+		&.game {
+			position: relative;
+			float: right;
+			margin-right: 0;
+			_padding-right: 64px;
+			a {
+				padding: 0;
+				background: none;
+				&:hover {
+					color: #FFEEA8;
+					border-bottom: none;
+				}
+				&.web-game {
+					margin-right: 20px;
+				}
+			}
+			b {
+				margin-right: 5px;
+				font-size: 16px;
+				opacity: 0.8;
+				filter: alpha(opacity=80);
+				&:hover {
+					color: #FFEEA8;
+				}
+			}
+			b, cite {
+				float: left;
+			}
+			cite {
+				color: white;
+				margin: 8px 5px 0;
+			}
+			em {
+				float: left;
+				width: 16px;
+				height: 14px;
+				margin: 13px 6px 0 0;
+				vertical-align: middle;
+				background: $gray6;
+				_overflow: hidden;
+			}
+		}
+	}
+}
+/* 页游 手游下拉窗口 */
+.main-nav li {
+	.game-dropdown {
+		position: absolute;
+		z-index: 21;
+		top: 40px;
+		width: 216px;
+		height: 420px;
+		background: white;
+		box-shadow: 0 3px 5px #CCC;
+		cite {
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -15px;
+			border-top: 0 none;
+			border-right: 7px solid transparent;
+			border-bottom: 7px solid white;
+			border-left: 7px solid transparent;
+		}
+		//广告列表通用属性
+		dl {
+			padding: 10px 12px;
+			a {
+				//清掉继承过来的属性
+				float: none;
+				border: none;
+				height: auto;
+				color: inherit;
+				line-height: 18px;
+			}
+			dt {
+				color: $red;
+				font-size: 12px;
+				font-family: $simsun;
+				@include mb(8px);
+			}
+			dd {
+				h3 {
+					height: 18px;
+					overflow: hidden;
+					*zoom: 1;
+					line-height: 18px;
+					font-weight: 400;
+				}
+				span {
+					height: 12px;
+					padding: 0 2px;
+					font: 12px/12px $simsun;
+					background: #FC6C28;
+					color: white;
+					text-align: center;
+				}
+				&.bottom {
+					border-top: 1px solid $E6;
+					padding-top: 12px;
+					h4 {
+						font: 12px/18px $simsun;
+						color: $red;
+						@include mb(5px);
+					}
+					img {
+						height: 86px;
+					}
+				}
+			}
+		}
+	}
+	//页游下拉样式
+	&.web .game-dropdown {
+		left: -89px;
+		cite {
+			left: 107px;
+		}
+		/* 最近玩过 */
+		.lately {
+			width: 192px;
+			height: 70px;
+			padding: 10px 0 5px;
+			margin: 0 auto;
+			overflow: hidden;
+			@extend %bbe;
+		}
+		.lately dd {
+			@extend %cf;
+			@include mb(5px);
+			.name {
+				float: left;
+				width: 90px;
+				height: 18px;
+				margin-right: 10px;
+				@include word-wrap-multi;
+				font: 14px/18px $simsun;
+				&:hover {
+					color: $hover;
+				}
+			}
+			strong {
+				float: left;
+				font: 12px/18px $simsun;
+				font-weight: 400;
+				color: #666;
+			}
+			.link {
+				float: right;
+				font: 12px/18px $simsun;
+				color: $blue;
+				&:hover {
+					color: $blue_hover;
+				}
+				i {
+					margin-left: 5px;
+					font-family: simsun;
+					font-weight: 700;
+				}
+			}
+		}
+		/* 今日开服 */
+		.web-list dd {
+			h3 {
+				@include mb;
+				span {
+					width: 21px;
+					height: 11px;
+					float: right;
+					margin-top: 4px;
+					background: url("/qd/images/common/tag.png") no-repeat 0 0;
+				}
+				a {
+					float: left;
+					width: 70px;
+					height: 18px;
+					margin-right: 10px;
+					font-size: 14px;
+					font-family: $simsun;
+					overflow: hidden;
+					@include word-wrap-multi;
+					&:hover {
+						color: $hover;
+					}
+				}
+				i {
+					float: left;
+					margin-right: 14px;
+					font-size: 12px;
+					font-family: $simsun;
+					color: $A6;
+
+				}
+				strong {
+					float: left;
+					font-size: 12px;
+					font-family: $simsun;
+					font-weight: 400;
+					color: #666;
+				}
+			}
+			img {
+				width: 192px;
+				height: 46px;
+			}
+			p {
+				@include mb(5px);
+			}
+			&.bottom img {
+				height: 86px;
+			}
+		}
+	}
+	//手游下拉样式
+	&.phone .game-dropdown {
+		left: -162px;
+		cite {
+			right: 12px;
+		}
+		.phone-list dd {
+			h3 {
+				@include mb(5px);
+			}
+			span {
+				float: left;
+				width: 21px;
+				height: 11px;
+				margin-top: 3px;
+				background: url("/qd/images/common/tag.png") no-repeat 0 0;
+			}
+			a {
+				font-size: 14px;
+				font-family: $simsun;
+				margin-right: 5px;
+				&:hover {
+					color: $hover;
+				}
+			}
+			i {
+				color: $gray6;
+				font-size: 12px;
+				font-family: $simsun;
+				vertical-align: middle;
+			}
+			p {
+				@include mb(5px);
+				img {
+					width: 192px;
+					height: 58px;
+				}
+			}
+			&.bottom {
+				margin-top: 10px;
+				img {
+					height: 86px;
+				}
+			}
+		}
+
+	}
+}
+/* 1024 响应点样式变动 */
+@media (max-width: 1025px) {
+	.logo-wrap {
+		.left-link {
+			width: 80px;
+		}
+		.right-link {
+			width: 164px;
+		}
+		.logo {
+			margin: 17px 92px 0 0;
+		}
+	}
+	.main-nav-wrap .main-nav li {
+		margin-right: 0;
+		a {
+			padding: 0 20px;
+		}
+	}
+}
+/* retina屏双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+	.logo-wrap .logo a {
+		background: url("/qd/images/logo3x.png") no-repeat;
+		background-size: 217px;
+		background-repeat: no-repeat;
+	}
+	.main-nav li.web .game-dropdown .web-list dd h3 span, .main-nav li.phone .game-dropdown .phone-list dd span {
+		background: url("/qd/images/common/tag_2x.png") no-repeat 0 0;
+		background-size: 100%;
+	}
+}

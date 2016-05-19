@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<%
+
+    var actSortTime, actSortClick, actSortRecom, actSortWordsCnt = ''; //缩略图和列表区分
+    sortCurrentType = parseInt(data['paramList']["sort"]);
+
+    switch (sortCurrentType) {
+        case 1:
+            actSortTime = 'act';
+            break;
+        case 2:
+            actSortClick = 'act';
+            break;
+        case 3:
+            actSortRecom = 'act';
+            break;
+        case 4:
+        actSortWordsCnt = 'act';
+        break;
+    }
+
+%>
+<head>
+    <meta charset="UTF-8">
+    <title>起点搜书_起点中文网</title>
+    <meta name="description" content="搜索最新最快原创小说,搜索您最喜爱的小说,尽在起点中文网">
+    <meta name="keywords" content="搜索小说,搜书,搜小说,搜图书,搜作者">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr = document.cookie.match(reg))
+
+                return (arr[2]);
+            else
+                return null;
+        }
+        if (getCookie('ns') != 2) {
+            location.href = 'http://www.qidian.com';
+        }
+    </script>
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+                speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/search.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
+</head>
+<body>
+<div class="wrap">
+    <%
+    /*
+        设置主导航高亮navHighLight = 2
+        首页无高亮（首页没设置此变量）
+        1:全部作品
+        2:排行
+        3:完本
+        4:免费
+        */
+        var navHighLight = 2;
+    %>
+    <!-- start 固定导航条 样式和首页不同，非跟随页面滚动 -->
+    <% include ../component/fixed_top_nav.html %>
+    <!-- end 固定导航条 样式和首页不同，非跟随页面滚动 -->
+    <!-- start 头部搜索容器 -->
+    <div class="search-container">
+        <div class="search-wrap cf">
+            <input type="text" id="s-box" placeholder="<%= defaultSearch['keywords']%>" value="<%= data['paramList']['kw']%>"><a class="search-btn" id="search-btn" href="javascript:">搜索</a>
+        </div>
+    </div>
+    <!-- end 头部搜索容器 -->
+
+    <!-- start 搜索结果容器 -->
+    <div class="result-wrap box-center cf">
+        <!-- start 主要内容区 -->
+        <div class="main-content-wrap fl">
+            <% if(data['showSearchList'] == false) { %>
+            <!-- start 没有找到符合条件的书 为您推荐的列表html复用搜索结果模板-->
+            <div class="no-result-wrap">
+                <div class="no-result-img">
+                    <span class="no-data-img"></span>
+                </div>
+                <h3>没有找到符合条件的书</h3>
+                <p>你也可以去<a class="blue" href="//<%= staticConf.domainPrefix %>a.qidian.com" target="_blank" data-aid="qd_S17">全部作品</a>找书</p>
+            </div>
+            <!-- end 没有找到符合条件的书 为您推荐的列表html复用搜索结果模板-->
+             <!-- start 如果搜索关键字命中大神作者 -->
+             <% include ./author_info.html %>
+             <!-- end 如果搜索关键字命中大神作者 -->
+            <% } else { %>
+            <% } %>
+
+
+            <% if(data['showSearchList'] == true) { %>
+            <!-- start 操作栏 -->
+            <div class="tool-bar cf">
+                <div class="count-info">
+                    <p>共<span><%= data['pageInfo']['totalCount'] %></span>本相关作品</p>
+                </div>
+            </div>
+            <!-- end 操作栏 -->
+
+            <% } %>
+
+            <!-- start 搜索结果列表 —— 有结果 -->
+            <div id="result-list">
+            <% if (data['showSearchList'] == false)   {
+                var title = '为你推荐';
+                if(data['showMonthTicketTopList'] == true){
+                title = '原创风云榜<i>·</i>新书';
+                }
+                %>
+                     <h3 class="search-title"><%- title%></h3>
+            <% } %>
+            <div class="book-img-text">
+             <ul>
+
+            <% if(data['showRecommedUserData'] == true) { %>
+                    <% for(var i=0; i < data['recommendUserData'].length; i++) { %>
+                        <li data-rankid="<%= i+1%>">
+                            <div class="book-img-box">
+                                <a href="<%= data['recommendUserData'][i]['bookUrl'] %>" data-aid="qd_S20" data-bid="<%= data['recommendUserData'][i]['bookId'] %>" target="_blank"><img src="<%= data['recommendUserData'][i]['imgUrl'] %>"></a>
+                            </div>
+                            <div class="book-mid-info">
+                                <h4><a href="<%= data['recommendUserData'][i]['bookUrl'] %>" data-aid="qd_S21" data-bid="<%= data['recommendUserData'][i]['bookId'] %>" target="_blank"><%= data['recommendUserData'][i]['bookName'] %></a></h4>
+                                <p class="author">
+                                    <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" data-aid="qd_S22" href="<%= data['recommendUserData'][i]['authorUrl'] %>" target="_blank"><%= data['recommendUserData'][i]['authorName'] %></a><em>|</em><a href="<%= data['recommendUserData'][i]['chanUrl'] %>" data-aid="qd_S23" target="_blank"><%= data['recommendUserData'][i]['chanName'] %></a><em>|</em><span><%= data['recommendUserData'][i]['bookStatus'] %></span>
+                                </p>
+                                <p class="intro">
+                                   <%= data['recommendUserData'][i]['bookInfo'] %>
+                                </p>
+                                <p class="update"><a class="red def" href="javascript:"><%= data['recommendUserData'][i]['recommendReason'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-right-info">
+                     <!--            <div class="total">
+                                    <p><span> <%= data['recommendUserData'][i]['wordsCnt'] %></span>总字数</p>
+                                    <p><span> <%= data['recommendUserData'][i]['recomendCnt'] %></span>总推荐</p>
+                                    <p><span> <%= data['recommendUserData'][i]['clickCnt'] %></span>总点击</p>
+                                </div> -->
+                                <p class="btn">
+                                    <a class="red-btn" href="<%= data['recommendUserData'][i]['bookUrl'] %>" data-aid="qd_S18" target="_blank">书籍详情</a>
+                                    <% if (data['recommendUserData'][i]['isInShelf'] == false) { %>
+                                    <a class="blue-btn add-book" href="javascript:" data-aid="qd_S19" data-bookId=<%= data['recommendUserData'][i]['bookId'] %>>加入书架</a>
+                                    <% } else {%>
+                                    <a class="in-shelf add-book" href="javascript:" data-bookId=<%= data['recommendUserData'][i]['bookId'] %>>已在书架</a>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </li>
+                        <% } %>
+
+            <% } %>
+
+     <!-- 搜索为空未登录时，右边和为您推荐应该显示强推和月票榜  -->
+        <% if(data['showMonthTicketTopList'] == true) { %>
+                    <% for(var i=0; i < data['monthTicketTopList'].length; i++) { %>
+                        <li data-rankid="<%= i+1%>">
+                            <div class="book-img-box">
+                                <a href="<%= data['monthTicketTopList'][i]['bookUrl'] %>" data-aid="qd_S26" data-bid="<%= data['monthTicketTopList'][i]['bookId'] %>" target="_blank"><img src="<%= data['monthTicketTopList'][i]['imageUrl'] %>"></a>
+                            </div>
+                            <div class="book-mid-info">
+                                <h4><a href="<%= data['monthTicketTopList'][i]['bookUrl'] %>" target="_blank" data-aid="qd_S27" data-bid="<%= data['monthTicketTopList'][i]['bookId'] %>"><%= data['monthTicketTopList'][i]['bookName'] %></a></h4>
+                                <p class="author">
+                                    <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= data['monthTicketTopList'][i]['authorUrl'] %>" target="_blank" data-aid="qd_S28"><%= data['monthTicketTopList'][i]['authorName'] %></a><em>|</em><a href="<%= data['monthTicketTopList'][i]['chanUrl'] %>" target="_blank" data-aid="qd_S29"><%= data['monthTicketTopList'][i]['chanName'] %></a><em>|</em><span><%= data['monthTicketTopList'][i]['bookStatus'] %></span>
+                                </p>
+                                <p class="intro">
+                                   <%= data['monthTicketTopList'][i]['bookInfo'] %>
+                                </p>
+                                <p class="update"><a href="<%= data['monthTicketTopList'][i]['lastChapterUrl'] %>" target="_blank" data-chapterurl="<%= data['monthTicketTopList'][i]['lastChapterUrl'] %>">最新更新  <%= data['monthTicketTopList'][i]['lastChapterName'] %></a><em>&#183;</em><span><%= data['monthTicketTopList'][i]['lastUpdateTime'] %></span>
+                                </p>
+                            </div>
+                            <div class="book-right-info">
+                                <p class="btn">
+                                    <a class="red-btn" href="<%= data['monthTicketTopList'][i]['bookUrl'] %>" target="_blank" data-aid="qd_S24">书籍详情</a>
+                                    <% if (data['monthTicketTopList'][i]['isInShelf'] == false) { %>
+                                    <a class="blue-btn add-book" href="javascript:" data-aid="qd_S25" data-bookId=<%= data['monthTicketTopList'][i]['bookId'] %>>加入书架</a>
+                                    <% } else {%>
+                                    <a class="in-shelf add-book" href="javascript:" data-bookId=<%= data['monthTicketTopList'][i]['bookId'] %>>已在书架</a>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </li>
+                        <% } %>
+
+<% } %>
+
+            <% if(data['showSearchList'] == true) { %>
+                    <% for(var i=0; i < data['listInfo'].length; i++) { %>
+                        <li data-rankid="<%= i+1%>">
+                            <div class="book-img-box">
+                                <a href="<%= data['listInfo'][i]['bookUrl'] %>" target="_blank" data-aid="qd_S03" data-bid="<%= data['listInfo'][i]['bookId'] %>"><img src="<%= data['listInfo'][i]['imgUrl'] %>"></a>
+                            </div>
+                            <div class="book-mid-info">
+                                <%
+                                /*
+                                    将搜索关键字转换成正则变量，第二个参数g表示正则表达式中添加g标识，方便replace函数全局替换
+                                */
+                                var bookName = data['listInfo'][i]['bookName'];
+                                var bookInfo = data['listInfo'][i]['bookInfo'];
+                                if(data['paramList']['kw']!=undefined && data['paramList']['kw']!=""){
+                                var reg =new RegExp(data['paramList']['kw'],'g');
+                                var newTag = '<cite class="red-kw">'+data['paramList']['kw']+'</cite>';
+                                bookName = bookName.replace(reg,newTag);
+                                bookInfo = bookInfo.replace(reg,newTag);
+                                }
+                                %>
+                                <h4><a href="<%= data['listInfo'][i]['bookUrl'] %>" target="_blank" data-aid="qd_S04" data-bid="<%= data['listInfo'][i]['bookId'] %>"><%- bookName%></a></h4>
+                                <p class="author">
+                                    <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" data-aid="qd_S05" href="<%= data['listInfo'][i]['authorUrl'] %>" target="_blank"><%= data['listInfo'][i]['authorName'] %></a><em>|</em><a href="<%= data['listInfo'][i]['chanUrl'] %>" data-aid="qd_S06" target="_blank"><%= data['listInfo'][i]['chanName'] %></a><em>|</em><span><%= data['listInfo'][i]['bookStatus'] %></span>
+                                </p>
+                                <p class="intro">
+                                   <%- bookInfo%>
+                                </p>
+                                <p class="update"><a href="<%= data['listInfo'][i]['lastChapterUrl'] %>" target="_blank" data-aid="qd_S07" data-chapterurl="<%= data['listInfo'][i]['lastChapterUrl'] %>">最新更新  <%= data['listInfo'][i]['lastChapterName'] %></a><em>&#183;</em><span><%= data['listInfo'][i]['lastUpdateTime'] %></span>
+                                </p>
+                            </div>
+                            <div class="book-right-info">
+                                <div class="total">
+                                    <p><span> <%= data['listInfo'][i]['wordsCnt'] %></span>总字数</p>
+                                    <p><span> <%= data['listInfo'][i]['recomendCnt'] %></span>总推荐</p>
+                                    <p><span> <%= data['listInfo'][i]['clickCnt'] %></span>总点击</p>
+                                </div>
+                                <p class="btn">
+
+                                    <a class="red-btn" href="<%= data['listInfo'][i]['bookUrl'] %>" data-aid="qd_S01" target="_blank">书籍详情</a>
+                                    <% if (data['listInfo'][i]['isInShelf'] == false) { %>
+                                    <a class="blue-btn add-book" href="javascript:" data-aid="qd_S02" data-bookId=<%= data['listInfo'][i]['bookId'] %>>加入书架</a>
+                                    <% } else {%>
+                                    <a class="in-shelf add-book" href="javascript:" data-bookId=<%= data['listInfo'][i]['bookId'] %>>已在书架</a>
+                                    <% } %>
+
+                                </p>
+                            </div>
+                        </li>
+                        <% } %>
+            <% } %>
+                        <!-- 这里填充到10条li 数据 -->
+                    </ul>
+                </div>
+            </div>
+            <!-- end 搜索结果列表 —— 有结果 -->
+            <!-- start 分页 -->
+            <div class="page-box cf">
+                <div class="pagination fr" data-aid="qd_S12" id="page-container" data-page="<%= data['pageInfo']['page']%>" data-pageMax="<%= data['pageInfo']['pageMax']%>"></div>
+            </div>
+            <!-- end 分页 -->
+        </div>
+        <!-- end 主要内容区 -->
+        <!-- start 右侧推广区 -->
+        <div class="right-side-wrap fr">
+            <!-- start 大家都在搜 -->
+            <div class="other-rec-wrap">
+            <% if(data['showStrongRecommend'] == true) { %>
+                <h3>本周强推</h3>
+            <% } else { %>
+                <h3>搜这本书的还看</h3>
+            <% } %>
+
+            <ul>
+
+            <% if(data['showStrongRecommend'] == true) { %>
+                <% for(var i=0; i < data['strongRecommend'].length; i++) { %>
+                    <li>
+                        <div class="img-box">
+                            <a href="<%= data['strongRecommend'][i]['bookUrl'] %>" data-aid="qd_S30" data-bid="<%= data['strongRecommend'][i]['bookId'] %>" target="_blank"><img src="<%= data['strongRecommend'][i]['imageUrl'] %>"></a>
+                        </div>
+                        <div class="book-info">
+                            <h4><a href="<%= data['strongRecommend'][i]['bookUrl'] %>" data-aid="qd_S31" data-bid="<%= data['strongRecommend'][i]['bookId'] %>" target="_blank"><%= data['strongRecommend'][i]['bookName'] %></a></h4>
+                            <p class="author"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><a href="<%= data['strongRecommend'][i]['authorUrl'] %>" target="_blank" data-aid="qd_S32"><%= data['strongRecommend'][i]['authorName'] %></a></p>
+                            <p class="intro"><%= data['strongRecommend'][i]['desc'] %></p>
+                        </div>
+                    </li>
+                <% } %>
+            <% }  %>
+
+
+            <% if(data['showRecommedData'] == true) { %>
+                <% for(var i=0; i < data['recommendData'].length; i++) { %>
+                    <li>
+                        <div class="img-box">
+                            <a href="<%= data['recommendData'][i]['bookUrl'] %>" data-aid="qd_S13" data-bid="<%= data['recommendData'][i]['bookId'] %>" target="_blank"><img src="<%= data['recommendData'][i]['imgUrl'] %>"></a>
+                        </div>
+                        <div class="book-info">
+                            <h4><a href="<%= data['recommendData'][i]['bookUrl'] %>" target="_blank" data-aid="qd_S14" data-bid="<%= data['recommendData'][i]['bookId'] %>"><%= data['recommendData'][i]['bookName'] %></a></h4>
+                            <p class="author"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><a href="<%= data['recommendData'][i]['authorUrl'] %>" target="_blank" data-aid="qd_S15"><%= data['recommendData'][i]['authorName'] %></a></p>
+                            <p class="intro"><%= data['recommendData'][i]['recommendReason'] %></p>
+                        </div>
+
+                    </li>
+                     <% } %>
+            <% }  %>
+
+
+                </ul>
+            </div>
+            <!-- end 大家都在搜 -->
+        </div>
+        <!-- end 右侧推广区 -->
+    </div>
+    <!-- end 搜索结果容器 -->
+
+    <!-- start 页脚 -->
+    <% include ../layout/footer.html %>
+    <!-- end 页脚 -->
+</div>
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    if('<%= data["paramList"].length %>'==0){
+        g_data.pageId = 'qd_P_Search';
+    }else if('<%= data["showSearchList"]%>'=='true'){
+        g_data.pageId = 'qd_P_Searchresult';
+    }else if('<%= data["showSearchList"]%>'=='false'){
+        g_data.pageId = 'qd_P_Searchnoresult';
+    }
+
+    // 域名环境变量
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.search.index_0_1'], function ($, SpeedReport, Index) {
+
+        // 页面逻辑入口
+        new Index({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+            var f1 = 7718, // china reading limited's ID
+                f2 = 219, // site ID
+                f3 = 16; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+
+</body>
+</html>

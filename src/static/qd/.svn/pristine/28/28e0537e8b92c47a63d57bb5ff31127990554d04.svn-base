@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+@import "variables";
+@import "mixins";
+
+//
+// Buttons
+// --------------------------------------------------
+
+.lbf-button {
+	@include inline-block();
+	border: 1px solid transparent;
+	margin-bottom: 0;
+	font-weight: $lbf-button-font-weight;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-image: none; // see https://github.com/necolas/normalize.css/issues/214
+	touch-action: manipulation;
+
+	@include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $lbf-button-border-radius-base);
+	@include user-select(none);
+	font-family: $simsun;
+
+	&:hover,
+	&:focus,
+	&.focus {
+		text-decoration: none;
+		color: $lbf-button-default-color;
+	}
+	&.disabled,
+	&-disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: $cursor-disabled;
+
+		@include opacity(.65);
+		@include box-shadow(none);
+
+		pointer-events: none;
+	}
+
+	/* Firefox: Get rid of the inner focus border */
+	::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+// Alternate buttons
+// --------------------------------------------------
+/*.lbf-button,
+.lbf-button-default {
+	@include button-variant($lbf-button-default-color, $lbf-button-default-bg, $lbf-button-default-border);
+}*/
+.lbf-button-primary {
+	@include button-variant($lbf-button-primary-color, $lbf-button-primary-bg, $lbf-button-primary-border);
+}
+// Success appears as green
+.lbf-button-success {
+	@include button-variant($lbf-button-success-color, $lbf-button-success-bg, $lbf-button-success-border);
+}
+// Info appears as blue-green
+.lbf-button-info {
+	@include button-variant($lbf-button-info-color, $lbf-button-info-bg, $lbf-button-info-border);
+}
+// Warning appears as orange
+.lbf-button-warning {
+	@include button-variant($lbf-button-warning-color, $lbf-button-warning-bg, $lbf-button-warning-border);
+}
+// Danger and error appear as red
+.lbf-button-danger {
+	@include button-variant($lbf-button-danger-color, $lbf-button-danger-bg, $lbf-button-danger-border);
+}
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.lbf-button-link {
+	border-radius: 0;
+	font-weight: normal;
+	color: $link-color;
+
+	&,
+	&:active,
+	&.active {
+		background-color: transparent;
+
+		@include box-shadow(none);
+	}
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: transparent;
+	}
+	&:hover,
+	&:focus {
+		text-decoration: $link-hover-decoration;
+		color: $link-hover-color;
+		background-color: transparent;
+	}
+	&.disabled,
+	&.lbf-button-disabled,
+	.lbf-button-disabled,
+	&[disabled],
+	fieldset[disabled] {
+		color: $lbf-button-link-disabled-color;
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: $lbf-button-link-disabled-color;
+			background-color: transparent;
+			border-color: transparent;
+		}
+	}
+}
+// Button Sizes
+// --------------------------------------------------
+.lbf-button-normal {
+	// line-height: ensure even-numbered height of button next to base input
+	@include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $lbf-button-border-radius-base);
+}
+.lbf-button-large {
+	// line-height: ensure even-numbered height of button next to large input
+	@include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $lbf-button-border-radius-large);
+}
+.lbf-button-small {
+	// line-height: ensure proper height of button next to small input
+	@include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $lbf-button-border-radius-small);
+}
+// Block button
+// --------------------------------------------------
+
+.lbf-button-block {
+	display: block;
+	width: 100%;
+}
+// Vertically space out multiple block buttons
+.lbf-button-block + .lbf-button-block {
+	margin-top: 5px;
+}
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	&.lbf-button-block {
+		width: 100%;
+	}
+}
+// Button Group
+// --------------------------------------------------
+.lbf-button-group {
+	position: relative;
+	@include inline-block();
+	vertical-align: middle;
+
+	> .lbf-button {
+		position: relative;
+		float: left;
+		margin-left: -1px;
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			z-index: 2;
+		}
+	}
+
+	> .lbf-button:not(:first-child):not(:last-child) {
+		@include border-radius(0);
+	}
+
+	// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+	> .lbf-button:first-child {
+		margin-left: 0;
+	}
+}

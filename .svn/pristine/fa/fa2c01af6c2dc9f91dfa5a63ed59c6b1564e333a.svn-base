@@ -1,0 +1,160 @@
+<!-- start 暂无数据 -->
+<% if(data['listInfo']==null||data['listInfo'].length==0){%>
+<!-- start 图文模式 -->
+<div class="no-data">
+    <div class="no-result-img">
+        <span class="no-data-img"></span>
+    </div>
+    <h3>没有找到符合条件的书</h3>
+    <p>你可以尝试减少或者更换筛选项</p>
+</div>
+<!-- end 暂无数据 -->
+<%}else{%>
+<div class="all-book-list">
+    <%
+    /*
+    判断是否是图文模式，如果不是无需渲染图文模式
+    */
+    if(data['paramList']['style']==1){
+    %>
+        <div class="book-img-text">
+            <ul class="all-img-list cf">
+                <% for(var i=0;i< data['listInfo'].length;i++){
+                        var hlfirst = '';
+                        var hllast = '';
+                        var item = data['listInfo'][i];
+                    /*
+                    如果排序方式为总字数(3)或更新时间(4)，则显示最新章节更新时间
+                    */
+                    if(data['paramList']['orderId']==3||data['paramList']['orderId']==4){
+                        var update = item['lastUpdateTime'];
+                    /*
+                    如果排序方式为会员点击(1)，则显示总点击数
+                    */
+                    } else if (data['paramList']['orderId']==1) {
+                        var update = item['clickCnt']+'周点击';
+                    /*
+                    如果排序方式为推荐票数(2)，则显示推荐票数
+                    */
+                    } else {
+                        var update = item['recomendCnt']+'推荐';
+                    }
+                    if(update==null||update==''){
+                        update = '- -';
+                    }
+                    if(data['paramList']['orderId']==3){
+                        hlfirst = 'class=red';
+                    }else{
+                        hllast = 'class=red';
+                    }
+                    %>
+                <li>
+                <div class="book-img-box">
+                    <a href="<%= item['bookUrl']%>" data-bid="qd_B44" target="_blank"><img src="<%= item['imageUrl']%>"></a>
+                </div>
+                <div class="book-mid-info">
+                    <h4><a href="<%= item['bookUrl']%>" target="_blank" data-bid="qd_B45"><%= item['bookName']||'- -'%></a></h4>
+                    <p class="author">
+                        <img src="<%= staticConf.staticPath %>/images/ico/user.png"><a class="name" href="<%= item['authorUrl']%>" data-bid="qd_B46" target="_blank"><%= item['authorName']||'- -'%></a><em>|</em><a href="<%= item['chanUrl']%>" target="_blank" data-bid="qd_B47"><%= item['chanName']||'- -'%></a><i>&#183;</i><a class="go-sub-type" data-typeid="<%= item['chanId']%>" data-subtypeid="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']||'- -'%></a><em>|</em><span ><%= item['bookStatus']%></span>
+                    </p>
+                    <p class="intro">
+                        <%= item['desc']||'- -'%>
+                    </p>
+                    <p class="update"><span <%= hlfirst%>><%= item['wordCnt']%>字</span><i>·</i><b <%= hllast%>><%= update%></b>
+                    </p>
+                </div>
+                </li>
+                <% } %>
+            </ul>
+        <!-- 此处数据一共是10行，总共20本书-->
+    </div>
+    <%}%>
+    <!-- end 图文模式 -->
+    <!-- start 文字表格模式 预先隐藏，切换时显示，隐藏图文模式 -->
+    <%
+    /*
+    判断是否是列表模式，如果不是则隐藏列表模式
+    */
+    if(data['paramList']['style']==2){
+    %>
+    <div class="book-text">
+        <table class="rank-table-list all" width="100%">
+            <colgroup>
+                <col width="15%">
+                <col width="17%">
+                <col width="33%">
+                <col width="9%">
+                <col width="12%">
+                <col width="12%">
+            </colgroup>
+            <%
+            var headName = '更新时间';
+            /*
+            如果排序方式为会员点击(1)，则显示总点击数
+            */
+            if(data['paramList']['orderId']==1){
+            headName = '周点击';
+            }
+            /*
+            如果排序方式为推荐票数(2)，则显示推荐票数
+            */
+            if(data['paramList']['orderId']==2){
+            headName = '总推荐';
+            }
+            %>
+            <thead>
+            <tr>
+                <th>类别</th>
+                <th>小说书名</th>
+                <th>最新章节</th>
+                <th>字数</th>
+                <th>小说作者</th>
+                <th class="right"><%= headName%></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(var i=0;i< data['listInfo'].length;i++){
+            var item = data['listInfo'][i];
+            /*
+            如果排序方式为总字数(4)或更新时间(3)，则显示最新章节更新时间
+            */
+            if(data['paramList']['orderId']==3||data['paramList']['orderId']==4){
+            var update = item['lastUpdateTime'];
+            /*
+            如果排序方式为会员点击(1)，则显示总点击数
+            */
+            }else if(data['paramList']['orderId']==1){
+            var update = item['clickCnt'];
+            /*
+            如果排序方式为推荐票数(2)，则显示推荐票数
+            */
+            }else{
+            var update = item['recomendCnt'];
+            }
+            if(update==null||update==""){
+            update = '- -';
+            }
+            %>
+            <tr>
+                <td class="td-one"><a class="type" href="<%= item['chanUrl']%>" data-bid="qd_B47" target="_blank"><em>「</em><%= item['chanName']||'- -'%></a><i class="point">&#183;</i><a class="go-sub-type" data-typeId="<%= item['chanId']%>" data-subtypeId="<%= item['subCateId']%>" href="javascript:" data-bid="qd_B48"><%= item['subCateName']%><em>」</em></a></td>
+                <td><a class="name" href="<%= item['bookUrl']%>" data-bid="qd_B45" target="_blank"><%= item['bookName']||'- -'%></a></td>
+                <td><a class="chapter" href="<%= item['lastChapterUrl']%>" data-chapterurl="<%= item['lastChapterUrl']%>" target="_blank"><%= item['lastChapterName']||'- -'%></a></td>
+                <td><span class="total"><%= item['wordCnt']||'- -'%></span></td>
+                <td><a class="author" href="<%= item['authorUrl']%>" target="_blank" data-bid="qd_B46"><%= item['authorName']%></a></td>
+                <td class="date"><%= update%></td>
+            </tr>
+            <%}%>
+
+            <!-- 此处重复 复制到40条数据 -->
+            </tbody>
+        </table>
+    </div>
+    <%}%>
+<!-- end 文字表格模式 -->
+</div>
+<!-- start 分页 -->
+<div class="page-box cf">
+    <div class="pagination fr" id="page-container" data-pageMax="<%= data['pageInfo']['pageMax']%>" data-page="<%= data['pageInfo']['page']%>"></div>
+</div>
+<!-- end 分页 -->
+<%}%>

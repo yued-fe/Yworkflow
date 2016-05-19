@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+@import "variables";
+@import "mixins";
+
+//
+// Radio
+// --------------------------------------------------
+
+.lbf-radio {
+    position: relative;
+
+    @include inline-block();
+
+    width: 22px;
+    height: 22px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: url($image-path + "Radio/radio.png") no-repeat;
+    background-position: -120px 0;
+
+    &.lbf-radio-hover {
+        background-position: -144px 0;
+    }
+    &.lbf-radio-checked {
+        background-position: -168px 0;
+    }
+    &.lbf-radio-disabled {
+        cursor: default;
+        background-position: -192px 0;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    &.lbf-radio-checked.lbf-radio-disabled,
+    &.lbf-radio-disabled.lbf-radio-checked {
+        background-position: -216px 0;
+    }
+}

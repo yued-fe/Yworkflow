@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/**
+ * $author rainszhang
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// State
+// --------------------------------------------------
+
+.lbf-state {
+    border: 1px solid darken($brand-default, 5%);;
+
+    @include border-radius($border-radius-base);
+
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: $brand-default;
+    color: #333;
+
+    & &-title {
+        font-size: 14px;
+        color: #333;
+    }
+
+    &-success {
+        border-color: $brand-success;
+        background-color: $brand-success;
+    }
+
+    &-warning {
+        border-color: $brand-warning;
+        background-color: $brand-warning;
+    }
+
+    &-error {
+        border-color: $brand-danger;
+        background-color: $brand-danger;
+    }
+
+    &-info {
+        border-color: $brand-info;
+        background-color: $brand-info;
+    }
+
+    & &-close {
+        float:right;
+        overflow:hidden;
+        @include inline-block();
+        width:13px;
+        height:16px;
+        font-size: 14px;
+        margin:1px 0 0 0;
+        *margin:2px 0 0 0;
+        color: #333;
+        background: none;
+        *background-image:url($image-path + "nodes/close.png");
+
+        &:hover {
+            color: #333;
+            background: none;
+            *background-image:url($image-path + "nodes/close-hover.png");
+        }
+    }
+
+    &-success,
+    &-warning,
+    &-error,
+    &-info {
+        color: #fff;
+        & .lbf-state-title {
+            margin: 0 6px 0 0;
+            color: #fff;
+        }
+
+        & .lbf-state-close {
+            color: #fff;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}

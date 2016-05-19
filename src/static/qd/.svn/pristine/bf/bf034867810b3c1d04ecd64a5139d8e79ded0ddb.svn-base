@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/**
+ * $author yangye
+ */
+
+@import "variables";
+@import "mixins";
+
+//
+// LightTip
+// --------------------------------------------------
+.lbf-light-tip {
+    position:absolute;
+
+    @include inline-block();
+
+    max-width: 240px;
+    padding: 10px 20px;
+    color: #ffffff;
+    outline: none;
+    text-align: center;
+
+    @include border-radius(5px);
+    @include background-clip(padding-box);
+    @include box-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    //根据起点风格改造
+    background: #3E3D43;
+    background: rgba(62, 61, 67, .9);
+
+    &-success {
+    }
+
+    &-error {
+    }
+}

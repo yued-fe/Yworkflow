@@ -1,0 +1,152 @@
+<!-- start 新书推荐 -->
+<div class="new-rec-wrap box-center mb40 cf">
+    <div class="left-wrap fl" data-aid="qd_A131">
+        <h3 class="wrap-title">新书推荐<span>上周入库<%= newBookRecom['weekUpdCnt']  %>本</span></h3>
+        <div class="left-info fl">
+            <div class="slide-box">
+                <div class="la-ball-pulse">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="left-slide-03" class="roundabout">
+                    <% for(var i=0; i < hotBook.length; i++) { %>
+                    <li class="book<%=i+1%>" data-id="<%=i+1%>" data-type="1" data-width="93px" data-height="100%">
+                        <img class="lazy" data-original="<%= newBookRecom['newBookFocus'][i]['imageUrl']%>" alt="<%= newBookRecom['newBookFocus'][i]['bookName']%>">
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="info-text">
+                <dl>
+                    <dd>
+                        <h3>
+                            <a href="http://www.qidian.com/Book/<%= newBookRecom['newBookFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= newBookRecom['newBookFocus'][0]['bookId'] %>"><%=
+                                newBookRecom['newBookFocus'][0]['bookName']%></a></h3>
+                        <p class="author">
+                            <a href="http://me.qidian.com/authorIndex.aspx?id=<%= newBookRecom['newBookFocus'][0]['authorId'] %>"><%=
+                                newBookRecom['newBookFocus'][0]['authorName']%></a><em>&#183;</em><%=
+                            newBookRecom['newBookFocus'][0]['dailyUpdateWords'] %></p>
+                        <p class="total"><b><%= newBookRecom['newBookFocus'][0]['likeCnt'] %></b>人在追</p>
+                        <p class="intro">
+                            <%= newBookRecom['newBookFocus'][0]['recomWords'] %>
+                        </p>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= newBookRecom['newBookFocus'][0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= newBookRecom['newBookFocus'][0]['bookId'] %>">书籍详情</a>
+                    </dd>
+                    <% for(var i=1; i < newBookRecom['newBookFocus'].length; i++) { %>
+                    <dd class="hidden">
+                        <h3>
+                            <a href="http://www.qidian.com/Book/<%= newBookRecom['newBookFocus'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= newBookRecom['newBookFocus'][i]['bookId'] %>"><%=
+                                newBookRecom['newBookFocus'][i]['bookName']%></a></h3>
+                        <p class="author">
+                            <a href="http://me.qidian.com/authorIndex.aspx?id=<%= newBookRecom['newBookFocus'][i]['authorId'] %>"><%=
+                                newBookRecom['newBookFocus'][i]['authorName']%></a><em>&#183;</em><%=
+                            newBookRecom['newBookFocus'][i]['dailyUpdateWords'] %></p>
+                        <p class="total"><b><%= newBookRecom['newBookFocus'][i]['likeCnt'] %></b>人在追</p>
+                        <p class="intro">
+                            <%= newBookRecom['newBookFocus'][i]['recomWords'] %>
+                        </p>
+                        <a class="read-btn" href="http://www.qidian.com/Book/<%= hotBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= hotBook[i]['bookId'] %>">书籍详情</a>
+                    </dd>
+                    <% } %>
+                </dl>
+            </div>
+        </div>
+        <div class="center-book-list fl">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <ul>
+                <% for(var i=0; i < recomImgNewBook.length; i++) { %>
+                <li>
+                    <div class="book-img">
+                        <a href="http://www.qidian.com/Book/<%= recomImgNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomImgNewBook[i]['bookId'] %>"><img class="lazy" data-original="<%= recomImgNewBook[i]['imageUrl'] %>" alt="<%= recomImgNewBook[i]['bookName'] %>">
+                            <%
+                            //评分小于7.0时不显示
+                                var score = recomImgNewBook[i]['praiseCnt']
+                                if (score < 7.0) {
+                                    var hidden = "class=hidden"
+                                }
+                            %>
+                            <span <%=hidden%>><%= score %></span>
+                        </a>
+                    </div>
+                    <div class="book-info">
+                        <h3>
+                            <a href="http://www.qidian.com/Book/<%= recomImgNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomImgNewBook[i]['bookId'] %>"><%=
+                                recomImgNewBook[i]['recomTitle'] %>
+                            </a></h3>
+                        <p><%= recomImgNewBook[i]['recomWords'] %></p>
+                        <div class="state-box cf">
+                            <span><%= recomImgNewBook[i]['dailyUpdateWords']  %></span><i><%=
+                            recomImgNewBook[i]['subCategoryName']
+                            %></i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= recomImgNewBook[i]['authorId']  %>" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><%=
+                            recomImgNewBook[i]['authorName'] %></a>
+                        </div>
+                    </div>
+                </li>
+                <% } %>
+                <% for(var i=0; i < recomWordNewBook.length; i++) { %>
+                <li class="no-img">
+                    <div class="book-info">
+                        <h3>
+                            <a href="http://www.qidian.com/Book/<%= recomWordNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomWordNewBook[i]['bookId'] %>"><%=
+                                recomWordNewBook[i]['recomTitle'] %>
+                            </a></h3>
+                        <p><%= recomWordNewBook[i]['recomWords'] %></p>
+                        <div class="state-box cf">
+                            <span><%= recomWordNewBook[i]['dailyUpdateWords'] %></span><i><%=
+                            recomWordNewBook[i]['subCategoryName']
+                            %></i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= recomWordNewBook[i]['authorId']  %>" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png"><%=
+                            recomWordNewBook[i]['authorName'] %></a>
+                        </div>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <div class="right-wrap fr" data-aid="qd_A132">
+        <!-- start 新人·签约新书榜 -->
+        <div class="rank-list">
+            <h3 class="wrap-title">新人<i>
+                &#183;</i>签约新书榜<a class="more" href="//<%= staticConf.domainPrefix %>r.qidian.com/signnewbook" target="_blank" data-aid="qd_A133"><em>|</em>更多</a>
+            </h3>
+            <div class="book-list">
+                <ul>
+                    <li class="unfold">
+                        <div class="book-wrap cf">
+                            <div class="book-info fl">
+                                <h3>NO.1</h3>
+                                <h4>
+                                    <a href="http://www.qidian.com/Book/<%= chartSignNewBook[0]['bookId'] %>.aspx" target="_blank" data-bid="<%= chartSignNewBook[0]['bookId'] %>"><%=
+                                        chartSignNewBook[0]['bookName'] %></a></h4>
+                                <p class="digital"><em><%= chartSignNewBook[0]['potentialVal'] %></em>潜力值</p>
+                                <p class="author"><a class="type" href="<%= chartSignNewBook[0]['chanUrl'] %>" target="_blank"><%=
+                                    chartSignNewBook[0]['chanName'] %></a><i>
+                                    &#183;</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartSignNewBook[0]['authorId'] %>" target="_blank"><%=
+                                    chartSignNewBook[0]['authorName'] %></a>
+                                </p>
+                            </div>
+                            <div class="book-cover">
+                                <a class="link" href="http://www.qidian.com/Book/<%= chartSignNewBook[0]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartSignNewBook[0]['bookId'] %>">
+                                    <img src="<%=  chartSignNewBook[0]['imageUrl'] %>" alt="<%= chartSignNewBook[0]['bookName'] %>">
+                                </a>
+                                <span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <% for(var i=1; i < chartSignNewBook.length; i++) { %>
+                    <li>
+                        <div class="num-box" href="javascript:"><span class="num<%=  i+1 %>"><%=  i+1 %></span></div>
+                        <div class="name-box">
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartSignNewBook[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartSignNewBook[i]['bookId'] %>"><%= chartSignNewBook[i]['bookName'] %></a><i class="total"><%= chartSignNewBook[i]['potentialVal'] %></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 新人·签约新书榜 -->
+    </div>
+</div>
+<!-- end 新书推荐 -->

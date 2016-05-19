@@ -1,0 +1,69 @@
+<!-- start 固定顶部导航条 -->
+<div id="pin-nav" class="pin-nav-wrap">
+    <div class="box-center cf">
+        <div class="nav-list site-nav fl">
+            <ul>
+                <li class="site"><a class="pin-logo" href="//<%= staticConf.domainPrefix %>i.qidian.com"><span></span></a>
+                    <div class="dropdown">
+                        <a href="http://www.qdmm.com" target="_blank" data-aid="qd_A42">起点女生网</a>
+                        <!--<a href="http://k.qidian.com" target="_blank" data-aid="qd_A43">起点文学网</a>-->
+                        <a href="http://chuangshi.qq.com" target="_blank" data-aid="qd_A44">创世中文网</a>
+                        <a href="http://yunqi.qq.com" target="_blank" data-aid="qd_A45">云起书院</a>
+                    </div>
+                </li>
+                <li><a href="http://xuanhuan.qidian.com" target="_blank" data-aid="qd_A46">玄幻</a></li>
+                <li><a href="http://dushi.qidian.com" target="_blank" data-aid="qd_A48">都市</a></li>
+                <li><a href="http://xianxia.qidian.com" target="_blank" data-aid="qd_A47">仙侠</a></li>
+                <li><a href="http://kehuan.qidian.com" target="_blank" data-aid="qd_A60">科幻</a></li>
+                <li><a href="http://qihuan.qidian.com" target="_blank" data-aid="qd_A49">奇幻</a></li>
+                <li><a href="http://lishi.qidian.com" target="_blank" data-aid="qd_A57">历史</a></li>
+                <li><a href="//<%= staticConf.domainPrefix %>r.qidian.com" target="_blank">排行</a></li>
+                <li class="more"><a href="javascript:" target="_blank" data-aid=".qd_A56">更多<span></span></a>
+                    <div class="dropdown">
+                        <a href="http://2cy.qidian.com/" target="_blank" data-aid="qd_A61">二次元</a>
+                        <a href="http://youxi.qidian.com/" target="_blank" data-aid="qd_A59">游戏</a>
+                        <a href="http://wuxia.qidian.com" target="_blank" data-aid="qd_A50">武侠</a>
+                        <a href="http://lingyi.qidian.com" target="_blank" data-aid="qd_A52"> 灵异</a>
+                        <a href="http://junshi.qidian.com" target="_blank" data-aid="qd_A53">军事</a>
+                        <a href="http://zhichang.qidian.com" target="_blank" data-aid="qd_A51">职场</a>
+                        <a href="http://jingji.qidian.com/" target="_blank" data-aid="qd_A58">体育</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-list min-user fr">
+            <ul>
+                <li id="min-search">
+                    <a id="pin-search" href="javascript:" target="_blank" data-aid="qd_A62"><em class="iconfont">
+                        &#xe60d;</em>
+                    </a>
+                    <input id="pin-input" class="pin-input hide" type="text" placeholder="<%= defaultSearch['keywords'] %>">
+                </li>
+                <li class="line"></li>
+                <!-- 未登录 -->
+                <li class="sign-out">
+                    <a id="pin-login" href="javascript:" data-aid="qd_A64">登录</a>
+                    <a class="reg" href="http://reg.qidian.com" target="_blank">注册</a>
+                </li>
+                <!-- 登录后 -->
+                <li class="sign-in hidden">
+                    <a href="javascript:" target="_blank" data-aid="qd_A65"><i id="nav-user-name"></i><span></span></a>
+                    <div class="dropdown">
+                        <a href="http://me.qidian.com/msg/lists.aspx?page=1" target="_blank" data-aid="qd_A66">消息(<i id="top-msg">0</i>)</a>
+                        <a href="http://me.qidian.com/account/charge.aspx" target="_blank">充值</a>
+                        <a href="http://me.qidian.com/Index.aspx" target="_blank">个人中心</a>
+                        <a href="http://kf.qidian.com/Default.aspx" target="_blank">客服中心</a>
+                        <a id="exit" href="javascript:" data-aid="qd_A67">退出</a>
+                    </div>
+                </li>
+                <li class="line"></li>
+                <li class="book-shelf">
+                    <a href="http://me.qidian.com/bookCase/bookCase.aspx" target="_blank" data-aid="qd_A63"><em class="iconfont">&#xe60c;</em><i>我的书架
+                        <!--产品要求去除-->
+                        <!--<cite id="pin-shelf"></cite>-->
+                    </i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end 固定顶部导航条 -->

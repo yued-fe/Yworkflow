@@ -1,0 +1,25 @@
+{
+  "code": 0,
+  "msg": "good",
+  "query": "Unit",
+  "suggestions": [
+    {
+      "data": {
+        "category": "书名"
+      },
+      "value": "花与剑与法兰西"
+    },
+    {
+      "data": {
+        "category": "书名"
+      },
+      "value": "花与剑与法兰西2"
+    },
+    {
+      "data": {
+        "category": "作家"
+      },
+      "value": "夜梨花"
+    }
+  ]
+}

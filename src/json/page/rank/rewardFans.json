@@ -1,0 +1,582 @@
+{
+  "code": 0,
+  "data": {
+    "userList": [
+      {
+        "userId": 4192964,
+        "userName": "Fning",
+        "spend": 171552640
+      },
+      {
+        "userId": 106690213,
+        "userName": "烟灰黯然跌落",
+        "spend": 169083876
+      },
+      {
+        "userId": 20597788,
+        "userName": "涳谷~茗杺",
+        "spend": 128985764
+      },
+      {
+        "userId": 124536726,
+        "userName": "诸神承诺的永远",
+        "spend": 110300175
+      },
+      {
+        "userId": 19286077,
+        "userName": "zxingli",
+        "spend": 110000000
+      },
+      {
+        "userId": 151845932,
+        "userName": "凤舞云梦",
+        "spend": 80002764
+      },
+      {
+        "userId": 132669796,
+        "userName": "贺兰山的魂",
+        "spend": 76157444
+      },
+      {
+        "userId": 119722910,
+        "userName": "karlking",
+        "spend": 65158509
+      },
+      {
+        "userId": 6374617,
+        "userName": "紫月亮1970",
+        "spend": 65025475
+      },
+      {
+        "userId": 132286942,
+        "userName": "龍吟月",
+        "spend": 53020196
+      },
+      {
+        "userId": 198860190,
+        "userName": "旅人Proto",
+        "spend": 50028662
+      },
+      {
+        "userId": 18679924,
+        "userName": "走叉大大",
+        "spend": 44733612
+      },
+      {
+        "userId": 10885368,
+        "userName": "书路行者",
+        "spend": 38063472
+      },
+      {
+        "userId": 164451423,
+        "userName": "renym",
+        "spend": 33415796
+      },
+      {
+        "userId": 120427008,
+        "userName": "右掱邊~",
+        "spend": 30988022
+      },
+      {
+        "userId": 5175808,
+        "userName": "猪猫红军",
+        "spend": 30923888
+      },
+      {
+        "userId": 117039931,
+        "userName": "gogogo1982",
+        "spend": 29510600
+      },
+      {
+        "userId": 259278,
+        "userName": "魔天真君",
+        "spend": 27100000
+      },
+      {
+        "userId": 119420500,
+        "userName": "笑东风数落花",
+        "spend": 23447480
+      },
+      {
+        "userId": 160992603,
+        "userName": "华雪鉴",
+        "spend": 23191996
+      },
+      {
+        "userId": 7388605,
+        "userName": "Y.jolin",
+        "spend": 23100200
+      },
+      {
+        "userId": 136069192,
+        "userName": "see_an",
+        "spend": 20578098
+      },
+      {
+        "userId": 202235287,
+        "userName": "superluckkk",
+        "spend": 20362876
+      },
+      {
+        "userId": 6690419,
+        "userName": "浅笑轻纱",
+        "spend": 20110339
+      },
+      {
+        "userId": 160869713,
+        "userName": "夜默尘隐",
+        "spend": 19610000
+      },
+      {
+        "userId": 8334119,
+        "userName": "龙行天下99999",
+        "spend": 17462976
+      },
+      {
+        "userId": 1935135,
+        "userName": "点一根烟a",
+        "spend": 17347152
+      },
+      {
+        "userId": 108734011,
+        "userName": "爱看小说5555",
+        "spend": 17280320
+      },
+      {
+        "userId": 157811195,
+        "userName": "上林苑套间",
+        "spend": 16704104
+      },
+      {
+        "userId": 116480881,
+        "userName": "icenleen",
+        "spend": 15729396
+      },
+      {
+        "userId": 120442020,
+        "userName": "風之號角",
+        "spend": 14027492
+      },
+      {
+        "userId": 113091269,
+        "userName": "王八气质的猪",
+        "spend": 13000100
+      },
+      {
+        "userId": 119031374,
+        "userName": "丫丫的丫丫的1",
+        "spend": 12877286
+      },
+      {
+        "userId": 102199062,
+        "userName": "小A同学",
+        "spend": 12595984
+      },
+      {
+        "userId": 130104135,
+        "userName": "tony liang",
+        "spend": 12429688
+      },
+      {
+        "userId": 21482857,
+        "userName": "chchwang",
+        "spend": 12298888
+      },
+      {
+        "userId": 115079634,
+        "userName": "XIN嘚私奔",
+        "spend": 11995976
+      },
+      {
+        "userId": 9802843,
+        "userName": "翻書看寂寞",
+        "spend": 11990666
+      },
+      {
+        "userId": 3329560,
+        "userName": "风乔",
+        "spend": 11516576
+      },
+      {
+        "userId": 19775039,
+        "userName": "唐门总盟",
+        "spend": 11276440
+      },
+      {
+        "userId": 168469889,
+        "userName": "又一批小1",
+        "spend": 11064916
+      },
+      {
+        "userId": 131339951,
+        "userName": "3了3了吧",
+        "spend": 11002088
+      },
+      {
+        "userId": 123411253,
+        "userName": "元誓",
+        "spend": 10920000
+      },
+      {
+        "userId": 168469972,
+        "userName": "阿什顿及1",
+        "spend": 10783075
+      },
+      {
+        "userId": 190849212,
+        "userName": "superworld",
+        "spend": 10653151
+      },
+      {
+        "userId": 134850168,
+        "userName": "yayaxhhy",
+        "spend": 10400100
+      },
+      {
+        "userId": 129980726,
+        "userName": "尖叫吧",
+        "spend": 10281652
+      },
+      {
+        "userId": 129506021,
+        "userName": "我行我素XOO",
+        "spend": 10110000
+      },
+      {
+        "userId": 2965946,
+        "userName": "script",
+        "spend": 10021176
+      },
+      {
+        "userId": 111086411,
+        "userName": "HI洋葱头",
+        "spend": 10003776
+      },
+      {
+        "userId": 6073411,
+        "userName": "紫月亮1975",
+        "spend": 9121132
+      },
+      {
+        "userId": 118823591,
+        "userName": "SuperKitty",
+        "spend": 8911028
+      },
+      {
+        "userId": 6903072,
+        "userName": "天血无常",
+        "spend": 8764616
+      },
+      {
+        "userId": 828823,
+        "userName": "腾龙飞",
+        "spend": 8649052
+      },
+      {
+        "userId": 108459327,
+        "userName": "parkourman",
+        "spend": 8571560
+      },
+      {
+        "userId": 4231317,
+        "userName": "kaboka",
+        "spend": 8376368
+      },
+      {
+        "userId": 11308495,
+        "userName": "笨蛋小西瓜",
+        "spend": 8317324
+      },
+      {
+        "userId": 133099281,
+        "userName": "反求诸己",
+        "spend": 8203515
+      },
+      {
+        "userId": 888787,
+        "userName": "叶落孤雨",
+        "spend": 8161452
+      },
+      {
+        "userId": 18679749,
+        "userName": "凡尘魔心",
+        "spend": 7602600
+      },
+      {
+        "userId": 116891598,
+        "userName": "whocool",
+        "spend": 7484616
+      },
+      {
+        "userId": 5983306,
+        "userName": "刷卡迟早要还",
+        "spend": 7095008
+      },
+      {
+        "userId": 91141,
+        "userName": "划风@吻",
+        "spend": 7033692
+      },
+      {
+        "userId": 13011031,
+        "userName": "笑容不是为我",
+        "spend": 7026936
+      },
+      {
+        "userId": 768597,
+        "userName": "冥·路西法",
+        "spend": 6924372
+      },
+      {
+        "userId": 130500507,
+        "userName": "读者87654321",
+        "spend": 6789128
+      },
+      {
+        "userId": 110651930,
+        "userName": "好书献花渣书砸砖",
+        "spend": 6748932
+      },
+      {
+        "userId": 4424748,
+        "userName": "roddick1",
+        "spend": 6529276
+      },
+      {
+        "userId": 131167531,
+        "userName": "浩宇大少",
+        "spend": 6373792
+      },
+      {
+        "userId": 131071433,
+        "userName": "老马的天空",
+        "spend": 6351612
+      },
+      {
+        "userId": 114657784,
+        "userName": "小纯洋",
+        "spend": 6348932
+      },
+      {
+        "userId": 102131489,
+        "userName": "梦想不死",
+        "spend": 6301872
+      },
+      {
+        "userId": 107311711,
+        "userName": "唐门-雨浩",
+        "spend": 6241904
+      },
+      {
+        "userId": 148854348,
+        "userName": "凤栖梧桐626",
+        "spend": 6240200
+      },
+      {
+        "userId": 4265418,
+        "userName": "葛上亭长",
+        "spend": 6200000
+      },
+      {
+        "userId": 112910895,
+        "userName": "无敌の帅哥",
+        "spend": 5947032
+      },
+      {
+        "userId": 1331095,
+        "userName": "木恩",
+        "spend": 5843044
+      },
+      {
+        "userId": 122205277,
+        "userName": "庄john",
+        "spend": 5788404
+      },
+      {
+        "userId": 110099709,
+        "userName": "猪猫喝酒",
+        "spend": 5784812
+      },
+      {
+        "userId": 119858344,
+        "userName": "王者ぜ天下",
+        "spend": 5764355
+      },
+      {
+        "userId": 133879572,
+        "userName": "兄弟裤裆开了",
+        "spend": 5693792
+      },
+      {
+        "userId": 7394590,
+        "userName": "富翁的成长",
+        "spend": 5634732
+      },
+      {
+        "userId": 332852,
+        "userName": "跃马天山",
+        "spend": 5234044
+      },
+      {
+        "userId": 11252743,
+        "userName": "忒无聊",
+        "spend": 5161728
+      },
+      {
+        "userId": 121529109,
+        "userName": "方恋海",
+        "spend": 5125432
+      },
+      {
+        "userId": 124439754,
+        "userName": "天海祥云",
+        "spend": 5013316
+      },
+      {
+        "userId": 72926,
+        "userName": "七界",
+        "spend": 4930368
+      },
+      {
+        "userId": 122399733,
+        "userName": "星空的物语",
+        "spend": 4802100
+      },
+      {
+        "userId": 191180417,
+        "userName": "魔天记吧V5",
+        "spend": 4780588
+      },
+      {
+        "userId": 127343259,
+        "userName": "wingofgod",
+        "spend": 4740000
+      },
+      {
+        "userId": 150595594,
+        "userName": "aaa999aaa",
+        "spend": 4733452
+      },
+      {
+        "userId": 169105545,
+        "userName": "md12",
+        "spend": 4733265
+      },
+      {
+        "userId": 117195144,
+        "userName": "jiadelao",
+        "spend": 4723036
+      },
+      {
+        "userId": 1929608,
+        "userName": "秋水为弦",
+        "spend": 4717180
+      },
+      {
+        "userId": 177810313,
+        "userName": "起点送祝福",
+        "spend": 4696000
+      },
+      {
+        "userId": 5484713,
+        "userName": "西岭雪东吴船",
+        "spend": 4634976
+      },
+      {
+        "userId": 6020934,
+        "userName": "Slyvain",
+        "spend": 4534028
+      },
+      {
+        "userId": 115687174,
+        "userName": "超级无敌高手高手高高手",
+        "spend": 4507143
+      },
+      {
+        "userId": 10095655,
+        "userName": "牧﹏",
+        "spend": 4485688
+      },
+      {
+        "userId": 6315842,
+        "userName": "xiuxiulian",
+        "spend": 4421140
+      }
+    ],
+    "paramList": {
+      "dateType": 0,
+      "rankType": 14
+    },
+    "timeStamp": 1461765496442
+  },
+  "msg": "成功",
+  "defaultSearch": {
+    "keywords": "从前有座灵剑山"
+  },
+  "chanUpdCnt": {
+    "qihuan": {
+      "cnt": 10950,
+      "type": 1
+    },
+    "wuxia": {
+      "cnt": 6443,
+      "type": 0
+    },
+    "dushi": {
+      "cnt": 30080,
+      "type": 1
+    },
+    "lishi": {
+      "cnt": 7317,
+      "type": 0
+    },
+    "junshi": {
+      "cnt": 1803,
+      "type": 0
+    },
+    "youxi": {
+      "cnt": 7496,
+      "type": 0
+    },
+    "jingji": {
+      "cnt": 669,
+      "type": 0
+    },
+    "kehuan": {
+      "cnt": 17340,
+      "type": 0
+    },
+    "lingyi": {
+      "cnt": 6618,
+      "type": 0
+    },
+    "erciyuan": {
+      "cnt": 7712,
+      "type": 0
+    },
+    "zhichang": {
+      "cnt": 1577,
+      "type": 0
+    },
+    "xuanhuan": {
+      "cnt": 67102,
+      "type": 0
+    },
+    "xianxia": {
+      "cnt": 19607,
+      "type": 1
+    },
+    "mm": {
+      "cnt": 115882,
+      "type": 0
+    }
+  },
+  "adBanner1": {
+    "title": "",
+    "adJumpUrl": "http://game.qidian.com/game/xbjz/login.aspx",
+    "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/992b505ec0195a083c0941c720f5eb04/0",
+    "adCategoryName": "游戏",
+    "colorType": 0,
+    "type": 1
+  }
+}

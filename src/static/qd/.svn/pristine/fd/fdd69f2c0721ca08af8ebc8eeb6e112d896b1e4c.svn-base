@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 字号22的标题 - 调整行高 */
+/* 嵌套小三角 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+/* 报错页面 */
+body, .footer, .footer .box-center {
+  background: #F7F5F0; }
+
+.pin-nav-wrap {
+  position: relative;
+  z-index: 10;
+  top: 0; }
+
+.error-wrap {
+  width: 990px;
+  padding: 220px 0 220px 0;
+  margin: 0 auto; }
+
+.error-img {
+  width: 532px;
+  height: 232px;
+  margin-right: 60px;
+  background: url("/qd/images/error/error.png") no-repeat; }
+
+.error-text h3 {
+  margin-bottom: 32px;
+  color: #6B3612;
+  font: 36px/42px FZZCYSK; }
+.error-text p {
+  color: #808080;
+  font: 14px/32px "PingFangSC-Regular", Simsun; }
+  .error-text p.mb25 {
+    margin-bottom: 25px; }
+  .error-text p strong {
+    font-weight: 400;
+    color: #1A1A1A; }
+  .error-text p em {
+    margin: 0 5px;
+    font-family: Arial; }
+  .error-text p a {
+    color: #3F5A93; }
+    .error-text p a:hover {
+      color: #2972CC; }
+  .error-text p i {
+    margin: 0 5px;
+    color: #3F5A93; }
+
+/* retina屏双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+  .error-img {
+    background: url("/qd/images/error/error_2x.png") no-repeat;
+    background-size: 100%; } }
+
+/*# sourceMappingURL=error.css.map */

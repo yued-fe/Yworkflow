@@ -1,0 +1,210 @@
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@font-face {
+    font-family: 'iconfont';
+
+    src: url('/qd/css/font/iconfont.0.1.0.1.eot');
+    /* IE9*/
+    src: url('/qd/css/font/iconfont.0.1.0.1.eot?#iefix') format('embedded-opentype'), url('/qd/css/font/iconfont.0.1.0.1.woff') format('woff'), url('/qd/css/font/iconfont.0.1.0.1.ttf') format('truetype'), url('/qd/css/font/iconfont.0.1.0.1.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: 'FZZCYSK';
+    font-weight: normal;
+    font-style: normal; 
+
+    src: url('/qd/css/font/FZZCYSK.0.2.eot');
+    src: url('/qd/css/font/FZZCYSK.0.2.eot?#iefix') format('embedded-opentype'), url('/qd/css/font/FZZCYSK.0.2.woff') format('woff'), url('/qd/css/font/FZZCYSK.0.2.ttf') format('truetype'), url('/qd/css/font/FZZCYSK.0.2.svg#FZZCYSK') format('svg');
+}
+
+.iconfont {
+    font-family: 'iconfont' !important;
+    font-size: 24px;
+    font-style: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .1px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dushi:before {
+    content: '\e600';
+}
+
+.icon-jingji:before {
+    content: '\e601';
+}
+
+.icon-junshi:before {
+    content: '\e602';
+}
+
+.icon-kehuan:before {
+    content: '\e603';
+}
+
+.icon-kehuduan:before {
+    content: '\e604';
+}
+
+.icon-lingyi:before {
+    content: '\e606';
+}
+
+.icon-nvshengwang:before {
+    content: '\e607';
+}
+
+.icon-pinglun:before {
+    content: '\e608';
+}
+
+.icon-qihuan:before {
+    content: '\e609';
+}
+
+.icon-shijian:before {
+    content: '\e60a';
+}
+
+.icon-shouyou:before {
+    content: '\e60b';
+}
+
+.icon-shujia:before {
+    content: '\e60c';
+}
+
+.icon-sousuo:before {
+    content: '\e60d';
+}
+
+.icon-tongzhi:before {
+    content: '\e60e';
+}
+
+.icon-wuxia:before {
+    content: '\e60f';
+}
+
+.icon-xianxia:before {
+    content: '\e610';
+}
+
+.icon-xuanhuan:before {
+    content: '\e611';
+}
+
+.icon-youxi:before {
+    content: '\e612';
+}
+
+.icon-youxi1:before {
+    content: '\e613';
+}
+
+.icon-zhichang:before {
+    content: '\e614';
+}
+
+.icon-erciyuan:before {
+    content: '\e617';
+}
+
+.icon-lishi:before {
+    content: '\e616';
+}
+
+.icon-tuliebiao:before {
+    content: '\e618';
+}
+
+.icon-tuwen:before {
+    content: '\e619';
+}
+
+.icon-wenziliebiao:before {
+    content: '\e61a';
+}
+
+.icon-shangyinhao:before {
+    content: '\e61b';
+}
+
+.icon-xiayinhao:before {
+    content: '\e61c';
+}
+
+.icon-chenggong:before {
+    content: '\e61d';
+}
+
+.icon-cuowu:before {
+    content: '\e61e';
+}
+
+.icon-guanbi:before {
+    content: '\e61f';
+}
+
+.icon-youjiantou:before {
+    content: '\e621';
+}
+
+.icon-shangjiantou:before {
+    content: '\e622';
+}
+
+.icon-xiajiantou:before {
+    content: '\e623';
+}
+
+.icon-jiangxu:before {
+    content: '\e625';
+}
+
+.icon-shengxu:before {
+    content: '\e626';
+}
+
+.icon-weipaixu:before {
+    content: '\e627';
+}
+
+.icon-yiwen:before {
+    content: '\e624';
+}
+
+.success, .error {
+    margin-right: 5px; 
+    font-size: 14px;
+}
+
+.success {
+    color: #8ccd0a;
+}
+
+.error {
+    color: #ed4259;
+}
+
+.blue {
+    color: #3f5a93;
+}
+.blue:hover {
+    color: #2972cc;
+}
+
+.gray {
+    color: #a6a6a6;
+}
+.gray:hover {
+    color: #a6a6a6;
+}
