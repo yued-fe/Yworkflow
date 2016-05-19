@@ -14,7 +14,6 @@ var del = require('del');
 
 var folders = require('gulp-folders');
 
-
 var paths = {
     img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}'],// 图片相关
     sass: 'src/static/**/*.scss',

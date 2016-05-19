@@ -21,6 +21,10 @@
 	2. 进入项目文件夹目录，执行`npm install` ,若日志提示`permission denied` 权限的问题,请执行`sudo npm install`
 
 
+##初始
+
+
+
 ##构建工具目录结构
 
 ````bash
