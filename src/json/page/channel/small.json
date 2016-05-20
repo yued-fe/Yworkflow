@@ -1,0 +1,1748 @@
+﻿{
+  "timeStamp": 1463367951517,
+  "chanId": 21,
+  "chanName": "玄幻",
+  "bgImgUrl": "http://qidian.qpic.cn/qidian_common/349573/a02685294f4f2357b161ce6cfaa8f3ab/0",
+  "subCategory": [
+    {
+      "subCategoryId": 8,
+      "subCategoryName": "东方玄幻",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=8"
+    },
+    {
+      "subCategoryId": 73,
+      "subCategoryName": "异界大陆",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=73"
+    },
+    {
+      "subCategoryId": 58,
+      "subCategoryName": "异界争霸",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=58"
+    },
+    {
+      "subCategoryId": 78,
+      "subCategoryName": "远古神话",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=78"
+    }
+  ],
+  "chanRank": {
+    "name": "玄幻排行",
+    "link": "http://r.qidian.com/?chn=21"
+  },
+  "chanFin": {
+    "name": "玄幻完本",
+    "link": "http://fin.qidian.com/?chanId=21"
+  },
+  "chanFree": {
+    "name": "玄幻免费",
+    "link": "http://f.qidian.com/all?chanId=21"
+  },
+  "rightTopRecom": {
+    "bookId": 1001788040,
+    "bookName": "草根石布衣",
+    "authorId": 3625199,
+    "authorName": "石慌",
+    "recomTitle": "信春哥无bug般若波罗蜜",
+    "colorType": 0
+  },
+  "newsRightTop": [
+    {
+      "newsTitle": "测试001",
+      "jumpUrl": "http://qidian.com",
+      "adCategoryName": "资讯",
+      "colorType": 0
+    },
+    {
+      "newsTitle": "测试002",
+      "jumpUrl": "http://www.qq.com",
+      "adCategoryName": "公告",
+      "colorType": 0
+    },
+    {
+      "newsTitle": "测试003",
+      "jumpUrl": "http://www.qidian.com",
+      "adCategoryName": "资讯",
+      "colorType": 0
+    },
+    {
+      "newsTitle": "测试004",
+      "jumpUrl": "http://www.qidian.com",
+      "adCategoryName": "资讯",
+      "colorType": 0
+    }
+  ],
+  "adRightBottom": [
+    {
+      "title": "",
+      "link": "http://game.qidian.com/game/LoginGame/Login2012.aspx?areaUrl=aHR0cDovL3VwLnlvdXp1LmNvbXxnYW1laWQ9MzMzfGdhbWVuYW1lPcWuyfHBqsPLMnxnYW1lYXJlYT0xMnxhcmVhbmFtZT3G8LXjMTLH.HxhcmVhc2hvcnQ9bnNsbTI%3d",
+      "imgUrl": "http://shp.qpic.cn/qidian_common/349573/d98133c7e140c73a7b4b1f35b5ec940b/0",
+      "type": 1
+    }
+  ],
+  "strongRecom": [
+    {
+      "bookId": 3250907,
+      "bookName": "起点测试作品_主站上架",
+      "chanId": 6,
+      "chanUrl": "http://junshi.qidian.com",
+      "chanName": "军事",
+      "authorId": 4049826,
+      "authorName": "红杉",
+      "imageUrl": "http://image.cmfu.com/books/3250907/3250907.jpg",
+      "desc": "",
+      "colorType": 0
+    },
+    {
+      "bookId": 1620203,
+      "bookName": "33333",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "authorId": 145600,
+      "authorName": "测试笔名",
+      "imageUrl": "http://image.cmfu.com/books/1620203/1620203.jpg",
+      "desc": "",
+      "colorType": 0
+    },
+    {
+      "bookId": 3294448,
+      "bookName": "帝国崛起",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "authorId": 4362923,
+      "authorName": "断刃天涯",
+      "imageUrl": "http://image.cmfu.com/books/3294448/3294448.jpg",
+      "desc": "时空旅行者的明末生涯，故事从天启七年末开始。",
+      "colorType": 0
+    },
+    {
+      "bookId": 1167384,
+      "bookName": "天王",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "authorId": 4362305,
+      "authorName": "跳舞",
+      "imageUrl": "http://image.cmfu.com/books/1167384/1167384.jpg",
+      "desc": "陈潇是一个十八岁的孤儿，他的父母曾经是尖端科",
+      "colorType": 0
+    },
+    {
+      "bookId": 1890269,
+      "bookName": "大圣传",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "authorId": 4362686,
+      "authorName": "说梦者",
+      "imageUrl": "http://image.cmfu.com/books/1890269/1890269.jpg",
+      "desc": "妖魔中的至高无上者，名为“大圣”。少年走出山",
+      "colorType": 0
+    },
+    {
+      "bookId": 3576354,
+      "bookName": "银河霸主饲养手记",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "authorId": 4362426,
+      "authorName": "月面",
+      "imageUrl": "http://image.cmfu.com/books/3576354/3576354.jpg",
+      "desc": "普通版简介：捡了个外星萝莉结果她是前银河霸主",
+      "colorType": 0
+    },
+    {
+      "bookId": 1031950,
+      "bookName": "卡徒",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "authorId": 4362261,
+      "authorName": "方想",
+      "imageUrl": "http://image.cmfu.com/books/1031950/1031950.jpg",
+      "desc": "方想所构建的一个全新幻想世界，请入！",
+      "colorType": 0
+    },
+    {
+      "bookId": 2540310,
+      "bookName": "帝尊",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "authorId": 4362125,
+      "authorName": "宅猪",
+      "imageUrl": "http://image.cmfu.com/books/2540310/2540310.jpg",
+      "desc": "武道可以通神！武道修炼到神轮的境界，便可以炼",
+      "colorType": 1
+    },
+    {
+      "bookId": 2643379,
+      "bookName": "奥术神座",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "authorId": 4362088,
+      "authorName": "爱潜水的乌贼",
+      "imageUrl": "http://image.cmfu.com/books/2643379/2643379.jpg",
+      "desc": "“知识就等于力量。”“所谓神，不过是强大一点",
+      "colorType": 0
+    },
+    {
+      "bookId": 3347595,
+      "bookName": "择天记",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "authorId": 4362908,
+      "authorName": "猫腻",
+      "imageUrl": "http://image.cmfu.com/books/3347595/3347595.jpg",
+      "desc": "太始元年，有神石自太空飞来，分散落在人间，其",
+      "colorType": 0
+    }
+  ],
+  "centerImgRecom": [
+    {
+      "bookId": 1140692,
+      "bookName": "百炼成仙",
+      "imageUrl": "http://image.cmfu.com/books/1140692/1140692.jpg",
+      "recomTitle": "百炼成仙"
+    },
+    {
+      "bookId": 3113386,
+      "bookName": "公子风流",
+      "imageUrl": "http://image.cmfu.com/books/3113386/3113386.jpg",
+      "recomTitle": "公子风流"
+    },
+    {
+      "bookId": 2336338,
+      "bookName": "圣堂",
+      "imageUrl": "http://image.cmfu.com/books/2336338/2336338.jpg",
+      "recomTitle": "圣堂"
+    },
+    {
+      "bookId": 1590068,
+      "bookName": "召唤万岁",
+      "imageUrl": "http://image.cmfu.com/books/1590068/1590068.jpg",
+      "recomTitle": "召唤万岁"
+    }
+  ],
+
+  "chanNewBkRecom": {
+    "title": "玄幻新书",
+    "bookList": [
+      {
+        "bookId": 1140692,
+        "bookName": "百炼成仙",
+        "chanId": 22,
+        "chanUrl": "http://xianxia.qidian.com",
+        "chanName": "仙侠",
+        "recomTitle": "百炼成仙",
+        "colorType": 0
+      },
+      {
+        "bookId": 3113386,
+        "bookName": "公子风流",
+        "chanId": 5,
+        "chanUrl": "http://lishi.qidian.com",
+        "chanName": "历史",
+        "recomTitle": "公子风流",
+        "colorType": 0
+      },
+      {
+        "bookId": 2336338,
+        "bookName": "圣堂",
+        "chanId": 22,
+        "chanUrl": "http://xianxia.qidian.com",
+        "chanName": "仙侠",
+        "recomTitle": "圣堂",
+        "colorType": 0
+      },
+      {
+        "bookId": 1590068,
+        "bookName": "召唤万岁",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "recomTitle": "召唤万岁",
+        "colorType": 0
+      },
+      {
+        "bookId": 1562523,
+        "bookName": "武装风暴",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "recomTitle": "武装风暴",
+        "colorType": 0
+      },
+      {
+        "bookId": 2936801,
+        "bookName": "神级英雄",
+        "chanId": 7,
+        "chanUrl": "http://youxi.qidian.com",
+        "chanName": "游戏",
+        "recomTitle": "神级英雄",
+        "colorType": 0
+      },
+      {
+        "bookId": 1659706,
+        "bookName": "黑暗血时代",
+        "chanId": 9,
+        "chanUrl": "http://kehuan.qidian.com",
+        "chanName": "科幻",
+        "recomTitle": "黑暗血时代",
+        "colorType": 0
+      },
+      {
+        "bookId": 2227457,
+        "bookName": "飞天",
+        "chanId": 22,
+        "chanUrl": "http://xianxia.qidian.com",
+        "chanName": "仙侠",
+        "recomTitle": "飞天",
+        "colorType": 0
+      },
+      {
+        "bookId": 3483546,
+        "bookName": "寒门崛起",
+        "chanId": 5,
+        "chanUrl": "http://lishi.qidian.com",
+        "chanName": "历史",
+        "recomTitle": "寒门崛起",
+        "colorType": 0
+      },
+      {
+        "bookId": 1784765,
+        "bookName": "琥珀之剑",
+        "chanId": 7,
+        "chanUrl": "http://youxi.qidian.com",
+        "chanName": "游戏",
+        "recomTitle": "琥珀之剑",
+        "colorType": 0
+      }
+    ]
+  },
+  "chartNewBkClick": [
+    {
+      "bookId": 1002491915,
+      "bookName": "怒瀚",
+      "authorId": 2574594,
+      "authorName": "新兵扛老枪",
+      "imageUrl": "http://image.cmfu.com/books/1002491915/1002491915.jpg",
+      "statistic": 12113
+    },
+    {
+      "bookId": 1001730574,
+      "bookName": "史上最强师兄",
+      "authorId": 3862340,
+      "authorName": "八月飞鹰",
+      "imageUrl": "http://image.cmfu.com/books/1001730574/1001730574.jpg",
+      "statistic": 10133
+    },
+    {
+      "bookId": 3688228,
+      "bookName": "纨绔邪皇",
+      "authorId": 4362276,
+      "authorName": "开荒",
+      "imageUrl": "http://image.cmfu.com/books/3688228/3688228.jpg",
+      "statistic": 7992
+    },
+    {
+      "bookId": 1003242530,
+      "bookName": "孺子帝",
+      "authorId": 2640931,
+      "authorName": "冰临神下",
+      "imageUrl": "http://image.cmfu.com/books/1003242530/1003242530.jpg",
+      "statistic": 5874
+    },
+    {
+      "bookId": 1001818845,
+      "bookName": "二次元帝国",
+      "authorId": 3848856,
+      "authorName": "魔道弟子",
+      "imageUrl": "http://image.cmfu.com/books/1001818845/1001818845.jpg",
+      "statistic": 4545
+    },
+    {
+      "bookId": 1002391954,
+      "bookName": "寻情仙使",
+      "authorId": 4363040,
+      "authorName": "陈风笑",
+      "imageUrl": "http://image.cmfu.com/books/1002391954/1002391954.jpg",
+      "statistic": 3604
+    },
+    {
+      "bookId": 1002014560,
+      "bookName": "黑暗主宰",
+      "authorId": 3673539,
+      "authorName": "零下九十度",
+      "imageUrl": "http://image.cmfu.com/books/1002014560/1002014560.jpg",
+      "statistic": 3381
+    },
+    {
+      "bookId": 3686542,
+      "bookName": "恶魔囚笼",
+      "authorId": 1135414,
+      "authorName": "颓废龙",
+      "imageUrl": "http://image.cmfu.com/books/3686542/3686542.jpg",
+      "statistic": 1976
+    },
+    {
+      "bookId": 1003243719,
+      "bookName": "至尊主播",
+      "authorId": 4266624,
+      "authorName": "兔子来了",
+      "imageUrl": "http://image.cmfu.com/books/1003243719/1003243719.jpg",
+      "statistic": 1948
+    },
+    {
+      "bookId": 1002225021,
+      "bookName": "超级红包",
+      "authorId": 6109217,
+      "authorName": "我是店长",
+      "imageUrl": "http://image.cmfu.com/books/1002225021/1002225021.jpg",
+      "statistic": 1776
+    }
+  ],
+  "hotSerialRecom": {
+    "left": [
+      {
+        "bookId": 1003354631,
+        "bookName": "一念永恒",
+        "authorId": 4362120,
+        "authorName": "耳根",
+        "chanId": 22,
+        "chanUrl": "http://xianxia.qidian.com",
+        "chanName": "仙侠",
+        "imageUrl": "http://image.cmfu.com/books/1003354631/1003354631.jpg",
+        "praiseCnt": "9.7",
+        "recomWords": "兵不血刃一样能干掉一个国家。一个可以兑换现实货币的游戏，一个超级敛财机器。",
+        "popularity": "5,526,023"
+      },
+      {
+        "bookId": 3676417,
+        "bookName": "玄界之门",
+        "authorId": 4362771,
+        "authorName": "忘语",
+        "chanId": 22,
+        "chanUrl": "http://xianxia.qidian.com",
+        "chanName": "仙侠",
+        "imageUrl": "http://image.cmfu.com/books/3676417/3676417.jpg",
+        "praiseCnt": "9.7",
+        "recomWords": "他是一位大学老师，无意中得传上古五帝真经，修炼了大混沌五行心法的修真者。",
+        "popularity": "26,023"
+      },
+      {
+        "bookId": 1003365191,
+        "bookName": "神纹战记",
+        "authorId": 4362918,
+        "authorName": "雨水",
+        "chanId": 9,
+        "chanUrl": "http://kehuan.qidian.com",
+        "chanName": "科幻",
+        "imageUrl": "http://image.cmfu.com/books/1003365191/1003365191.jpg",
+        "praiseCnt": "9.7",
+        "recomWords": "一个千门高手，因为一道闪电，莫名其妙来到了大唐永徽四年，让整个世界都为他起舞。",
+        "popularity": "326,023"
+      }
+    ],
+    "center": [
+      {
+        "bookId": 1003251646,
+        "bookName": "不朽法神",
+        "authorId": 6278460,
+        "authorName": "超大白",
+        "chanId": 1,
+        "chanUrl": "http://qihuan.qidian.com",
+        "chanName": "奇幻",
+        "imageUrl": "http://image.cmfu.com/books/1003251646/1003251646.jpg",
+        "praiseCnt": "9.9"
+      },
+      {
+        "bookId": 2510964,
+        "bookName": "龙皇武神",
+        "authorId": 3070004,
+        "authorName": "步征",
+        "chanId": 4,
+        "chanUrl": "http://dushi.qidian.com",
+        "chanName": "都市",
+        "imageUrl": "http://image.cmfu.com/books/2510964/2510964.jpg",
+        "praiseCnt": "9.7"
+      },
+      {
+        "bookId": 3683163,
+        "bookName": "寒门状元",
+        "authorId": 4362578,
+        "authorName": "天子",
+        "chanId": 5,
+        "chanUrl": "http://lishi.qidian.com",
+        "chanName": "历史",
+        "imageUrl": "http://image.cmfu.com/books/3683163/3683163.jpg",
+        "praiseCnt": "8.7"
+      },
+      {
+        "bookId": 3552978,
+        "bookName": "巫神纪",
+        "authorId": 4362118,
+        "authorName": "血红",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "imageUrl": "http://image.cmfu.com/books/3552978/3552978.jpg",
+        "praiseCnt": "9.7"
+      },
+      {
+        "bookId": 1001648331,
+        "bookName": "大文宗",
+        "authorId": 5823014,
+        "authorName": "崔安",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "imageUrl": "http://image.cmfu.com/books/1001648331/1001648331.jpg",
+        "praiseCnt": "9.7"
+      },
+      {
+        "bookId": 1003460496,
+        "bookName": "摸金天帝",
+        "authorId": 4362714,
+        "authorName": "狗狍子",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "imageUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg",
+        "praiseCnt": "9.7"
+      },
+      {
+        "bookId": 1003467253,
+        "bookName": "大国医",
+        "authorId": 3017582,
+        "authorName": "美味罗宋汤",
+        "chanId": 5,
+        "chanUrl": "http://lishi.qidian.com",
+        "chanName": "历史",
+        "imageUrl": "http://image.cmfu.com/books/1003467253/1003467253.jpg",
+        "praiseCnt": "8.7"
+      },
+      {
+        "bookId": 3686892,
+        "bookName": "巅峰小农民",
+        "authorId": 4262154,
+        "authorName": "白菜汤",
+        "chanId": 4,
+        "chanUrl": "http://dushi.qidian.com",
+        "chanName": "都市",
+        "imageUrl": "http://image.cmfu.com/books/3686892/3686892.jpg",
+        "praiseCnt": "9.7"
+      },
+      {
+        "bookId": 1003121988,
+        "bookName": "不灭龙帝",
+        "authorId": 4225324,
+        "authorName": "妖夜",
+        "chanId": 21,
+        "chanUrl": "http://xuanhuan.qidian.com",
+        "chanName": "玄幻",
+        "imageUrl": "http://image.cmfu.com/books/1003121988/1003121988.jpg",
+        "praiseCnt": "9.7"
+      }
+    ]
+  },
+  "chartDaySales": [
+    {
+      "bookId": "3347598",
+      "bookName": "我真是大明星",
+      "authorId": "4362273",
+      "authorName": "尝谕",
+      "subCategoryName": "东方玄幻",
+      "imageUrl": "http://image.cmfu.com/books/3347598/3347598.jpg",
+      "trend": 0
+    },
+    {
+      "bookId": "2952453",
+      "bookName": "完美世界",
+      "authorId": "4362453",
+      "authorName": "辰东",
+      "subCategoryName": "东方玄幻",
+      "imageUrl": "http://image.cmfu.com/books/2952453/2952453.jpg",
+      "trend": 0
+    },
+    {
+      "bookId": "3079913",
+      "bookName": "超品相师",
+      "authorId": "3692225",
+      "authorName": "九灯和善",
+      "subCategoryName": "异界大陆",
+      "imageUrl": "http://image.cmfu.com/books/3079913/3079913.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "3676417",
+      "bookName": "玄界之门",
+      "authorId": "4362771",
+      "authorName": "忘语",
+      "subCategoryName": "异界大陆",
+      "imageUrl": "http://image.cmfu.com/books/3676417/3676417.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "2750457",
+      "bookName": "大主宰",
+      "authorId": "1019021",
+      "authorName": "天蚕土豆",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/2750457/2750457.jpg",
+      "trend": -1
+    },
+    {
+      "bookId": "2510964",
+      "bookName": "龙皇武神",
+      "authorId": "3070004",
+      "authorName": "步征",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/2510964/2510964.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "3513193",
+      "bookName": "雪鹰领主",
+      "authorId": "4362096",
+      "authorName": "我吃西红柿",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/3513193/3513193.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "1002225021",
+      "bookName": "超级红包",
+      "authorId": "6109217",
+      "authorName": "我是店长",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/1002225021/1002225021.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "3218385",
+      "bookName": "医统江山",
+      "authorId": "4362260",
+      "authorName": "石章鱼",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/3218385/3218385.jpg",
+      "trend": 1
+    },
+    {
+      "bookId": "3681560",
+      "bookName": "龙王传说",
+      "authorId": "4921",
+      "authorName": "唐家三少",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/3681560/3681560.jpg",
+      "trend": 0
+    }
+  ],
+  "hotSubCategory": {
+    "subCategory1": {
+      "subCategoryName": "东方玄幻",
+      "subCategoryDesc": "东方Project是日本同人游戏社团上海爱丽丝幻乐团所制作的一系列同人游戏、相关作品，以及其二次创作所构成的覆盖游戏、动画、漫画、音乐、文学等诸多方面的领域",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=8",
+      "bookList": [
+        {
+          "bookId": 1003354631,
+          "bookName": "一念永恒",
+          "authorId": 4362120,
+          "authorName": "耳根",
+          "chanId": "22",
+          "chanName": "仙侠",
+          "chanUrl": "http://xianxia.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003354631/1003354631.jpg",
+          "potentialVal": 354298
+        },
+        {
+          "bookId": 1001325524,
+          "bookName": "宝典",
+          "authorId": 4362283,
+          "authorName": "录事参军",
+          "chanId": "22",
+          "chanName": "仙侠",
+          "chanUrl": "http://xianxia.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1001325524/1001325524.jpg",
+          "potentialVal": 33624
+        },
+        {
+          "bookId": 1003453695,
+          "bookName": "文娱缔造者",
+          "authorId": 3617118,
+          "authorName": "别人家的小猫咪",
+          "chanId": "4",
+          "chanName": "都市",
+          "chanUrl": "http://dushi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003453695/1003453695.jpg",
+          "potentialVal": 29362
+        },
+        {
+          "bookId": 1003459786,
+          "bookName": "魔神乐园",
+          "authorId": 4370099,
+          "authorName": "熊狼狗",
+          "chanId": "21",
+          "chanName": "玄幻",
+          "chanUrl": "http://xuanhuan.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003459786/1003459786.jpg",
+          "potentialVal": 21284
+        },
+        {
+          "bookId": 1003384043,
+          "bookName": "史上最牛轮回",
+          "authorId": 3082471,
+          "authorName": "那一抹绯红",
+          "chanId": "22",
+          "chanName": "仙侠",
+          "chanUrl": "http://xianxia.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003384043/1003384043.jpg",
+          "potentialVal": 19646
+        },
+        {
+          "bookId": 1003467253,
+          "bookName": "大国医",
+          "authorId": 3017582,
+          "authorName": "美味罗宋汤",
+          "chanId": "5",
+          "chanName": "历史",
+          "chanUrl": "http://lishi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003467253/1003467253.jpg",
+          "potentialVal": 15595
+        }
+      ]
+    },
+    "subCategory2": {
+      "subCategoryName": "远古神话",
+      "subCategoryDesc": "信春哥无bug",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=78",
+      "bookList": [
+        {
+          "bookId": 1003460496,
+          "bookName": "摸金天帝",
+          "authorId": 4362714,
+          "authorName": "狗狍子",
+          "chanId": "21",
+          "chanName": "玄幻",
+          "chanUrl": "http://xuanhuan.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg",
+          "potentialVal": 15389
+        },
+        {
+          "bookId": 1003443861,
+          "bookName": "好莱坞之路",
+          "authorId": 3814337,
+          "authorName": "白色十三号",
+          "chanId": "4",
+          "chanName": "都市",
+          "chanUrl": "http://dushi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003443861/1003443861.jpg",
+          "potentialVal": 13555
+        },
+        {
+          "bookId": 1003445969,
+          "bookName": "天纹帝君",
+          "authorId": 4862037,
+          "authorName": "我是钢筋工",
+          "chanId": "21",
+          "chanName": "玄幻",
+          "chanUrl": "http://xuanhuan.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003445969/1003445969.jpg",
+          "potentialVal": 12557
+        },
+        {
+          "bookId": 1003474037,
+          "bookName": "星河帝国",
+          "authorId": 3763897,
+          "authorName": "深蓝椰子汁",
+          "chanId": "21",
+          "chanName": "玄幻",
+          "chanUrl": "http://xuanhuan.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003474037/1003474037.jpg",
+          "potentialVal": 11042
+        },
+        {
+          "bookId": 1003440488,
+          "bookName": "大明星是我",
+          "authorId": 3784133,
+          "authorName": "精品香烟",
+          "chanId": "4",
+          "chanName": "都市",
+          "chanUrl": "http://dushi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003440488/1003440488.jpg",
+          "potentialVal": 8211
+        }
+      ]
+    },
+    "subCategory3": {
+      "subCategoryName": "异界大陆",
+      "subCategoryDesc": "约翰·罗纳德·瑞尔·托尔金创作了奇幻小说《魔戒》三部曲,是异界小说的鼻祖",
+      "link": "http://a.qidian.com/?chanId=21&subCateId=73",
+      "bookList": [
+        {
+          "bookId": 1003464622,
+          "bookName": "洪荒奇门",
+          "authorId": 3713098,
+          "authorName": "坏坏无极",
+          "chanId": "21",
+          "chanName": "玄幻",
+          "chanUrl": "http://xuanhuan.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003464622/1003464622.jpg",
+          "potentialVal": 6315
+        },
+        {
+          "bookId": 1003438805,
+          "bookName": "外道",
+          "authorId": 4450775,
+          "authorName": "风物无情",
+          "chanId": "22",
+          "chanName": "仙侠",
+          "chanUrl": "http://xianxia.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003438805/1003438805.jpg",
+          "potentialVal": 6122
+        },
+        {
+          "bookId": 1003463200,
+          "bookName": "文科之王",
+          "authorId": 4427769,
+          "authorName": "白湖湾",
+          "chanId": "4",
+          "chanName": "都市",
+          "chanUrl": "http://dushi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003463200/1003463200.jpg",
+          "potentialVal": 5517
+        },
+        {
+          "bookId": 1003440488,
+          "bookName": "大明星是我",
+          "authorId": 3784133,
+          "authorName": "精品香烟",
+          "chanId": "4",
+          "chanName": "都市",
+          "chanUrl": "http://dushi.qidian.com",
+          "imageUrl": "http://image.cmfu.com/books/1003440488/1003440488.jpg",
+          "potentialVal": 8211
+        }
+      ]
+    }
+  },
+  "authorRecom": {
+    "authorId": 4362120,
+    "authorName": "耳根",
+    "imgUrl": "http://shp.qpic.cn/qidian_common/349573/645b93a09247f9448e381c1282264fa2/0",
+    "authorLevel": 5,
+    "desc": "更新了作品《粪坑炸裂》"
+  },
+  "fansNews": {
+    "userId": 4362120,
+    "userName": "耳根2",
+    "imgUrl": "http://shp.qpic.cn/qidian_common/349573/645b93a09247f9448e381c1282264fa2/0",
+    "userLevel": 5,
+    "fansLevel":"长老",
+    "desc": "对《粪坑炸裂》打赏了888起点币"
+  },
+  "chartMonthTicket": [
+    {
+      "bookId": 3582993,
+      "bookName": "弑天刃",
+      "authorId": 4362291,
+      "authorName": "小刀锋利",
+      "subCategoryName": "远古神话",
+      "imageUrl": "http://image.cmfu.com/books/3582993/3582993.jpg",
+      "statistic": 12896
+    },
+    {
+      "bookId": 3638453,
+      "bookName": "五行天",
+      "authorId": 4362261,
+      "authorName": "方想",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/3638453/3638453.jpg",
+      "statistic": 11583
+    },
+    {
+      "bookId": 1001730574,
+      "bookName": "史上最强师兄",
+      "authorId": 3862340,
+      "authorName": "八月飞鹰",
+      "subCategoryName": "异界争霸",
+      "imageUrl": "http://image.cmfu.com/books/1001730574/1001730574.jpg",
+      "statistic": 10159
+    },
+    {
+      "bookId": 2952453,
+      "bookName": "完美世界",
+      "authorId": 4362453,
+      "authorName": "辰东",
+      "subCategoryName": "远古神话",
+      "imageUrl": "http://image.cmfu.com/books/2952453/2952453.jpg",
+      "statistic": 9805
+    },
+    {
+      "bookId": 3513193,
+      "bookName": "雪鹰领主",
+      "authorId": 4362096,
+      "authorName": "我吃西红柿",
+      "subCategoryName": "远古神话",
+      "imageUrl": "http://image.cmfu.com/books/3513193/3513193.jpg",
+      "statistic": 8861
+    },
+    {
+      "bookId": 3688228,
+      "bookName": "纨绔邪皇",
+      "authorId": 4362276,
+      "authorName": "开荒",
+      "subCategoryName": "东方玄幻",
+      "imageUrl": "http://image.cmfu.com/books/3688228/3688228.jpg",
+      "statistic": 8035
+    },
+    {
+      "bookId": 3681560,
+      "bookName": "龙王传说",
+      "authorId": 4921,
+      "authorName": "唐家三少",
+      "subCategoryName": "东方玄幻",
+      "imageUrl": "http://image.cmfu.com/books/3681560/3681560.jpg",
+      "statistic": 7450
+    },
+    {
+      "bookId": 3552978,
+      "bookName": "巫神纪",
+      "authorId": 4362118,
+      "authorName": "血红",
+      "subCategoryName": "魔法奇缘",
+      "imageUrl": "http://image.cmfu.com/books/3552978/3552978.jpg",
+      "statistic": 7245
+    },
+    {
+      "bookId": 2750457,
+      "bookName": "大主宰",
+      "authorId": 1019021,
+      "authorName": "天蚕土豆",
+      "subCategoryName": "异界大陆",
+      "imageUrl": "http://image.cmfu.com/books/2750457/2750457.jpg",
+      "statistic": 5756
+    },
+    {
+      "bookId": 2673646,
+      "bookName": "黑铁之堡",
+      "authorId": 4362533,
+      "authorName": "醉虎",
+      "subCategoryName": "异界大陆",
+      "imageUrl": "http://image.cmfu.com/books/2673646/2673646.jpg",
+      "statistic": 5216
+    }
+  ],
+  "toipicRecom": [
+    {
+      "recomTitle": "春哥书单",
+      "recomWords": "信春哥无bug",
+      "link": "http://book.qq.com/ndwxj/2016/tp",
+      "imgUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg"
+    },
+    {
+      "recomTitle": "春哥书单",
+      "recomWords": "世界上最遥远的距离不是生与死, 而是你看着本帅哥的照片却不知道本帅哥在哪",
+      "link": "http://book.qq.com/ndwxj/2016/tp",
+      "imgUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg"
+    },
+    {
+      "recomTitle": "春哥书单",
+      "recomWords": "天空中一个由无数云彩组成的帅字",
+      "link": "http://book.qq.com/ndwxj/2016/tp",
+      "imgUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg"
+    },
+    {
+      "recomTitle": "春哥书单2",
+      "recomWords": "世界上最遥远的距离不是生与死, 而是你看着本帅哥的照片却不知道本帅哥在哪",
+      "link": "http://book.qq.com/ndwxj/2016/tp",
+      "imgUrl": "http://image.cmfu.com/books/1003460496/1003460496.jpg"
+    }
+  ],
+  "lastUpdRecom": {
+    "updBookCnt": 10575,
+    "bookList": [
+      {
+        "bookId": 3362920,
+        "bookName": "天域苍穹",
+        "authorId": 4362475,
+        "authorName": "风凌天下",
+        "praiseCnt": "9.8",
+        "wordsCount": "日更4k+",
+        "recomWords": "我欲舞风云，凌天下，踏天域，登苍穹！谁可争锋？！\r\n 诸君可愿陪我，并肩凌天下，琼霄风云舞，征战这天域苍穹？！",
+        "imageUrl": "http://image.cmfu.com/books/3362920/3362920.jpg"
+      },
+      {
+        "bookId": 3347952,
+        "bookName": "俗人回档 ",
+        "authorId": 3799943,
+        "authorName": "庚不让",
+        "praiseCnt": "9.5",
+        "wordsCount": "日更6k+",
+        "recomWords": "一个少年的逆天之路。回档的俗人在俗世里春风得意、快意恩仇、与天比高。",
+        "imageUrl": "http://image.cmfu.com/books/3347952/3347952.jpg"
+      }
+    ]
+  },
+  "chartUpdList": [
+    {
+      "bookId": 1003361670,
+      "bookName": "与汝缘定今生何年",
+      "authorId": 6491322,
+      "authorName": "马小寒",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "颠沛流离 东山再起　第03章节 卷土重来未可知",
+      "updChapterUrl": "http://read.qidian.com/BookReader/IrJLsCFJjBVxo3Pbs2jtrw2,C3L473m_UfPM5j8_3RRvhw2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003271046,
+      "bookName": "法神之戒",
+      "authorId": 6268154,
+      "authorName": "淹死的飞鸟",
+      "chanId": 7,
+      "chanUrl": "http://youxi.qidian.com",
+      "chanName": "游戏",
+      "updChapterName": "黑暗时代的降临　第六十六章综合战力指数:250",
+      "updChapterUrl": "http://read.qidian.com/BookReader/dP8rPFQNf7ZmzDX0o03xsg2,DV34fSow0hi2uJcMpdsVgA2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 3684446,
+      "bookName": "美女总裁的小保安",
+      "authorId": 5488484,
+      "authorName": "先抽烟再码字",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第296章 冰系异能者",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3684446,308057718.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 1
+    },
+    {
+      "bookId": 1003378864,
+      "bookName": "妖精踪记",
+      "authorId": 6568998,
+      "authorName": "碌无为",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "正文卷　第十二章 痛楚",
+      "updChapterUrl": "http://read.qidian.com/BookReader/85uGGXtwzaIVDwQbBL_r1g2,Xs8mjgxyru5Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 3615944,
+      "bookName": "大明书童",
+      "authorId": 4853775,
+      "authorName": "法大小蒋",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "updChapterName": "第二百四十五章：大乱出奇迹",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3615944,308057710.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 1
+    },
+    {
+      "bookId": 1003297915,
+      "bookName": "时空中介",
+      "authorId": 3522517,
+      "authorName": "我丫是一俗人",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "新的征途　第八十二章、蒋凌",
+      "updChapterUrl": "http://read.qidian.com/BookReader/OSLoqgUnVqLLDxeCJGEX4g2,Gp8hmOGr_APM5j8_3RRvhw2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 3688699,
+      "bookName": "混在女校做保镖",
+      "authorId": 6294741,
+      "authorName": "苍空",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "正文卷　第147章 他作弊",
+      "updChapterUrl": "http://read.qidian.com/BookReader/bMRp0lNfzh01,joV2JRpDOC9Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 3688140,
+      "bookName": "大明督师",
+      "authorId": 6095044,
+      "authorName": "奔叔",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "updChapterName": "第102章 蜕变",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688140,308057693.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3688150,
+      "bookName": "无罪十八岁",
+      "authorId": 6096819,
+      "authorName": "三巨头",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第249章 和老子刚正面干一架",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688150,308057690.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 1003477748,
+      "bookName": "仙道魔戮",
+      "authorId": 6945307,
+      "authorName": "黑白君子",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "updChapterName": "正文卷　第五章：生死擂",
+      "updChapterUrl": "http://read.qidian.com/BookReader/-OP1eWxuC3o25kCkTf2hCw2,mc8h2P6wBn_6ItTi_ILQ7A2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003481965,
+      "bookName": "山河纪元",
+      "authorId": 6967531,
+      "authorName": "倒数第二页",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "updChapterName": "正文卷　第四章 陶氏部落",
+      "updChapterUrl": "http://read.qidian.com/BookReader/-5a_FYsveyAJiWg6PYdjVg2,UL0hnKLVp9bgn4SMoDUcDQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 3547428,
+      "bookName": "重生之文化巨匠",
+      "authorId": 4704756,
+      "authorName": "沧海大鲲鹏",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第三百一十八章 还要继续鼓捣《聊斋》吗",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3547428,308057683.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 1003454355,
+      "bookName": "太阴神帝",
+      "authorId": 6824994,
+      "authorName": "九欢",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "第十八章 夜赴宗庙",
+      "updChapterUrl": "http://read.qidian.com/BookReader/d-tVomQQkjUvLUkaWbCIdw2,_qixcxF_pu1Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 3464113,
+      "bookName": "升级闯无限",
+      "authorId": 4365282,
+      "authorName": "混沌映画",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "updChapterName": "来自火星的兄贵　第五十五章 接天黑潮",
+      "updChapterUrl": "http://read.qidian.com/BookReader/2gReZwngY-E1,BUvbL4v8CFTgn4SMoDUcDQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003360834,
+      "bookName": "剑出纯阳",
+      "authorId": 6487539,
+      "authorName": "剑听风",
+      "chanId": 7,
+      "chanUrl": "http://youxi.qidian.com",
+      "chanName": "游戏",
+      "updChapterName": "作品相关　群号在书评区",
+      "updChapterUrl": "http://read.qidian.com/BookReader/OYqMqwqD2VboTMoHyHZuUA2,8LvMIguRBXxOBDFlr9quQA2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    }
+  ],
+  "chartUpdListFree": [
+    {
+      "bookId": 1003459784,
+      "bookName": "荒天境",
+      "authorId": 6824535,
+      "authorName": "北辰莫",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "正文卷　第八章 错过",
+      "updChapterUrl": "http://read.qidian.com/BookReader/H6tBJded21pfNVrkjhr67g2,iK3xDxVfnxlp4rPq4Fd4KQ2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003361670,
+      "bookName": "与汝缘定今生何年",
+      "authorId": 6491322,
+      "authorName": "马小寒",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "颠沛流离 东山再起　第03章节 卷土重来未可知",
+      "updChapterUrl": "http://read.qidian.com/BookReader/IrJLsCFJjBVxo3Pbs2jtrw2,C3L473m_UfPM5j8_3RRvhw2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003271046,
+      "bookName": "法神之戒",
+      "authorId": 6268154,
+      "authorName": "淹死的飞鸟",
+      "chanId": 7,
+      "chanUrl": "http://youxi.qidian.com",
+      "chanName": "游戏",
+      "updChapterName": "黑暗时代的降临　第六十六章综合战力指数:250",
+      "updChapterUrl": "http://read.qidian.com/BookReader/dP8rPFQNf7ZmzDX0o03xsg2,DV34fSow0hi2uJcMpdsVgA2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003378864,
+      "bookName": "妖精踪记",
+      "authorId": 6568998,
+      "authorName": "碌无为",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "正文卷　第十二章 痛楚",
+      "updChapterUrl": "http://read.qidian.com/BookReader/85uGGXtwzaIVDwQbBL_r1g2,Xs8mjgxyru5Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003297915,
+      "bookName": "时空中介",
+      "authorId": 3522517,
+      "authorName": "我丫是一俗人",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "新的征途　第八十二章、蒋凌",
+      "updChapterUrl": "http://read.qidian.com/BookReader/OSLoqgUnVqLLDxeCJGEX4g2,Gp8hmOGr_APM5j8_3RRvhw2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 3688699,
+      "bookName": "混在女校做保镖",
+      "authorId": 6294741,
+      "authorName": "苍空",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "正文卷　第147章 他作弊",
+      "updChapterUrl": "http://read.qidian.com/BookReader/bMRp0lNfzh01,joV2JRpDOC9Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003481965,
+      "bookName": "山河纪元",
+      "authorId": 6967531,
+      "authorName": "倒数第二页",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "updChapterName": "正文卷　第四章 陶氏部落",
+      "updChapterUrl": "http://read.qidian.com/BookReader/-5a_FYsveyAJiWg6PYdjVg2,UL0hnKLVp9bgn4SMoDUcDQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003477748,
+      "bookName": "仙道魔戮",
+      "authorId": 6945307,
+      "authorName": "黑白君子",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "updChapterName": "正文卷　第五章：生死擂",
+      "updChapterUrl": "http://read.qidian.com/BookReader/-OP1eWxuC3o25kCkTf2hCw2,mc8h2P6wBn_6ItTi_ILQ7A2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003454355,
+      "bookName": "太阴神帝",
+      "authorId": 6824994,
+      "authorName": "九欢",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "第十八章 夜赴宗庙",
+      "updChapterUrl": "http://read.qidian.com/BookReader/d-tVomQQkjUvLUkaWbCIdw2,_qixcxF_pu1Ms5iq0oQwLQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 3464113,
+      "bookName": "升级闯无限",
+      "authorId": 4365282,
+      "authorName": "混沌映画",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "updChapterName": "来自火星的兄贵　第五十五章 接天黑潮",
+      "updChapterUrl": "http://read.qidian.com/BookReader/2gReZwngY-E1,BUvbL4v8CFTgn4SMoDUcDQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003360834,
+      "bookName": "剑出纯阳",
+      "authorId": 6487539,
+      "authorName": "剑听风",
+      "chanId": 7,
+      "chanUrl": "http://youxi.qidian.com",
+      "chanName": "游戏",
+      "updChapterName": "作品相关　群号在书评区",
+      "updChapterUrl": "http://read.qidian.com/BookReader/OYqMqwqD2VboTMoHyHZuUA2,8LvMIguRBXxOBDFlr9quQA2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003488598,
+      "bookName": "十方灵祖",
+      "authorId": 6978469,
+      "authorName": "花乱心",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "正文卷　第五章 初次修炼",
+      "updChapterUrl": "http://read.qidian.com/BookReader/2L85ocPLiq0AFWAflvxzYg2,zfGeQSmaOH5OBDFlr9quQA2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003477552,
+      "bookName": "终极时空战神",
+      "authorId": 5008263,
+      "authorName": "盼大熊",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "正文卷　第十一章 对不起，我爱你!",
+      "updChapterUrl": "http://read.qidian.com/BookReader/lNh7ej80D5Hv7_WH3wfEdQ2,iK3xDxVfnxngn4SMoDUcDQ2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003311742,
+      "bookName": "术仕",
+      "authorId": 2862876,
+      "authorName": "老师不是神",
+      "chanId": 10,
+      "chanUrl": "http://lingyi.qidian.com",
+      "chanName": "灵异",
+      "updChapterName": "第三卷 五雷天师令　第六十七章 九天神雷",
+      "updChapterUrl": "http://read.qidian.com/BookReader/nMgEXXVcxxrffahp3g1tpg2,iK3xDxVfnxn4p8iEw--PPw2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    },
+    {
+      "bookId": 1003440831,
+      "bookName": "漠问道",
+      "authorId": 6253437,
+      "authorName": "竹园里的传说",
+      "chanId": 22,
+      "chanUrl": "http://xianxia.qidian.com",
+      "chanName": "仙侠",
+      "updChapterName": "正文卷　第十章 不易",
+      "updChapterUrl": "http://read.qidian.com/BookReader/bfwaQ0fgQ81RGoWu-UQg7Q2,jp65_8Q3p4_M5j8_3RRvhw2.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 0
+    }
+  ],
+  "chartUpdListVip": [
+    {
+      "bookId": 3684446,
+      "bookName": "美女总裁的小保安",
+      "authorId": 5488484,
+      "authorName": "先抽烟再码字",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第296章 冰系异能者",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3684446,308057718.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 1
+    },
+    {
+      "bookId": 3615944,
+      "bookName": "大明书童",
+      "authorId": 4853775,
+      "authorName": "法大小蒋",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "updChapterName": "第二百四十五章：大乱出奇迹",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3615944,308057710.aspx",
+      "updTime": "05-16 17:21",
+      "isVip": 1
+    },
+    {
+      "bookId": 3688140,
+      "bookName": "大明督师",
+      "authorId": 6095044,
+      "authorName": "奔叔",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "updChapterName": "第102章 蜕变",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688140,308057693.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3688150,
+      "bookName": "无罪十八岁",
+      "authorId": 6096819,
+      "authorName": "三巨头",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第249章 和老子刚正面干一架",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688150,308057690.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3547428,
+      "bookName": "重生之文化巨匠",
+      "authorId": 4704756,
+      "authorName": "沧海大鲲鹏",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第三百一十八章 还要继续鼓捣《聊斋》吗",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3547428,308057683.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3681607,
+      "bookName": "主角猎杀者",
+      "authorId": 3348102,
+      "authorName": "野山黑猪",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "updChapterName": "第358章 讨伐队伍！美女战队！",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3681607,308057664.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 11543,
+      "bookName": "复活之战斗在第三帝国",
+      "authorId": 6923,
+      "authorName": "锋锐",
+      "chanId": 6,
+      "chanUrl": "http://junshi.qidian.com",
+      "chanName": "军事",
+      "updChapterName": "第三百二十二章 格尔哈特的大发现（上）",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,11543,308057447.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3683596,
+      "bookName": "魔兽风云",
+      "authorId": 3496674,
+      "authorName": "九弥之夜",
+      "chanId": 1,
+      "chanUrl": "http://qihuan.qidian.com",
+      "chanName": "奇幻",
+      "updChapterName": "第187章 三国协定",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3683596,307844918.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3687420,
+      "bookName": "无敌英雄世界",
+      "authorId": 5836612,
+      "authorName": "奇迹未来",
+      "chanId": 9,
+      "chanUrl": "http://kehuan.qidian.com",
+      "chanName": "科幻",
+      "updChapterName": "第171节 疯狂的英雄！",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3687420,308031530.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 3354168,
+      "bookName": "幸福武侠",
+      "authorId": 1052884,
+      "authorName": "啃魂",
+      "chanId": 2,
+      "chanUrl": "http://wuxia.qidian.com",
+      "chanName": "武侠",
+      "updChapterName": "第十一章 天上有人飞",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3354168,308047017.aspx",
+      "updTime": "05-16 17:20",
+      "isVip": 1
+    },
+    {
+      "bookId": 2712617,
+      "bookName": "无尽丹田",
+      "authorId": 4362968,
+      "authorName": "横扫天涯",
+      "chanId": 21,
+      "chanUrl": "http://xuanhuan.qidian.com",
+      "chanName": "玄幻",
+      "updChapterName": "第两千五百五十章 最后的礼物（下）",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,2712617,308057659.aspx",
+      "updTime": "05-16 17:19",
+      "isVip": 1
+    },
+    {
+      "bookId": 3145161,
+      "bookName": "阳光大秦",
+      "authorId": 2928681,
+      "authorName": "光暗之心",
+      "chanId": 5,
+      "chanUrl": "http://lishi.qidian.com",
+      "chanName": "历史",
+      "updChapterName": "第六百三十章 【华夏租界】",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3145161,308057617.aspx",
+      "updTime": "05-16 17:19",
+      "isVip": 1
+    },
+    {
+      "bookId": 3688131,
+      "bookName": "傲世豪侠",
+      "authorId": 6080023,
+      "authorName": "良神",
+      "chanId": 2,
+      "chanUrl": "http://wuxia.qidian.com",
+      "chanName": "武侠",
+      "updChapterName": "第一百九十二章 出手对抗",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3688131,308057624.aspx",
+      "updTime": "05-16 17:18",
+      "isVip": 1
+    },
+    {
+      "bookId": 1003429009,
+      "bookName": "扛个女鬼做老婆",
+      "authorId": 6966352,
+      "authorName": "大汉子民",
+      "chanId": 10,
+      "chanUrl": "http://lingyi.qidian.com",
+      "chanName": "灵异",
+      "updChapterName": "第三百三十章 刘芒忙碌的一天",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,1003429009,308057600.aspx",
+      "updTime": "05-16 17:18",
+      "isVip": 1
+    },
+    {
+      "bookId": 3475485,
+      "bookName": "世外仙农",
+      "authorId": 2731706,
+      "authorName": "帅哥道济",
+      "chanId": 4,
+      "chanUrl": "http://dushi.qidian.com",
+      "chanName": "都市",
+      "updChapterName": "第四百三十五章 找死！",
+      "updChapterUrl": "http://vipreader.qidian.com/BookReader/vip,3475485,308057596.aspx",
+      "updTime": "05-16 17:18",
+      "isVip": 1
+    }
+  ],
+  "finRecom": [
+    {
+      "bookId": 1844713,
+      "bookName": "唐门高手在异世",
+      "subCategoryName": "异界大陆",
+      "wordsCount": "343万",
+      "recomTitle": "卑鄙却不失本性",
+      "recomWords": "行走在黑暗之中，卑鄙却不失本性，无耻却不丢风度的勾魂使者！一个唐门弟子重生到一个全是",
+      "imageUrl": "http://image.cmfu.com/books/1844713/1844713.jpg"
+    },
+    {
+      "bookId": 1586853,
+      "bookName": "重生之资源大亨",
+      "subCategoryName": "商战职场",
+      "wordsCount": "1085万",
+      "recomTitle": "重生之资源大亨",
+      "recomWords": "事业上刚刚小有成就的地质堪探员方明远，被人伪造车祸害死.却诡异地回到了从前……",
+      "imageUrl": "http://image.cmfu.com/books/1586853/1586853.jpg"
+    },
+    {
+      "bookId": 2340330,
+      "bookName": "妙手天师",
+      "subCategoryName": "都市生活",
+      "wordsCount": "234万",
+      "recomTitle": "妙手天师",
+      "recomWords": "不喜欢医术，毕业后为生活所迫，在得到钟馗的传承后，会演绎一段怎么的都市传奇？",
+      "imageUrl": "http://image.cmfu.com/books/2340330/2340330.jpg"
+    },
+    {
+      "bookId": 22919,
+      "bookName": "从零开始",
+      "subCategoryName": "虚拟网游",
+      "wordsCount": "2022万",
+      "recomTitle": "从零开始",
+      "recomWords": "兵不血刃一样能干掉一个国家。一个可以兑换现实货币的游戏，一个超级敛财机器。",
+      "imageUrl": "http://image.cmfu.com/books/22919/22919.jpg"
+    },
+    {
+      "bookId": 2241246,
+      "bookName": "修真老师生活录",
+      "subCategoryName": "异术超能",
+      "wordsCount": "184万",
+      "recomTitle": "修真老师生活录",
+      "recomWords": "他是一位大学老师，无意中得传上古五帝真经，修炼了大混沌五行心法的修真者。",
+      "imageUrl": "http://image.cmfu.com/books/2241246/2241246.jpg"
+    }
+  ],
+  "searchBarRecom": {
+    "query": "Unit",
+    "suggestions": [
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "起坐鱼鸟间"
+      },
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "点缀疏林遍"
+      },
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "很戾竟独迷"
+      },
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "牛得自由骑"
+      },
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "逼夏摇孤锡"
+      },
+      {
+        "data": {
+          "category": "大家都在搜"
+        },
+        "value": "择天记"
+      }
+    ]
+  },
+  "defaultSearch": {
+    "keywords": "从前有座灵剑山"
+  },
+  "adBanner1": {
+    "title": "",
+    "adJumpUrl": "http://game.qidian.com/game/xbjz/login.aspx",
+    "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/992b505ec0195a083c0941c720f5eb04/0",
+    "adCategoryName": "游戏",
+    "colorType": 0,
+    "type": 1
+  },
+  "adBanner2": [
+    {
+      "title": "",
+      "adJumpUrl": "http://www.qdmm.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/4d9e8e99779722edc521b253835383de/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://fbs.qidian.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/f276e573a92bccaf5f68ff5181eaf411/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://baidu.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/ebb7313c5b78cac870a9f5148d1238b6/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://game.qidian.com/game/nslm2/20160114/index.html",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/463c8fa89c0e043a6debb042dd1ef084/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://v.qq.com/cover/u/ulphesb6n048oo3.html?vid=b0159c7x3ww",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/68cbaad4f97ca999119714e115f26802/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    }
+  ],
+  "adBanner3": [
+    {
+      "title": "",
+      "adJumpUrl": "http://3362920.qidian.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/5993af59d6960c08bed5d58e16292961/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://1.qidian.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/eb344d83c9dea83a88237712a16fd852/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    },
+    {
+      "title": "",
+      "adJumpUrl": "http://fbs.qidian.com",
+      "adImgUrl": "http://113.108.77.71:80/qidian_common/349573/b739b02a90c297aeb3dd63eee07ad60b/0",
+      "adCategoryName": "游戏",
+      "colorType": 0,
+      "type": 1
+    }
+  ]
+}

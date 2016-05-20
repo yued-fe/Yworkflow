@@ -1,3 +1,9 @@
+/**
+ * 发布和编译
+ * Author: Luolei
+ */
+
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
 var gulp = require('gulp');
@@ -17,10 +23,11 @@ var paths = {
     prelease: '_prelease'
 };
 
-
+// console.log('静态文件路径名: ' + PROJECT_CONFIG.gtimgName);
 /**
  * 生成带版本号的静态文件
  */
+
 gulp.task('rev', function(cb) {
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
@@ -31,7 +38,7 @@ gulp.task('rev', function(cb) {
     var ignoredFiles = {
         // sprites:paths.dist.
     };
-    gulp.src('build/qd/**')
+    gulp.src('build/' + PROJECT_CONFIG.gtimgName + '/**')
         .pipe(revAll.revision())
         .pipe(gulp.dest('_prelease'))
         .pipe(revAll.manifestFile()) //创建静态资源hash映射表
@@ -77,7 +84,7 @@ gulp.task('rev-views', function(cb) {
 gulp.task('copy',function(){
         // del(['_tmp/**/*'])
         gulp.src('_prelease/**/*')
-        .pipe(gulp.dest('./_tmp/qd'))
+        .pipe(gulp.dest('./_tmp/' + PROJECT_CONFIG.gtimgName))
         // cb()
 })
 

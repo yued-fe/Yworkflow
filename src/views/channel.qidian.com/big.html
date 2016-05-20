@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>玄幻奇幻_起点中文网</title>
+    <meta name="description" content="最热门的免费小说网,提供人气玄幻小说,奇幻小说,武侠小说,仙侠小说,都市小说,历史小说,军事小说,竞技小说,灵异小说,二次元小说,免费小说在线阅读与下载.大神作品齐聚起点,最新章节每日更新">
+    <meta name="keywords" content="免费小说,免费网络小说,免费玄幻小说,免费奇幻小说,免费武侠小说,免费仙侠小说,免费都市小说,免费历史小说,免费军事小说,免费竞技小说,免费灵异小说,免费二次元小说">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+            speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/channel.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+
+</head>
+<body>
+<%
+    /*
+        设置主导航高亮navHighLight = 5
+        首页无高亮（首页没设置此变量）
+        1:全部作品
+        2:排行
+        3:完本
+        4:免费
+        5:频道页
+    */
+    var navHighLight = 5;
+%>
+<div class="wrap">
+    <!-- start 固定导航条 样式和首页不同，非跟随页面滚动 -->
+    <% include ../component/fixed_top_nav.html %>
+    <!-- end 固定导航条 样式和首页不同，非跟随页面滚动 -->
+
+    <!-- start 频道页头部 搜索 -->
+    <div class="channel-header xuanhuan">
+        <div class="box-center cf">
+            <div class="logo-wrap">
+                <a class="xh" href="javascript:"></a>
+            </div>
+            <div class="search-wrap">
+                <input type="text" id="s-box" placeholder="神纹战记" autocomplete="off"><a class="search-btn" id="search-btn" href="javascript:"><em class="iconfont">&#xe60d;</em></a>
+            </div>
+        </div>
+    </div>
+    <!-- end 频道页头部 搜索 -->
+
+    <!-- start 频道页内容 -->
+    <div class="box-center">
+        <!-- start 二级分类链接 -->
+        <div class="sub-type-wrap">
+            <div class="box-center cf">
+                <a href="javascript:">东方玄幻</a>
+                <a href="javascript:">异界大陆</a>
+                <a href="javascript:">异界争霸</a>
+                <a href="javascript:">远古神器</a>
+                <em>|</em>
+                <a href="javascript:">玄幻排行</a>
+                <a href="javascript:">玄幻完本</a>
+                <a href="javascript:">玄幻免费</a>
+            </div>
+        </div>
+        <!-- end 二级分类链接 -->
+
+        <!-- start 首屏焦点 -->
+        <div class="focus-wrap mb40 cf">
+            <!-- start 本周强推 -->
+            <div class="rec-wrap fl">
+                <h3><b>本周强推</b></h3>
+                <div class="rec-list">
+                    <ul>
+                        <% for(var i=0; i < 10; i++) { %>
+                        <li><em><a class="name" href="javascript:">圣脉圣脉圣脉圣脉圣脉</a>
+                            <!-- 预留逻辑注释：并非每一行都展示hot -->
+                            <span></span>
+                        </em>
+                            <a class="author" href="javascript:">猜不出的温柔</a></li>
+                        <% } %>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- end 本周强推 -->
+
+            <!-- start 大封推 -->
+            <div class="channel-focus big-mode fl">
+                <div class="big-list cf">
+                    <ul>
+                        <% for(var i=0; i < 5; i++) { %>
+                        <li>
+                            <div class="img-box">
+                                <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""></a>
+                            </div>
+                            <h3><a href="javascript:">超能战神</a></h3>
+                            <p>是要成为地主的男人</p>
+                        </li>
+
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="new-wrap cf">
+                    <h3><span>新书精选</span><cite></cite></h3>
+                    <ul>
+                        <li class="fl"><a href="javascript:">八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四一二三四五六七八九十一二三四</span></li>
+                        <li class="fr"><a href="javascript:">八神徐天八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四</span></li>
+                        <li class="fl"><a href="javascript:">八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四一二三四五六七八九十一二三四</span></li>
+                        <li class="fr"><a href="javascript:">八神徐天八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end 大封推 -->
+
+            <!-- start 最新动态 -->
+            <div class="notice-wrap fr">
+                <div class="notice-box">
+                    <!-- start 编辑力荐 -->
+                    <div class="edit-rec">
+                        <h3>编辑力荐</h3>
+                        <p title="你的票是起点创世存在的意义">你的票是起点创世存在的意义</p>
+                        <p class="blue">——原始战记<i>&#183;</i><a href="javascript:">风铃天下</a></p>
+                    </div>
+                    <!-- end 编辑力荐 -->
+
+                    <!-- start 频道动态 -->
+                    <div class="dynamic-list">
+                        <h3>频道动态</h3>
+                        <ul>
+                            <% for(var i=0; i < 4; i++) { %>
+                            <li><a href="javascript:"><em>「</em>公告<em>」</em>现实主义题材征赛全面</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <!-- end 频道动态 -->
+                </div>
+                <!-- start 频道页小广告 -->
+                <a class="banner" href="javascript:"><img src="<%= staticConf.staticPath %>/images/channel_banner.jpg" alt=""></a>
+                <!-- end 频道页小广告 -->
+            </div>
+            <!-- end 最新动态 -->
+        </div>
+        <!-- end 首屏焦点 -->
+
+        <!-- start 分类新书，新书榜 -->
+        <div class="new-book-wrap mb40 cf">
+            <!-- start 分类新书 -->
+            <div class="type-new fl">
+                <div class="left-wrap">
+                    <h3>玄幻新书</h3>
+                    <!-- start 新书列表 -->
+                    <div id="new-book-list">
+                        <!-- start 有图的列表循环 -->
+                        <% for(var i=0; i < 2; i++) { %>
+                        <div class="type-new-list cf">
+                            <ul>
+                                <% for(var j=0; j < 3; j++) { %>
+                                <li>
+                                    <div class="book-img">
+                                        <a href="javascript:" target="_blank" data-bid="3465755"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg">
+                                        </a>
+                                    </div>
+                                    <div class="book-info">
+                                        <h4>
+                                            <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                                        <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                                        <div class="state-box cf">
+                                            <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png">缠绕在指尖的灵感</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <% } %>
+                        <!-- end 有图的列表循环 -->
+
+                        <!-- start 无图列表循环 -->
+                        <div class="type-new-list no-img cf">
+                            <ul>
+                                <% for(var i=0; i < 4; i++) { %>
+                                <li>
+                                    <div class="book-info">
+                                        <h4>
+                                            <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                                        <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                                        <div class="state-box cf">
+                                            <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png">缠绕在指尖的灵感</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <!-- end 无图列表循环 -->
+                    </div>
+                    <!--start 新书列表 -->
+                </div>
+            </div>
+            <!-- end 分类新书 -->
+
+            <!-- start 新书榜 -->
+            <div class="right-rank fr">
+                <div class="rank-list">
+                    <h3 class="wrap-title">签约作家新书榜<a class="more" href="//localr.qidian.com/collect" data-aid="qd_C_rank_37"></a></h3>
+                    <div class="book-list">
+
+                        <ul>
+                            <!-- start top 1 2 3 -->
+                            <% for(var i=0; i < 3; i++) { %>
+                            <li class="top">
+                                <div class="num-box"><span class="num1">1</span></div>
+                                <div class="top-name-box">
+                                    <p><a href="javascript:">寻龙诀</a></p>
+                                    <p><span>23424</span>潜力值</p>
+                                </div>
+                                <div class="book-img">
+                                    <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""></a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <!-- end top 1 2 3 -->
+
+                            <!-- start 4-10 -->
+                            <% for(var i=3; i < 10; i++) { %>
+                            <li>
+                                <div class="num-box"><span><%=i+1 %></span></div>
+                                <div class="name-box" data-aid="qd_C_rank_21">
+                                    <a class="name" href="javascript:" target="_blank">斗罗大陆</a>
+                                    <i class="total">63023084</i>
+                                </div>
+                            </li>
+                            <% } %>
+                            <!-- end 4-10 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end 新书榜 -->
+        </div>
+        <!-- end 分类新书，新书榜 -->
+
+        <!-- start 人气连载，24小时热销榜 -->
+        <div class="serial-wrap cf">
+            <!-- start 人气连载 -->
+            <div class="popular-serial fl">
+                <div class="left-wrap">
+                    <h3>人气连载</h3>
+                    <div class="popular-wrap cf">
+                        <!-- start 轮播图 -->
+                        <div class="slider-wrap fl">
+                            暂时不做
+                        </div>
+                        <!-- end 轮播图 -->
+
+                        <!-- start 人气连载列表 -->
+                        <div class="pop-list channel-book-list big-mode fl">
+                            <ul>
+                                <% for(var i=0; i < 3; i++) { %>
+                                <li class="have-img">
+                                    <div class="book-img fl">
+                                        <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""><span>9.8</span></a>
+                                    </div>
+                                    <div class="book-info fl">
+                                        <h4><a href="javascript:">武破九荒</a></h4>
+                                        <p class="intro">作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介</p>
+                                        <div class="state-box cf">
+                                            <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="//local.qidian.com/qd/images/ico/user.png">缠绕在指尖的灵感</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% } %>
+                                <% for(var i=4; i < 16; i++) { %>
+                                <li>
+                                    <div class="no-img-info">
+                                    <h4><span>9.0<em>分</em></span><a href="javascript:">大圣道</a></h4>
+                                    <p>重做回嗜血刺客，残酷的暴君的女枪能力残酷的暴君的女枪能力</p>
+                                    </div>
+                                </li>
+                                <% } %>
+
+                            </ul>
+                        </div>
+                        <!-- end 人气连载列表 -->
+                    </div>
+                </div>
+            </div>
+            <!-- end 人气连载 -->
+
+            <!-- start 24小时热销榜 -->
+            <div class="right-rank fr">
+                <div class="rank-list sort-list">
+                    <h3 class="wrap-title">24小时热销榜<a class="more" href="javascript:"></a></h3>
+                    <div class="book-list">
+                        <ul>
+                            <li class="unfold">
+                                <div class="book-wrap cf">
+                                    <div class="book-info fl">
+                                        <h3>NO.1</h3>
+                                        <h4>
+                                            <a href="http://www.qidian.com/Book/3347598.aspx" target="_blank">我真是大明星</a></h4>
+                                        <p class="digital f16">销量冠军</p>
+                                        <p class="author">
+                                            <a class="type" href="http://zhichang.qidian.com/Default.aspx" target="_blank">职场</a><i>·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4362273" target="_blank">尝谕</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover">
+                                        <a class="link" href="http://www.qidian.com/Book/3347598.aspx" target="_blank">
+                                            <img src="http://image.cmfu.com/books/3347598/3347598.jpg">
+                                        </a>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <% for(var i=1; i < 10; i++) { %>
+                            <li>
+                                <div class="num-box"><span class="num<%=i+1 %>"><%=i+1 %></span></div>
+                                <div class="name-box">
+                                    <a class="name" href="http://www.qidian.com/Book/2952453.aspx " target="_blank">完美世界</a>
+                                    <!-- 预留逻辑判断 -->
+                                    <span class="iconfont up">&#xe626;</span>
+                                    <!--<span class="iconfont">&#xe625;</span>
+                                    <span class="iconfont">&#xe627;</span>-->
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end 24小时热销榜 -->
+        </div>
+        <!-- end 人气连载，24小时热销榜 -->
+
+        <!-- start banner1 -->
+        <div class="banner-wrap box-center mb40" id="banner1">
+            <!-- start 图片广告 -->
+            <a href="javascript:" target="_blank"><img src="<%= staticConf.staticPath %>/images/banner1.jpg" alt=""></a>
+            <!-- end 图片广告 -->
+            <!-- start flash广告 -->
+            <a href="javascript:" target="_blank"></a>
+            <embed class="flash_banner" src="" quality="high" wmode="transparent" type="application/x-shockwave-flash" autostart="1">
+            </embed>
+            <!-- end flash广告 -->
+        </div>
+        <!-- end banner1 -->
+
+
+        <!-- start 热门分类 -->
+        <div class="hot-type-wrap cf">
+            <!-- start 左边区块 -->
+            <div class="left-wrap fl">
+                <h3>热门分类</h3>
+                <!-- start 第一个区块 -->
+                <div class="hot-type-block mb30 cf">
+                    <!-- start 二级分类信息 -->
+                    <div class="sub-type-info fl">
+                        <div class="inner">
+                            <div class="type-info">
+                                <h4><em>「</em><b>东方玄幻</b><em>」</em></h4>
+                                <p>东方背景下，基于魔法，法术或异世界的幻想作品</p>
+                                <a class="blue" href="javascript:">查看全部<span class="iconfont">&#xe621;</span></a>
+                            </div>
+                            <div class="author-info">
+                                <div class="relation">
+                                    <h4>玄幻大神</h4>
+                                    <p class="writer">作者<a class="blue" href="javascript:">独孤浪子</a></p>
+                                    <p class="state">更新了作品<a class="blue" href="javascript:">《撒旦天启之门》</a></p>
+                                </div>
+                                <div class="photo"><img src="<%= staticConf.staticPath %>/images/photo.png"><span>L8</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end 二级分类信息 -->
+
+                    <!-- start 分类列表 -->
+                    <div class="sub-type-list channel-book-list fl">
+                        <ul>
+                            <% for(var i=0; i < 6; i++) { %>
+                            <li class="have-img">
+                                <div class="book-img fl">
+                                    <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""><span>9.8</span></a>
+                                </div>
+                                <div class="book-info fl">
+                                    <h4><a href="javascript:">武破九荒</a></h4>
+                                    <p class="intro">作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介</p>
+                                    <div class="state-box cf">
+                                        <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="//local.qidian.com/qd/images/ico/user.png">缠绕在指尖的灵感</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <!-- end 分类列表 -->
+                </div>
+                <!-- end 第一个区块 -->
+
+                <!-- start 空标签勿删，横线样式复用 -->
+                <h3></h3>
+                <!-- end 空标签勿删，横线样式复用 -->
+                
+                <!-- start 第二个区块 -->
+                <div class="hot-type-block mb30 cf">
+                    <!-- start 二级分类信息 -->
+                    <div class="sub-type-info fl">
+                        <div class="inner">
+                            <div class="type-info">
+                                <h4><em>「</em><b>远古神话</b><em>」</em></h4>
+                                <p>东方背景下，基于魔法，法术或异世界的幻想作品</p>
+                                <a class="blue" href="javascript:">查看全部<span class="iconfont">&#xe621;</span></a>
+                            </div>
+                            <div class="author-info">
+                                <div class="relation">
+                                    <h4>玄幻大神</h4>
+                                    <p class="writer">作者<a class="blue" href="javascript:">独孤浪子</a></p>
+                                    <p class="state">更新了作品<a class="blue" href="javascript:">《撒旦天启之门》</a></p>
+                                </div>
+                                <div class="photo"><img src="<%= staticConf.staticPath %>/images/photo.png"><span>L8</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end 二级分类信息 -->
+
+                    <!-- start 分类列表 -->
+                    <div class="sub-type-list channel-book-list fl">
+                        <ul>
+                            <% for(var i=0; i < 6; i++) { %>
+                            <li class="have-img">
+                                <div class="book-img fl">
+                                    <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""><span>9.8</span></a>
+                                </div>
+                                <div class="book-info fl">
+                                    <h4><a href="javascript:">武破九荒</a></h4>
+                                    <p class="intro">作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介作品简介作品简介作品简介作品简介作简介</p>
+                                    <div class="state-box cf">
+                                        <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="//local.qidian.com/qd/images/ico/user.png">缠绕在指尖的灵感</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <!-- end 分类列表 -->
+                </div>
+                <!-- end 第二个区块 -->
+
+                <div class="hot-type-wrap cf">
+                    <!-- start 底部左区块 -->
+                    <div class="bottom fl">
+                        <!-- start 空标签勿删，横线样式复用 -->
+                        <h3></h3>
+                        <div class="sub-type-info fl">
+                            <div class="inner">
+                                <div class="type-info">
+                                    <h4><em>「</em><b>异界大陆</b><em>」</em></h4>
+                                    <p>东方背景下，基于魔法，法术或异世界的幻想作品</p>
+                                    <a class="blue" href="javascript:">查看全部<span class="iconfont"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end 空标签勿删，横线样式复用 -->
+                    </div>
+                    <!-- end 底部左区块 -->
+
+                    <!-- start 底部右区块 -->
+                    <div class="bottom fr">
+                        <!-- start 空标签勿删，横线样式复用 -->
+                        <h3></h3>
+                        <!-- end 空标签勿删，横线样式复用 -->
+                        <div class="sub-type-info fl">
+                            <div class="inner">
+                                <div class="type-info">
+                                    <h4><em>「</em><b>异界争霸</b><em>」</em></h4>
+                                    <p>东方背景下，基于魔法，法术或异世界的幻想作品</p>
+                                    <a class="blue" href="javascript:">查看全部<span class="iconfont"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end 底部右区块 -->
+                    
+                </div>
+            </div>
+            <!-- end 左边区块 -->
+
+            <!-- start 右边榜单区块 -->
+            <div class="right-rank fr">
+                <!-- start 月票榜 -->
+                <div class="rank-list mb50">
+                    <h3 class="wrap-title">玄幻月票榜<a class="more" href="javascript:"></a></h3>
+                    <div class="book-list">
+                        <ul>
+                            <li class="unfold">
+                                <div class="book-wrap cf">
+                                    <div class="book-info fl">
+                                        <h3>NO.1</h3>
+                                        <h4>
+                                            <a href="http://www.qidian.com/Book/3347598.aspx" target="_blank">我真是大明星</a></h4>
+                                        <p class="digital"><em>12974</em>月票</p>
+                                        <p class="author">
+                                            <a class="type" href="http://zhichang.qidian.com/Default.aspx" target="_blank">职场</a><i>·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4362273" target="_blank">尝谕</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover">
+                                        <a class="link" href="http://www.qidian.com/Book/3347598.aspx" target="_blank">
+                                            <img src="http://image.cmfu.com/books/3347598/3347598.jpg">
+                                        </a>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <% for(var i=1; i < 10; i++) { %>
+                            <li>
+                                <div class="num-box"><span class="num<%=i+1 %>"><%=i+1 %></span></div>
+                                <div class="name-box">
+                                    <a class="name" href="http://www.qidian.com/Book/1001730574.aspx " target="_blank" data-bid="1001730574">史上最强师兄</a><i class="total">10343</i>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end 月票榜 -->
+
+                <!-- start 打赏粉丝榜 -->
+                <div class="rank-list">
+                    <h3 class="wrap-title">打赏粉丝榜<a class="more" href="javascript:"></a></h3>
+                    <div class="book-list">
+                        <ul>
+                            <li class="unfold">
+                                <div class="book-wrap cf">
+                                    <div class="book-info fl">
+                                        <h3>NO.1</h3>
+                                        <h4>
+                                            <a href="http://www.qidian.com/Book/3347598.aspx" target="_blank">我真是大明星</a></h4>
+                                        <p class="digital"><em>12974</em>起点币</p>
+                                        <p class="author">
+                                            <a class="type" href="http://zhichang.qidian.com/Default.aspx" target="_blank">职场</a><i>·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4362273" target="_blank">尝谕</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover">
+                                        <a class="link" href="http://www.qidian.com/Book/3347598.aspx" target="_blank">
+                                            <img src="http://image.cmfu.com/books/3347598/3347598.jpg">
+                                        </a>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <% for(var i=1; i < 10; i++) { %>
+                            <li>
+                                <div class="num-box"><span class="num<%=i+1 %>"><%=i+1 %></span></div>
+                                <div class="name-box">
+                                    <a class="name" href="http://www.qidian.com/Book/1001730574.aspx " target="_blank" data-bid="1001730574">史上最强师兄</a><i class="total">10343</i>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end 打赏粉丝榜 -->
+            </div>
+            <!-- end 右边榜单区块 -->
+        </div>
+        <!-- end 热门分类 -->
+    </div>
+    <!-- end 频道页内容 -->
+
+
+
+    <!-- end 分类新书 -->
+
+    <!-- start 页脚 -->
+    <% include ../layout/footer.html %>
+    <!-- end 页脚 -->
+</div>
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里h
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_P_channel';
+
+    // 当前页面路由
+    g_data.domain =  '//<%= staticConf.domainPrefix%>channel.qidian.com';
+    // 域名环境变量
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport','/qd/js/channel/index.js'], function ($, SpeedReport,Index) {
+        // 页面逻辑入口
+        new Index({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+                var f1 = 7718, // china reading limited's ID
+                    f2 = 219, // site ID
+                    f3 = 17; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+
+</body>
+</html>

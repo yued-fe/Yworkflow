@@ -294,10 +294,9 @@
                 speedZero = new Date().getTime();
     </script>
     <!-- end speedTimer[var, zero] -->
-
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
@@ -307,7 +306,6 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/ComboBox.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Button.css">
-    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
 <!-- class用于判断排行榜是哪个类型，id是用来判断右侧分类选的是哪一个 -->
@@ -600,7 +598,7 @@ var _currentMonth = (new Date().getMonth()) + 1
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.hotnew_0_1'], function ($, SpeedReport, HotNew) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/rank/hotnew.js'], function ($, SpeedReport, HotNew) {
 
         // 页面逻辑入口
         new HotNew({});

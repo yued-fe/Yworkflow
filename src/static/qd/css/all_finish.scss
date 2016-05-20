@@ -226,8 +226,8 @@
 		}
 	}
 }
-/* 全部作品表格列表，章节在第3列，1024时隐藏 */
-@media (max-width: 1025px) {
+/* 全部作品表格列表，章节在第3列，1200时隐藏 */
+@media (max-width: 1200px) {
 	.rank-table-list.all {
 		col:nth-of-type(3), th:nth-of-type(3), tr td:nth-of-type(3) {
 			display: none;

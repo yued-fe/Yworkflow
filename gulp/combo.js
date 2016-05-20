@@ -17,7 +17,7 @@
  *
  */
 
-
+var PROJECT_CONFIG = require('../.yconfig');  //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
 var combo = require('../lib/util/combo');
@@ -29,11 +29,6 @@ var serverConf = require('../src/node-config/server');
 var envType = "local";
 var staticConf = serverConf[envType]['static'];
 var dateFormat = require('dateformat');
-
-
-
-
-
 
 /**
  * 执行combo,将预览版的html中的css和js url地址进行combo拼接
@@ -49,7 +44,7 @@ gulp.task('preview-combo', function() {
             splitter: ',',
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
-            assignPathTag: 'qd', //这里需要配置combo后的相关文件路径
+            assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
             updateTime: _updateTime
         }, {
             max_age: 31536000
@@ -71,7 +66,7 @@ gulp.task('view-combo', function() {
             splitter: ',',
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
-            assignPathTag: 'qd', //这里需要配置combo后的相关文件路径
+            assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
             updateTime: _updateTime
         }, {
             max_age: 31536000

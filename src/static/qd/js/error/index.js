@@ -3,16 +3,16 @@
  * @author  yangye
  * Created: 2016-5-10
  */
-LBF.define('site.error.index', function(require, exports, module) {
+LBF.define('/qd/js/error/index.js', function(require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
-        //report = require('site.component.report'),
-        BrowserSupport = require('site.component.browserSupport'),
-        PinNav = require('site.component.pinNav_0_1'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
+        //report = require('/qd/js/component/report.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
+        PinNav = require('/qd/js/component/pinNav.js'),
         Cookie = require('util.Cookie'),
-        Url = require('site.component.url'),
-        Login = require('site.index.login'),
+        Url = require('/qd/js/component/url.js'),
+        Login = require('/qd/js/index/login.js'),
 
     exports = module.exports = Node.inherit({
         /**

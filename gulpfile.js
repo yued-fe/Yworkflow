@@ -2,6 +2,9 @@
  * Author:luolei
  */
 
+var PROJECT_CONFIG = require('./.yconfig'); //载入项目基础配置
+
+
 //引入 gulp
 var gulp = require('gulp');
 var requireDir = require('require-dir');
@@ -84,3 +87,5 @@ gulp.task('build', ['sass', 'scripts','sfile']);
 gulp.task('build-static', ['clean', 'rev','rev-fix-url']);
 //创建替换所有静态资源
 gulp.task('build-views', ['rev-views', 'rev-fix-url', 'copy']);
+
+gulp.task('auto-sprite', ['get-sprites-folder', 'retina-sprites-build','standard-sprites-build']);

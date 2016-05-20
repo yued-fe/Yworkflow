@@ -3,14 +3,14 @@
  * @author  luolei
  * Created: 2016-4-11
  */
-LBF.define('site.rank.community', function (require, exports, module) {
+LBF.define('/qd/js/rank/community.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
-        report = require('site.component.report'),
-        Header = require('site.component.header_0_1'),
-        BrowserSupport = require('site.component.browserSupport'),
-        Login = require('site.index.login');
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
+        report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
+        Login = require('/qd/js/index/login.js');
 
     exports = module.exports = Node.inherit({
         /**

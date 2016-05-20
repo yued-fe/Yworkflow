@@ -3,6 +3,7 @@
  * Author: Luolei
  */
 
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var chalk = require('chalk'); // 美化日志
 var plumber = require("gulp-plumber");
@@ -22,13 +23,13 @@ var paths = {
 
 gulp.task('cleanbuild', function(cb) {
     console.log(chalk.red('清理build目录'));
-    del(['build/**/*'])
+    del(['build/'])
     cb()
 });
 
 
 gulp.task('clean', function(cb) {
     console.log(chalk.red('清理预览目录'));
-    del(['_tmp/**/*','_prelease/**/*', '_previews/**/*'])
+    del(['_tmp/','_prelease/', '_previews/','build/'])
     cb()
 });

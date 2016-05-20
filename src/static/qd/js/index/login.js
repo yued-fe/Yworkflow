@@ -3,7 +3,7 @@
  * @author yangye & rainszhang
  * Created: 16-03-14
  */
-LBF.define('site.index.login', function (require, exports, module) {
+LBF.define('/qd/js/index/login.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Cookie = require('util.Cookie');
 

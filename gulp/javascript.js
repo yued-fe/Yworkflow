@@ -1,6 +1,8 @@
 /**
  * 处理js
  */
+
+var PROJECT_CONFIG = require('../.yconfig');
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var chalk = require('chalk'); //美化日志

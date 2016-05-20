@@ -1,7 +1,7 @@
 /**
  * 发布部署
  */
-
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 
 var dateFormat = require('dateformat'); //获得自然时间

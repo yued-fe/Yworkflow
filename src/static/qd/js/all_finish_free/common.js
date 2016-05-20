@@ -10,17 +10,17 @@
  * Created: 2016-4-11
  * Description:此JS包含左侧侧边栏的逻辑、切换图文列表模式的逻辑、按条件排序的逻辑,是全部作品页、完本频道页、免费作品页共同引用的js
  */
-LBF.define('site.all_finish_free.common', function (require, exports, module) {
+LBF.define('/qd/js/all_finish_free/common.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
         Checkbox = require('ui.Nodes.Checkbox'),
-        report = require('site.component.report'),
-        Header = require('site.component.header_0_1'),
+        report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
         JSON = require('lang.JSON'),
-        BrowserSupport = require('site.component.browserSupport'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
         Pagination = require('ui.Nodes.Pagination'),
-        Login = require('site.index.login'),
+        Login = require('/qd/js/index/login.js'),
         Cookie = require('util.Cookie');
 
     exports = module.exports = Node.inherit({

@@ -6,16 +6,16 @@
  * @author  renjiale
  * Created: 2016-4-11
  */
-LBF.define('site.free.addBook', function (require, exports, module) {
+LBF.define('/qd/js/free/addBook.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
         Checkbox = require('ui.Nodes.Checkbox'),
-        //report = require('site.component.report'),
-        Header = require('site.component.header_0_1'),
-        BrowserSupport = require('site.component.browserSupport'),
+    //report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
         Pagination = require('ui.Nodes.Pagination'),
-        Login = require('site.index.login'),
+        Login = require('/qd/js/index/login.js'),
         Cookie = require('util.Cookie'),
         LightTip = require('ui.widget.LightTip.LightTip');
 
@@ -26,7 +26,7 @@ LBF.define('site.free.addBook', function (require, exports, module) {
             return;
         }
         //如果是未登录状态，则弹出登录弹窗
-        if(!Cookie.get('cmfuToken') && !Cookie.get('mdltk')){
+        if(!Cookie.get('cmfuToken')){
             Login.showLoginPopup();
         }else{
             //已登录状态下，点击加入书架则直接向后端发送请求

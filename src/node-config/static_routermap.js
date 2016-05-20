@@ -15,7 +15,8 @@
      '/rank': '/rank/index.html',
      '/erciyuan': '/erciyuan/index.html',
      '/rankshow': '/rank/a/show.html',
-     '/free': '/free/index.html'
+     '/free': '/free/index.html',
+     '/channel': '/channel/index.html'
  }
 
 

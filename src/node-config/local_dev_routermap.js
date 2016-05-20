@@ -38,6 +38,10 @@ var routerMap = {
     'search.qidian.com/index': { 'views': '/index', 'cgi': '/page/Search/getByKeyword' }, //搜索接口
 	'search.qidian.com/': { 'views': '/index', 'cgi': '/page/Search/getByKeyword' },//搜索接口
 
+    //频道页
+    'channel.qidian.com/':{ 'views': '/big', 'cgi': '/page/channel/big' },//大频道接口
+    
+
     //下面实际为静态页面
     'erciyuan.qidian.com/':{ 'views': '/index', 'cgi': '/page/Search/getByKeyword' }
 }

@@ -6,12 +6,13 @@
   "description": "Qidian Project Local Server",
   "scripts": {
     "dev": "cross-env NODE_ENV=local  gulp dev",
-    "init":"npm run build && npm run dev",
-    "go": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
+    "init": "npm run build && npm run dev",
+    "sprite":"gulp auto-sprite && sleep 1 && gulp auto-sprite",
+    "go": "gulp clean && gulp auto-sprite && gulp auto-sprite && gulp build  && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
     "clean": "gulp clean",
-    "build": "gulp clean && sleep 1 && gulp build",
-    "nocombo-publish": "gulp clean && sleep 1 && gulp build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp copy && npm run preview",
-    "publish": "gulp clean && sleep 1 && gulp build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
+    "build": "gulp clean && sleep 1  && gulp auto-sprite && gulp auto-sprite && gulp build",
+    "nocombo-publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp copy && npm run preview",
+    "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy ",
     "preview": "cross-env NODE_ENV=preview  gulp dev"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "imagemin-pngquant": "^4.0.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
+    "merge-stream": "^1.0.0",
     "require-dir": "^0.3.0",
     "through2": "^2.0.1",
     "vinyl-buffer": "^1.0.0",

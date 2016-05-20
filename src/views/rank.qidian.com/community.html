@@ -22,10 +22,9 @@
                 speedZero = new Date().getTime();
     </script>
     <!-- end speedTimer[var, zero] -->
-
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
@@ -33,10 +32,6 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
-
-
-    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
-
 </head>
 <body>
 <div class="wrap">
@@ -169,7 +164,7 @@
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.rank.community'], function ($, SpeedReport, community) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/rank/community.js'], function ($, SpeedReport, community) {
 
         // 页面逻辑入口
         new community({});

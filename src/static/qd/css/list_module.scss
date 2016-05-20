@@ -743,6 +743,9 @@ span.rank-tag {
 				font: 12px/20px $simsun;
 				color: $gray6;
 				overflow: hidden;
+				&.red {
+					color: $red;
+				}
 			}
 		}
 	}
@@ -769,13 +772,13 @@ span.rank-tag {
 /* 暂无数据的图片样式 */
 .no-data-img {
 	display: block;
-	width: 243px;
+	width: 142px;
 	height: 100px;
 	margin: 0 auto;
 	background: url('/qd/images/common/big_wu.png') no-repeat;
 }
 .other-rec-wrap .no-data-img {
-	width: 161px;
+	width: 72px;
 	height: 90px;
 	background: url('/qd/images/common/wu.png') no-repeat;
 
@@ -783,11 +786,11 @@ span.rank-tag {
 /* retina屏双倍图 */
 @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
 	.no-data-img {
-		background: url('/qd/images/common/big_wu_3x.png') no-repeat;
+		background: url('/qd/images/common/big_wu_2x.png') no-repeat;
 		background-size: 100%;
 	}
 	.other-rec-wrap .no-data-img {
-		background: url('/qd/images/common/wu_3x.png') no-repeat;
+		background: url('/qd/images/common/wu_2x.png') no-repeat;
 		background-size: 100%;
 	}
 	.tool-bar .select-wrap .lbf-checkbox {
@@ -795,8 +798,8 @@ span.rank-tag {
 		background-size: 100%;
 	}
 }
-/* 1024 响应点样式变动 */
-@media (max-width: 1025px) {
+/* 1200 响应点样式变动 */
+@media (max-width: 1200px) {
 	.main-content-wrap {
 		width: 744px;
 	}

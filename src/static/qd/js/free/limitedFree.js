@@ -6,17 +6,17 @@
  * @author  renjiale
  * Created: 2016-4-11
  */
-LBF.define('site.free.limitedFree', function (require, exports, module) {
+LBF.define('/qd/js/free/limitedFree.js', function (require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
         Checkbox = require('ui.Nodes.Checkbox'),
-    //report = require('site.component.report'),
-        Header = require('site.component.header_0_1'),
-        BrowserSupport = require('site.component.browserSupport'),
+        report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
         Pagination = require('ui.Nodes.Pagination'),
     //addBook.js中已经引用了login.js，因此引用了它则无需再引用login.js
-        Addbook = require('site.free.addBook'),
+        Addbook = require('/qd/js/free/addBook.js'),
         Cookie = require('util.Cookie'),
         LightTip = require('ui.widget.LightTip.LightTip');
 
@@ -69,7 +69,7 @@ LBF.define('site.free.limitedFree', function (require, exports, module) {
          */
         init: function () {
             //上报系统
-            //report.send();
+            report.send();
             //限免倒计时
             this.freeCountDown();
         },

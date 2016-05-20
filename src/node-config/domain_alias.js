@@ -11,7 +11,8 @@ var domainAlias = {
     'fin.qidian.com': 'finish.qidian.com',
     'r.qidian.com': 'rank.qidian.com',
     'i.qidian.com': 'www.qidian.com',
-    '2cy.qidian.com':'erciyuan.qidian.com'
+    '2cy.qidian.com':'erciyuan.qidian.com',
+    'channel.qidian.com':'channel.qidian.com'
 };
 
 module.exports = domainAlias;

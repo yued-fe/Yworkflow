@@ -22,23 +22,19 @@
         var speedTimer = [],
         speedZero = new Date().getTime();
     </script>
-    <link rel="shortcut icon" href="http://www.qidian.com/favicon.ico" type="image/icon" />
-
+    <!-- end speedTimer[var, zero] -->
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/index.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/index.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/ComboBox.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Button.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Autocomplete.css">
-    <!-- end speedTimer[var, zero] -->
-
-    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
 
 </head>
 <body>
@@ -196,7 +192,7 @@
     <% include www.qidian.com/section_2.html %>
     <!-- Section End 第二屏:排行榜 分栏 -->
     <!-- start 横屏banner2 -->
-    <div class="banner-wrap box-center mb30" id="banner3">
+    <div class="banner-wrap box-center mb40" id="banner3">
         <%if (adBanner3[0].type == 1) { %>
         <!-- start 图片广告 -->
         <a href="javascript:" target="_blank" data-aid="qd_A106-2"><img src="<%= adBanner3['adImgUrl'] %>" alt=""></a>
@@ -217,7 +213,7 @@
     <% include www.qidian.com/section_4.html %>
     <!-- Section End 第四屏:完本精品 分栏 -->
     <!-- start 横屏banner3 -->
-    <div class="banner-wrap box-center mb30" id="banner4">
+    <div class="banner-wrap box-center mb40" id="banner4">
         <%if (adBanner4[0].type == 1) { %>
         <!-- start 图片广告 -->
         <a href="javascript:" target="_blank" data-aid="qd_A106-3"><img src="" alt=""></a>
@@ -303,7 +299,7 @@
     g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
 </script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index_0_2'], function ($, SpeedReport, Index) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/index/index.js'], function ($, SpeedReport, Index) {
 
         // 页面逻辑入口
         new Index({});

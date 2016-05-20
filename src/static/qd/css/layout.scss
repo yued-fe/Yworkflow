@@ -4,12 +4,11 @@
  * @author yangye
  * @design yangxuesong;
  */
-
 @import "mixin";
 .box-center {
 	@include center-box;
 }
-//如果分辨率是1024，触发响应点
+//如果分辨率是1200,触发响应点
 @media (max-width: 1025px) {
 	//居中容器改变成990
 	.box-center {
@@ -53,6 +52,12 @@
 }
 .mb45 {
 	margin-bottom: 45px;
+}
+.mb50 {
+	margin-bottom: 50px;
+}
+.mb60 {
+	margin-bottom: 60px;
 }
 .hidden {
 	display: none;

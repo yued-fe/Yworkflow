@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
-    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
     <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/erciyuan.css">
 </head>
-<body>
+<body style="background-image:url(<%= staticConf.staticPath %>/images/erciyuan/logo_search_bg.png)" >
 <div class="wrap">
     <!-- start 顶部固定导航 -->
     <% include ../component/fixed_top_nav.html %>
@@ -34,12 +34,166 @@
     <!-- start 主导航 -->
     <% include component/main_nav.html %>
     <!-- end 主导航 -->
+    <!-- start section1 轮播效果 -->
+    <div class="slider-box"></div>
+    <!-- end section1 轮播效果 -->
+    <!-- start section2 本周强推 -->
+    <div class="box-center qt-container">
+        <div class="qt-header">
+            <p class="line"></p>
+            <div class="title-wrap title-posit">
+                <b class="icon-qt icon-pst"></b>
+                <h3>本周强推<a class="subtitle" href="/">客官留步<em class="iconfont">&#xe621;</em></a></h3>
+            </div>
+        </div>
+        <div class="book-list-wrap qt cf">
+            <ul>
+                <% for(var i=0; i< 8; i++){%>
+                <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
+                <li <%if(i==1||i==7){%>class="sec"<%}%>>
+                    <div class="book-img">
+                        <a href="/">
+                            <img src="<%= staticConf.staticPath %>/images/erciyuan/qt_1.png" alt="">
+                        </a>
+                    </div>
+                    <a class="name-common" href="/">那无限的世界</a>
+                    <span class="short-desc-common">遁者，大地潜龙归无极</span>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+    <!-- end section2 本周强推 -->
+    <!-- start section3 畅销精选 -->
+    <div class="cxjx-wrap box-center cf">
+        <div class="title-wrap">
+            <h3>畅销精选<a class="subtitle" href="/">客官留步</a></h3>
+        </div>
+        <div class="book-slide-wrap">
+            <div class="book-slide">
+
+            </div>
+        </div>
+        <div class="center-list-wrap">
+            <div class="center-list">
+                <ul>
+                    <% for(var i=0; i< 10; i++){%>
+                    <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
+                    <li <%if(i==5){%>class="no-margin"<%}%>>
+                    <div class="book-img">
+                        <a href="/">
+                            <img src="<%= staticConf.staticPath %>/images/erciyuan/jx_1.png" alt="">
+                        </a>
+                    </div>
+                    <a class="name-common" href="/">比中二更可怕</a>
+                    <span class="short-desc-common">知道想象力该怎</span>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="hot-rank">
+            <div class="rank-list">
+                <h3 class="wrap-title">新人<i>
+                    ·</i>签约新书榜<a class="more" href="//localr.qidian.com/signnewbook" target="_blank" data-aid="qd_A133"><em>|</em>更多</a>
+                </h3>
+                <div class="book-list">
+                    <ul>
+                        <li class="unfold">
+                            <div class="book-wrap cf">
+                                <div class="book-info fl">
+                                    <h3>NO.1</h3>
+                                    <h4>
+                                        <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">网游之荒古时代</a></h4>
+                                    <p class="digital"><em>48072</em>潜力值</p>
+                                    <p class="author"><a class="type" href="http://youxi.qidian.com" target="_blank">游戏</a><i>
+                                        ·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4982600" target="_blank">木有才O</a>
+                                    </p>
+                                </div>
+                                <div class="book-cover">
+                                    <a class="link" href="http://www.qidian.com/Book/3637873.aspx " target="_blank" data-bid="3637873">
+                                        <img src="http://image.cmfu.com/books/3637873/3637873.jpg" alt="网游之荒古时代">
+                                    </a>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num2">2</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">36116</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num3">3</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003353824.aspx " target="_blank" data-bid="1003353824">位面电梯</a><i class="total">30048</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num4">4</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003378219.aspx " target="_blank" data-bid="1003378219">科技文明入侵者</a><i class="total">29927</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num5">5</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003374935.aspx " target="_blank" data-bid="1003374935">帝临武侠</a><i class="total">29337</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num6">6</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003382455.aspx " target="_blank" data-bid="1003382455">古剑仙踪</a><i class="total">27962</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num7">7</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003448359.aspx " target="_blank" data-bid="1003448359">龙珠之武天宗师</a><i class="total">27114</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num8">8</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003385497.aspx " target="_blank" data-bid="1003385497">重生在神话世界</a><i class="total">26658</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num9">9</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003358455.aspx " target="_blank" data-bid="1003358455">超野蛮</a><i class="total">25299</i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num10">10</span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003365908.aspx " target="_blank" data-bid="1003365908">超品奶爸</a><i class="total">24706</i>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section3 畅销精选 -->
 </div>
 
 <!-- start LBF lib -->
 <script src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
 <script>
-    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index_0_2'], function ($, SpeedReport, Index) {
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index'], function ($, SpeedReport, Index) {
 
         // 页面逻辑入口
         new Index({});

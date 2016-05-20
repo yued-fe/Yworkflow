@@ -24,14 +24,14 @@ var serverConfig = {
 		"static":{	//静态文件配置
             "domainPrefix" : "local",
 			"staticDomain": "devqidian.gtimg.com",
-			"staticPath":"//local.qidian.com:3234/qd",
+			"staticPath":"//local.qidian.com/qd",
 			"lbf": {
 				"conf": {
 					"paths": {
-						"site": "//local.qidian.com:3234/qd/js"
+						"site": "//local.qidian.com/qd/js"
 					},
 					"vars": {
-						"theme": "//local.qidian.com:3234/qd/css"
+						"theme": "//local.qidian.com/qd/css"
 					},
 					"combo": false,
 					"debug": true

@@ -1,0 +1,115 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-combobox {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+  .lbf-combobox .lbf-combobox-label {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    overflow: hidden;
+    padding-right: 36px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: middle;
+    color: #808080;
+    background: white;
+    height: 24px;
+    line-height: 24px; }
+    .lbf-combobox .lbf-combobox-label .lbf-combobox-caption {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      vertical-align: top;
+      white-space: nowrap; }
+    .lbf-combobox .lbf-combobox-label .lbf-combobox-icon {
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      position: absolute;
+      border-top: 5px solid #A6A6A6;
+      border-right: 5px solid transparent;
+      border-bottom: 0 none;
+      border-left: 5px solid transparent;
+      width: 0;
+      height: 0;
+      			/*top: 8px\9; // IE8
+      			:root & {
+      				top: 6px;
+      				font-size: 16px; // IE9
+      			}
+      
+      			*font-size: 8px; // IE7
+      			*top: 10px; // IE7*/
+      *background: url("//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/Combobox/combobox.png") no-repeat right -6px; }
+      .lbf-combobox .lbf-combobox-label .lbf-combobox-icon:before {
+        -webkit-transition: 0.3s ease-in;
+        -o-transition: 0.3s ease-in;
+        transition: 0.3s ease-in; }
+  .lbf-combobox-on, .lbf-combobox-on:hover {
+    background: #E5E5E5;
+    -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2); }
+  .lbf-combobox-on, .lbf-combobox .lbf-combobox-label:hover {
+    background: white; }
+  .lbf-combobox-on .lbf-combobox-label:focus, .lbf-combobox .lbf-combobox-label:focus .lbf-combobox-label:focus {
+    -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.125); }
+  .lbf-combobox .lbf-combobox-on .lbf-combobox-icon:before {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    -webkit-transform: scale(0.5);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  .lbf-combobox .lbf-combobox-disabled {
+    opacity: 0.65;
+    filter: "alpha(opacity=65)"; }
+  .lbf-combobox select {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+
+.lbf-combobox-panel {
+  display: none;
+  overflow: auto;
+  min-width: 150px;
+  border-top: 1px solid #EEE;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 12px;
+  background: #FFF;
+  -webkit-transition: opacity 0.218s;
+  -o-transition: opacity 0.218s;
+  transition: opacity 0.218s;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #EEE\9; }
+  .lbf-combobox-panel .lbf-combobox-item {
+    display: block;
+    height: 24px;
+    padding: 3px 12px;
+    line-height: 24px;
+    font-family: "PingFangSC-Regular", "-apple-system", Simsun;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+    color: #808080; }
+    .lbf-combobox-panel .lbf-combobox-item:hover {
+      color: inherit;
+      background: #F7F7F7; }
+
+/*# sourceMappingURL=ComboBox.css.map */

@@ -6,16 +6,16 @@
 LBF.define('site.search.index', function(require, exports, module) {
     var $ = require('lib.jQuery'),
         Node = require('ui.Nodes.Node'),
-        ajaxSetting = require('site.component.ajaxSetting'),
-        //report = require('site.component.report'),
-        Header = require('site.component.header_0_1'),
-        BrowserSupport = require('site.component.browserSupport'),
+        ajaxSetting = require('/qd/js/component/ajaxSetting.js'),
+        report = require('/qd/js/component/report.js'),
+        Header = require('/qd/js/component/header.js'),
+        BrowserSupport = require('/qd/js/component/browserSupport.js'),
         Pagination = require('ui.Nodes.Pagination'),
-        PinNav = require('site.component.pinNav_0_1'),
+        PinNav = require('/qd/js/component/pinNav.js'),
         Cookie = require('util.Cookie'),
-        Url = require('site.component.url'),
-        Login = require('site.index.login'),
-        Addbook = require('site.free.addBook');
+        Url = require('/qd/js/component/url.js'),
+        Login = require('/qd/js/index/login.js'),
+        Addbook = require('/qd/js/free/addBook.js');
 
     exports = module.exports = Node.inherit({
         /**
@@ -65,7 +65,7 @@ LBF.define('site.search.index', function(require, exports, module) {
          */
         init: function() {
             //上报系统
-            //report.send();
+            report.send();
 
             //初始化分页
             this.pagiNation();

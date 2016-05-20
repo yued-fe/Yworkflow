@@ -8,12 +8,37 @@ $search-btn-bg:#f23d56;
 $search-bar-color:#d5d5d5;
 $main-nav-bg:#f54e78;
 $main-nav-color:#fff;
+$title-color:#f23d56;
+$book-name-color:#1a1a1a;
 
+
+body{
+  background-repeat: no-repeat;
+  background-position: 50% 42px;
+}
+
+h3{
+  font-family:$fontbase;
+  font-weight: 400;
+  font-size:22px;
+  color:$title-color;
+  .subtitle{
+    font-size:18px;
+    color:$black;
+    padding-left:5px;
+    em{
+      font-size:16px;
+    }
+  }
+}
 /* 顶部导航样式 */
 .pin-nav-wrap {
   position: relative;
   z-index: 10;
   top: 0;
+  .box-center {
+    background: #3e3d43;
+  }
 }
 
 /*logo 搜索框样式*/
@@ -47,19 +72,159 @@ $main-nav-color:#fff;
 
 /*主导航条样式*/
 .main-nav-wrap{
+  margin-bottom:0;
   background:$main-nav-bg;
-   .main-nav{
-     background-color:$main-nav-bg;
-     li{
-       &.nav-li{
-         a{
-           border-bottom:2px solid $main-nav-bg;//暂时给2像素border，为之后加Hover效果做准备，如果不需要border，之后需把导航条高度改成40px,目前首页是有2px的border的
-         }
-       }
-     }
-   }
+  .main-nav{
+    background-color:$main-nav-bg;
+    li{
+      &.nav-li{
+        a{
+          padding:0 16px;
+          border-bottom:2px solid $main-nav-bg;//暂时给2像素border，为之后加Hover效果做准备，如果不需要border，之后需把导航条高度改成40px,目前首页是有2px的border的
+        }
+        &:first-child{
+          a{
+            padding-left:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* section1 轮播效果*/
+.slider-box{
+  height:420px;
+  width:100%;
+  background-color:#3e3d43;
+  margin-bottom:46px;
+}
+.title-posit{
+  position:absolute;
+  top:-11px;
+  left:50%;
+  margin-left:-125px;
+}
+.icon-pst{
+  position:absolute;
+  top:0px;
+  left:18px;
+}
+.name-common{
+  display:block;
+  overflow:hidden;
+  font:16px/22px $fontbase;
+  color:$book-name-color;
+}
+.short-desc-common{
+  overflow:hidden;
+  font:12px/20px $simsun;
+  color:$gray6;
+}
+
+/* section2 本周强推*/
+.qt-container{
+  //区块顶部分割线样式
+  .qt-header{
+    position:relative;
+    background:#fff;
+    margin-bottom:42px;
+    .line{
+      background:url("/qd/images/erciyuan/line.png") repeat-x;
+      height:10px;
+      width:100%;
+    }
+    .title-wrap{
+      padding:0 18px;
+      background:#fff;
+      h3{
+        margin-left:35px;
+      }
+      .icon-qt{
+        background:url(/qd/images/erciyuan/title_tags.png) no-repeat;
+        width:30px;
+        height:30px;
+        background-position:0px -89px;
+      }
+
+    }
+  }
+  //强推书本列表
+  .book-list-wrap{
+      width:100%;
+      margin-bottom:44px;
+      li{
+        float:left;
+        width:124px;
+        height:152px;
+        margin-left:30px;
+        text-align:center;
+        &:first-child{
+          margin-left:0;
+        }
+        &.sec{
+          margin-left:29px;
+        }
+        .book-img{
+          margin:0 auto 10px;
+        }
+      }
+  }
+}
+
+/*畅销精选样式*/
+.cxjx-wrap{
+  .book-slide-wrap,.center-list-wrap{
+    float:left;
+  }
+  .hot-rank{
+    float:right;
+  }
+  .book-slide-wrap{
+    width:274px;
+    height:370px;
+    background:#f7f5f0;
+    margin-top:18px;
+    .book-slide{
+      padding:40px 0 0 48px;
+    }
+  }
+  .center-list-wrap{
+    width:710px;
+    .center-list{
+      padding:0 30px 0 40px;
+      margin-top:18px;
+      li{
+        float:left;
+        width:96px;
+        height:177px;
+        margin-left:40px;
+        margin-bottom:13px;
+        text-align:center;
+        &:first-child{
+          margin-left:0;
+        }
+        .book-img{
+          width:96px;
+          height:128px;
+          margin:0 auto 8px;
+        }
+        &.no-margin{
+          margin-left:0;
+        }
+      }
+    }
+  }
 
 }
+.dh1x{width:60px; height:89px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px 0px;}
+.icon-qt{width:30px; height:30px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -89px;}
+.icon-tr{width:30px; height:30px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -119px;}
+.mh1x{width:58px; height:92px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -149px;}
+.title-dh{width:80px; height:20px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -241px;}
+.title-mh{width:80px; height:20px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -261px;}
+.title-yx{width:80px; height:20px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -281px;}
+.yx1x{width:53px; height:97px; background:url(images/W3Cfuns_allbgs.gif) no-repeat 0px -301px;}
 
 /* retina屏logo双倍图 */
 @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {

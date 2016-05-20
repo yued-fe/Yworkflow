@@ -1,0 +1,13 @@
+/**
+ * 项目基础配置
+ * \
+ */
+
+
+var ProjectConfig = {
+	"name":"demoProjectName",
+	"gtimgName":"qd", // 对应 qidian.gtimg.com/{name} 路径
+	"port":2324
+};
+
+module.exports = ProjectConfig;

@@ -159,15 +159,6 @@
 .rank-list {
 	//固高，与下一行的4个列表保持36px的间距
 	height: 450px;
-	//不修改模板，用个性样式去掉最后一根横线，
-	ul li {
-		margin-top: -1px;
-		.name-box {
-			border-top: 1px solid #E6E6E6;
-			border-bottom: none;
-		}
-
-	}
 	//周月总tab切换样式
 	.tab-title {
 		position: relative;
@@ -277,7 +268,7 @@
 	text-align: center;
 	span {
 		display: block;
-		width: 161px;
+		width: 78px;
 		height: 83px;
 		margin: 0 auto 10px;
 		background: url(/qd/images/rank/nodata.png) no-repeat;
@@ -285,10 +276,24 @@
 	p {
 		color: $gray8;
 	}
-
 }
-/* 1024时响应点 */
-@media (max-width: 1025px) {
+/* 数据为-的时候样式替代 */
+.rank-list .book-list li .name-box b.name {
+	float: left;
+	width: 116px;
+	height: 31px;
+	color: #1A1A1A;
+	font: 14px/31px $simsun;
+}
+.sort-list .book-list li .name-box b.name {
+	float: left;
+	width: 188px;
+	height: 31px;
+	color: #1A1A1A;
+	font: 14px/31px $simsun;
+}
+/* 1200时响应点 */
+@media (max-width: 1200px) {
 	.fans-list {
 		margin-bottom: 22px;
 	}
@@ -299,7 +304,7 @@
 /* retina屏双倍图 */
 @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
 	.no-rank-data span {
-		background: url(/qd/images/rank/nodata_3x.png) no-repeat;
+		background: url(/qd/images/rank/nodata_2x.png) no-repeat;
 		background-size: 100%;
 	}
 }
