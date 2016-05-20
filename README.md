@@ -132,7 +132,8 @@ src/                          // 项目目录
 
 ####待解决
 
-1. 本地combo模拟（由于需要nginx支持，本地调试较为繁琐，此功能滞后）
+1. Sprites精灵图，src 文件夹 > build 文件夹 完整映射。
+2. 本地combo模拟（由于需要nginx支持，本地调试较为繁琐，此功能滞后）
 
 
 ####关于映射
@@ -182,16 +183,17 @@ src/                          // 项目目录
 │   │ │		├── projectA_sprite.scss
 │   │ ├── images
 │   │ │		├──projectA
-│   │ │	    │      ├── @2x.png
-│   │ │	    │      ├── @1x.png
+│   │ │	    │      ├──sprite
+│   │ │	    │      │     ├── @2x.png
+│   │ │	    │      │     ├── @1x.png
 │   │ ├── js
 ```
 
 若有多个项目`{projectB}`,`{projectC}`等等，工具均会自动对应生成，开发者只需要在引用精灵的scss文件中使用我们自定义好的宏就好。
 
 ```scss
-$projectA-sprite-normal: '/qd/images/projectA/';
-$projectA-sprite-retina: '../images/sprites/sprite@2x.png';
+$projectA-sprite-normal: '/qd/images/projectA/sprite/@1x.png';
+$projectA-sprite-retina: '/qd/images/projectA/sprite/@2x.png';
 
 
 //使用精灵图
