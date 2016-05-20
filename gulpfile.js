@@ -88,4 +88,4 @@ gulp.task('build-static', ['clean', 'rev','rev-fix-url']);
 //创建替换所有静态资源
 gulp.task('build-views', ['rev-views', 'rev-fix-url', 'copy']);
 
-gulp.task('sps', ['demos', 'spp','spp-resize']);
+gulp.task('auto-sprite', ['get-sprites-folder', 'retina-sprites-build','standard-sprites-build']);

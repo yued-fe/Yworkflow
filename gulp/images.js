@@ -15,7 +15,7 @@ var del = require('del');
 var folders = require('gulp-folders');
 
 var paths = {
-    img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}'],// 图片相关
+    img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}','!**/sprites/*'],// 图片相关
     sass: 'src/static/**/*.scss',
     build: 'build',
     others:['src/static/**/*.mp3'],
@@ -26,7 +26,7 @@ var paths = {
 // sass task
 gulp.task('images', function(cb) {
 
-    gulp.src(paths.img,'!**/sprites/*')
+    gulp.src(paths.img)
         .pipe(plumber())
         .pipe(image())
         .pipe(gulp.dest(paths.build))
@@ -42,7 +42,7 @@ gulp.task('images-copy', function(cb) {
 });
 
 gulp.task('sfile', function(cb) {
-    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}','!**/sprites'])
+    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}','!src/static/**/sprites','!src/static/**/sprites/**'])
         .pipe(gulp.dest(paths.build))
     cb();
 });

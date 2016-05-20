@@ -7,11 +7,11 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=local  gulp dev",
     "init": "npm run build && npm run dev",
-    "go": "gulp clean && gulp build && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
+    "go": "gulp clean && gulp auto-sprite && gulp build  && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
     "clean": "gulp clean",
-    "build": "gulp clean && sleep 1 && gulp build",
-    "nocombo-publish": "gulp clean && sleep 1 && gulp build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp copy && npm run preview",
-    "publish": "gulp clean && sleep 1 && gulp build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
+    "build": "gulp clean && sleep 1  && gulp auto-sprite && gulp build",
+    "nocombo-publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp copy && npm run preview",
+    "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy",
     "preview": "cross-env NODE_ENV=preview  gulp dev"
   },
   "devDependencies": {
