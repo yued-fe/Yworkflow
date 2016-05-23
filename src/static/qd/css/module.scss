@@ -351,14 +351,14 @@ h3.wrap-title {
 	span {
 		margin-left: 5px;
 	}
-	em, a {
+	a {
 		font: 12px/1 Arail, $simsun;
 		color: $blue;
 		&:hover {
 			color: #2972CC;
 		}
 	}
-	em, i {
+	i {
 		margin: 0 5px;
 		font-family: Arail, $fontbase;
 	}
@@ -366,8 +366,14 @@ h3.wrap-title {
 		display: inline;
 		opacity: 0;
 		filter: alpha(opacity=0);
-		transition: all .3s;
+		transition: ease-in-out .2s;
+		em.iconfont{
+			display: inline-block;
+			font-size: 12px;
+			vertical-align: middle;
+		}
 	}
+
 }
 /* 区块里的更多 */
 .book-list-wrap:hover {

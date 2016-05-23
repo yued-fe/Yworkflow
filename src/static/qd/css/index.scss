@@ -718,6 +718,9 @@
 .left-wrap {
 	width: 954px;
 	@include title22;
+	.wrap-title span {
+		color: $gray6;
+	}
 	&:hover {
 		.more {
 			display: inline;
@@ -946,6 +949,9 @@
 /* 最近更新 */
 .update-wrap {
 	@include title22;
+	.wrap-title span {
+		color: $gray8;
+	}
 	.update-list-wrap {
 		height: 660px;
 		overflow: hidden;
@@ -974,7 +980,7 @@
 		.book-wrap {
 			padding: 25px 0 12px;
 			.book-info {
-				margin-top: 26px;
+				margin-top: 22px;
 				h4, p {
 					text-align: right;
 				}
@@ -1027,13 +1033,17 @@
 				&.blue {
 					color: $blue;
 					&:hover {
-						color: $blue;
+						color: $blue-hover;
 					}
+				}
+				em.iconfont {
+					font-size: 12px;
+					vertical-align: middle;
 				}
 			}
 			span {
-				margin-right: 7px;
-				margin-left: 7px;
+				margin-right: 5px;
+				margin-left: 5px;
 				font-family: Arial;
 				font-size: 12px;
 				&.blue {
@@ -1677,9 +1687,6 @@ em.point {
 }
 /* 1200 响应点样式变动 */
 @media (max-width: 1200px) {
-	.main-nav-wrap .main-nav li a {
-		padding: 0 25px;
-	}
 	.focus-wrap .focus-box {
 		width: 748-210+px;
 	}

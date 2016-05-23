@@ -12,6 +12,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
+
 
 /**
  * csscombo调用根目录下 .csscombo.json 进行格式化

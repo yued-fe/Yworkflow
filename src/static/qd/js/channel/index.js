@@ -61,8 +61,23 @@ LBF.define('/qd/js/channel/index.js', function (require, exports, module) {
             init: function () {
                 //上报系统
                 //report.send();
+                // 最新更新模块
+                this.initUpdateMod();
 
-            }
+            },
+            /**
+             * 最新更新模块
+             * @method initUpdateMod
+             */
+            initUpdateMod: function () {
+                var updateTab = $('#update-tab a');
+                var updateList = $('#update-list');
+
+                updateTab.on('click', function () {
+                    $(this).addClass('act').siblings().removeClass('act');
+                    updateList.find('.update-table').eq(updateTab.index(this)).show().siblings().hide();
+                });
+            },
 
 
         })

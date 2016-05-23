@@ -10,7 +10,7 @@ var gulp = require('gulp');
 var del = require('del');
 var combo = require('gulp-combo');
 var prettify = require('gulp-jsbeautifier');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 var RevAll = require('gulp-rev-custom-tag');
 var revReplace = require('gulp-rev-replace');

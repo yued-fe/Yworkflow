@@ -1,0 +1,52 @@
+<div class="type-new fl">
+    <div class="left-wrap">
+        <h3>玄幻新书</h3>
+        <!-- start 新书列表 -->
+        <div id="new-book-list">
+            <!-- start 有图的列表循环 -->
+            <% for(var i=0; i < 2; i++) { %>
+            <div class="type-new-list cf">
+                <ul>
+                    <% for(var j=0; j < 3; j++) { %>
+                    <li>
+                        <div class="book-img">
+                            <a href="javascript:" target="_blank" data-bid="3465755"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg">
+                            </a>
+                        </div>
+                        <div class="book-info">
+                            <h4>
+                                <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                            <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                            <div class="state-box cf">
+                                <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png">缠绕在指尖的灵感</a>
+                            </div>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } %>
+            <!-- end 有图的列表循环 -->
+
+            <!-- start 无图列表循环 -->
+            <div class="type-new-list no-img cf">
+                <ul>
+                    <% for(var i=0; i < 4; i++) { %>
+                    <li>
+                        <div class="book-info">
+                            <h4>
+                                <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                            <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                            <div class="state-box cf">
+                                <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="<%= staticConf.staticPath %>/images/ico/user.png">缠绕在指尖的灵感</a>
+                            </div>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- end 无图列表循环 -->
+        </div>
+        <!--start 新书列表 -->
+    </div>
+</div>

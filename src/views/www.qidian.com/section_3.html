@@ -72,7 +72,7 @@
                 <dl class="hot-book-list">
                     <% for(var i=0; i < chanRecom2.length; i++) { %>
                     <dd>
-                        <a class="classify" href="<%= chanRecom2[i]['chanUrl'] %>" target="_blank" data-bid="<%= chanRecom2[i]['chanUrl'] %>"><em>「</em><%=
+                        <a class="classify" href="<%= chanRecom2[i]['chanUrl'] %>" target="_blank" data-bid="<%= chanRecom2[i]['bookId'] %>"><em>「</em><%=
                             chanRecom2[i]['chanName']
                             %><em>」</em></a><a class="name" href="http://www.qidian.com/Book/<%= chanRecom2[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chanRecom2[i]['bookId'] %>"><%=
                         chanRecom2[i]['recomTitle'] %></a>

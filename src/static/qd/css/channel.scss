@@ -7,10 +7,7 @@
 @import "global";
 @import "mixin";
 body {
-	width: 100%;
-	height: 100%;
-	background-image: url("/qd/images/channel/xuanhuan.png");
-	background-position: 50% 40px;
+	background-position: 50% 42px;
 	background-repeat: no-repeat;
 }
 /* 频道页 */
@@ -99,7 +96,7 @@ body {
 /* 首屏焦点 */
 .focus-wrap {
 	border-top: 1px solid $gray6;
-	.rec-wrap, .notice-wrap {
+	.week-rec-wrap, .notice-wrap {
 		width: 216px;
 		height: 370px;
 		overflow: hidden;
@@ -107,7 +104,7 @@ body {
 	}
 }
 /* 本周强推 */
-.rec-wrap {
+.week-rec-wrap {
 	margin-right: 10px;
 	h3 {
 		position: relative;
@@ -681,6 +678,48 @@ body {
 			}
 		}
 	}
+	/* 底部主推-立体书封介绍信息 */
+	.type-book-wrap {
+		padding: 16px 0 0;
+		.book-cover {
+			float: left;
+			margin-right: 24px;
+		}
+		.book-info {
+			h4 {
+				font: 16px/22px $fontbase;
+				height: 22px;
+				overflow: hidden;
+				@include mb(5px);
+			}
+			p {
+				.author {
+					display: block;
+					height: 16px;
+					font: 12px/16px $simsun;
+					color: $A6;
+					overflow: hidden;
+					&:hover {
+						color: inherit;
+					}
+					img {
+						display: inline-block;
+						vertical-align: middle;
+						width: 14px;
+						height: 14px;
+						margin: -2px 5px 0 0;
+					}
+				}
+			}
+			p + p {
+				margin-top: 5px;
+				height: 40px;
+				font: 12px/20px $simsun;
+				overflow: hidden;
+				color: $gray6;
+			}
+		}
+	}
 }
 /* 分类书本列表 */
 .sub-type-list {
@@ -697,13 +736,349 @@ body {
 		}
 	}
 }
-/*热门分类底部区块*/
+/* 热门分类底部区块 */
 .hot-type-wrap {
 	.bottom {
+		float: left;
 		width: 462px;
+		margin-right: 30px;
+		/* 第二个无右边距 */
+		&:first-child + .bottom {
+			margin-right: 0;
+		}
+	}
+	/* 底部书列表 */
+	.bottom-book-list {
+		width: 216px;
+		padding-top: 10px;
+		li {
+			padding: 14px 0 0;
+			margin-top: 10px;
+			border-top: 1px solid #D9D9D9;
+			&:first-child {
+				border-top: none;
+				margin-top: 0;
+			}
+			h4 {
+				height: 18px;
+				@include mb(6px);
+				font: 16px/18px $fontbase;
+				overflow: hidden;
+				span {
+					float: right;
+					font: 18px/18px FZZCYSK;
+					color: $red;
+					em {
+						margin-left: 5px;
+						font: 12px/1 $simsun;
+					}
+				}
+			}
+			p {
+				height: 18px;
+				font: 12px/18px $simsun;
+				overflow: hidden;
+				color: $gray8;
+			}
+		}
+	}
+}
+.topics-list {
+	li {
+		float: left;
+		width: 300px;
+		height: 240px;
+		text-align: center;
+		&:first-child {
+			background: #F7F6F2;
+			+ li, + li + li + li {
+				background: #FCFCFA;
+			}
+			+ li + li {
+				background: #F7F6F2;
+			}
+		}
+		h3 {
+			padding: 32px 0 16px;
+			font: 18px/18px FZZCYSK;
+			color: $red;
+		}
+		p {
+			@include mb(32px);
+			font: 18px/24px $fontbase;
+		}
+		a {
+			display: block;
+			img {
+				width: 238px;
+				height: 88px;
+			}
+		}
+	}
+}
+/* 最近更新 */
+.update-wrap {
+	@include title22;
+	/* 设高度隐藏最后一行td的线 */
+	.update-list-wrap {
+		height: 504px;
+		overflow: hidden;
+	}
+	.wrap-title {
+		overflow: hidden;
+		width: 216px;
+		height: 24px;
+		span {
+			color: $gray8;
+		}
+	}
+	/* 最近更新推荐书籍 */
+	.update-rec-list {
+		width: 216px;
+		height: 476px;
+		background: #F7F5F0;
+		overflow: hidden;
+		ul {
+			@include center-box(192px);
+			li {
+				padding-bottom: 22px;
+				border-top: 1px solid #E6E6E6;
+				&:first-child {
+					border-top: none;
+				}
+			}
+		}
+		.book-wrap {
+			padding: 30px 0 12px;
+			.book-info {
+				margin-top: 22px;
+				h4, p {
+					text-align: right;
+				}
+				h4 a {
+					color: #1A1A1A;
+					&:hover {
+						color: $hover;
+					}
+				}
+				.digital {
+					height: 20px;
+					i {
+						margin: 0 3px;
+					}
+				}
+			}
+		}
+		.book-cover {
+			float: left;
+		}
+		p.intro {
+			overflow: hidden;
+			height: 60px;
+			font: 12px/20px $simsun;
+			color: $gray6;
+			margin-bottom: 6px;
+			& + p a {
+				display: block;
+				text-align: right;
+				font: 14px/18px $simsun;
+				em {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	/* 最近更新列表容器 */
+	.update-list-wrap {
+		width: 738px;
+		/* 切换 */
+		.update-tab {
+			height: 24px;
+			padding-bottom: 4px;
+			@extend %bb6;
+			p, .blue {
+				float: right;
+			}
+			a, span {
+				float: left;
+				margin-top: 7px;
+				font: 12px/16px $simsun;
+				color: $A6;
+			}
+			a {
+				&.act {
+					font-weight: 700;
+				}
+				&:hover, &.act {
+					color: $hover;
+				}
+				&.blue {
+					color: $blue;
+					&:hover {
+						color: $blue-hover;
+					}
+				}
+				em.iconfont {
+					font-size: 12px;
+					vertical-align: middle;
+				}
+			}
+			span {
+				margin-right: 5px;
+				margin-left: 5px;
+				font-family: Arial;
+				font-size: 12px;
+				&.blue {
+					color: $blue;
+				}
+			}
+		}
+		//最近更新列表
+		.update-list {
+			margin-left: 30px;
+			table {
+				td {
+					height: 31px;
+
+					@extend %bbe;
+					a {
+						float: left;
+						overflow: hidden;
+						height: 30px;
+						&.classify, &.name {
+							font: 14px/30px $simsun;
+							color: #1A1A1A;
+						}
+						&.classify {
+							margin-left: -7px;
+							color: $gray8;
+							em {
+								font-family: $fontbase;
+								font-size: 13px;
+							}
+						}
+						&.section {
+							max-width: 220px;
+							margin-right: 5px;
+							color: $gray6;
+
+							@include word-wrap-multi;
+							em {
+								margin-right: 5px;
+							}
+						}
+						&.author {
+							color: $gray9;
+						}
+						&:hover {
+							color: $hover;
+						}
+						&.section, &.author {
+							font: 12px/30px $simsun;
+							&:hover {
+								color: inherit;
+							}
+						}
+					}
+					.vip {
+						float: left;
+						width: 19px;
+						height: 11px;
+						margin-top: 10px;
+						background: url("/qd/images/common/tag.png") no-repeat 0 -23px;
+					}
+					i {
+						float: right;
+						margin-top: 3px;
+						font: 12px/1 Arial;
+						color: $gray6;
+					}
+				}
+				tr.bd0 {
+					td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+	/* 最近更新的完本精品 */
+	.update-fin-wrap {
+		padding-top: 3px;
+		h3.wrap-title {
+			font-size: 18px;
+			padding-bottom: 3px;
+		}
+	}
+	/* 最近更新列表 */
+	.update-fin-list {
+		li {
+			position: relative;
+			z-index: 1;
+			padding: 17px 0 0;
+			margin-top: 17px;
+			border-top: 1px solid #E6E6E6;
+			&:first-child {
+				border-top: none;
+				margin-top: 0;
+			}
+			/* 书封 */
+			.book-img {
+				width: 48px;
+				height: 64px;
+				img {
+					transform: none;
+				}
+			}
+			/* 书介绍 */
+			.book-info {
+				position: absolute;
+				z-index: 1;
+				top: 16px;
+				left: 60px;
+				width: 152px;
+				margin-top: -3px;
+				p:first-child {
+					height: 22px;
+					overflow: hidden;
+					margin-bottom: 3px;
+					span, i {
+						display: inline-block;
+						vertical-align: middle;
+						height: 17px;
+						text-align: center;
+						font: 12px/17px $simsun;
+						overflow: hidden;
+					}
+					span {
+						border: 1px solid #DF9591;
+						min-width: 56px;
+						margin-right: 8px;
+						color: $red;
+					}
+					i {
+						min-width: 54px;
+						color: $gray8;
+						border: 1px solid #BFBFBF;
+					}
+				}
+				h3 {
+					height: 22px;
+					font: 16px/22px $fontbase;
+					overflow: hidden;
+					& + p {
+						height: 20px;
+						font: 12px/20px $simsun;
+						overflow: hidden;
+						color: $gray8;
+					}
+				}
+			}
+		}
 	}
 
 }
+/* -----------分割线-------------- */
 /* 通用layout */
 .left-wrap {
 	width: 954px;
@@ -770,7 +1145,7 @@ li.have-img {
 	}
 }
 /* 视觉下边距调整，由于右边榜单1-10高度会把整个容器往下顶，并且有3d书阴影，无法用overflow，所以单独对这些区块做边距处理，视觉上做到40px下边距 */
-.serial-wrap {
+.serial-wrap, .hot-type-wrap {
 	margin-bottom: 33px;
 }
 /* 1200 响应点样式变动 */

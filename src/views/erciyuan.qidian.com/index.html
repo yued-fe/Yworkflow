@@ -39,11 +39,11 @@
     <!-- end section1 轮播效果 -->
     <!-- start section2 本周强推 -->
     <div class="box-center qt-container">
-        <div class="qt-header">
+        <div class="qt-header cross-page-title">
             <p class="line"></p>
             <div class="title-wrap title-posit">
-                <b class="icon-qt icon-pst"></b>
-                <h3>本周强推<a class="subtitle" href="/">客官留步<em class="iconfont">&#xe621;</em></a></h3>
+                <b class="icon-qt icon-basics"></b>
+                <h3 class="major-title">本周强推<a class="subtitle" href="/">客官留步<em class="iconfont">&#xe621;</em></a></h3>
             </div>
         </div>
         <div class="book-list-wrap qt cf">
@@ -51,13 +51,13 @@
                 <% for(var i=0; i< 8; i++){%>
                 <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
                 <li <%if(i==1||i==7){%>class="sec"<%}%>>
-                    <div class="book-img">
-                        <a href="/">
-                            <img src="<%= staticConf.staticPath %>/images/erciyuan/qt_1.png" alt="">
-                        </a>
-                    </div>
-                    <a class="name-common" href="/">那无限的世界</a>
-                    <span class="short-desc-common">遁者，大地潜龙归无极</span>
+                <div class="book-img">
+                    <a href="/">
+                        <img src="<%= staticConf.staticPath %>/images/erciyuan/qt_1.png" alt="">
+                    </a>
+                </div>
+                <a class="name-common" href="/">那无限的世界</a>
+                <span class="short-desc-common">遁者，大地潜龙归无极</span>
                 </li>
                 <%}%>
             </ul>
@@ -65,9 +65,9 @@
     </div>
     <!-- end section2 本周强推 -->
     <!-- start section3 畅销精选 -->
-    <div class="cxjx-wrap box-center cf">
+    <div class="cxjx-container box-center cf">
         <div class="title-wrap">
-            <h3>畅销精选<a class="subtitle" href="/">客官留步</a></h3>
+            <h3 class="major-title">畅销精选<a class="subtitle" href="/">客官留步</a></h3>
         </div>
         <div class="book-slide-wrap">
             <div class="book-slide">
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="center-list-wrap">
-            <div class="center-list">
+            <div class="center-list big-img-list">
                 <ul>
                     <% for(var i=0; i< 10; i++){%>
                     <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
@@ -92,109 +92,349 @@
                 </ul>
             </div>
         </div>
-        <div class="hot-rank">
-            <div class="rank-list">
-                <h3 class="wrap-title">新人<i>
-                    ·</i>签约新书榜<a class="more" href="//localr.qidian.com/signnewbook" target="_blank" data-aid="qd_A133"><em>|</em>更多</a>
-                </h3>
+        <div class="hot-rank-wrap">
+            <div class="rank-list sort-list">
+                <h3 class="rank-title">24小时热销榜</h3>
                 <div class="book-list">
                     <ul>
+                        <%for(var i =0;i<10;i++){
+                            if(i==0){%>
                         <li class="unfold">
                             <div class="book-wrap cf">
                                 <div class="book-info fl">
                                     <h3>NO.1</h3>
-                                    <h4>
-                                        <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">网游之荒古时代</a></h4>
-                                    <p class="digital"><em>48072</em>潜力值</p>
-                                    <p class="author"><a class="type" href="http://youxi.qidian.com" target="_blank">游戏</a><i>
-                                        ·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4982600" target="_blank">木有才O</a>
+                                    <h4><a href="http://www.qidian.com/Book/3637873.aspx" target="_blank">绝世天君</a></h4>
+                                    <p class="rank-tag">销售冠军</p>
+                                    <p class="author"><a class="type" href="/" target="_blank">青春日常</a><i>·</i><a class="writer" href="/" target="_blank">高楼大厦</a>
                                     </p>
                                 </div>
-                                <div class="book-cover">
-                                    <a class="link" href="http://www.qidian.com/Book/3637873.aspx " target="_blank" data-bid="3637873">
-                                        <img src="http://image.cmfu.com/books/3637873/3637873.jpg" alt="网游之荒古时代">
+                                <div class="book-back-wrap">
+                                    <a class="link" href="/" target="_blank">
+                                        <img src="<%= staticConf.staticPath %>/images/erciyuan/rank_2.png" alt="">
                                     </a>
-                                    <span></span>
                                 </div>
                             </div>
                         </li>
-
+                        <%}else{%>
                         <li>
-                            <div class="num-box" href="javascript:"><span class="num2">2</span></div>
+                            <div class="num-box" href="javascript:"><span class="num<%= i+1%>"><%= i+1%></span></div>
                             <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">36116</i>
-                            </div>
+                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank">镜照万界</a>
+                                <span class="iconfont up"></span></div>
                         </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num3">3</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003353824.aspx " target="_blank" data-bid="1003353824">位面电梯</a><i class="total">30048</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num4">4</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003378219.aspx " target="_blank" data-bid="1003378219">科技文明入侵者</a><i class="total">29927</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num5">5</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003374935.aspx " target="_blank" data-bid="1003374935">帝临武侠</a><i class="total">29337</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num6">6</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003382455.aspx " target="_blank" data-bid="1003382455">古剑仙踪</a><i class="total">27962</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num7">7</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003448359.aspx " target="_blank" data-bid="1003448359">龙珠之武天宗师</a><i class="total">27114</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num8">8</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003385497.aspx " target="_blank" data-bid="1003385497">重生在神话世界</a><i class="total">26658</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num9">9</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003358455.aspx " target="_blank" data-bid="1003358455">超野蛮</a><i class="total">25299</i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="num-box" href="javascript:"><span class="num10">10</span></div>
-                            <div class="name-box">
-                                <a class="name" href="http://www.qidian.com/Book/1003365908.aspx " target="_blank" data-bid="1003365908">超品奶爸</a><i class="total">24706</i>
-                            </div>
-                        </li>
-
+                        <%}}%>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- end section3 畅销精选 -->
+    <!-- start section4 新书到货 -->
+    <div class="xsdh-container box-center cf">
+        <div class="title-wrap">
+            <h3 class="major-title">新书到货<a class="subtitle" href="/">本本精彩</a></h3>
+        </div>
+        <div class="book-slide-wrap">
+            <div class="book-slide">
+
+            </div>
+        </div>
+        <div class="center-list-wrap">
+            <div class="center-list big-img-list">
+                <ul>
+                    <% for(var i=0; i< 10; i++){%>
+                    <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
+                    <li <%if(i==5){%>class="no-margin"<%}%>>
+                    <div class="book-img">
+                        <a href="/">
+                            <img src="<%= staticConf.staticPath %>/images/erciyuan/qxs_1.png" alt="">
+                        </a>
+                    </div>
+                    <a class="name-common" href="/">比中二更可怕</a>
+                    <span class="short-desc-common">知道想象力该怎</span>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="newbook-rank-wrap">
+            <div class="rank-list">
+                <h3 class="rank-title">新书排行榜</h3>
+                <div class="book-list">
+                    <ul>
+                        <%for(var i =0;i<10;i++){
+                        if(i==0){%>
+                        <li class="unfold">
+                            <div class="book-wrap cf">
+                                <div class="book-info fl">
+                                    <h3>NO.1</h3>
+                                    <h4>
+                                        <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">绝世天君</a></h4>
+                                    <p class="digital"><em>12000</em>点击</p>
+                                    <p class="author"><a class="type" href="/" target="_blank">青春日常</a><i>
+                                        ·</i><a class="writer" href="/" target="_blank">高楼大厦</a>
+                                    </p>
+                                </div>
+                                <div class="book-back-wrap">
+                                    <a class="link" href="/" target="_blank">
+                                        <img src="<%= staticConf.staticPath %>/images/erciyuan/rank_1.png" alt="">
+                                    </a>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </li>
+                        <%}else{%>
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num<%= i+1%>"><%= i+1%></span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">3500</i>
+                            </div>
+                        </li>
+                        <%}}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section4 新书到货 -->
+    <!--start section5 原创轻小说-->
+    <div class="original-work-wrap box-center cf">
+        <div class="title-wrap">
+            <h3 class="major-title">原创轻小说<a class="subtitle" href="/">据说超越日货</a></h3>
+        </div>
+        <!--start 左侧内容区-->
+        <div class="original-work-block">
+            <%for(var n=0;n<4;n++){
+                var typeName = 'yshx';
+                var final = '';
+                if(n == 1){
+                    typeName = 'bsrt';
+                }else if(n == 2){
+                    typeName ='gxtc';
+                }else if(n == 3){
+                    typeName ='qcrc';
+                    final = 'final-row';
+                }
+            %>
+            <div class="row">
+                <div class="type-represent <%= typeName%>">
+                    <div class="type-wrap">
+                        <div class="type-title title-content"></div>
+                        <div class="type-img"></div>
+                        <a class="read-all" href="">查看全部<em class="iconfont">&#xe621;</em></a>
+                    </div>
+                </div>
+                <ul class="book-list big-img-list <%= final%>">
+                    <% for(var i=0; i< 6; i++){%>
+                    <!--其中第一个和第二个的间距、以及最后一个和倒数第二个的间距是29px,因此用sec类名区分-->
+                    <li>
+                    <div class="book-img">
+                        <a href="/">
+                            <img src="<%= staticConf.staticPath %>/images/erciyuan/qxs_2.png" alt="">
+                        </a>
+                    </div>
+                    <a class="name-common" href="/">比中二更可怕</a>
+                    <span class="short-desc-common">知道想象力该怎</span>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+        <%}%>
+        </div>
+        <!--end 左侧内容区-->
+        <!--start 右侧轻小说排行-->
+        <div class="work-rank-block">
+                <div class="rank-list">
+                    <h3 class="rank-title">轻小说排行</h3>
+                    <div class="book-list">
+                        <ul>
+                            <%for(var i =0;i<10;i++){
+                            if(i==0){%>
+                            <li class="unfold">
+                                <div class="book-wrap cf">
+                                    <div class="book-info fl">
+                                        <h3>NO.1</h3>
+                                        <h4>
+                                            <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">绝世天君</a></h4>
+                                        <p class="digital"><em>12000</em>点击</p>
+                                        <p class="author"><a class="type" href="/" target="_blank">青春日常</a><i>
+                                            ·</i><a class="writer" href="/" target="_blank">高楼大厦</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-back-wrap">
+                                        <a class="link" href="/" target="_blank">
+                                            <img src="<%= staticConf.staticPath %>/images/erciyuan/rank_1.png" alt="">
+                                        </a>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <%}else{%>
+                            <li>
+                                <div class="num-box" href="javascript:"><span class="num<%= i+1%>"><%= i+1%></span></div>
+                                <div class="name-box">
+                                    <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">3500</i>
+                                </div>
+                            </li>
+                            <%}}%>
+                        </ul>
+                    </div>
+                </div>
+            <div class="rank-list">
+                <h3 class="rank-title">原创风云榜</h3>
+                <div class="book-list">
+                    <ul>
+                        <%for(var i =0;i<10;i++){
+                        if(i==0){%>
+                        <li class="unfold">
+                            <div class="book-wrap cf">
+                                <div class="book-info fl">
+                                    <h3>NO.1</h3>
+                                    <h4>
+                                        <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">绝世天君</a></h4>
+                                    <p class="digital"><em>67865</em>月票</p>
+                                    <p class="author"><a class="type" href="/" target="_blank">青春日常</a><i>
+                                        ·</i><a class="writer" href="/" target="_blank">高楼大厦</a>
+                                    </p>
+                                </div>
+                                <div class="book-back-wrap">
+                                    <a class="link" href="/" target="_blank">
+                                        <img src="<%= staticConf.staticPath %>/images/erciyuan/rank_1.png" alt="">
+                                    </a>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </li>
+                        <%}else{%>
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num<%= i+1%>"><%= i+1%></span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">3500</i>
+                            </div>
+                        </li>
+                        <%}}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end 右侧轻小说排行-->
+    </div>
+    <!--end section5 原创轻小说-->
+    <!--start section6 衍生同人-->
+    <div class="ystr-container box-center cf">
+        <div class="cross-page-title ystr-header">
+            <p class="line"></p>
+            <div class="title-wrap title-posit">
+                <b class="icon-tr icon-basics"></b>
+                <h3 class="major-title">衍生同人<a class="subtitle" href="/">搞基卖腐啥都有</a></h3>
+            </div>
+        </div>
+        <ul class="left-content-wrap">
+            <li class="catagory-list-wrap">
+                <div class="title-wrap"></div>
+                <ul class="catagory-list">
+                    <%for(var i = 0;i < 5; i++){%>
+                    <li>
+                        <a class="name" href="">大圣道</a>
+                        <desc>重回做嗜血刺客，残酷暴君的女枪能力残酷暴君的女枪能力</desc>
+                    </li>
+                    <%}%>
+                </ul>
+            </li>
+            <li class="catagory-list-wrap">
+                <div class="title-wrap c2">
+                    <h3 class="title-content"></h3>
+                    <span>人气漫画同人作品</span>
+                    <b class="icon-tag-mh icon-pst"></b>
+                </div>
+                <ul class="catagory-list">
+                    <%for(var i = 0;i < 5; i++){%>
+                    <li>
+                        <a class="name" href="">大圣道</a>
+                        <desc>重回做嗜血刺客，残酷暴君的女枪能力残酷暴君的女枪能力</desc>
+                    </li>
+                    <%}%>
+                </ul>
+            </li>
+            <li class="catagory-list-wrap">
+                <div class="title-wrap c3">
+                    <h3 class="title-content"></h3>
+                    <span>热门动画同人作品</span>
+                    <b class="icon-tag-dh icon-pst"></b>
+                </div>
+                <ul class="catagory-list">
+                    <%for(var i = 0;i < 5; i++){%>
+                    <li>
+                        <a class="name" href="">大圣道</a>
+                        <desc>重回做嗜血刺客，残酷暴君的女枪能力残酷暴君的女枪能力</desc>
+                    </li>
+                    <%}%>
+                </ul>
+            </li>
+            <li class="catagory-list-wrap">
+                <div class="title-wrap c4">
+                    <h3 class="title-content"></h3>
+                    <span>经典游戏同人作品</span>
+                    <b class="icon-tag-yx icon-pst"></b>
+                </div>
+                <ul class="catagory-list">
+                    <%for(var i = 0;i < 5; i++){%>
+                    <li>
+                        <a class="name" href="">大圣道</a>
+                        <desc>重回做嗜血刺客，残酷暴君的女枪能力残酷暴君的女枪能力</desc>
+                    </li>
+                    <%}%>
+                </ul>
+            </li>
+        </ul>
+        <div class="tr-rank-wrap">
+            <div class="title-wrap"></div>
+            <div class="rank-list">
+                <div class="book-list">
+                    <ul>
+                        <%for(var i =0;i<8;i++){
+                        if(i==0){%>
+                        <li class="unfold">
+                            <div class="book-wrap cf">
+                                <div class="book-info fl">
+                                    <h3>NO.1</h3>
+                                    <h4>
+                                        <a href="http://www.qidian.com/Book/3637873.aspx" target="_blank" data-bid="3637873">绝世天君</a></h4>
+                                    <p class="digital"><em>12000</em>点击</p>
+                                    <p class="author"><a class="type" href="/" target="_blank">青春日常</a><i>
+                                        ·</i><a class="writer" href="/" target="_blank">高楼大厦</a>
+                                    </p>
+                                </div>
+                                <div class="book-back-wrap">
+                                    <a class="link" href="/" target="_blank">
+                                        <img src="<%= staticConf.staticPath %>/images/erciyuan/rank_1.png" alt="">
+                                    </a>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </li>
+                        <%}else{%>
+                        <li>
+                            <div class="num-box" href="javascript:"><span class="num<%= i+1%>"><%= i+1%></span></div>
+                            <div class="name-box">
+                                <a class="name" href="http://www.qidian.com/Book/1003293644.aspx " target="_blank" data-bid="1003293644">镜照万界</a><i class="total">3500</i>
+                            </div>
+                        </li>
+                        <%}}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end section6 衍生同人-->
+    <!--start section7 最近更新-->
+    <!--end section7 最近更新-->
 </div>
 
 <!-- start LBF lib -->
 <script src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
 <script>
     LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.index.index'], function ($, SpeedReport, Index) {
-
         // 页面逻辑入口
         new Index({});
         $(window).on('load.speedReport', function () {

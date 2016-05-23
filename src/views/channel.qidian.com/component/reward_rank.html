@@ -1,0 +1,34 @@
+<div class="rank-list">
+    <h3 class="wrap-title">打赏粉丝榜<a class="more" href="javascript:"></a></h3>
+    <div class="book-list">
+        <ul>
+            <li class="unfold">
+                <div class="book-wrap cf">
+                    <div class="book-info fl">
+                        <h3>NO.1</h3>
+                        <h4>
+                            <a href="http://www.qidian.com/Book/3347598.aspx" target="_blank">我真是大明星</a></h4>
+                        <p class="digital"><em>12974</em>起点币</p>
+                        <p class="author">
+                            <a class="type" href="http://zhichang.qidian.com/Default.aspx" target="_blank">职场</a><i>·</i><a class="writer" href="http://me.qidian.com/authorIndex.aspx?id=4362273" target="_blank">尝谕</a>
+                        </p>
+                    </div>
+                    <div class="book-cover">
+                        <a class="link" href="http://www.qidian.com/Book/3347598.aspx" target="_blank">
+                            <img src="http://image.cmfu.com/books/3347598/3347598.jpg">
+                        </a>
+                        <span></span>
+                    </div>
+                </div>
+            </li>
+            <% for(var i=1; i < 10; i++) { %>
+            <li>
+                <div class="num-box"><span class="num<%=i+1 %>"><%=i+1 %></span></div>
+                <div class="name-box">
+                    <a class="name" href="http://www.qidian.com/Book/1001730574.aspx " target="_blank" data-bid="1001730574">史上最强师兄</a><i class="total">10343</i>
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</div>
