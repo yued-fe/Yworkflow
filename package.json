@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=local  gulp dev",
     "init": "npm run build && npm run dev",
-    "go": "gulp clean && gulp auto-sprite && gulp build  && gulp rev && gulp rev-fix && gulp rev-views && gulp copy",
+    "sprite": "gulp auto-sprite && sleep 1 && gulp auto-sprite",
+    "go": "gulp clean && gulp auto-sprite && gulp auto-sprite && gulp build  && gulp rev && gulp rev-fix && gulp rev-views",
     "clean": "gulp clean",
-    "build": "gulp clean && sleep 1  && gulp auto-sprite && gulp build",
-    "nocombo-publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp copy && npm run preview",
-    "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo && gulp copy ",
+    "build": "gulp clean && sleep 1  && gulp auto-sprite && gulp auto-sprite && gulp build",
+    "nocombo-publish": "npm run build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views  && npm run preview",
+    "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo  && gulp copy-config",
     "preview": "cross-env NODE_ENV=preview  gulp dev"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "gulp-rev-custom-tag": "0.0.6",
     "gulp-rev-replace": "^0.4.3",
     "gulp-sass": "^2.1.1",
+    "gulp-slash": "^1.1.3",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp.spritesmith": "^6.0.0",

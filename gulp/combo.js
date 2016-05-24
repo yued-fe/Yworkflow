@@ -20,8 +20,8 @@
 var PROJECT_CONFIG = require('../.yconfig');  //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
-var combo = require('../lib/util/combo');
-
+var combo = require('./util/combo');
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var argv = require('yargs').argv;
 
 var serverConf = require('../src/node-config/server');
@@ -37,7 +37,7 @@ var dateFormat = require('dateformat');
 
 gulp.task('preview-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
-    console.log(_updateTime);
+    console.log('combo url时间长更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
     gulp.src('_previews/**/*.html')
         .pipe(combo(baseUri, {

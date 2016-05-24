@@ -11,7 +11,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var del = require('del');
 var gulpCopy = require('gulp-copy');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 var paths = {
     assets: 'assets',
@@ -30,6 +30,6 @@ gulp.task('cleanbuild', function(cb) {
 
 gulp.task('clean', function(cb) {
     console.log(chalk.red('清理预览目录'));
-    del(['_tmp/','_prelease/', '_previews/'])
+    del(['_prelease/', '_previews/','build/'])
     cb()
 });

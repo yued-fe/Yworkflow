@@ -1,6 +1,7 @@
 {
-  "welcome/css/index.css": "welcome/css/index.eeb6a.css",
-  "welcome/images/images/sprite/@1x.png": "welcome/images/images/sprite/@1x.d0a55.png",
-  "welcome/images/images/sprite/@2x.png": "welcome/images/images/sprite/@2x.84498.png",
-  "welcome/images/css/sprite/sprite.scss": "welcome/images/css/sprite/sprite.7294f.scss"
+  "css/demo_sprite.scss": "css/demo_sprite.08ccc.scss",
+  "css/images_sprite.scss": "css/images_sprite.7294f.scss",
+  "welcome/css/index.css": "welcome/css/index.853e9.css",
+  "welcome/images/sprite/@1x.png": "welcome/images/sprite/@1x.d0a55.png",
+  "welcome/images/sprite/@2x.png": "welcome/images/sprite/@2x.84498.png"
 }

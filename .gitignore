@@ -31,7 +31,7 @@ npm-debug.log
 # Not-Needed System Files
 *.swp
 *.bak
-.svn/
+.svn
 
 
 

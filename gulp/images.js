@@ -11,7 +11,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var image = require('gulp-image');
 var del = require('del');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var folders = require('gulp-folders');
 
 var paths = {

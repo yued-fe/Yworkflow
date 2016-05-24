@@ -1,6 +1,7 @@
 {
+  "css/demo_sprite.scss": "css/demo_sprite.0.1.scss",
+  "css/images_sprite.scss": "css/images_sprite.0.1.scss",
   "welcome/css/index.css": "welcome/css/index.0.1.css",
-  "welcome/images/images/sprite/@1x.png": "welcome/images/images/sprite/@1x.0.1.png",
-  "welcome/images/images/sprite/@2x.png": "welcome/images/images/sprite/@2x.0.1.png",
-  "welcome/images/css/sprite/sprite.scss": "welcome/images/css/sprite/sprite.0.2.scss"
+  "welcome/images/sprite/@1x.png": "welcome/images/sprite/@1x.0.1.png",
+  "welcome/images/sprite/@2x.png": "welcome/images/sprite/@2x.0.1.png"
 }
