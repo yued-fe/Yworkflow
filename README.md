@@ -21,11 +21,6 @@
 	2. 进入项目文件夹目录，执行`npm install` ,若日志提示`permission denied` 权限的问题,请执行`sudo npm install`
 
 
-<<<<<<< HEAD
-##初始
-
-
-=======
 ##注意
 
 Windows用户请使用`cmber`或者`git bash`等终端，原声的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。
@@ -34,7 +29,6 @@ Windows用户请使用`cmber`或者`git bash`等终端，原声的`CMD`太弱了
 ##初始
 
 请注意配置`.yconfig`文件，在这里可以配置项目对应的静态资源文件夹路径,本地调试所需的端口等。
->>>>>>> master
 
 ##构建工具目录结构
 
