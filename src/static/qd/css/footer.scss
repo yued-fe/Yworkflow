@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@import "global";
+@import "mixin";
+.footer {
+	background: #FAFAFA;
+	text-align: center;
+	.box-center {
+		background: #FAFAFA;
+	}
+	.friend-link {
+		padding-top: 20px;
+		padding-bottom: 12px;
+		overflow: hidden;
+		em {
+			font-size: 12px;
+			margin-right: 16px;
+			font-family: $simsun;
+		}
+	}
+	.friend-link, .footer-menu {
+		em {
+			color: #1A1A1A;
+		}
+		a {
+			margin-right: 16px;
+			font-size: 12px;
+			font-family: $simsun;
+			line-height: 18px;
+			color: #1A1A1A;
+			&:hover {
+				color: $hover;
+			}
+		}
+	}
+	.footer-menu {
+		padding: 0 0 15px;
+		a {
+			color: $gray6;
+		}
+	}
+	.copy-right, .safety-box {
+		padding-bottom: 20px;
+		p {
+			height: 20px;
+			font: 12px/20px $simsun;
+			color: $A6;
+			overflow: hidden;
+		}
+		span {
+			margin-right: 5px;
+			font-family: Arial;
+		}
+	}
+	.safety-img {
+		padding: 0 0 20px;
+		a {
+			width: 140px;
+			height: 52px;
+			margin-right: 14px;
+			background-image: url(/qd/images/foot_site.png?max_age=31536000);
+			@include border(#EDEDED);
+			&.site1 {
+				background-position: 0 0;
+			}
+			&.site2 {
+				background-position: 0 -52px;
+			}
+			&.site3 {
+				background-position: 0 -104px;
+			}
+			&.site4 {
+				background-position: 0 -156px;
+			}
+			&.site5 {
+				background-position: 0 -208px;
+			}
+			&.site6 {
+				background-position: 0 -260px;
+			}
+			&.site7 {
+				background-position: 0 -312px;
+			}
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.footer {
+		width: 100%;
+	}
+	.footer .safety-img a {
+		margin-right: 4px;
+		width: 130px;
+		height: 50px;
+	}
+}

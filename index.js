@@ -21,10 +21,10 @@ var morgan = require('morgan'); // http请求日志用
 var chalk = require('chalk'); // 美化日志
 var fs = require('fs');
 var dateFormat = require('dateformat'); //时间戳转换
+var errorhandler = require('errorhandler')
 const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
 
-// var comboAnswer = require('koa-combo-answer');
 var _ = require('underscore');
 
 //载入静态资源相关配置
@@ -32,7 +32,7 @@ var serverConf = require('./src/node-config/server');
 var staticConf = serverConf[envType]['static'];
 
 //域名别名，在本地环境读取实际目录用
-//
+
 var domainAlias = require('./src/node-config/domain_alias')
 
 var PROJECT_CONFIG = require('./.yconfig');
@@ -51,9 +51,7 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-
 app.use(cookieParser());
-
 
 app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
 
@@ -65,13 +63,12 @@ if (process.env.NODE_ENV == 'local') {
 }
 
 if (process.env.NODE_ENV == 'preview') {
-    app.use(express.static(path.join(__dirname, '_tmp')));
+    app.use('/' + PROJECT_CONFIG.gtimgName ,express.static(path.join(__dirname, '_prelease')))
     app.set('views', path.join(__dirname, '_previews')); // 设置preview模板页面
 }
 
 app.set('view engine', 'ejs'); // 载入ejs模板
 app.engine('html', require('ejs').renderFile);
-
 
 // 设置当前环境 - 这个配置文件，每个环境都不一样
 
@@ -82,8 +79,11 @@ app.engine('html', require('ejs').renderFile);
  * 生产：pro
  */
 
+<<<<<<< HEAD
 
 // app.set('env', 'local');
+=======
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 
 /**
  * ================================================
@@ -96,6 +96,7 @@ app.engine('html', require('ejs').renderFile);
  * 载入通配路由规则
  */
 
+
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
 var routerMap = require('./src/node-config/local_dev_routermap.js');
 
@@ -105,6 +106,18 @@ var ajaxMap = require('./src/json/ajaxmap.js');
 //目前本地开发基本上只有GET和POST两种请求方式，暂时提供这两种的同用配置
 var ajaxPostMap = require('./src/json/ajaxpostmap.js');
 
+
+
+function errorHandler(err, req, res, next) {
+    if (res.headersSent) {
+        return next(err);
+    }
+    res.status(500);
+    res.render('error', { error: err });
+}
+
+
+
 /**
  * 处理cgi路由闭包
  */
@@ -113,7 +126,7 @@ var ajaxPostMap = require('./src/json/ajaxpostmap.js');
 var getRouterDomain = function(originHost, routerKey, val) {
     let routerVal, views, cgi;
     let useDefault = false; //使用默认当前目录
-        console.log(originHost);
+    console.log(originHost);
     console.log(domainAlias[originHost]);
     if (domainAlias && domainAlias[originHost]) {
         originHost = domainAlias[originHost];
@@ -194,7 +207,7 @@ var configRouter = function(val) {
                 viewsPath = 'src/views'
             }
             console.log('当前目录' + viewsPath)
-            var _templateFileName = templateFileName.slice(1);//去除掉开头的斜杠
+            var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
             res.render(_templateFileName + '.html', data);
         });
     }
@@ -279,12 +292,16 @@ function parseRouterMap(routerMap) {
 
 
 var routes = parseRouterMap(routerMap);
-console.log(routes);
+// console.log(routes);
 for (var routerVal in routes) {
-    app.get(routerVal, configRouter(routes[routerVal]));
-    // var _routerVal = routerVal,
-    //     _cgiVal = routerMap[routerVal];
-    // app.get(_routerVal, configRouter(_routerVal))
+    try {
+        app.get(routerVal, configRouter(routes[routerVal]));
+    } catch (e) {
+        console.log(e);
+    }
+
+
+
 }
 
 
@@ -324,7 +341,7 @@ app.get("/", function(req, res, next) {
 
 for (var ajaxVal in ajaxMap) {
 
-    console.log(ajaxVal + ':' + ajaxMap[ajaxVal]);
+    // console.log(ajaxVal + ':' + ajaxMap[ajaxVal]);
     // console.log(routerVal);
     var _ajaxVal = ajaxVal,
         _cgiVal = ajaxMap[ajaxVal];
@@ -338,21 +355,23 @@ for (var ajaxVal in ajaxMap) {
  * 注意,此接口为本地模拟ajax POST请求调试用
  */
 
-console.log(ajaxPostMap);
 for (var ajaxVal in ajaxPostMap) {
-
-    console.log(ajaxVal + ':' + ajaxPostMap[ajaxVal]);
-    // console.log(routerVal);
     var _ajaxVal = ajaxVal,
         _cgiVal = ajaxPostMap[ajaxVal];
-    // console.log('ajax接口' + _ajaxVal);
     app.post(_ajaxVal, ajaxPostRouter(_ajaxVal))
 }
 
-app.get('/404', function(req, res) {
+app.get('/404', function(req, res, next) {
     res.render('404.html');
 });
 
+<<<<<<< HEAD
+=======
+
+app.use(errorhandler());
+
+
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 // 启动server
 console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
 

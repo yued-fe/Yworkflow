@@ -1,0 +1,1815 @@
+@charset "utf-8";
+
+/**
+ * @author yangye
+ * @design yangxuesong;
+ */
+@import "global";
+@import "mixin";
+
+/* 焦点图一栏 */
+.focus-wrap {
+	height: 410px;
+	.focus-box {
+		width: 748px;
+		.focus-slider {
+			width: 100%;
+			height: 250px;
+			.lbf-slides {
+				width: 100%;
+				position: relative;
+				z-index: 1;
+				height: 250px;
+				overflow: hidden;
+				.la-ball-pulse {
+					position: absolute;
+					left: 50%;
+					margin-left: -20px;
+					top: 100px;
+				}
+				.more {
+					//暂时隐藏
+					display: none;
+					position: absolute;
+					z-index: 3;
+					right: 0;
+					bottom: 0;
+					width: 36px;
+					height: 36px;
+					background: #333;
+					filter: alpha(opacity=90);
+					background: rgba(0, 0, 0, .7);
+					.point {
+						padding: 16px 0 0 10px;
+					}
+				}
+				li {
+					display: none;
+					position: absolute;
+					top: -49px;
+					left: 0;
+					transition-timing-function: ease-in-out !important;
+					transition-duration: .5s !important;
+					a, img {
+						display: block;
+						width: 748px;
+					}
+					&#item1 {
+						display: block;
+					}
+				}
+				.thumb {
+					position: absolute;
+					z-index: 2;
+					left: -1px;
+					bottom: 0;
+					width: 102%;
+					a {
+						width: 18.4%;
+						padding: 0 5px;
+						height: 36px;
+						font: 14px/36px $simsun;
+						border: none;
+						border-left: 1px solid #AAA;
+						border-right: 1px solid #AAA;
+						//高阶浏览器用透明边框
+						border-left: 1px solid rgba(255, 255, 255, .4);
+						border-right: 1px solid rgba(255, 255, 255, .4);
+						text-align: center;
+						white-space: normal;
+						color: white;
+						background: #333;
+						filter: alpha(opacity=90);
+						background: rgba(0, 0, 0, .7);
+						zoom: 1;
+						&.active {
+							background: $hover;
+							font-weight: 700;
+						}
+						.yxtd {
+							display: inline-block;
+							margin: -3px 5px 0 0;
+							font-size: 16px;
+							color: #FFEEA8;
+							vertical-align: middle;
+							opacity: .9;
+							filter: alpha(opacity=90);
+							-webkit-text-stroke-width: 0;
+						}
+						&.game-link {
+							color: #FFEEA8;
+						}
+					}
+
+				}
+			}
+
+		}
+		.focus-img li {
+			position: relative;
+			z-index: 1;
+			float: left;
+			width: 33.33%;
+			height: 160px;
+			overflow: hidden;
+			text-align: center;
+			background: url("/qd/images/index/focus_img_bg.png") no-repeat;
+			&.middle {
+				background: #F7F6F2;
+			}
+			img {
+				display: block;
+				margin: 19px auto 0;
+			}
+			&:hover {
+				z-index: 2;
+				transition: all .5s;
+				box-shadow: 0 5px 16px #D9D4C7;
+			}
+		}
+	}
+	.notice-wrap {
+		.notice {
+			position: relative;
+			width: 214px;
+			height: 248px;
+			text-align: center;
+			background: #FCFCFA;
+			@include border;
+			@include mb;
+			.more {
+				//更多暂时隐藏，迭代版本开放
+				display: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 25px;
+				height: 25px;
+				background: $A6;
+				overflow: hidden;
+				em {
+					padding: 11px 0 0 3px;
+				}
+			}
+			h3 {
+				width: 160px;
+				height: 16px;
+				margin: 0 auto 8px;
+				padding-top: 12px;
+				font: 700 16px/1 $fontbase;
+				overflow: hidden;
+
+			}
+			.notice-list {
+				padding-left: 5px;
+				li {
+					overflow: hidden;
+					height: 25px;
+					margin-bottom: 5px;
+					font: 14px/25px $simsun;
+					text-align: left;
+					a {
+						display: block;
+						width: 196px;
+						i {
+							font-family: $fontbase;
+						}
+						@include word-wrap-multi;
+						em {
+							display: inline-block;
+							width: 38px;
+							height: 18px;
+							margin: -2px 10px 0 8px;
+							font: 12px/18px $simsun;
+							text-align: center;
+							vertical-align: middle;
+							color: #FFF;
+							background: $red;
+
+							*margin: 1px 10px 0 8px;
+							*cursor: pointer;
+
+						}
+					}
+					&.color-type_1 { //红色
+						a {
+							color: $red;
+							&:hover {
+								color: $hover;
+							}
+						}
+					}
+				}
+			}
+		}
+		.attention {
+			.word_slide {
+				position: relative;
+				height: 22px;
+				line-height: 22px;
+				overflow: hidden;
+				color: #666;
+				li {
+					display: none;
+					position: absolute;
+					left: 33px;
+				}
+			}
+			em {
+				position: absolute;
+				left: 12px;
+				top: 1px;
+				top: 3px \0
+			;
+				width: 16px;
+				height: 16px;
+				font-size: 16px;
+				color: $red;
+				overflow: hidden;
+			}
+			@extend %cf;
+			a {
+				float: left;
+				text-align: left;
+				width: 170px;
+				height: 22px;
+				font: 14px/22px $simsun;
+				overflow: hidden;
+				&:hover {
+					color: $hover;
+				}
+			}
+		}
+	}
+	.notice-banner {
+		position: relative;
+		width: 216px;
+		height: 150px;
+		.la-ball-pulse {
+			position: absolute;
+			left: 85px;
+			top: 68px;
+		}
+		a, img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 20;
+			width: 216px;
+			height: 150px;
+		}
+		a {
+			//解决点击flash链接失效问题
+			background: url(about:blank);
+		}
+		embed {
+			position: absolute;
+			z-index: 1;
+			width: 216px;
+			height: 150px;
+		}
+	}
+}
+:root .notice .more i {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 50px;
+	height: 50px;
+	background: #FCFCFA;
+	-webkiet-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+/* 第二屏 排行榜 */
+.index-two-wrap {
+	.book-list ul {
+		height: 503px;
+		overflow: hidden;
+	}
+	/*
+	 * 只有首页第二屏排行有此样式
+	 * name后有hot小标识
+	 */
+	.book-list-wrap .book-list li strong {
+		float: left;
+		margin-left: -3px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #1A1A1A;
+		position: relative;
+		.name {
+			margin-left: 0;
+		}
+		.hot {
+			position: absolute;
+			top: 0;
+			right: -20px;
+			width: 18px;
+			height: 10px;
+			background: url("/qd/images/common/tag.png") 0 -11px no-repeat;
+		}
+
+	}
+}
+/* 编辑推荐 */
+.edit-rec-wrap {
+	width: 708px;
+	h3 {
+		width: 100%;
+	}
+	.edit-rec {
+		width: 736px;
+		height: 305px;
+		position: relative;
+		z-index: 2;
+		overflow: hidden;
+		p.line {
+			position: absolute;
+			z-index: 1;
+			top: 164px;
+			*top: 144px;
+			left: 0;
+			width: 708px;
+			@extend %bbe;
+		}
+	}
+	.focus-today {
+		height: 137px;
+		padding: 30px 0;
+		@extend %bbd;
+		.slider-wrap {
+			position: relative;
+			width: 277px;
+			height: 124px;
+			margin-right: 38px;
+		}
+		/* 编辑推荐 slides */
+		.carousel {
+			position: relative;
+			padding-left: 104px;
+			.la-ball-pulse {
+				position: absolute;
+				z-index: 300;
+				top: 52px;
+				left: 130px;
+			}
+			.slides {
+				display: none;
+				position: relative;
+				.slideItem {
+					position: absolute;
+					cursor: pointer;
+					overflow: visible;
+					img {
+						height: 100%;
+						box-shadow: 0 1px 3px $gray9;
+					}
+				}
+			}
+			.buttonNav {
+				position: absolute;
+				top: 142px;
+				left: 98px;
+				z-index: 10;
+				.bullet {
+					float: left;
+					width: 8px;
+					height: 8px;
+					margin: 0 7px 0 0;
+					border-radius: 100%;
+					background: #DDD;
+					cursor: pointer;
+				}
+				.bulletActive {
+					margin-top: -2px;
+					background: none;
+					border: 2px solid $hover;
+				}
+			}
+		}
+
+		.description {
+			position: absolute;
+			top: 0;
+			left: 316px;
+			width: 390px;
+			h3 {
+				overflow: hidden;
+				width: 380px;
+				height: 24px;
+				margin-top: -5px;
+				font-size: 18px;
+				@include word-wrap;
+				@include mb(9px);
+				a {
+					color: #1A1A1A;
+					&:hover {
+						color: $hover;
+					}
+				}
+			}
+			p {
+				overflow: hidden;
+				height: 72px;
+				margin-bottom: 7px;
+				font: 14px/24px $simsun;
+				color: $gray6;
+			}
+			.desc-wrap {
+				display: none;
+				&.act {
+					display: block;
+				}
+			}
+		}
+	}
+	.edit-rec-list {
+		@extend %cf;
+		padding: 27px 0 28px;
+		li {
+			float: left;
+			width: 159px;
+			margin-right: 25px;
+			.tag {
+				height: 17px;
+				line-height: 17px;
+				padding: 1px 4px;
+				text-align: center;
+				background: #F7F6F1;
+				overflow: hidden;
+				a {
+					display: inline-block;
+					max-width: 118px;
+					height: 17px;
+					margin: -3px 0 0;
+					vertical-align: middle;
+					@include word-wrap-multi;
+					font-size: 14px;
+					font-family: $simsun;
+					font-weight: 700;
+					color: #1A1A1A;
+					&:hover {
+						color: $hover;
+					}
+				}
+				i {
+					display: inline-block;
+					vertical-align: middle;
+					font-size: 16px;
+					font-family: Arial;
+					color: $gray6;
+					&.syh {
+						margin-top: -6px;
+					}
+					&.xyh {
+						margin-bottom: -1px;
+					}
+				}
+			}
+			h3 {
+				overflow: hidden;
+				height: 20px;
+				padding-top: 6px;
+				a {
+					color: #1A1A1A;
+					&:hover {
+						color: $hover;
+					}
+					span {
+						font: 14px/20px $simsun;
+						vertical-align: middle;
+					}
+				}
+				b {
+					font: 14px/20px $simsun;
+					display: inline-block;
+					vertical-align: middle;
+					max-width: 124px;
+					@include word-wrap;
+				}
+			}
+			em {
+				display: block;
+				overflow: hidden;
+				height: 21px;
+				padding: 2px 0 4px;
+				color: $red;
+				cite {
+					margin-right: 3px;
+					font-family: Arial;
+					font-size: 14px;
+					vertical-align: middle;
+				}
+				i {
+					font-family: $simsun;
+					font-size: 12px;
+					vertical-align: middle;
+				}
+			}
+			p {
+				overflow: hidden;
+				height: 36px;
+				font-size: 12px;
+				font-family: $simsun;
+				line-height: 20px;
+				color: $gray6;
+			}
+		}
+	}
+}
+.banner-wrap {
+	position: relative;
+	overflow: hidden;
+	height: 100px;
+	a {
+		display: block;
+		position: absolute;
+		width: 1200px;
+		height: 100px;
+		left: 50%;
+		margin-left: -600px;
+		z-index: 20;
+		//解决点击flash链接失效问题
+		background: url(about:blank);
+	}
+	img {
+		display: block;
+		width: 1200px;
+		height: 100px;
+	}
+	embed {
+		position: absolute;
+		width: 1200px;
+		height: 100px;
+		z-index: 1;
+	}
+}
+.rank-list-row {
+	*position: relative;
+	//为了签约作家新书榜3d书封阴影不被隐藏，副作用是窄屏下会多出白边
+	width: 101%;
+	height: 420px;
+	overflow: hidden;
+}
+.rank-wrap .load-more {
+	position: relative;
+	display: block;
+	height: 19px;
+	margin-bottom: 20px;
+	font: 14px/1 $simsun;
+	color: $blue;
+	@include center-box(70px);
+	@include triangle;
+}
+/* 热门作品 */
+.hot-work-box {
+	width: 216px;
+	margin-right: 30px;
+	h3.wrap-title {
+		padding-bottom: 8px;
+		line-height: 30px;
+		font-size: 22px;
+		overflow: hidden;
+	}
+	.hot-work-info {
+		height: 395px;
+		background: #F7F5F0;
+		overflow: hidden;
+	}
+	.read-btn {
+		margin: 0 auto;
+	}
+	.hot-work-slide {
+		padding: 24px 0;
+		margin-bottom: 185px;
+	}
+}
+.hot-classify-wrap {
+	width: 954px;
+	height: 391px;
+	padding-top: 4px;
+	li {
+		position: relative;
+		z-index: 1;
+		float: left;
+		width: 216px;
+		margin: 0 30px 45px 0;
+		.book-wrap {
+			padding: 0 0 5px;
+			&.bd {
+				@extend %bbe;
+				@include mb(13px);
+			}
+			.book-info {
+				width: 144px;
+				.digital {
+					height: auto;
+					em {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+		//二次元列表特殊处理
+		&.erciyuan {
+			.hot-book-list dd a.classify {
+				width: 70px;
+			}
+			.hot-book-list dd a.name {
+				width: 150px;
+			}
+		}
+		&.mr0 {
+			margin-right: 0;
+		}
+	}
+	h3.wrap-title {
+		position: relative;
+		overflow: visible;
+
+		@include mb(5px);
+		.icon-tag {
+			position: absolute;
+			top: -10px;
+			right: -1px;
+			background-image: url(/qd/images/index/hot-classify-tag_1x.png);
+			&.ds {
+				top: -8px;
+				right: -2px;
+				width: 46px;
+				height: 36px;
+				background-position: 0 0;
+			}
+			&.ecy {
+				top: -8px;
+				right: 0;
+				width: 52px;
+				height: 40px;
+				background-position: 0 -36px;
+			}
+			&.jsls {
+				top: -8px;
+				width: 47px;
+				height: 43px;
+				background-position: 0 -76px;
+			}
+			&.khly {
+				top: -6px;
+				width: 53px;
+				height: 43px;
+				background-position: 0 -119px;
+			}
+			&.wxxx {
+				right: -2px;
+				width: 45px;
+				height: 39px;
+				background-position: 0 -162px;
+			}
+			&.xhqh {
+				width: 41px;
+				height: 39px;
+				background-position: 0 -201px;
+			}
+			&.yxjj {
+				top: -6px;
+				right: -6px;
+				width: 52px;
+				height: 42px;
+				background-position: 0 -240px;
+			}
+		}
+	}
+	.hot-book-list {
+		dd {
+			@extend %cf;
+			a {
+				float: left;
+				margin-left: -8px;
+				font: 14px/32px $simsun;
+				color: #1A1A1A;
+				&:hover {
+					color: $hover;
+				}
+				&.classify {
+					overflow: hidden;
+					width: 56px;
+					height: 32px;
+					margin-right: 5px;
+					color: $gray8;
+					&:hover {
+						color: $hover;
+					}
+					em {
+						font-family: $fontbase;
+						font-size: 13px;
+					}
+				}
+				&.name {
+					overflow: hidden;
+					width: 168px;
+					height: 32px;
+				}
+			}
+		}
+	}
+}
+/* 左边轮播公用容器 */
+.left-wrap {
+	width: 954px;
+	@include title22;
+	.wrap-title span {
+		color: $gray6;
+	}
+	&:hover {
+		.more {
+			display: inline;
+		}
+	}
+	.left-info {
+		width: 216px;
+		height: 395px;
+		background: #F7F5F0;
+		overflow: hidden;
+		.read-btn {
+			margin: 0 auto;
+		}
+		.slide-box {
+			position: relative;
+			z-index: 1;
+			padding: 40px 0 0 48px;
+			height: 120px;
+			.la-ball-pulse {
+				position: absolute;
+				z-index: 300;
+				left: 88px;
+				top: 70px;
+			}
+		}
+	}
+}
+/* 完本精品 列表 */
+.center-book-list {
+	position: relative;
+	width: 738px;
+	.line {
+		position: absolute;
+		left: 30px;
+		width: 708px;
+
+		@extend %bbd;
+		&.line1 {
+			top: 138px;
+
+			*top: 115px;
+		}
+		&.line2 {
+			top: 276px;
+
+			*top: 253px;
+		}
+	}
+	ul {
+		position: relative;
+		width: 738px;
+		height: 375px;
+		overflow: hidden;
+		padding: 20px 0 0 30px;
+
+		*height: 380px;
+		li {
+			float: left;
+			width: 339px;
+			height: 96px;
+			margin: 0 30px 43px 0;
+			&.mr0 {
+				margin-right: 0;
+			}
+			&.mb0 {
+				@include mb(0);
+			}
+			.book-img, .book-info {
+				float: left;
+			}
+
+			.book-info {
+				width: 255px;
+				h3 {
+					overflow: hidden;
+					height: 21px;
+					margin-top: -3px;
+					font: 16px/21px $fontbase;
+					@include mb(8px);
+					a {
+						color: #1A1A1A;
+						&:hover {
+							color: $hover;
+						}
+					}
+				}
+				p {
+					overflow: hidden;
+					height: 40px;
+					font: 12px/20px $simsun;
+					color: $gray6;
+
+					@include mb;
+				}
+			}
+			&.no-img {
+				width: 30.5%;
+				margin-right: 20px;
+				.book-info {
+					width: 216px;
+				}
+			}
+		}
+	}
+}
+/* 右侧栏容器 */
+.right-wrap {
+	position: relative;
+	z-index: 1;
+	width: 216px;
+	.rank-list .book-list li.unfold {
+		height: auto;
+	}
+	.book-wrap .book-info p.digital {
+		height: 20px;
+		padding: 4px 0 0;
+		em {
+			font-size: 14px;
+		}
+	}
+}
+.score-list {
+	li {
+		*vertical-align: bottom;
+		/*
+		 * 为了ejs模板不输出最后一个li加class，改为上边框线，第一个无上边线
+		 * 3d书封的阴影不能被遮掉，所以父容器不能用overflow。
+		 */
+		border-top: 1px solid #E6E6E6;
+		&.unfold {
+			border-top: none;
+		}
+	}
+	.book-wrap {
+		.book-info {
+			h3 {
+				font: 14px/18px $simsun;
+			}
+			h4 {
+				font-size: 16px;
+			}
+			.score {
+				padding: 2px 0;
+				height: 16px;
+				font: 12px/16px $simsun;
+				color: $red;
+				overflow: hidden;
+				cite {
+					margin: 0 3px;
+				}
+			}
+		}
+	}
+}
+/* 评分列表 */
+.score-list {
+	li {
+		@extend %cf;
+		&.unfold {
+			overflow: visible;
+			height: 114px;
+		}
+		.name {
+			float: left;
+			width: 160px;
+			height: 31px;
+			font: 14px/31px $simsun;
+			overflow: hidden;
+		}
+		i {
+			float: right;
+			text-align: right;
+			width: 46px;
+			height: 16px;
+			margin-top: 8px;
+			font-size: 12px;
+			font-family: $simsun;
+			color: $A6;
+			overflow: hidden;
+		}
+	}
+}
+/* user图标状态栏 */
+.state-box {
+	font-size: 12px;
+	font-family: $simsun;
+	line-height: 18px;
+	img {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		margin: -2px 5px 0 0;
+		vertical-align: middle;
+	}
+	.author {
+		display: block;
+		overflow: hidden;
+		height: 18px;
+		padding-right: 10px;
+		margin-top: 2px;
+		color: $A6;
+		&:hover {
+			color: inherit;
+		}
+	}
+	i, span {
+		float: right;
+		padding: 0 3px;
+		text-align: center;
+		overflow: hidden;
+	}
+	span {
+		max-width: 62px;
+		height: 18px;
+		border: 1px solid #DF9591;
+		color: $red;
+	}
+	i {
+		max-width: 52px;
+		height: 18px;
+		margin-right: 8px;
+		color: $A6;
+		border: 1px solid #BFBFBF;
+	}
+}
+/* 最近更新 */
+.update-wrap {
+	@include title22;
+	.wrap-title span {
+		color: $gray8;
+	}
+	.update-list-wrap {
+		height: 660px;
+		overflow: hidden;
+	}
+	.wrap-title {
+		overflow: hidden;
+		width: 216px;
+		height: 24px;
+	}
+	.update-rec-list {
+		width: 216px;
+		height: 632px;
+		background: #F7F5F0;
+		overflow: hidden;
+		ul {
+			@include center-box(192px);
+			li {
+				height: 210px;
+
+				@extend %bbd;
+				&.bd0 {
+					border-bottom: none;
+				}
+			}
+		}
+		.book-wrap {
+			padding: 25px 0 12px;
+			.book-info {
+				margin-top: 22px;
+				h4, p {
+					text-align: right;
+				}
+				h4 a {
+					color: #1A1A1A;
+					&:hover {
+						color: $hover;
+					}
+				}
+				.digital {
+					height: 20px;
+					i {
+						margin: 0 3px;
+					}
+				}
+			}
+		}
+		.book-cover {
+			float: left;
+		}
+		p.intro {
+			overflow: hidden;
+			height: 60px;
+			font: 12px/20px $simsun;
+			color: $gray6;
+		}
+	}
+	.update-list-wrap {
+		width: 738px;
+		.update-tab {
+			height: 24px;
+			padding-bottom: 4px;
+			@extend %bb6;
+			p, .blue {
+				float: right;
+			}
+			a, span {
+				float: left;
+				margin-top: 7px;
+				font: 12px/16px $simsun;
+				color: $A6;
+			}
+			a {
+				&.act {
+					font-weight: 700;
+				}
+				&:hover, &.act {
+					color: $hover;
+				}
+				&.blue {
+					color: $blue;
+					&:hover {
+						color: $blue-hover;
+					}
+				}
+				em.iconfont {
+					font-size: 12px;
+					vertical-align: middle;
+				}
+			}
+			span {
+				margin-right: 5px;
+				margin-left: 5px;
+				font-family: Arial;
+				font-size: 12px;
+				&.blue {
+					color: $blue;
+				}
+			}
+		}
+		//最近更新列表
+		.update-list {
+			width: 708px;
+			margin-left: 30px;
+			table {
+				td {
+					height: 31px;
+
+					@extend %bbe;
+					a {
+						float: left;
+						overflow: hidden;
+						height: 30px;
+						&.classify, &.name {
+							font: 14px/30px $simsun;
+							color: #1A1A1A;
+						}
+						&.classify {
+							margin-left: -7px;
+							color: $gray8;
+							em {
+								font-family: $fontbase;
+								font-size: 13px;
+							}
+						}
+						&.section {
+							max-width: 220px;
+							margin-right: 5px;
+							color: $gray6;
+
+							@include word-wrap-multi;
+							em {
+								margin-right: 5px;
+							}
+						}
+						&.author {
+							color: $gray9;
+						}
+						&:hover {
+							color: $hover;
+						}
+						&.section, &.author {
+							font: 12px/30px $simsun;
+							&:hover {
+								color: inherit;
+							}
+						}
+					}
+					.vip {
+						float: left;
+						width: 19px;
+						height: 11px;
+						margin-top: 10px;
+						background: url("/qd/images/common/tag.png") no-repeat 0 -23px;
+					}
+					i {
+						float: right;
+						margin-top: 3px;
+						font: 12px/1 Arial;
+						color: $gray6;
+					}
+				}
+				tr.bd0 {
+					td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+	//大神动态
+	.god-wrap {
+		h3.wrap-title {
+			font-size: 18px;
+		}
+		.god-list {
+			//修复IE7下 最后一根线外露的bug
+			*position: relative;
+			.god-info {
+				height: 194px;
+				overflow: hidden;
+			}
+			@extend .update-rec-list;
+			ul {
+				@include center-box(192px);
+			}
+			li {
+				position: relative;
+				.photo {
+					position: absolute;
+					top: 15px;
+					right: 0;
+					width: 60px;
+					height: 60px;
+					img {
+						width: 60px;
+						height: 60px;
+						border-radius: 100%;
+					}
+				}
+				h3 {
+					padding: 13px 0 5px;
+					font-size: 16px;
+					a {
+						display: block;
+						width: 128px;
+						height: 21px;
+						overflow: hidden;
+						color: #1A1A1A;
+						&:hover {
+							color: $hover;
+						}
+					}
+				}
+				p, h4 {
+					font-size: 12px;
+					font-family: $simsun;
+				}
+				h4 {
+					font-weight: 400;
+					color: $gray9;
+
+					@include mb(5px);
+				}
+				.type {
+					width: 128px;
+					overflow: hidden;
+					height: 16px;
+					@include mb;
+				}
+				.works {
+					overflow: hidden;
+					max-height: 36px;
+					color: $blue;
+					@include mb(8px);
+					a {
+						color: $blue;
+						line-height: 20px;
+						&:hover {
+							color: $hover;
+						}
+					}
+					span {
+						margin: 0 4px;
+						font-family: simsun;
+					}
+				}
+				.intro {
+					overflow: hidden;
+					height: 60px;
+				}
+			}
+		}
+	}
+}
+/* 限时免费 */
+.time-limit-wrap {
+	height: 222px;
+	li {
+		position: relative;
+		z-index: 1;
+		float: left;
+		width: 169px;
+		height: 220px;
+		text-align: center;
+		&.time-box {
+			width: 172px;
+			.iconfont {
+				display: block;
+				margin: 10px 0;
+				font-size: 60px;
+				height: 60px;
+			}
+			&:hover {
+				border: 1px solid #F7F6F2;
+			}
+			.limit-wrap {
+				padding-top: 25px;
+			}
+			h3 {
+				height: 21px;
+				font: 18px/21px FZZCYSK;
+				color: #ED4259;
+				overflow: hidden;
+			}
+			.type {
+				padding: 2px 0;
+				height: 16px;
+				font-size: 12px;
+				font-family: $simsun;
+				color: $gray9;
+				overflow: hidden;
+			}
+			.countdown {
+				height: 22px;
+				color: $red;
+				overflow: hidden;
+				@include mb();
+				i {
+					font: 18px/21px Arial;
+				}
+				em {
+					margin-right: 5px;
+				}
+			}
+			.blue {
+				display: block;
+				font-size: 14px;
+				font-family: $simsun;
+				height: 19px;
+				vertical-align: middle;
+				overflow: hidden;
+				span {
+					display: inline-block;
+					margin-top: -2px;
+					margin-left: 5px;
+					font: {
+						family: simsun;
+						weight: 700;
+					}
+					vertical-align: middle;
+				}
+			}
+		}
+		&.odd {
+			background: #F7F6F2;
+			@include border(#F7F6F2);
+		}
+		&.even {
+			background: #FCFCFA;
+			@include border(#FCFCFA);
+		}
+		.book-img {
+			width: 66px;
+			height: 88px;
+			margin: 20px auto 10px;
+			a {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.blue-btn {
+			margin: 0 auto;
+			&.disabled {
+				cursor: default;
+				color: $A6;
+				background-position: 0 -58px;
+				&:hover {
+				}
+			}
+		}
+		.name {
+			display: block;
+			overflow: hidden;
+			height: 21px;
+			padding: 0 10px;
+			font: 16px/21px $fontbase;
+			color: #1A1A1A;
+			&:hover {
+				color: $hover;
+			}
+		}
+		s {
+			display: block;
+			margin: 8px 0;
+			height: 14px;
+			font: 12px/14px $simsun;
+			color: $gray9;
+			overflow: hidden;
+		}
+		&:hover {
+			position: relative;
+			z-index: 3;
+			transition: all .5s;
+			box-shadow: 0 5px 16px #D9D4C7;
+		}
+		&:first-of-type:hover {
+			box-shadow: none;
+		}
+	}
+}
+.filter-search-wrap {
+	height: 80px;
+	background: #F2F2F2;
+	.box-center {
+		background: #F2F2F2;
+	}
+	.filter-search-box {
+		width: 926px;
+		height: 80px;
+		overflow: hidden;
+		.title {
+			height: 80px;
+			width: 126px;
+			padding-left: 48px;
+			font: 14px/80px $simsun;
+			margin-right: 24px;
+			overflow: hidden;
+			color: #1A1A1A;
+		}
+		.filter-search {
+			border-right: 1px solid #D9D9D9;
+			width: 692px;
+			height: 34px;
+			margin: 23px 35px 0 0;
+			font-size: 0;
+			overflow: hidden;
+			.lbf-combobox {
+				float: left;
+				margin-right: 12px;
+				&.classify .lbf-combobox-caption {
+					width: 24px;
+				}
+				&.tags, &.words {
+					a {
+						width: 92px;
+					}
+				}
+			}
+			.red-btn {
+				float: left;
+				width: 100px;
+				height: 34px;
+				font: 14px/34px $simsun;
+
+			}
+		}
+	}
+	.everyone {
+		width: 220px;
+		height: 40px;
+		margin-top: 20px;
+		overflow: hidden;
+		.title {
+			width: 60px;
+			height: 32px;
+			margin-right: 16px;
+			font: 12px/37px $simsun;
+			color: $A6;
+			overflow: hidden;
+		}
+		.key-words {
+			width: 143px;
+			height: 40px;
+			overflow: hidden;
+			a {
+				display: block;
+				font: 12px/20px $simsun;
+				color: $gray6;
+				&:hover {
+					color: inherit;;
+				}
+			}
+		}
+	}
+}
+/* 蓝色圆角按钮 */
+.blue-btn {
+	display: block;
+	/*border: 1px solid $blue;
+	border-radius: 20px;*/
+	width: 88px;
+	height: 28px;
+	font: 14px/29px $simsun;
+	text-align: center;
+	color: $blue;
+	overflow: hidden;
+	background-image: url("/qd/images/common/blue_btn.png");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	&:hover {
+		transition: none;
+		transition: all 0s;
+		background-position: 0 -29px;
+		color: $blue_hover;
+	}
+}
+/* windows下高阶浏览器启用双倍图按钮背景防止锯齿 */
+:root .blue-btn {
+	background-image: url("/qd/images/common/blue_btn_2x.png");
+}
+/* 红色阅读按钮 */
+.read-btn {
+	display: block;
+	width: 98px;
+	height: 28px;
+	border: 1px solid $red;
+	border-radius: 15px;
+	font: 14px/28px $simsun;
+	background: $red;
+	color: white;
+	&:hover {
+		color: white;
+		border: 1px solid $hover;
+		background: $hover;
+	}
+}
+/* 红色按钮 */
+.red-btn {
+	background: $red;
+	text-align: center;
+	color: white;
+	&:hover {
+		color: white;
+		background: $hover;
+	}
+}
+.all-search {
+	display: block;
+	padding-left: 12px;
+	font: 14px/32px $simsun;
+	color: $gray8;
+	background: #F7F7F7;
+}
+em.point {
+	display: block;
+	span {
+		width: 4px;
+		height: 4px;
+		background: white;
+		margin-right: 2px;
+		border-radius: 100%;
+	}
+}
+/* 轮播图-3d切换 */
+.left-slider-wrap {
+	padding: 24px 0 20px;
+}
+.poster-main {
+	position: relative;
+	width: 277px;
+	height: 124px;
+	margin: 0 auto;
+	a, img {
+		display: block;
+	}
+	.poster-list {
+		width: 277px;
+		height: 124px;
+		position: relative;
+	}
+	.poster-item {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 66px;
+		width: 84px;
+		height: 112px;
+		box-shadow: 0 1px 5px rgba(0, 0, 0, .7);
+		.poster-info {
+			display: none;
+			position: absolute;
+			width: 192px;
+			margin: 25px 0 0 -52px;
+			text-align: center;
+			/*&.info2, &.info3 {
+				left:-50px;
+			}*/
+
+			h3 {
+				font: 18px/24px $fontbase;
+				a:hover {
+					color: $hover;
+				}
+			}
+			.author {
+				padding: 8px 0;
+				font: 12px/16px $simsun;
+				color: $red;
+				em {
+					margin: 0 5px;
+					font-family: Arial;
+				}
+			}
+			.number {
+				font-size: 12px;
+				font-family: $simsun;
+				@include mb;
+				b {
+					font-family: Arial;
+					font-size: 18px;
+					color: #333;
+				}
+				font-size: 12px;
+				font-family: $simsun;
+				color: $gray6;
+			}
+			.info {
+				@include mb(15px);
+				font: 12px/20px $simsun;
+				text-align: left;
+				color: $gray6;
+			}
+		}
+		&.act .poster-info {
+			display: block;
+		}
+	}
+	.poster-btn {
+		position: absolute;
+		top: 0;
+		z-index: 1;
+		cursor: pointer;
+		/*opacity: 0;
+		filter: alpha(opacity=0);*/
+	}
+	.poster-prev-btn {
+		left: 0;
+	}
+	.poster-next-btn {
+		right: 0;
+	}
+}
+/*  最近完本 新书推荐的视觉细节调整（非物理边距） */
+.recent-finish-wrap .book-wrap .book-info {
+	margin-top: 3px;
+}
+.new-rec-wrap .book-wrap .book-info {
+	margin-top: 2px;
+}
+/* 热门作品 slides-wrap */
+.three-silde-wrap {
+	position: relative;
+	z-index: 1;
+	padding: 16px 0 0 48px;
+	height: 112px;
+	@include mb;
+	.la-ball-pulse {
+		position: absolute;
+		z-index: 300;
+		top: 50px;
+		left: 88px;
+	}
+}
+/* 满意度调查 */
+.survey-btn {
+	position: fixed;
+	z-index: 21;
+	bottom: 30px;
+	left: 0;
+	width: 30px;
+	height: 94px;
+	background: url(/qd/images/index/diaocha.png) no-repeat 0 -136px;
+	&.first {
+		left: -30px;
+	}
+}
+.survey-wrap {
+	position: fixed;
+	left: -956px;
+	bottom: 0;
+	height: 140px;
+	z-index: 20;
+	&.first {
+		width: 100%;
+		left: 0;
+	}
+	.survey-box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 200px;
+		background: #3E3D43;
+		filter: alpha(opacity=95);
+		background: rgba(61, 62, 67, .95);
+		.center {
+			position: relative;
+			width: 956px;
+			margin: 0 auto;
+		}
+		p {
+			width: 925px;
+			height: 136px;
+			margin: 0 auto;
+			background-position: 0 0;
+			background-image: url(/qd/images/index/diaocha.png);
+		}
+		.go-survey {
+			position: absolute;
+			top: 48px;
+			left: 711px;
+			width: 140px;
+			height: 44px;
+		}
+		.close-survey {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 0;
+			right: 15px;
+		}
+	}
+}
+.lbf-autocomplete-suggestion, .lbf-autocomplete-suggestions strong {
+	height: 30px;
+}
+/* 视觉下边距调整，由于右边榜单1-10高度会把整个容器往下顶，并且有3d书阴影，无法用overflow，所以单独对这些区块做边距处理，视觉上做到40px下边距 */
+.finish-book-wrap, .new-rec-wrap {
+	&.box-center {
+		margin: 0 auto 33px;
+	}
+}
+/* retina屏双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+	.hot-classify-wrap {
+		h3.wrap-title {
+			.icon-tag {
+				background-image: url(/qd/images/index/hot-classify-tag_2x.png);
+				background-size: 53px;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	.survey-btn {
+		background: url(/qd/images/index/survey_btn.png) no-repeat;
+		background-size: 100%;
+	}
+	.survey-wrap .survey-box p {
+		background: url(/qd/images/index/survey.png) no-repeat;
+		background-size: 100%;
+	}
+	.update-wrap .update-list-wrap .update-list table td .vip {
+		background-image: url("/qd/images/common/tag_2x.png");
+		background-position: 0 -20px;
+		background-size: 100%;
+	}
+	.index-two-wrap .book-list-wrap .book-list li strong .hot {
+		background-image: url("/qd/images/common/tag_2x.png");
+		width: 17px;
+		height: 9px;
+		background-position: 0 -9px;
+		background-size: 100%;
+	}
+}
+/* 1250px以下 排行榜ul宽度去除，不让右侧出白边*/
+@media (max-width: 1250px) {
+	.rank-list-row {
+		width: auto;
+	}
+}
+/* 1200 响应点样式变动 */
+@media (max-width: 1200px) {
+	.focus-wrap .focus-box {
+		width: 748-210+px;
+	}
+	.focus-wrap .focus-box .focus-slider .lbf-slides .thumb a {
+		width: 17.91%;
+	}
+	.focus-wrap .focus-box .focus-slider .lbf-slides li {
+		top: 0;
+		img {
+			width: 538px;
+			height: 214px;
+		}
+	}
+	.edit-rec-wrap, .edit-rec-wrap .edit-rec {
+		width: 708-210+px;
+	}
+	.edit-rec-wrap .focus-today .desc-wrap {
+		width: 182px;
+		overflow: hidden;
+	}
+	.edit-rec-wrap .edit-rec-list {
+		li:nth-of-type(4), li:nth-of-type(8) {
+			display: none;
+		}
+	}
+	.edit-rec-wrap .edit-rec-list li {
+		margin-right: 10px;
+	}
+	.edit-rec-wrap .edit-rec-list li:nth-of-type(3) {
+		margin-right: 0;
+	}
+	.rank-list {
+		width: 225px;
+		margin-right: 30px;
+	}
+	.rank-list:nth-of-type(4) {
+		margin-right: 0;
+	}
+	.hot-classify-wrap li:last-of-type {
+		display: none;
+	}
+	.hot-classify-wrap {
+		width: 744px;
+		ul {
+			height: 425px;
+		}
+		li {
+			width: 234px;
+			margin-right: 20px;
+			&:nth-of-type(3), &:nth-of-type(6) {
+				margin-right: 0;
+			}
+			&:nth-of-type(4) {
+				margin-right: 20px;
+			}
+			&:nth-of-type(7) {
+				display: none;
+			}
+		}
+	}
+	.left-wrap {
+		width: 736px;
+		.center-book-list {
+			width: 520px;
+			.line {
+				width: 490px;
+			}
+			ul {
+				width: 700px;
+			}
+			li {
+				width: 234px;
+				margin-right: 22px;
+				.book-info {
+					width: 150px;
+				}
+				&.no-img {
+					width: 36%;
+					&.mr0 {
+						display: none;
+					}
+				}
+				&:nth-of-type(4), &:nth-of-type(7) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	.state-box i {
+		display: none;
+	}
+	.update-wrap .update-list-wrap {
+		width: 738-208+px;
+
+		.update-list {
+			width: 708-208+px;
+		}
+	}
+	.time-limit-wrap li {
+		width: 161px;
+		&:last-of-type {
+			display: none;
+		}
+	}
+	.filter-search-wrap .filter-search-box .title {
+		padding-left: 80px;
+	}
+	.filter-search-wrap .filter-search-box .filter-search {
+		width: 656px;
+		border-right: none;
+	}
+	.filter-search-wrap .everyone {
+		display: none;
+	}
+	.right-wrap {
+		width: 226px;
+	}
+}

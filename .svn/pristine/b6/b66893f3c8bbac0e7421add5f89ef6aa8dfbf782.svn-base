@@ -1,0 +1,179 @@
+<!-- start 最近更新 -->
+<div class="update-wrap box-center mb30 cf">
+    <!-- start 更新推荐-->
+    <div class="update-rec-wrap fl" data-aid="qd_A136">
+        <h3 class="wrap-title">最近更新<span>24小时内更新<%=  recomLastUpd['updBookCnt'] %>本</span></h3>
+        <div class="update-rec-list">
+            <ul>
+                <% for(var i=0; i < recomLastUpd['recomLastUpdFocused'].length; i++) { %>
+                <li>
+                    <div class="book-wrap cf">
+                        <div class="book-info fr">
+                            <h4>
+                                <a href="http://www.qidian.com/Book/<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>"><%=
+                                    recomLastUpd['recomLastUpdFocused'][i]['bookName'] %></a></h4>
+                            <p class="digital"><%= recomLastUpd['recomLastUpdFocused'][i]['wordsCount'] %><i>&#183;</i><%=
+                                recomLastUpd['recomLastUpdFocused'][i]['praiseCnt'] %>分</p>
+                            <p class="author">
+                                <a href="http://me.qidian.com/authorIndex.aspx?id=<%= recomLastUpd['recomLastUpdFocused'][i]['authorId']  %>" target="_blank"><%=
+                                    recomLastUpd['recomLastUpdFocused'][i]['authorName']
+                                    %></a>
+                            </p>
+                        </div>
+                        <div class="book-cover">
+                            <a class="link" href="http://www.qidian.com/Book/<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomLastUpd['recomLastUpdFocused'][i]['bookId'] %>">
+                                <img src="<%= recomLastUpd['recomLastUpdFocused'][i]['imageUrl']  %>" alt="">
+                            </a>
+                            <span></span>
+                        </div>
+                    </div>
+                    <p class="intro">
+                        <%= recomLastUpd['recomLastUpdFocused'][i]['recomWords'] %></p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <!-- end 更新推荐-->
+    <!-- start 更新列表 -->
+    <div class="update-list-wrap fl" data-aid="qd_A135">
+        <div class="update-tab cf">
+            <a class="blue" href="http://all.qidian.com/Book/BookStore.aspx?ChannelId=-1&SubCategoryId=-1&Tag=all&Size=-1&Action=-1&OrderId=6&P=all&PageIndex=1&update=4" target="_blank" data-aid="qd_A140">更多</a><span class="blue">&#124;</span>
+            <p id="update-tab">
+                <a class="act" href="javascript:" data-aid="qd_A137">全部</a><span>&#183;</span><a href="javascript:" data-aid="qd_A138">免费</a><span>&#183;</span><a href="javascript:" data-aid="qd_A139">VIP</a>
+            </p>
+        </div>
+        <!-- start 表格列表 -->
+        <div id="update-list" class="update-list">
+            <!-- start 更新列表全部 -->
+            <div class="update-table all">
+                <table width="100%">
+                    <colgroup>
+                        <col width="60px">
+                        <col width="170px">
+                        <col width="270px">
+                        <col width="100px">
+                        <col width="70px">
+                    </colgroup>
+                    <tbody>
+                    <% for(var i=0; i < chartUpdList.length; i++) { %>
+                    <tr>
+                        <td><a class="classify" href="<%= chartUpdList[i]['chanUrl'] %>" target="_blank">「<%=
+                            chartUpdList[i]['chanName'] %>」</a></td>
+                        <td>
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartUpdList[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartUpdList[i]['bookId'] %>"><%=
+                                chartUpdList[i]['bookName'] %></a></td>
+                        <td><a class="section" href="<%= chartUpdList[i]['updChapterUrl'] %>" data-chapterUrl="<%= chartUpdListVip[i]['updChapterUrl'] %>" target="_blank"><%=
+                            chartUpdList[i]['updChapterName'] %></a>
+                            <% if(chartUpdList[i]['isVip']==1) { %> <span class="vip">VIP</span> <% } %>
+                        </td>
+                        <td class="respon">
+                            <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartUpdList[i]['authorId']  %>" target="_blank"><%=
+                                chartUpdList[i]['authorName'] %></a></td>
+                        <td class="respon"><i><%= chartUpdList[i]['updTime'] %></i></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end 更新列表全部 -->
+            <!-- start 更新列表免费 -->
+            <div class="update-table free hidden">
+                <table width="100%">
+                    <colgroup>
+                        <col width="60px">
+                        <col width="170px">
+                        <col width="270px">
+                        <col width="100px">
+                        <col width="70px">
+                    </colgroup>
+                    <tbody>
+                    <% for(var i=0; i < chartUpdListFree.length; i++) { %>
+                    <tr>
+                        <td><a class="classify" href="<%= chartUpdListFree[i]['chanUrl'] %>" target="_blank">「<%=
+                            chartUpdListFree[i]['chanName'] %>」</a></td>
+                        <td>
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartUpdListFree[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartUpdListFree[i]['bookId'] %>"><%=
+                                chartUpdListFree[i]['bookName'] %></a></td>
+                        <td><a class="section" href="<%= chartUpdListFree[i]['updChapterUrl'] %>" data-chapterUrl="<%= chartUpdListVip[i]['updChapterUrl'] %>" target="_blank"><%=
+                            chartUpdListFree[i]['updChapterName'] %></a>
+                        </td>
+                        <td class="respon">
+                            <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartUpdListFree[i]['authorId']  %>" target="_blank"><%=
+                                chartUpdListFree[i]['authorName'] %></a></td>
+                        <td class="respon"><i><%= chartUpdListFree[i]['updTime'] %></i></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end 更新列表免费 -->
+            <!-- start 更新列表vip -->
+            <div class="update-table vip hidden">
+                <table width="100%">
+                    <colgroup>
+                        <col width="60px">
+                        <col width="170px">
+                        <col width="270px">
+                        <col width="100px">
+                        <col width="70px">
+                    </colgroup>
+                    <tbody>
+                    <% for(var i=0; i < chartUpdListVip.length; i++) { %>
+                    <tr>
+                        <td><a class="classify" href="<%= chartUpdListVip[i]['chanUrl'] %>" target="_blank">「<%=
+                            chartUpdListVip[i]['chanName'] %>」</a></td>
+                        <td>
+                            <a class="name" href="http://www.qidian.com/Book/<%= chartUpdListVip[i]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= chartUpdListVip[i]['bookId'] %>"><%=
+                                chartUpdListVip[i]['bookName'] %></a></td>
+                        <td><a class="section" href="<%= chartUpdListVip[i]['updChapterUrl'] %>" target="_blank" data-chapterUrl="<%= chartUpdListVip[i]['updChapterUrl'] %>"><%=
+                            chartUpdListVip[i]['updChapterName'] %></a>
+                            <% if(chartUpdListVip[i]['isVip']==1) { %> <span class="vip">VIP</span> <% } %>
+                        </td>
+                        <td class="respon">
+                            <a class="author" href="http://me.qidian.com/authorIndex.aspx?id=<%= chartUpdListVip[i]['authorId']  %>" target="_blank"><%=
+                                chartUpdListVip[i]['authorName'] %></a></td>
+                        <td class="respon"><i><%= chartUpdListVip[i]['updTime'] %></i></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end 更新列表vip -->
+        </div>
+        <!-- end 表格列表 -->
+    </div>
+    <!-- end 更新列表 -->
+    <!-- start 大神动态 -->
+    <div class="god-wrap fr">
+        <h3 class="wrap-title">大神动态</h3>
+        <div class="god-list">
+            <ul>
+                <% for(var i=0; i < recomAuthor.length; i++) { %>
+                <li data-aid="qd_A14<%= i+1%>">
+                    <div class="god-info">
+                        <div class="photo">
+                            <a href="http://me.qidian.com/authorIndex.aspx?id=<%= recomAuthor[i]['authorId']  %>" target="_blank"><img class="lazy" data-original="<%= recomAuthor[i]['imageUrl']  %>"></a></div>
+                        <h3>
+                            <a href="http://me.qidian.com/authorIndex.aspx?id=<%= recomAuthor[i]['authorId']  %>" target="_blank"><%=
+                                recomAuthor[i]['authorName'] %></a></h3>
+                        <p class="type"><%= recomAuthor[i]['authorLevel'] %></p>
+                        <h4>代表作</h4>
+                        <p class="works cf">
+                            <% for(var p=0; p < recomAuthor[i].bookList.length; p++) { %>
+                            <a href="http://www.qidian.com/Book/<%= recomAuthor[i].bookList[p]['bookId'] %>.aspx %>" target="_blank" data-bid="<%= recomAuthor[i].bookList[p]['bookId'] %>"><%=
+                                recomAuthor[i].bookList[p]['bookName'] %></a>
+                            <% if(p !== recomAuthor[i].bookList.length-1) { %> <span>|</span> <% } %>
+                            <% } %>
+                        </p>
+                        <h4>简介</h4>
+                        <p class="intro"><%= recomAuthor[i]['recomWords'] %></p>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <!-- end 大神动态 -->
+</div>
+<!-- end 最近更新 -->

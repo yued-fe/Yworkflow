@@ -13,7 +13,7 @@ var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var eslint = require('gulp-eslint');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 
 // 设置相关路径

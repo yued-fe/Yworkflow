@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>起点中文网_阅文集团旗下网站</title>
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+        speedZero = new Date().getTime();
+    </script>
+    <link rel="shortcut icon" href="http://www.qidian.com/favicon.ico" type="image/icon" />
+    <link rel="stylesheet" data-ignore="true" href="//<%= staticConf.staticDomain %>/c/=/qd/css/reset.css,/qd/css/global.css,/qd/css/font.css,/qd/css/module.css,/qd/css/footer.css,/qd/css/error.css,/qd/css/layout.css,/qd/css/qd_popup.css?v=201605121555" />
+    
+    
+    
+    
+    
+    
+    
+    <!-- end speedTimer[var, zero] -->
+    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
+
+
+</head>
+<body>
+<div class="wrap">
+    <%
+        /*
+            设置主导航高亮navHighLight = 任意值  0是首页
+            非首页的页脚输出的模板不同
+        */
+        var navHighLight = 2;
+    %>
+    <!-- start 固定导航条 样式和首页不同，非跟随页面滚动 -->
+    <% include component/fixed_top_nav.html %>
+    <!-- end 固定导航条 样式和首页不同，非跟随页面滚动 -->
+
+
+    <div class="error-wrap cf">
+        <div class="error-img fl"></div>
+        <div class="error-text fl">
+            <h3>抱歉，页面无法访问...</h3>
+            <p><strong>网址有错误</strong><em>&#183;</em>请检查地址是否完整或存在多余字符</p>
+            <p class="mb25"><strong>网址已失效</strong><em>&#183;</em>可能页面已删除，活动已下线等</p>
+            <p>您也可以通过以下路径查看</p>
+            <p><a href="//<%= staticConf.domainPrefix %>i.qidian.com">起点首页</a><i>|</i><a href="http://me.qidian.com/bookCase/bookCase.aspx?caseId=-2">我的书架</a></p>
+        </div>
+    </div>
+    <% include layout/footer.html %>
+</div>
+
+
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_p_qidian';
+    //环境域名
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>s.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', 'site.error.index'], function ($, SpeedReport, Index) {
+
+        // 页面逻辑入口
+        new Index({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+            var f1 = 7718, // china reading limited's ID
+                f2 = 219, // site ID
+                f3 = 4; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+<!--start 数据统计-->
+<!--<script>
+LBF.use(['monitor.ztReport'], function (ztReport) {
+    ztReport.report({
+        // 'qd': 起点站点系 | 'cs': 起点站点系 | ''：云起等
+        domain: 'qd'
+    });
+});
+</script>-->
+<!--end 数据统计-->
+
+</body>
+</html>

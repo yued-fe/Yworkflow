@@ -1,0 +1,20 @@
+{
+  "code": 0,
+  "msg": "成功",
+  "data": {
+    "record": [
+      {
+        "name": "武极天下",
+        "jumpUrl": "http://game.qidian.com",
+        "area": "11区",
+        "isHot": 0
+      },
+      {
+        "name": "龙狼传",
+        "jumpUrl": "http://game.qidian.com",
+        "area": "11区",
+        "isHot": 0
+      }
+    ]
+  }
+}

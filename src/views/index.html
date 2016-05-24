@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>起点中文网_阅文集团旗下网站</title>
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta name="updatetime" content="<%= pageUpdateTime %>">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+        speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/index.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/ComboBox.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Button.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Autocomplete.css">
+
+</head>
+<body>
+<div class="wrap">
+    <%
+        /*
+            设置主导航高亮navHighLight = 0
+            0:首页
+            1:全部作品
+            2:排行
+            3:完本
+            4:免费
+            5:频道页
+            6:搜索页
+        */
+        var navHighLight = 0
+    %>
+    <% include layout/header.html %>
+    <!-- start 主导航 -->
+    <% include layout/main_nav_index.html %>
+    <!-- end 主导航 -->
+    <!-- start 首屏焦点图区域 -->
+    <div class="focus-wrap box-center mb40 cf">
+        <!-- Component Start 作品分类导航 模块 -->
+        <% include component/index_sidebar_nav.html %>
+        <!-- Component End 作品分类导航 模块 -->
+        <!-- start 焦点图轮播 -->
+        <div class="focus-box fl">
+            <div class="focus-slider">
+                <div class="lbf-slides switchable-slides" id="switchable-slides">
+                    <a class="more " href="javascript:" target="_blank" data-aid="qd_A87">
+                        <em class="dib-wrap point">
+                            <span></span><span></span><span></span>
+                        </em>
+                    </a>
+                    <ul>
+                        <li id="item1">
+                            <a href="<%= adCenter1[0].adJumpUrl %>" target="_blank" data-aid="qd_A82"><img src="<%= adCenter1[0]['adImgUrl'] %>" width="100%"/></a>
+                        </li>
+                        <% for(var i=1; i < adCenter1.length; i++) { %>
+                        <li id="item<%= i+1  %>" style="display: none;">
+                            <a href="<%= adCenter1[i]['adJumpUrl'] %>" target="_blank" data-aid="qd_A8<%= i+2 %>"><img class="load" data-src=" <%= adCenter1[i]['adImgUrl'] %>" width="100%"/></a>
+                        </li>
+                        <% } %>
+                    </ul>
+                    <div class="thumb lbf-button-group nav">
+                        <a href="#item1" class="lbf-button active" data-aid="qd_A82">
+                            <%= adCenter1[0]['title'] %>
+                        </a>
+                        <% for(var i=1; i < adCenter1.length-1; i++) { %>
+                        <a href="#item<%= i+1 %>" class="lbf-button" data-aid="qd_A8<%= i+2 %>">
+                            <%= adCenter1[i]['title'] %>
+                        </a>
+                        <% } %>
+                        <a href="#item5" class="lbf-button game-link" target="_blank" data-aid="qd_A86"><em class="iconfont yxtd">
+                            &#xe612;</em>游戏天地</a>
+                    </div>
+                </div>
+            </div>
+            <div class="focus-img cf">
+                <ul>
+                    <%  //中间一个class是mid，不同背景色
+                        for(var i=0; i < adCenter2.length; i++) {
+                            if (i == 1) {
+                                var mid = 'class=middle'
+                            }
+                            if (i == 2) {
+                                mid = ''
+                            }
+                    %>
+                    <li <%= mid %>><a href="<%= adCenter2[i]['adJumpUrl'] %>" target="_blank" data-aid="qd_A<%= i+88 %>"><img src="<%= adCenter2[i]['adImgUrl'] %>"></a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <!-- end 焦点图轮播 -->
+        <!-- start 公告 -->
+        <div class="notice-wrap fr">
+            <div class="notice" id="notice">
+                <a class="more" id="more-notice" href="javascript:" target="_blank" data-aid="qd_A99"><em class="dib-wrap point"><span></span><span></span><span></span></em><i></i></a>
+                <h3><a href="<%= newsRightTop['news'][0]['jumpUrl'] %>" target="_blank" data-aid="qd_A91"><%= newsRightTop['news'][0]['newsTitle'] %></a></h3>
+                <div class="notice-list">
+                    <ul>
+                        <% for(var i=1; i < newsRightTop['news'].length-2; i++) { %>
+                        <li class="color-type_<%=  newsRightTop['news'][i]['colorType'] %>">
+                            <a href="<%= newsRightTop['news'][i]['jumpUrl'] %>" target="_blank" data-aid="qd_A<%= i+91 %>">
+                                <i>「</i><%= newsRightTop['news'][i]['adCategoryName'] %><i>」</i><%= newsRightTop['news'][i]['newsTitle'] %>
+                            </a>
+                        </li>
+                        <% } %>
+                        <li class="color-type_<%=  newsRightTop['news'][5]['colorType'] %>">
+                            <a class="red" href="<%= newsRightTop['news'][5]['jumpUrl'] %>" target="_blank" data-aid="qd_A96">
+                                <em><%= newsRightTop['news'][5]['adCategoryName'] %></em><%=
+                                newsRightTop['news'][5]['newsTitle'] %>
+                            </a>
+                        </li>
+                        <li class="color-type_<%=  newsRightTop['news'][6]['colorType'] %>">
+                            <a class="red" href="<%= newsRightTop['news'][6]['jumpUrl'] %>" target="_blank" data-aid="qd_A97">
+                                <em><%= newsRightTop['news'][6]['adCategoryName'] %></em><%=
+                                newsRightTop['news'][6]['newsTitle'] %>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="attention">
+                    <ul id="wordSlide" class="word_slide" data-rel="#wordSlide li">
+                        <em class="iconfont">&#xe60e;</em>
+                        <li id="wordList1" style="display: list-item;" data-rel="wordList1">
+                            <a href="<%= newsRightTop['horns'][0]['jumpUrl'] %>" target="_blank" data-aid="qd_A98">
+                                <%= newsRightTop['horns'][0]['title'] %>
+                            </a>
+                        </li>
+                        <% for(var i=1; i < newsRightTop['horns'].length; i++) { %>
+                        <li id="wordList<%= i+1 %>" data-rel="wordList<%= i+1 %>">
+                            <a href="<%= newsRightTop['horns'][i]['jumpUrl'] %>" target="_blank" data-aid="qd_A98">
+                                <%= newsRightTop['horns'][i]['title'] %>
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <div class="notice-banner">
+                <!--<div class="la-ball-pulse">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>-->
+                <% if (adRightBottom[0].type == 1) {
+                    <!-- start 图片广告 -->
+                    if ( adRightBottom.length == 1) {
+                        var adJumpUrl = adRightBottom[0]['adJumpUrl'];
+                        var adImgUrl = adRightBottom[0]['adImgUrl'];
+                    } %>
+                    <a id="arb-banner" href="<%=adJumpUrl%>" target="_blank" data-aid="qd_A100"><img src="<%=adImgUrl%>"></a>
+                    <!-- end 图片广告 -->
+                <% } else { %>
+                    <!-- start flash广告 -->
+                    <a href="<%= adRightBottom[0]['adJumpUrl'] %>" target="_blank" data-aid="qd_A100"></a>
+                    <embed src="<%= adRightBottom[0]['adImgUrl'] %>" quality="high" wmode="transparent" type="application/x-shockwave-flash" autostart="1"></embed>
+                    <!-- end flash广告 -->
+                <% } %>
+            </div>
+        </div>
+        <!-- end 公告 -->
+    </div>
+    <!-- end 首屏焦点图区域 -->
+    <!-- Section Start 第一屏:本周强推/编辑推荐/三江网文新风  分栏 -->
+    <% include www.qidian.com/section_1.html %>
+    <!-- Section End 第一屏:本周强推/编辑推荐/三江网文新风 分栏 -->
+    <!-- start 横屏banner1 -->
+    <div class="banner-wrap box-center mb30" id="banner2">
+        <%if (adBanner2[0].type == 1) { %>
+        <!-- start 图片广告 -->
+        <a href="javascript:" target="_blank" data-aid="qd_A106-1"><img src="" alt=""></a>
+        <!-- end 图片广告 -->
+        <% } else{ %>
+        <!-- start flash广告 -->
+        <a href="<%= adBanner2[0]['adJumpUrl'] %>" target="_blank" data-aid="qd_A106-1"></a>
+        <embed class="flash_banner" src="<%= adBanner2[0]['adImgUrl'] %>" quality="high" wmode="transparent" type="application/x-shockwave-flash" autostart="1">
+        </embed>
+        <!-- end flash广告 -->
+        <% } %>
+    </div>
+    <!-- end 横屏banner1 -->
+    <!-- Section Start 第二屏:排行榜  分栏 -->
+    <% include www.qidian.com/section_2.html %>
+    <!-- Section End 第二屏:排行榜 分栏 -->
+    <!-- start 横屏banner2 -->
+    <div class="banner-wrap box-center mb40" id="banner3">
+        <%if (adBanner3[0].type == 1) { %>
+        <!-- start 图片广告 -->
+        <a href="javascript:" target="_blank" data-aid="qd_A106-2"><img src="<%= adBanner3['adImgUrl'] %>" alt=""></a>
+        <!-- end 图片广告 -->
+        <% } else{ %>
+        <!-- start flash广告 -->
+        <a href="<%= adBanner3[0]['adJumpUrl'] %>" target="_blank" data-aid="qd_A106-2"></a>
+        <embed class="flash_banner" src="<%= adBanner3[0]['adImgUrl'] %>" quality="high" wmode="transparent" type="application/x-shockwave-flash" autostart="1">
+        </embed>
+        <!-- end flash广告 -->
+        <% } %>
+    </div>
+    <!-- end 横屏banner2 -->
+    <!-- Section Start 第三屏:热门作品  分栏 -->
+    <% include www.qidian.com/section_3.html %>
+    <!-- Section End 第三屏:热门作品 分栏 -->
+    <!-- Section Start 第四屏:完本精品  分栏 -->
+    <% include www.qidian.com/section_4.html %>
+    <!-- Section End 第四屏:完本精品 分栏 -->
+    <!-- start 横屏banner3 -->
+    <div class="banner-wrap box-center mb40" id="banner4">
+        <%if (adBanner4[0].type == 1) { %>
+        <!-- start 图片广告 -->
+        <a href="javascript:" target="_blank" data-aid="qd_A106-3"><img src="" alt=""></a>
+        <!-- end 图片广告 -->
+        <% } else{ %>
+        <!-- start flash广告 -->
+        <a href="<%= adBanner4[0]['adJumpUrl'] %>" target="_blank" data-aid="qd_A106-3"></a>
+        <embed class="flash_banner" src="<%= adBanner4[0]['adImgUrl'] %>" quality="high" wmode="transparent" type="application/x-shockwave-flash" autostart="1">
+        </embed>
+        <!-- end flash广告 -->
+        <% } %>
+    </div>
+    <!-- end 横屏banner3 -->
+    <!-- Section Start 第五屏:新书推荐  分栏 -->
+    <% include www.qidian.com/section_5.html %>
+    <!-- Section End 第五屏:推荐 分栏 -->
+    <!-- start 书评广场 第一期不上 -->
+    <!--<div class="book-comment-wrap box-center mb40 cf hidden">
+        <div class="left-wrap fl">
+            <h3 class="wrap-title">书评广场<span><em>&#8260;</em>新增8923条动态</span></h3>
+            <div class="left-info fl">
+                <div class="slide-box">
+                    轮播
+                </div>
+                <a class="blue-btn" href="javascript:" target="_blank">查看介绍</a>
+            </div>
+            <div class="center-book-list fl">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <!-- end 书评广场 第一期不上 -->
+    <!-- Section Start 第六屏:最近更新 大神动态 分栏 -->
+    <% include www.qidian.com/section_6.html %>
+    <!-- Section End 第六屏:最近更新 大神动态 分栏 -->
+    <!-- Section Start 第七屏:限时免费 分栏 -->
+    <% include www.qidian.com/section_7_limit_free.html %>
+    <!-- Section End 第七屏:最近更新 限时免费 分栏 -->
+    <!-- Component Start 高级搜索 模块 -->
+    <% include component/index_advanced_search.html %>
+    <!-- Component End 高级搜索 模块 -->
+    <% include layout/footer.html %>
+</div>
+
+<!-- Component Start 固定顶部导航条 模块 -->
+<% include component/fixed_top_nav.html %>
+<!-- Component End 固定顶部导航条 模块 -->
+
+<!-- start 满意度调查 -->
+<a class="survey-btn" id="survey-btn" href="javascript:"></a>
+<div class="survey-wrap" id="survey-wrap">
+    <div class="survey-box">
+        <div class="center">
+            <p>
+                <a class="go-survey" href="http://wj.qq.com/s/533303/3766" target="_blank"></a>
+                <a class="close-survey" id="close-survey" href="javascript:"></a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- end 满意度调查 -->
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_p_qidian';
+    // 随机广告
+    g_data.adBanner = {
+                adRightBottom:<%- JSON.stringify(adRightBottom) -%>,
+            adBanner2:<%- JSON.stringify(adBanner2) -%>,
+            adBanner3:<%- JSON.stringify(adBanner3) -%>,
+            adBanner4:<%- JSON.stringify(adBanner4) -%>
+    }
+    //环境域名
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/index/index.js'], function ($, SpeedReport, Index) {
+
+        // 页面逻辑入口
+        new Index({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+            var f1 = 7718, // china reading limited's ID
+                f2 = 219, // site ID
+                f3 = 4; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+<!--start 数据统计-->
+<!--<script>
+LBF.use(['monitor.ztReport'], function (ztReport) {
+    ztReport.report({
+        // 'qd': 起点站点系 | 'cs': 起点站点系 | ''：云起等
+        domain: 'qd'
+    });
+});
+</script>-->
+<!--end 数据统计-->
+
+</body>
+</html>

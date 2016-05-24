@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>打赏粉丝排行榜_起点中文网</title>
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费.">
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+                speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/rank.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+</head>
+<body>
+<div class="wrap">
+    <% include ../layout/header2.html %>
+    <%
+        /*
+            设置主导航高亮navHighLight = 2
+            0:首页
+            1:全部作品
+            2:排行
+            3:完本
+            4:免费
+            5:频道页
+            6:搜索页
+        */
+        var navHighLight = 2;
+          var actDayView,actTotalView ='';
+        if(data['paramList']['dateType'] == 1){
+            actDayView = 'class=act';
+         }else{
+            actTotalView='class=act'
+        }
+
+    %>
+    <!-- start 主导航 -->
+    <% include ../layout/main_nav.html %>
+    <!-- end 主导航 -->
+    <div class="rank-box box-center cf">
+        <%
+        var sideBarHighlight = data['paramList']["rankType"];
+
+         %>
+        <!-- start 榜单列表导航-->
+        <% include side_bar_list.html %>
+        <!-- end 榜单列表导航-->
+        <!-- start 榜单列表内容 -->
+        <div class="main-content-wrap fl">
+            <!-- start rank 头部区域 -->
+            <div class="rank-header">
+                <h3>打赏粉丝榜<span>对作品打赏贡献最多的粉丝排行</span></h3>
+                <!-- start 日榜总榜切换 -->
+                <div class="rank-tab-box">
+                    <a <%=actDayView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=1" data-aid="qd_C_rank_61">日榜</a>
+                    <a <%=actTotalView %> href="//<%= staticConf.domainPrefix %>r.qidian.com/fans?dateType=2" data-aid="qd_C_rank_62">总榜</a>
+                </div>
+                <!-- end 日榜总榜切换 -->
+            </div>
+            <!-- end rank头部区域 -->
+            <!-- start 榜单区域 -->
+            <div class="rank-body">
+
+                <div class="fans-data-list">
+                    <!-- start 日榜数据 -->
+                    <div class="rank-data-day cf">
+                        <!-- start 第一列数据 -->
+                        <div class="fans-list">
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
+                            <ul>
+                                <% for(var i=0; i < 25; i++) { %>
+                                <li data-rankid="<%=i+1 %>">
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                </li>
+                                <% } %>
+                                <!-- 此处数据到序列25-->
+                            </ul>
+                        </div>
+                        <!-- end 第一列数据 -->
+                        <!-- start 第二列数据 -->
+                        <div class="fans-list">
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
+                            <ul>
+                                <% for(var i=25; i < 50; i++) { %>
+                                <li data-rankid="<%=i+1 %>">
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                </li>
+                                <% } %>
+
+                                <!-- 此处数据到序列50-->
+                            </ul>
+                        </div>
+                        <!-- end 第二列数据 -->
+                        <!-- start 第三列数据 -->
+                        <div class="fans-list">
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
+                            <ul>
+                               <% for(var i=50; i < 75; i++) { %>
+                                <li data-rankid="<%=i+1 %>">
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                </li>
+                                <% } %>
+                                <!-- 此处数据到序列75-->
+                            </ul>
+                        </div>
+                        <!-- end 第三列数据 -->
+                        <!-- start 第四列数据 -->
+                        <div class="fans-list mr0">
+                            <h3><b class="col-1">排名</b><b class="col-2">粉丝昵称</b><b class="col-3">累计打赏(起点币)</b></h3>
+                            <ul>
+                                <% for(var i=75; i < 100; i++) { %>
+                                <li data-rankid="<%=i+1 %>">
+                                    <em class="number"><span class="rank-tag no<%= i+1 %>"><%= i+1 %><cite></cite></span></em><a href="http://me.qidian.com/friendIndex.aspx?id=<%= data['userList'][i]['userId'] %>" target="_blank" title="<%= data['userList'][i]['userName'] %>"><%= data['userList'][i]['userName'] %></a><i><%= data['userList'][i]['spend'] %></i>
+                                </li>
+                                <% } %>
+                                <!-- 此处数据到序列100-->
+                            </ul>
+                        </div>
+                        <!-- end 第四列数据 -->
+                    </div>
+                    <!-- end 日榜数据 -->
+                    <!-- start 总榜数据 -->
+                    <div class="rank-data-total cf">
+                        <!-- 此处是总榜，html模板如同日榜数据，做完请删除此提示 -->
+                    </div>
+                    <!-- end 总榜数据 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include ../layout/footer.html %>
+</div>
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_P_rank_15';
+    // 域名环境变量
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/rank/community.js'], function ($, SpeedReport, community) {
+
+        // 页面逻辑入口
+        new community({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+            var f1 = 7718, // china reading limited's ID
+                    f2 = 219, // site ID
+                    f3 = 15; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+
+</body>
+</html>

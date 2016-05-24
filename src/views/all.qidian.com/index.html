@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全部作品_起点中文网</title>
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+            speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/lbfUI/css/Checkbox.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/header.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/list_module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/all_finish.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+
+</head>
+<body>
+<div class="wrap">
+    <% include ../layout/header2.html %>
+    <%
+        /*
+            设置主导航高亮navHighLight = 1
+            0:首页
+            1:全部作品
+            2:排行
+            3:完本
+            4:免费
+            5:频道页
+            6:搜索页
+        */
+        var navHighLight = 1;
+    %>
+    <!-- start 主导航 -->
+    <% include ../layout/main_nav.html %>
+    <!-- end 主导航 -->
+
+    <!-- start 全部作品容器 -->
+    <div class="all-pro-wrap box-center cf">
+        <!-- start 侧边栏筛选条件 -->
+        <% include ../layout/sidebar_left.html %>
+        <!-- end 侧边栏筛选条件 -->
+        <!-- start 全部作品内容区 -->
+        <div class="main-content-wrap fl">
+            <!-- start 操作栏 -->
+            <% include ../layout/toolbar-top.html%>
+            <!-- end 操作栏 -->
+            <!-- start 全部作品列表 -->
+           <% include ../component/all_finish_free_list.html%>
+            <!-- end 全部作品列表 -->
+
+        </div>
+        <!-- end 全部作品内容区 -->
+    </div>
+    <!-- end 全部作品容器 -->
+    <% include ../layout/footer.html %>
+</div>
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_P_all';
+    //当前查询的参数
+    g_data.params = '<%- JSON.stringify(data["paramList"])-%>';
+    //当前页面路由
+    g_data.url = '//<%= staticConf.domainPrefix%>a.qidian.com';
+    // 域名环境变量
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport', '/qd/js/all_finish_free/common.js'], function ($, SpeedReport, Common) {
+
+        // 页面逻辑入口
+        new Common({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+                var f1 = 7718, // china reading limited's ID
+                    f2 = 219, // site ID
+                    f3 = 10; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+
+</body>
+</html>

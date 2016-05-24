@@ -1,0 +1,761 @@
+@import "mixin";
+@import "global";
+
+//二次元频道页
+/* 颜色相关变量 */
+$search-btn-bg: #f23d56;
+$search-bar-color: #d5d5d5;
+$main-nav-bg: #f54e78;
+$main-nav-color: #fff;
+$title-color: #f23d56;
+$book-name-color: #1a1a1a;
+$yellow-bg-color: #f7f5f0;
+$border-bottom-color: #ebebeb;
+
+body {
+  background-repeat: no-repeat;
+  background-position: 50% 42px;
+}
+
+h3 {
+  font-weight: 400;
+  &.major-title {
+    font-family: $fontbase;
+    font-size: 22px;
+    color: $title-color;
+  }
+  &.rank-title {
+    color: $black;
+    font-size: 18px;
+    font-family: $fontbase;
+    margin-bottom: 20px;
+    .more {
+      float: right;
+      margin-top: 8px;
+      font: 12px/16px $simsun;
+      color: $A6;
+      em {
+        font-size: 12px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .subtitle {
+    font-size: 18px;
+    color: $black;
+    padding-left: 5px;
+    em {
+      font-size: 16px;
+    }
+  }
+}
+
+/* 顶部导航样式 */
+.pin-nav-wrap {
+  position: relative;
+  z-index: 10;
+  top: 0;
+  .box-center {
+    background: #3e3d43;
+  }
+}
+
+/*logo 搜索框样式*/
+.logo-wrap {
+  height: 100px;
+  .logo {
+    margin: 27px 241px 0 0;
+    width: 155px;
+    a {
+      width: 155px;
+      height: 47px;
+      background: url("/qd/images/erciyuan/logo1x.png") no-repeat;
+    }
+  }
+  .search-wrap {
+    border: 4px solid #e6e6e6;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    .search-btn {
+      width: 70px;
+      height: 40px;
+      background: $search-btn-bg;
+      border-radius: 0 5px 5px 0;
+    }
+    p {
+      border: 1px solid $search-bar-color;
+      border-radius: 5px 0 0 5px;
+    }
+  }
+}
+
+/*主导航条样式*/
+.main-nav-wrap {
+  margin-bottom: 0;
+  background: $main-nav-bg;
+  .main-nav {
+    background-color: $main-nav-bg;
+    li {
+      &.nav-li {
+        a {
+          padding: 0 16px;
+          border-bottom: 2px solid $main-nav-bg; //暂时给2像素border，为之后加Hover效果做准备，如果不需要border，之后需把导航条高度改成40px,目前首页是有2px的border的
+          &:hover {
+            color: rgba(255,255,255,0.7);
+            background-color:transparent;
+            border-bottom:none;
+          }
+        }
+        &:first-child {
+          a {
+            padding-left: 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+/* section1 轮播效果*/
+.slider-box {
+  position:relative;
+  height: 420px;
+  width: 100%;
+  background-color: #3e3d43;
+  margin-bottom: 46px;
+  .slider-wrap{
+    overflow:hidden;
+    padding:102px 0;
+    .slider-details{
+      position:absolute;
+      margin-right:-225px;
+      li{
+        float:left;
+        margin-left:60px;
+        width:162px;
+        height:216px;
+        &:first-child{
+          margin-left:0;
+        }
+        &.third{
+          margin-left:135px;
+          margin-right:100px;
+        }
+      }
+    }
+  }
+  a{
+    position:absolute;
+    width:34px;
+    height:44px;
+    line-height:44px;
+    background-color:rgba(0,0,0,0.4);
+    text-align:center;
+    &.next{
+      top:201px;
+      left:0;
+      border-radius:0 5px 5px 0;
+    }
+    &.prev{
+      top:201px;
+      right:0;
+      float:right;
+      border-radius:5px 0 0 5px;
+    }
+    em{
+      font-size:24px;
+      color:#fff;
+    }
+  }
+}
+
+.title-posit {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  margin-left: -125px;
+}
+
+.icon-basics {
+  position: absolute;
+  top: 0px;
+  left: 18px;
+}
+
+.name-common {
+  display: block;
+  overflow: hidden;
+  font: 16px/22px $fontbase;
+  color: $book-name-color;
+}
+
+.short-desc-common {
+  overflow: hidden;
+  font: 12px/20px $simsun;
+  color: $gray6;
+}
+
+.cross-page-title {
+  position: relative;
+  background: #fff;
+  .line {
+    background: url("/qd/images/erciyuan/line.png") repeat-x;
+    height: 10px;
+    width: 100%;
+  }
+  .title-wrap {
+    padding: 0 18px;
+    background: #fff;
+    h3 {
+      margin-left: 35px;
+    }
+    .icon-basics {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+/* section2 本周强推*/
+.qt-container {
+  //区块顶部分割线样式
+  .qt-header {
+    margin-bottom: 42px;
+    .icon-qt {
+      background: url(/qd/images/erciyuan/title_tags.png) no-repeat;
+      background-position: 0px -89px;
+    }
+  }
+  //强推书本列表
+  .book-list-wrap {
+    width: 100%;
+    margin-bottom: 44px;
+    li {
+      float: left;
+      width: 124px;
+      height: 152px;
+      margin-left: 30px;
+      text-align: center;
+      &:first-child{
+        margin-left: 0px;
+      }
+      &.sec {
+        margin-left: 29px;
+      }
+      .book-img {
+        margin: 0 auto 10px;
+      }
+    }
+  }
+
+}
+
+/*页面右侧排行榜通用样式*/
+.hot-rank-wrap, .newbook-rank-wrap, .work-rank-block, .tr-rank-wrap {
+  float: right;
+  width: 216px;
+  margin-top: -27px;
+  .rank-list {
+    .book-info {
+      h3 {
+        background: $title-color;
+      }
+      .rank-tag {
+        padding: 2px 0 4px;
+      }
+    }
+    li {
+      .book-wrap {
+        padding: 0;
+        .book-info {
+          p {
+            &.digital {
+              margin-bottom: 0;
+              height: 20px;
+              em {
+                font-size: 14px;
+              }
+            }
+            &.author {
+              padding-bottom: 9px;
+            }
+          }
+        }
+        .book-back-wrap {
+          position: relative;
+          float: right;
+          background: url("/qd/images/erciyuan/book_cover.png") no-repeat;
+          width: 56px;
+          height: 75px;
+          a {
+            position: absolute;
+            top: 1px;
+            left: -5px;
+          }
+        }
+      }
+      .num-box {
+        span {
+          &.num2 {
+            background: #f2883d;
+          }
+          &.num3 {
+            background: #f2cd3d;
+          }
+        }
+      }
+      &.unfold {
+        font-size: 14px;
+        color: $red;
+        font-family: $simsun;
+        height: auto;
+      }
+    }
+  }
+}
+
+/*畅销精选及新书到货样式*/
+.cxjx-container, .xsdh-container {
+  padding-bottom: 28px;
+  .title-wrap {
+    width: 954px;
+  }
+  .book-slide-wrap, .center-list-wrap {
+    margin-top: 18px;
+    float: left;
+  }
+
+  .book-slide-wrap {
+    width: 274px;
+    height: 370px;
+    overflow:hidden;
+    background: #f7f5f0;
+    .book-slide {
+      padding: 24px 0;
+      .three-silde-wrap{
+        position: relative;
+        z-index: 1;
+        padding: 35px 0 0 78px;
+        height: 120px;
+        margin-bottom: 10px;
+        .la-ball-pulse{
+          position:absolute;
+          top:88px;
+          left:113px;
+        }
+        ul{
+          display: block;
+          padding: 0px;
+          position: relative;
+          li{
+            position: absolute;
+            width: 102px;
+            height: 135px;
+            -webkit-box-shadow: 0 1px 8px #7f7f7f;
+            -moz-box-shadow: 0 1px 8px #7f7f7f;
+            box-shadow: 0 1px 8px #7f7f7f;
+            cursor: pointer;
+          }
+          &.roundabout{
+            display:none;
+          }
+        }
+      }
+      .info-text{
+        dd{
+          display:none;
+          &:first-child{
+            display:block;
+          }
+        }
+      }
+    }
+  }
+  .center-list-wrap {
+    width: 710px;
+    .center-list {
+      padding: 0 30px 0 40px;
+      li {
+        float: left;
+        width: 96px;
+        height: 177px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.big-img-list {
+  li {
+    margin-left: 40px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &.no-margin {
+      margin-left: 0;
+    }
+    .book-img {
+      width: 96px;
+      height: 128px;
+      margin: 0 auto 8px;
+    }
+  }
+}
+
+/*原创轻小说样式*/
+.original-work-wrap {
+  padding-bottom: 50px;
+  .original-work-block {
+    float: left;
+    padding-top: 18px;
+    .category-represent {
+      float: left;
+      width: 138px;
+      height: 176px;
+      margin-right: 40px;
+      background-color: $yellow-bg-color;
+      .category-wrap{
+        padding:18px 0;
+        .category-title {
+          width: 100%;
+          height: 18px;
+        }
+        .category-image{
+          width:102px;
+          height:96px;
+          margin:0 auto;
+          margin-top:(176-96)/2-18-18px;
+        }
+        .read-all {
+          display: block;
+          text-align: center;
+          font: 12px/16px $simsun;
+          color: #3f5a93;
+          margin-top:2px;
+          em {
+            font-size: 12px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .yshx {
+      .title-content {
+        background: url("/qd/images/erciyuan/yshx_title.png") no-repeat 50% 0;
+      }
+      .category-image{
+        background: url("/qd/images/erciyuan/yshx_icon.png") no-repeat 50% 50%;
+      }
+    }
+    .bsrt {
+      .title-content {
+        background: url("/qd/images/erciyuan/bsrt_title.png") no-repeat 50% 0;
+      }
+      .category-image {
+        background: url("/qd/images/erciyuan/bsrt_icon.png") no-repeat 50% 50%;
+      }
+    }
+    .gxtc {
+      .title-content {
+        background: url("/qd/images/erciyuan/gxtc_title.png") no-repeat 50% 0;
+      }
+      .category-image {
+        background: url("/qd/images/erciyuan/gxtc_icon.png") no-repeat 50% 50%;
+      }
+    }
+    .qcrc {
+      .title-content {
+        background: url("/qd/images/erciyuan/qcrc_title.png") no-repeat 50% 0;
+      }
+      .category-image {
+        background: url("/qd/images/erciyuan/qcrc_icon.png") no-repeat 50% 50%;
+      }
+    }
+    .book-list {
+      float: left;
+      width: 776px;
+      margin-bottom: 39px;
+      li {
+        float: left;
+        text-align: center;
+      }
+    }
+    .final-row {
+      margin-bottom: 0px;
+    }
+  }
+  .work-rank-block {
+    float: right;
+    margin-left: 30px;
+    .rank-list {
+      &:first-child {
+        margin-bottom: 45px;
+      }
+
+    }
+  }
+}
+
+/*section6 衍生同人*/
+.ystr-container {
+  padding-bottom: 37px;
+  .ystr-header {
+    margin-bottom: 45px;
+    .icon-tr {
+      background: url(/qd/images/erciyuan/title_tags.png) no-repeat;
+      background-position: 0px -119px;
+    }
+  }
+  .left-content-wrap {
+    float: left;
+    .catagory-list-wrap {
+      float: left;
+      width: 216px;
+      margin-left: 30px;
+      .title-wrap {
+        position: relative;
+        height: 68px;
+        .title-content {
+          width: 80px;
+          height: 23px;
+          background: url("/qd/images/erciyuan/title-mh.png") no-repeat;
+        }
+        span {
+          font: 14px/18px $simsun;
+          padding: 6px 0 20px;
+        }
+      }
+      &:first-child {
+        margin-left: 0;
+        .title-wrap {
+          height: 70px;
+          background: url("/qd/images/erciyuan/renqi-title.png") no-repeat;
+        }
+      }
+      .icon-pst {
+        position: absolute;
+      }
+      .c2 {
+        border-bottom: 2px solid #3dadf2;
+        .title-content {
+          background: url("/qd/images/erciyuan/title-mh.png") no-repeat;
+        }
+        .icon-pst {
+          top: -22px;
+          right: -9px;
+        }
+      }
+      .c3 {
+        border-bottom: 2px solid #f2a83d;
+        .title-content {
+          background: url("/qd/images/erciyuan/title-dh.png") no-repeat;
+        }
+        .icon-pst {
+          top: -16px;
+          right: -9px;
+        }
+      }
+      .c4 {
+        border-bottom: 2px solid #af3df2;
+        .title-content {
+          background: url("/qd/images/erciyuan/title-yx.png") no-repeat;
+        }
+        .icon-pst {
+          top: -23px;
+          right: -9px;
+        }
+      }
+      .icon-tag-mh {
+        background: url("/qd/images/erciyuan/mh1x.png") no-repeat;
+        width: 58px;
+        height: 92px;
+      }
+      .icon-tag-dh {
+        background: url("/qd/images/erciyuan/dh1x.png") no-repeat;
+        width: 58px;
+        height: 92px;
+      }
+      .icon-tag-yx {
+        background: url("/qd/images/erciyuan/yx1x.png") no-repeat;
+        width: 58px;
+        height: 92px;
+      }
+
+      .catagory-list {
+        height: 342px;
+        overflow: hidden;
+        li {
+          text-align: left;
+          border-bottom: 1px solid $border-bottom-color;
+          a {
+            display: block;
+            overflow: hidden;
+            &.name {
+              font: 16px/22px $fontbase;
+              padding: 14px 0 0;
+              height: 22px;
+            }
+          }
+          .desc {
+            display: block;
+            font: 12px/20px $simsun;
+            height: 20px;
+            color: $gray8;
+            overflow: hidden;
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+  .tr-rank-wrap {
+    float: right;
+    margin: 0 0 0px 30px;
+    width: 216px;
+    .title-wrap {
+      height: 70px;
+      background: url("/qd/images/erciyuan/tr-rank.png") no-repeat;
+    }
+    .rank-list {
+      margin-top: 20px;
+    }
+  }
+
+}
+
+/*section7 最近更新*/
+.latest-update-container {
+  .title-wrap {
+    margin-bottom: 10px;
+    .major-title {
+      float: left;
+      padding-right: 16px;
+    }
+    .update-by-type {
+      float: left;
+      line-height: 30px;
+      a, span {
+        color: $A6;
+        font: 12px/16px $simsun;
+      }
+      a {
+        padding: 2px 4px;
+        margin-right: 5px;
+        &.act {
+          background-color: #ed4259;
+          color: #fff;
+        }
+        em {
+          font-size: 12px;
+          vertical-align: middle;
+        }
+      }
+      span {
+        margin-right: 10px;
+        margin-left: 12-5px;
+        font-family: Arial;
+      }
+    }
+  }
+  .latest-update-table {
+    float: left;
+    width: 954px;
+    table {
+      width: 100%;
+      td {
+        height: 31px;
+        border-top: 1px solid $E6;
+      }
+      a, span {
+        font: 12px/30px $simsun;
+        color: $gray8;
+        text-align: left;
+      }
+      .subtype, .name {
+        font-size: 14px;
+      }
+      .subtype {
+        margin-left: -7px;
+      }
+      .name {
+        color: #1a1a1a;
+      }
+      .author, .word-count span {
+        color: $A6;
+      }
+      .time span {
+        float: right;
+      }
+    }
+  }
+  .wb-rank-wrap {
+    width: 216px;
+    margin: -35px 0 0 30px;
+    float: right;
+    .rank-title {
+      margin-bottom: 10px;
+    }
+    li {
+      border-top: 1px solid $E6;
+      .book-wrap {
+        padding: 16px 0;
+        .book-img {
+          float: left;
+          width: 48px;
+          height: 64px;
+        }
+        .book-info {
+          float: left;
+          width: 155px;
+          span {
+            display: block;
+            width: 56px;
+            border: 1px solid #df9591;
+            text-align: center;
+            font: 12px/17px $simsun;
+            color: #BF2C24;
+            overflow: hidden;
+            margin-bottom: 3px;
+          }
+          a {
+            display: block;
+            margin-bottom: 2px;
+            color: #222;
+          }
+          p {
+            font: 12px/20px $simsun;
+            color: $gray8;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* retina屏logo双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+  .logo-wrap .logo a {
+    background: url("/qd/images/erciyuan/logo3x.png") no-repeat;
+    background-size: 217px;
+    background-repeat: no-repeat;
+  }
+}
+
+.box-center {
+  @include center-box;
+}
+
+//如果分辨率是1024，触发响应点
+@media (max-width: 1025px) {
+  //居中容器改变成990
+  .box-center {
+    width: 990px;
+    margin: 0 auto;
+  }
+  //所有需要隐藏的个体
+  .respon {
+    display: none;
+  }
+}

@@ -11,7 +11,16 @@
   */
 
  var routerMap = {
+<<<<<<< HEAD
      '/home': '/index.html'
+=======
+     '/home': '/index.html',
+     '/rank': '/rank/index.html',
+     '/erciyuan': '/erciyuan/index.html',
+     '/rankshow': '/rank/a/show.html',
+     '/free': '/free/index.html',
+     '/channel': '/channel/index.html'
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
  }
 
 

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>玄幻奇幻_起点中文网</title>
+    <meta name="description" content="最热门的免费小说网,提供人气玄幻小说,奇幻小说,武侠小说,仙侠小说,都市小说,历史小说,军事小说,竞技小说,灵异小说,二次元小说,免费小说在线阅读与下载.大神作品齐聚起点,最新章节每日更新">
+    <meta name="keywords" content="免费小说,免费网络小说,免费玄幻小说,免费奇幻小说,免费武侠小说,免费仙侠小说,免费都市小说,免费历史小说,免费军事小说,免费竞技小说,免费灵异小说,免费二次元小说">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script>
+        document.domain = 'qidian.com';
+    </script>
+    <!-- start speedTimer[var, zero] -->
+    <script>
+        var speedTimer = [],
+            speedZero = new Date().getTime();
+    </script>
+    <!-- end speedTimer[var, zero] -->
+    <% if (envType !== 'local'  ) { %>
+    <link rel="stylesheet" data-ignore="true" href="//<%= staticConf.staticDomain %>/c/=/qd/css/reset.css,/qd/css/global.css,/qd/css/font.0.1.css,/qd/css/header.css,/qd/css/module.css,/qd/css/channel.css,/qd/css/layout.css,/qd/css/qd_popup.css,/qd/css/footer.css?v=201605171555" />
+    <% } else {%>
+
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/module.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/channel.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/layout.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/qd_popup.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/footer.css">
+    <% } %>
+    <!-- 配置Combo 若无需合并,请给link或者script增加 data-ignore="true" 属性-->
+
+</head>
+<body>
+<%
+    /*
+        设置主导航高亮navHighLight = 5
+        首页无高亮（首页没设置此变量）
+        1:全部作品
+        2:排行
+        3:完本
+        4:免费
+        5:频道页
+    */
+    var navHighLight = 5;
+%>
+<div class="wrap">
+    <!-- start 固定导航条 样式和首页不同，非跟随页面滚动 -->
+    <% include ../component/fixed_top_nav.html %>
+    <!-- end 固定导航条 样式和首页不同，非跟随页面滚动 -->
+
+    <!-- start 频道页头部 搜索 -->
+    <div class="channel-header xuanhuan">
+        <div class="box-center cf">
+            <div class="logo-wrap">
+                <a class="xh" href="javascript:"></a>
+            </div>
+            <div class="search-wrap">
+                <input type="text" id="s-box" placeholder="神纹战记" autocomplete="off"><a class="search-btn" id="search-btn" href="javascript:"><em class="iconfont">&#xe60d;</em></a>
+            </div>
+        </div>
+    </div>
+    <!-- end 频道页头部 搜索 -->
+
+    <!-- start 频道页内容 -->
+    <div class="box-center">
+        <!-- start 二级分类链接 -->
+        <div class="sub-type-wrap">
+            <div class="box-center cf">
+                <a href="javascript:">东方玄幻</a>
+                <a href="javascript:">异界大陆</a>
+                <a href="javascript:">异界争霸</a>
+                <a href="javascript:">远古神器</a>
+                <em>|</em>
+                <a href="javascript:">玄幻排行</a>
+                <a href="javascript:">玄幻完本</a>
+                <a href="javascript:">玄幻免费</a>
+            </div>
+        </div>
+        <!-- end 二级分类链接 -->
+
+        <!-- start 首屏焦点 -->
+        <div class="focus-wrap mb40 cf">
+            <!-- start 本周强推 -->
+            <div class="rec-wrap fl">
+                <h3><b>本周强推</b></h3>
+                <div class="rec-list">
+                    <ul>
+                        <% for(var i=0; i < 10; i++) { %>
+                        <li><em><a class="name" href="javascript:">圣脉圣脉圣脉圣脉圣脉</a>
+                            <!-- 预留逻辑注释：并非每一行都展示hot -->
+                            <span></span>
+                        </em>
+                            <a class="author" href="javascript:">猜不出的温柔</a></li>
+                        <% } %>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- end 本周强推 -->
+
+            <!-- start 大封推 -->
+            <div class="channel-focus big-mode fl">
+                <div class="big-list cf">
+                    <ul>
+                        <% for(var i=0; i < 5; i++) { %>
+                        <li>
+                            <div class="img-box">
+                                <a href="javascript:"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg" alt=""></a>
+                            </div>
+                            <h3><a href="javascript:">超能战神</a></h3>
+                            <p>是要成为地主的男人</p>
+                        </li>
+
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="new-wrap cf">
+                    <h3><span>新书精选</span><cite></cite></h3>
+                    <ul>
+                        <li class="fl"><a href="javascript:">八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四一二三四五六七八九十一二三四</span></li>
+                        <li class="fr"><a href="javascript:">八神徐天八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四</span></li>
+                        <li class="fl"><a href="javascript:">八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四一二三四五六七八九十一二三四</span></li>
+                        <li class="fr"><a href="javascript:">八神徐天八神徐天</a><i>&#183;</i><span>一二三四五六七八九十一二三四</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end 大封推 -->
+
+            <!-- start 最新动态 -->
+            <div class="notice-wrap fr">
+                <div class="notice-box">
+                    <!-- start 编辑力荐 -->
+                    <div class="edit-rec">
+                        <h3>编辑力荐</h3>
+                        <p title="你的票是起点创世存在的意义">你的票是起点创世存在的意义</p>
+                        <p class="blue">——原始战记<i>&#183;</i><a href="javascript:">风铃天下</a></p>
+                    </div>
+                    <!-- end 编辑力荐 -->
+
+                    <!-- start 频道动态 -->
+                    <div class="dynamic-list">
+                        <h3>频道动态</h3>
+                        <ul>
+                            <% for(var i=0; i < 4; i++) { %>
+                            <li><a href="javascript:"><em>「</em>公告<em>」</em>现实主义题材征赛全面</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <!-- end 频道动态 -->
+                </div>
+                <!-- start 频道页小广告 -->
+                <a class="banner" href="javascript:"><img src="<%= staticConf.staticPath %>/images/channel_banner.jpg" alt=""></a>
+                <!-- end 频道页小广告 -->
+            </div>
+            <!-- end 最新动态 -->
+        </div>
+        <!-- end 首屏焦点 -->
+
+        <!-- start 分类新书 -->
+        <div class="new-book-wrap cf">
+            <!-- start 分类新书 -->
+            <div class="type-new fl">
+                <div class="left-wrap">
+                    <h3>玄幻新书</h3>
+                    <!-- start 新书列表 -->
+                    <div id="new-book-list">
+                        <!-- start 有图的列表循环 -->
+                        <% for(var i=0; i < 2; i++) { %>
+                        <div class="type-new-list cf">
+                            <ul>
+                                <% for(var j=0; j < 3; j++) { %>
+                                <li>
+                                    <div class="book-img">
+                                        <a href="javascript:" target="_blank" data-bid="3465755"><img src="<%= staticConf.staticPath %>/images/book_72_96.jpg">
+                                        </a>
+                                    </div>
+                                    <div class="book-info">
+                                        <h4>
+                                            <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                                        <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                                        <div class="state-box cf">
+                                            <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="//local.qidian.com:3234/qd/images/ico/user.png">缠绕在指尖的灵感</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <% } %>
+                        <!-- end 有图的列表循环 -->
+
+                        <!-- start 无图列表循环 -->
+                        <div class="type-new-list no-img cf">
+                            <ul>
+                                <% for(var i=0; i < 4; i++) { %>
+                                <li>
+                                    <div class="book-info">
+                                        <h4>
+                                            <a href="javascript:" target="_blank">种瓜养狗生活乐无边</a></h4>
+                                        <p>这个山头我承包了。逍遥乡村，种瓜养狗，生活乐无边</p>
+                                        <div class="state-box cf">
+                                            <span>日更8千</span><i>现实百态</i><a class="author" href="http://me.qidian.com/authorIndex.aspx?id=3815374" target="_blank"><img src="//local.qidian.com:3234/qd/images/ico/user.png">缠绕在指尖的灵感</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <!-- end 无图列表循环 -->
+                    </div>
+                    <!--start 新书列表 -->
+                </div>
+            </div>
+            <!-- end 分类新书 -->
+
+            <!-- start 新书榜 -->
+            <div class="type-new-rank fr">
+                <div class="rank-list">
+                    <h3 class="wrap-title">签约作家新书榜<a class="more" href="//localr.qidian.com/collect" data-aid="qd_C_rank_37"></a></h3>
+                    <div class="book-list">
+
+                        <ul>
+                            <% for(var i=0; i < 3; i++) { %>
+                            <li class="top">
+                                <div class="num-box"><span class="num1">1</span></div>
+                                <div class="top-name-box">
+                                    <p><a href="javascript:">寻龙诀</a></p>
+                                    <p><span>23424</span>潜力值</p>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% for(var i=3; i < 10; i++) { %>
+                            <li>
+                                <div class="num-box"><span><%=i+1 %></span></div>
+                                <div class="name-box" data-aid="qd_C_rank_21">
+                                    <a class="name" href="javascript:" target="_blank">斗罗大陆</a>
+                                    <i class="total">63023084</i>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end 新书榜 -->
+        </div>
+    </div>
+    <!-- end 频道页内容 -->
+
+
+
+    <!-- end 分类新书 -->
+
+    <!-- start 页脚 -->
+    <% include ../layout/footer.html %>
+    <!-- end 页脚 -->
+</div>
+<!-- start LBF lib -->
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+    // 全局的通用数据都放g_data变量里h
+    var g_data = {};
+    // 环境变量，会按照环境选择性打log
+    g_data.envType = '<%= envType %>';
+    // 用作统计PV
+    g_data.pageId = 'qd_P_channel';
+
+    // 当前页面路由
+    g_data.domain =  '//<%= staticConf.domainPrefix%>channel.qidian.com';
+    // 域名环境变量
+    g_data.domainSearch = '<%= staticConf.domainPrefix %>se.qidian.com';
+</script>
+<script>
+    LBF.use(['lib.jQuery', 'monitor.SpeedReport','site.channel.index'], function ($, SpeedReport,Index) {
+        // 页面逻辑入口
+        new Index({});
+        $(window).on('load.speedReport', function () {
+            // speedTimer[onload]
+            speedTimer.push(new Date().getTime());
+                var f1 = 7718, // china reading limited's ID
+                    f2 = 219, // site ID
+                    f3 = 17; // page ID
+            // chrome & IE9 Performance API
+            SpeedReport.reportPerformance({
+                flag1: f1,
+                flag2: f2,
+                flag3IE: f3,
+                flag3Chrome: f3
+            });
+            // common speedTimer:['dom ready', 'onload']
+            var speedReport = SpeedReport.create({
+                flag1: f1,
+                flag2: f2,
+                flag3: f3,
+                start: speedZero
+            });
+            // chrome & IE9 Performance API range 1~19, common speedTimer use 20+
+            for (var i = 0; i < speedTimer.length; i++) {
+                speedReport.add(speedTimer[i], i + 20)
+            }
+            // http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=7718&flag2=224&flag3=1&1=38&2=38&…
+            speedReport.send();
+        })
+    });
+    // speedTimer[dom ready], put it before </body>
+    speedTimer.push(new Date().getTime());
+</script>
+<!-- end LBF lib -->
+
+</body>
+</html>

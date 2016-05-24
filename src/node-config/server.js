@@ -5,13 +5,23 @@
  */
 
 var domainMap = {
+<<<<<<< HEAD
     'yued'      : 'y.qidian.com',
 }
+=======
+    'free'      : 'f.qidian.com',
+    'rank'      : 'r.qidian.com',
+    'search'    : 'se.qidian.com',
+    'all'       : 'a.qidian.com',
+    'finish'    : 'fin.qidian.com',
+    'www'       : 'i.qidian.com',
+};
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 
 var serverConfig = {
     "local": {
         "views":{
-            "path":"/Users/yuewen-luolei/Yuewen/Tencent/v2/views"
+            "path":"/Users/yuewen-luolei/Yuewen/Tencent/iteration_III_20160516/src/views"
         },
         "index": {
             "path": "/Users/yuewen-luolei/Desktop/testfolder"
@@ -19,6 +29,7 @@ var serverConfig = {
 		"static":{	//静态文件配置
             "domainPrefix" : "local",
 			"staticDomain": "devqidian.gtimg.com",
+<<<<<<< HEAD
 			"staticPath":"//local.qidian.com:2324/yued",
 			"lbf": {
 				"conf": {
@@ -27,6 +38,16 @@ var serverConfig = {
 					},
 					"vars": {
 						"theme": "//local.qidian.com:3234/yued/css"
+=======
+			"staticPath":"//local.qidian.com:2324/qd",
+			"lbf": {
+				"conf": {
+					"paths": {
+						"site": "//local.qidian.com:2324/qd/js"
+					},
+					"vars": {
+						"theme": "//local.qidian.com:2324/qd/css"
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 					},
 					"combo": false,
 					"debug": true
@@ -160,6 +181,6 @@ var genConf = function() {
         serverConfig[env]['domain'] = domain;
     }
     return serverConfig;
-}
+};
 
 module.exports = genConf();

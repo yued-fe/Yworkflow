@@ -8,9 +8,10 @@ var gulp = require('gulp');
 var del = require('del');
 var gulp = require('gulp');
 var del = require('del');
+var chalk = require('chalk'); // 美化日志
 var combo = require('gulp-combo');
 var prettify = require('gulp-jsbeautifier');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 var RevAll = require('gulp-rev-custom-tag');
 var revReplace = require('gulp-rev-replace');
@@ -23,7 +24,10 @@ var paths = {
     prelease: '_prelease'
 };
 
+<<<<<<< HEAD
 console.log('静态文件路径名: ' + PROJECT_CONFIG.gtimgName);
+=======
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 /**
  * 生成带版本号的静态文件
  */
@@ -70,26 +74,34 @@ gulp.task('rev-views', function(cb) {
     return gulp.src("src/views/**/*.html") // Minify any CSS sources
         .pipe(revReplace({
             manifest: manifest
-                // prefix: cdnConfig.Domain + pkg.name + '/'
         }))
         .pipe(gulp.dest('_previews'))
         cb()
 });
 
+
 /**
- * 为了方便本地模拟读取静态资源的服务url根路径,临时将静态资源复制到_tmp目录下
- * 这是一个坑,需要解决
+ * ARS在发布模板的同时,顺便把node-config发布到同一目录(ars就不用重复建单)
  */
 
+<<<<<<< HEAD
 gulp.task('copy',function(){
         // del(['_tmp/**/*'])
         gulp.src('_prelease/**/*')
         .pipe(gulp.dest('./_tmp/' + PROJECT_CONFIG.gtimgName))
         // cb()
+=======
+gulp.task('copy-config',function(){
+        console.log(chalk.red('复制[node-config]配置文件到 _previews/ 目录' ));
+        gulp.src('src/node-config/**/*')
+        .pipe(gulp.dest('./_previews/node-config'))
+>>>>>>> 183502791b48240f5d3ff249836ce1d25bec2e15
 })
+
 
 /**
  * 生成不需要增加版本号的静态资源,直接将编译后的静态资源复制到_prelease目录
+ * 本地调试用
  */
 gulp.task('copy-no-rev',function(){
         // del(['_tmp/**/*'])

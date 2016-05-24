@@ -11,12 +11,11 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var image = require('gulp-image');
 var del = require('del');
-
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var folders = require('gulp-folders');
 
-
 var paths = {
-    img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}'],// 图片相关
+    img: ['src/static/**/*.{jpg,JPG,png,PNG,gif,GIF}','!**/sprites/*'],// 图片相关
     sass: 'src/static/**/*.scss',
     build: 'build',
     others:['src/static/**/*.mp3'],
@@ -43,7 +42,7 @@ gulp.task('images-copy', function(cb) {
 });
 
 gulp.task('sfile', function(cb) {
-    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}'])
+    gulp.src(['src/static/**/*','!src/static/**/*.{css,scss,js,ejs}','!src/static/**/sprites','!src/static/**/sprites/**'])
         .pipe(gulp.dest(paths.build))
     cb();
 });

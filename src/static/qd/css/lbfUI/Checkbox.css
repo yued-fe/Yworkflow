@@ -1,0 +1,42 @@
+/**
+ * $author rainszhang
+ */
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+.lbf-checkbox {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 22px;
+  height: 22px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: url("//sta.qidian.com/lbf/1.0.2/ui/theme/default/lbfUI/images/Checkbox/checkbox.png") no-repeat;
+  background-position: 0 0; }
+  .lbf-checkbox.lbf-checkbox-hover {
+    background-position: -24px 0; }
+  .lbf-checkbox.lbf-checkbox-checked {
+    background-position: -48px 0; }
+  .lbf-checkbox.lbf-checkbox-disabled {
+    cursor: default;
+    background-position: -72px 0; }
+  .lbf-checkbox input {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .lbf-checkbox.lbf-checkbox-checked.lbf-checkbox-disabled, .lbf-checkbox.lbf-checkbox-disabled.lbf-checkbox-checked {
+    background-position: -96px 0; }
+  .lbf-checkbox.lbf-checkbox-checked.lbf-checkbox-halfchecked, .lbf-checkbox.lbf-checkbox-halfchecked {
+    background-position: 0 -24px; }
+  .lbf-checkbox.lbf-checkbox-halfchecked:hover {
+    background-position: -24px -24px; }
+  .lbf-checkbox.lbf-checkbox-halfchecked.lbf-checkbox-disabled, .lbf-checkbox.lbf-checkbox-disabled.lbf-checkbox-halfchecked {
+    background-position: -72px -24px; }
+
+/*# sourceMappingURL=Checkbox.css.map */
