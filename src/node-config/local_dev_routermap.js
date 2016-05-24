@@ -39,12 +39,19 @@ var routerMap = {
 	'search.qidian.com/': { 'views': '/index', 'cgi': '/page/Search/getByKeyword' },//搜索接口
 
     //频道页
-    'channel.qidian.com/':{ 'views': '/big', 'cgi': '/page/channel/big' },//大频道接口
-    
+    /* 玄幻 - 大频道 */
+    'channel.qidian.com/xuanhuan':{ 'views': '/xuanhuan', 'cgi': '/page/channel/big' },
+    /* 武侠 - 定制频道  */
+    'channel.qidian.com/wuxia':{ 'views': '/wuxia', 'cgi': '/page/channel/wuxia' },
 
-    //下面实际为静态页面
-    'erciyuan.qidian.com/':{ 'views': '/index', 'cgi': '/page/Search/getByKeyword' }
-}
+    /* 军事 - 小频道 */
+    'channel.qidian.com/junshi':{ 'views': '/junshi', 'cgi': '/page/channel/big' },
+
+    //下面实际为静态页面,请勿把静态路由放到了 dynamic_routermap.js厘米
+    'erciyuan.qidian.com/':{ 'views': '/index', 'cgi': '/page/Search/getByKeyword' },
+    'www.qidian.com/':{'views':''}
+
+};
 
 
 module.exports = routerMap;

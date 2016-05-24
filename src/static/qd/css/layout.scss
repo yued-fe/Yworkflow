@@ -9,7 +9,7 @@
 	@include center-box;
 }
 //如果分辨率是1200,触发响应点
-@media (max-width: 1025px) {
+@media (max-width: 1200px) {
 	//居中容器改变成990
 	.box-center {
 		width: 990px;

@@ -39,7 +39,19 @@
 </head>
 <body>
 <div class="wrap">
-    <% var navHighLight = 0 %>
+    <%
+        /*
+            设置主导航高亮navHighLight = 0
+            0:首页
+            1:全部作品
+            2:排行
+            3:完本
+            4:免费
+            5:频道页
+            6:搜索页
+        */
+        var navHighLight = 0
+    %>
     <% include layout/header.html %>
     <!-- start 主导航 -->
     <% include layout/main_nav_index.html %>

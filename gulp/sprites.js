@@ -13,8 +13,6 @@ var fs = require('fs');
 var path = require('path');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
-
-
 var chalk = require('chalk'); //美化日志
 var plumber = require("gulp-plumber");
 

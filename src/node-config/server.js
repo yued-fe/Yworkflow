@@ -10,13 +10,13 @@ var domainMap = {
     'search'    : 'se.qidian.com',
     'all'       : 'a.qidian.com',
     'finish'    : 'fin.qidian.com',
-    'www'       : 'i.qidian.com'
-}
+    'www'       : 'i.qidian.com',
+};
 
 var serverConfig = {
     "local": {
         "views":{
-            "path":"/Users/yuewen-luolei/Yuewen/Tencent/v2/views"
+            "path":"/Users/yuewen-luolei/Yuewen/Tencent/iteration_III_20160516/src/views"
         },
         "index": {
             "path": "/Users/yuewen-luolei/Desktop/testfolder"
@@ -24,14 +24,14 @@ var serverConfig = {
 		"static":{	//静态文件配置
             "domainPrefix" : "local",
 			"staticDomain": "devqidian.gtimg.com",
-			"staticPath":"//local.qidian.com/qd",
+			"staticPath":"//local.qidian.com:2324/qd",
 			"lbf": {
 				"conf": {
 					"paths": {
-						"site": "//local.qidian.com/qd/js"
+						"site": "//local.qidian.com:2324/qd/js"
 					},
 					"vars": {
-						"theme": "//local.qidian.com/qd/css"
+						"theme": "//local.qidian.com:2324/qd/css"
 					},
 					"combo": false,
 					"debug": true
@@ -165,6 +165,6 @@ var genConf = function() {
         serverConfig[env]['domain'] = domain;
     }
     return serverConfig;
-}
+};
 
 module.exports = genConf();

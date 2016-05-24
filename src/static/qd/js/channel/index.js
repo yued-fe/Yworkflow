@@ -77,7 +77,7 @@ LBF.define('/qd/js/channel/index.js', function (require, exports, module) {
                     $(this).addClass('act').siblings().removeClass('act');
                     updateList.find('.update-table').eq(updateTab.index(this)).show().siblings().hide();
                 });
-            },
+            }
 
 
         })

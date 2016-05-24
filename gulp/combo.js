@@ -20,7 +20,7 @@
 var PROJECT_CONFIG = require('../.yconfig');  //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
-var combo = require('../lib/util/combo');
+var combo = require('./util/combo');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var argv = require('yargs').argv;
 

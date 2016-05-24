@@ -1,3 +1,22 @@
+/**
+ * Author: Luolei
+ *
+ * 自动将HTML中的文件转成combo路径
+
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/reset.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/global.0.1.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/css/font.0.1.css">
+
+ * 执行 gulp combo 后转换成
+ *
+
+ <link rel="stylesheet" data-ignore="true" href="//<%= staticConf.staticDomain %>/c/=/qd/css/reset.0.1.css,/qd/css/global.0.1.css,/qd/css/font.0.1.css?v=201605101449" />
+
+ *
+ * 若需要忽略某js和css,只需要在html标签中增加 data-ignore="true" 即可
+ *
+ */
+
 /* jshint node: true */
 'use strict';
 
@@ -6,7 +25,7 @@ var through = require('through2'),
 
 
 module.exports = function(baseUri, options,comboOptions) {
-    baseUri = baseUri || 'http://mc.meituan.net/combo/?f=';
+    baseUri = baseUri || 'http://qidian.gtimg.com/c/=';
     options = options || {},
     comboOptions = comboOptions || {};
     console.log('===Qidian.com=== ');

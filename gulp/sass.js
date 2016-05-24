@@ -16,7 +16,7 @@ var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 
 /**
- * csscombo调用根目录下 .csscombo.json 进行格式化
+ * csscombo调用根目录下 .csscombo.json 的配置进行格式化
  */
 var csscomb = require('gulp-csscomb');
 var bust = require('gulp-buster');
@@ -36,10 +36,11 @@ gulp.task('sass', function(cb) {
         .pipe(sass())
         .pipe(csscomb())
         // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
+        // .pipe(gulp.dest(paths.css))
+        .pipe(sourcemaps.write({
+            sourceRoot: paths.sass
+        }))
         .pipe(gulp.dest(paths.css))
-        // .pipe(sourcemaps.write({
-        //     sourceRoot: '/css/sass'
-        // }))
 
     //对普通css只做格式化处理
     gulp.src('src/static/**/*.css')

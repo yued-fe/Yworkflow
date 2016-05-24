@@ -26,29 +26,28 @@ var paths = {
 };
 
 
+/**
+ * 开发的过程中,监听src/目录下的sass、js等静态资源,进行编译处理
+ */
+
+var watching = false;
+
 function gulpWatch() {
         gulp.watch(paths.js, ['scripts']);
         gulp.watch(paths.css, ['sass']);
         gulp.watch(paths.img, ['images-copy']);
 }
 
-var watching = false;
+/**
+ * 使用Nodemon来监控本地的Node服务,自动重启等
+ */
 
-gulp.task('browserSync', ['dev'], function() {
-    browserSync.init(null, {
-        proxy: {
-            host: "http://localhost",
-            port: "3235"
-        }
-    });
-});
 
-// 启动 Nodemon 服务
 gulp.task('dev', function() {
     nodemon({
             script: 'index.js',
             ext: 'js html scss css',
-            ignore: ['ejs', 'src/static/**/*', 'build', '_tmp', '_prelease', '_previews'],
+            ignore: ['ejs', 'src/static/**/*', 'build', '_prelease', '_previews'],
             env: {
                 "NODE_ENV": process.env.NODE_ENV
             }
@@ -78,6 +77,12 @@ gulp.task('dev', function() {
             console.log(chalk.green('[nodemon] 服务重新启动'));
         })
 });
+
+
+
+/**
+ * 自定义的gulp任务,可以单独执行 gulp {task}来执行相关任务
+ */
 
 // gulp
 gulp.task('default', ['watch', 'scripts']);

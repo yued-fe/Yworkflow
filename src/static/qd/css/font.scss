@@ -7,11 +7,11 @@
 @import "global";
 @font-face {
 	font-family: "iconfont";
-	src: url('/qd/css/font/iconfont.0.1.eot'); /* IE9*/
-	src: url('/qd/css/font/iconfont.0.1.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('/qd/css/font/iconfont.0.1.woff') format('woff'), /* chrome, firefox */
-	url('/qd/css/font/iconfont.0.1.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-	url('/qd/css/font/iconfont.0.1.svg#iconfont') format('svg'); /* iOS 4.1- */
+	src: url('/qd/css/font/iconfont.eot'); /* IE9*/
+	src: url('/qd/css/font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('/qd/css/font/iconfont.woff') format('woff'), /* chrome, firefox */
+	url('/qd/css/font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+	url('/qd/css/font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 @font-face {
 	font-family: 'FZZCYSK';
@@ -123,6 +123,9 @@
 }
 .icon-youjiantou:before {
 	content: "\e621";
+}
+.icon-zuojiantou:before {
+	content: "\e628";
 }
 .icon-shangjiantou:before {
 	content: "\e622";

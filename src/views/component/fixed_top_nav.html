@@ -1,5 +1,12 @@
+<%
+    //判断navHighLight的值，如果==0是首页，才显示放大镜
+    var glass = '';
+    if (navHighLight == 0) {
+        glass = 'need-search'
+    }
+%>
 <!-- start 固定顶部导航条 -->
-<div id="pin-nav" class="pin-nav-wrap">
+<div id="pin-nav" class="pin-nav-wrap <%=glass %>">
     <div class="box-center cf">
         <div class="nav-list site-nav fl">
             <ul>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <%
-
     var actSortTime, actSortClick, actSortRecom, actSortWordsCnt = ''; //缩略图和列表区分
     sortCurrentType = parseInt(data['paramList']["sort"]);
 
@@ -73,14 +72,16 @@
 <div class="wrap">
     <%
     /*
-        设置主导航高亮navHighLight = 2
-        首页无高亮（首页没设置此变量）
+        设置主导航高亮navHighLight = 6
+        0:首页
         1:全部作品
         2:排行
         3:完本
         4:免费
-        */
-        var navHighLight = 2;
+        5:频道页
+        6:搜索页
+    */
+        var navHighLight = 6;
     %>
     <!-- start 固定导航条 样式和首页不同，非跟随页面滚动 -->
     <% include ../component/fixed_top_nav.html %>

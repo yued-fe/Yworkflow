@@ -7,13 +7,13 @@
 @import "global";
 @import "mixin";
 .footer {
-	text-align: center;
 	background: #FAFAFA;
+	text-align: center;
 	.box-center {
-		padding:20px 0;
 		background: #FAFAFA;
 	}
 	.friend-link {
+		padding-top: 20px;
 		padding-bottom: 12px;
 		overflow: hidden;
 		em {
@@ -44,6 +44,7 @@
 		}
 	}
 	.copy-right, .safety-box {
+		padding-bottom: 20px;
 		p {
 			height: 20px;
 			font: 12px/20px $simsun;
@@ -56,7 +57,7 @@
 		}
 	}
 	.safety-img {
-		padding: 20px 0;
+		padding: 0 0 20px;
 		a {
 			width: 140px;
 			height: 52px;
@@ -87,10 +88,13 @@
 		}
 	}
 }
-@media (max-width: 1025px) {
+@media (max-width: 1200px) {
+	.footer {
+		width: 100%;
+	}
 	.footer .safety-img a {
 		margin-right: 4px;
-		width: 138px;
+		width: 130px;
 		height: 50px;
 	}
 }

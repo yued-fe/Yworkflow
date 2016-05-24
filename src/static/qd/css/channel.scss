@@ -113,6 +113,7 @@ body {
 		margin: 26px auto 16px;
 		border-bottom: 1px solid $gray6;
 		b {
+			display: block;
 			position: absolute;
 			top: -10px;
 			left: 50%;
@@ -123,6 +124,7 @@ body {
 			font: 18px/21px FZZCYSK;
 			text-align: center;
 			background: #F7F6F2;
+			overflow: hidden;
 		}
 	}
 }
@@ -174,13 +176,12 @@ body {
 		}
 	}
 }
-/* 大封推 */
+/* 大频道-大封推 */
 .channel-focus {
 	width: 748px;
-	height: 369px;
-	&.small-mode {
-		background: #F7F6F2;
-	}
+	height: 370px;
+}
+.channel-focus.big-mode {
 	/* 大频道封推列表 */
 	.big-list {
 		padding-top: 30px;
@@ -189,7 +190,7 @@ body {
 			width: 170px;
 			margin-right: -26px;
 			text-align: center;
-			background: url("/qd/images/channel/book_shadow.png") no-repeat;
+			background: url("/qd/images/channel/big_shadow.png") no-repeat;
 			.img-box {
 				width: 105px;
 				height: 165px;
@@ -215,7 +216,6 @@ body {
 				color: $gray8;
 				overflow: hidden;
 			}
-
 		}
 	}
 	/* 新书精选 */
@@ -285,11 +285,52 @@ body {
 		}
 	}
 	/* 小频道封推列表 */
-	.small-list {
-
+}
+/* 小频道-大封推 */
+.channel-focus.small-mode {
+	background: #FAF9F7;
+	ul {
+		padding-top: 47px;
+		padding-left: 13px;
+	}
+	li {
+		float: left;
+		width: 184px;
+		height: 197px;
+		text-align: center;
+		margin-right: -8px;
+		background: url("/qd/images/channel/small_shadow.png") no-repeat;
+		.img-box {
+			width: 120px;
+			height: 160px;
+			margin: 4px auto 50px;
+			a, img {
+				display: block;
+				width: 100%;
+				height: 160px;
+				overflow: hidden;
+			}
+			img:hover {
+			}
+		}
+		h3 {
+			height: 21px;
+			font: 18px/21px $fontbase;
+			margin-bottom: 6px;
+			overflow: hidden;
+		}
+		p {
+			width: 150px;
+			max-height: 40px;
+			margin: 0 auto;
+			font: 14px/20px $simsun;
+			color: $gray8;
+			overflow: hidden;
+		}
 	}
 
 }
+/* 最新动态-频道动态 */
 .notice-box {
 	width: 192px;
 	padding: 18px 0 10px;
@@ -543,7 +584,7 @@ body {
 			border-top: none;
 		}
 	}
-	/* 无封面的作品信息 */
+	/* 无封面的作品信息-大频道 */
 	&.big-mode .no-img-info {
 		width: 216px;
 		h4 {
@@ -572,9 +613,117 @@ body {
 			color: $gray6;
 		}
 	}
+	/* 无封面的作品信息-小频道 */
+	&.small-mode li {
+		padding: 18px 0 20px;
+		.no-img-info {
+			width: 216px;
+			h4 {
+				height: 22px;
+				overflow: hidden;
+				@include mb;
+				a {
+					font: 16px/22px $fontbase;
+				}
+				overflow: hidden;
+				line-height: 22px;
+				span {
+					float: right;
+					color: #D0021B;
+					font: 18px/22px FZZCYSK;
+					em {
+						margin-left: 4px;
+						font: 12px/18px $simsun;
+					}
+				}
+			}
+			p {
+				height: 40px;
+				@include mb;
+				font: 12px/20px $simsun;
+				overflow: hidden;
+				color: $gray6;
+			}
+		}
+	}
+}
+/* 粉丝动态 */
+.fans-wrap {
+	position: relative;
+	z-index: 1;
+	width: 216px;
+	height: 136px;
+	margin-top: 32px;
+	background: #F7F5F0;
+	overflow: hidden;
+	.photo {
+		position: absolute;
+		top: 40px;
+		right: 12px;
+		z-index: 1;
+		img {
+			width: 48px;
+			height: 48px;
+			border: 1px solid #B69968;
+			border-radius: 100%;
+		}
+		span {
+			position: absolute;
+			z-index: 2;
+			bottom: 3px;
+			right: 0;
+			width: 18px;
+			height: 18px;
+			border-radius: 100%;
+			color: white;
+			text-align: center;
+			font: italic 12px/18px Arial;
+			background: #B69968;
+		}
+
+	}
+	.fans-state {
+		width: 140px;
+		padding: 12px 0 0 12px;
+		h3 {
+			@include mb(6px);
+			font: 16px/20px FZZCYSK;
+		}
+		.title {
+			text-align: center;
+			padding: 2px 3px;
+			height: 16px;
+			font: 12px/16px $simsun;
+			color: white;
+			background: #E67255;
+		}
+		p {
+			font: 12px/20px $simsun;
+			&.fans {
+				margin-top: 5px;
+				height: 20px;
+				overflow: hidden;
+				& + p {
+					height: 40px;
+					overflow: hidden;
+				}
+			}
+			a {
+				margin: 0 3px;
+				color: $blue;
+				&:hover {
+					color: $blue_hover;
+				}
+			}
+			em {
+				color: $red;
+				margin: 0 5px;
+			}
+		}
+	}
 }
 /* 热门分类 */
-//横切区块
+/* 横切区块 */
 /* 二级分类信息 */
 .sub-type-info {
 	width: 216px;
@@ -684,6 +833,10 @@ body {
 		.book-cover {
 			float: left;
 			margin-right: 24px;
+			img {
+				width: 60px;
+				height: 87px;
+			}
 		}
 		.book-info {
 			h4 {
@@ -721,6 +874,10 @@ body {
 		}
 	}
 }
+/* 高阶浏览器3d书的宽度重设 */
+:root .type-book-wrap .book-cover img {
+	width: 52px;
+}
 /* 分类书本列表 */
 .sub-type-list {
 	height: 270px;
@@ -741,10 +898,9 @@ body {
 	.bottom {
 		float: left;
 		width: 462px;
-		margin-right: 30px;
 		/* 第二个无右边距 */
-		&:first-child + .bottom {
-			margin-right: 0;
+		&:first-child {
+			margin-right: 30px;
 		}
 	}
 	/* 底部书列表 */
@@ -1078,6 +1234,204 @@ body {
 	}
 
 }
+/* 武侠-江湖内力榜 */
+.update-words-rank {
+	.top-book, .normal-book {
+		float: left;
+	}
+	/* top两本 */
+	.top-book li {
+		width: 328px;
+		position: relative;
+		border-top: 1px solid #E6E6E6;
+		&:first-child {
+			border-top: none;
+			.book-info {
+				padding: 22px 0;
+			}
+		}
+		/* 书封 */
+		.book-img {
+			position: absolute;
+			top: 22px;
+			left: 0;
+			z-index: 1;
+			a {
+				width: 124px;
+				height: 165px;
+			}
+			i {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 22px;
+				height: 22px;
+				color: white;
+				text-align: center;
+				font: 16px/26px FZZCYSK;
+				&.no1 {
+					background: $red;
+				}
+				&.no2 {
+					background: #E67225;
+				}
+				em {
+					position: absolute;
+					bottom: -6px;
+					left: 0;
+					border-top: 6px solid $red;
+					border-right: 11px solid transparent;
+					border-bottom: 0 none;
+					border-left: 11px solid transparent;
+					width: 0;
+					height: 0;
+				}
+			}
+		}
+		/* 书介绍 */
+		.book-info {
+			padding-top: 22px;
+			height: 209-44px;
+			width: 162px;
+			margin-left: 136px;
+			span {
+				color: $red;
+				display: block;
+				width: 50px;
+				height: 16px;
+				text-align: center;
+				padding: 0 2px;
+				line-height: 16px;
+				margin-bottom: 4px;
+				font: 12px/16px $simsun;
+				border: 1px solid #DF9591;
+				overflow: hidden;
+			}
+			h4 {
+				height: 24px;
+				margin-bottom: 3px;
+				overflow: hidden;
+				font: 18px/24px $fontbase;
+			}
+			.state {
+				height: 21px;
+				margin-bottom: 8px;
+				color: $red;
+				font: 16px/21px $fontbase;
+			}
+			.writer {
+				height: 16px;
+				margin-bottom: 5px;
+				font: 12px/16px $simsun;
+				a {
+					color: $A6;
+					&:hover {
+						color: inherit;
+					}
+				}
+				img {
+					display: inline-block;
+					vertical-align: middle;
+					width: 14px;
+					height: 14px;
+					margin: 0 5px 0 0;
+				}
+			}
+			.intro {
+				height: 60px;
+				font: 12px/20px $simsun;
+				color: $gray6;
+			}
+			p {
+				overflow: hidden;
+			}
+		}
+	}
+	/* 书3-6,7-10 */
+	.normal-book {
+		width: 313px;
+		ul {
+			/* 定高 去掉最后一行的padding-bottom */
+			height: 402px;
+			overflow: hidden;
+		}
+		li {
+			position: relative;
+			z-index: 1;
+			padding: 22px 0 22px 32px;
+			border-top: 1px solid #E6E6E6;
+			*vertical-align: bottom;
+			@extend %cf;
+			&:first-child {
+				border-top: none;
+			}
+			/* 序号 */
+			i {
+				position: absolute;
+				top: 22px;
+				left: 0;
+				margin-right: 18px;
+				height: 60px;
+				max-width: 30px;
+				font: 28px/60px Arial;
+				color: #BFBFBF;
+				overflow: hidden;
+			}
+			/* 书封 */
+			.book-img {
+				width: 45px;
+				height: 60px;
+				float: left;
+				margin-right: 12px;
+				img {
+					transform: none;
+				}
+			}
+			/* 书介绍 */
+			.book-info {
+				float: left;
+				width: 206px;
+				h4 {
+					margin: -4px 0 2px;
+					height: 22px;
+					overflow: hidden;
+					a {
+						float: left;
+						height: 22px;
+						max-width: 120px;
+						@include word-wrap;
+						font: 16px/22px $fontbase;
+					}
+					span {
+						float: right;
+						max-width: 78px;
+						@include word-wrap-multi;
+						font: 12px/22px $simsun;
+						color: $red;
+						em {
+							margin: 0 3px;
+						}
+					}
+				}
+				p {
+					height: 40px;
+					font: 12px/20px $simsun;
+					color: $gray6;
+					overflow: hidden;
+				}
+			}
+		}
+		&.two li {
+			padding-left: 50px;
+			i {
+				left: 14px;
+				&.no10 {
+					left: 7px;
+				}
+			}
+		}
+	}
+}
 /* -----------分割线-------------- */
 /* 通用layout */
 .left-wrap {
@@ -1087,6 +1441,18 @@ body {
 		padding-bottom: 5px;
 		border-bottom: 1px solid #666;
 		font: 22px/25px FZZCYSK;
+		span {
+			margin-left: 10px;
+			font: 12px/16px $simsun;
+			color: $gray6;
+			em {
+				font-family: Arail;
+				display: inline-block;
+				vertical-align: middle;
+				margin: -2px 8px 0 5px;
+				line-height: 1;
+			}
+		}
 	}
 }
 /* banner */
@@ -1124,6 +1490,9 @@ body {
 	margin-right: 30px;
 	background: #F7F5F0;
 }
+.mt50 {
+	margin-top: 50px;
+}
 /* 有封面的作品信息列表 */
 li.have-img {
 	padding: 21px 0;
@@ -1147,6 +1516,17 @@ li.have-img {
 /* 视觉下边距调整，由于右边榜单1-10高度会把整个容器往下顶，并且有3d书阴影，无法用overflow，所以单独对这些区块做边距处理，视觉上做到40px下边距 */
 .serial-wrap, .hot-type-wrap {
 	margin-bottom: 33px;
+}
+/* retina屏双倍图 */
+@media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+	.channel-focus.big-mode .big-list li {
+		background-image: url("/qd/images/channel/big_shadow_2x.png");
+		background-size: contain;
+	}
+	.channel-focus.small-mode .small-list li {
+		background-image: url("/qd/images/channel/small_shadow_2x.png");
+		background-size: contain;
+	}
 }
 /* 1200 响应点样式变动 */
 @media (max-width: 1200px) {

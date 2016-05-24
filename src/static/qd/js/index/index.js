@@ -237,13 +237,7 @@ LBF.define('/qd/js/index/index.js', function (require, exports, module) {
                     responsive: true,
                     minScale: 0.7,
                     maxScale: 1,
-                    margin: 1,
-                    clickToFocusCallback: function () {
-                        switchTab(id);
-                    },
-                    autoplayCallback: function () {
-                        switchTab(id);
-                    }
+                    margin: 1
                 });
             }
 

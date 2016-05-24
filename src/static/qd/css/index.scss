@@ -1296,10 +1296,9 @@
 			margin: 0 auto;
 			&.disabled {
 				cursor: default;
-				border-color: $A6;
 				color: $A6;
+				background-position: 0 -58px;
 				&:hover {
-					background: none;
 				}
 			}
 		}
@@ -1411,19 +1410,28 @@
 /* 蓝色圆角按钮 */
 .blue-btn {
 	display: block;
-	border: 1px solid $blue;
-	border-radius: 20px;
-	width: 80px;
-	height: 26px;
-	font: 14px/26px $simsun;
+	/*border: 1px solid $blue;
+	border-radius: 20px;*/
+	width: 88px;
+	height: 28px;
+	font: 14px/29px $simsun;
 	text-align: center;
 	color: $blue;
 	overflow: hidden;
+	background-image: url("/qd/images/common/blue_btn.png");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
 	&:hover {
-		border-color: $blue_hover;
+		transition: none;
+		transition: all 0s;
+		background-position: 0 -29px;
 		color: $blue_hover;
-		background: #F0F5FF;
 	}
+}
+/* windows下高阶浏览器启用双倍图按钮背景防止锯齿 */
+:root .blue-btn {
+	background-image: url("/qd/images/common/blue_btn_2x.png");
 }
 /* 红色阅读按钮 */
 .read-btn {
@@ -1713,7 +1721,7 @@ em.point {
 		}
 	}
 	.edit-rec-wrap .edit-rec-list li {
-		margin-right: 18px;
+		margin-right: 10px;
 	}
 	.edit-rec-wrap .edit-rec-list li:nth-of-type(3) {
 		margin-right: 0;
@@ -1790,6 +1798,13 @@ em.point {
 		&:last-of-type {
 			display: none;
 		}
+	}
+	.filter-search-wrap .filter-search-box .title {
+		padding-left: 80px;
+	}
+	.filter-search-wrap .filter-search-box .filter-search {
+		width: 656px;
+		border-right: none;
 	}
 	.filter-search-wrap .everyone {
 		display: none;
