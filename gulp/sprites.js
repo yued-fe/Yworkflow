@@ -93,7 +93,7 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
             // console.log(folder + ' 图片 out:' + 'build/' + dir.img + '/' + folder);
             // console.log(folder + ' CSS out:' + 'build/' + dir.sprite + '/' + folder);
         var retianStream = spriteRetina.pipe(gulp.dest('build' + spritesFolder[i] + '/sprite'));
-        spriteCss.pipe(gulp.dest('build/' + PROJECT_CONFIG.gtimgName + '/css'));
+        var cssStream = spriteCss.pipe(gulp.dest('build/' + PROJECT_CONFIG.gtimgName + '/css'));
 
     }
     cb()
