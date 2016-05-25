@@ -63,7 +63,7 @@ if (process.env.NODE_ENV == 'local') {
 }
 
 if (process.env.NODE_ENV == 'preview') {
-    app.use('/' + PROJECT_CONFIG.gtimgName ,express.static(path.join(__dirname, '_prelease')))
+    app.use('/' + PROJECT_CONFIG.gtimgName, express.static(path.join(__dirname, '_prelease')))
     app.set('views', path.join(__dirname, '_previews')); // 设置preview模板页面
 }
 
@@ -185,10 +185,29 @@ var configRouter = function(val) {
         console.log("模板：" + templateFileName);
         var _cgiVal = routerDomain['cgi'];
 
-        console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
-        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
-            if (err) throw err;
-            var data = JSON.parse(data);
+        if (!!_cgiVal) {
+            console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
+            fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
+                if (err) throw err;
+                var data = JSON.parse(data);
+                //console.log('读取数据' + JSON.stringify(data));
+                // 拉取到数据后再渲染页面
+                data.envType = app.get('env');
+                data.pageUpdateTime = "";
+                data.staticConf = staticConf;
+                var viewsPath = ''
+
+                if (process.env.NODE_ENV == 'preview') {
+                    viewsPath = '/_previews'
+                } else {
+                    viewsPath = 'src/views'
+                }
+                console.log('当前目录' + viewsPath)
+                var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
+                res.render(_templateFileName + '.html', data);
+            });
+        } else {
+            var data = {};
             //console.log('读取数据' + JSON.stringify(data));
             // 拉取到数据后再渲染页面
             data.envType = app.get('env');
@@ -204,7 +223,29 @@ var configRouter = function(val) {
             console.log('当前目录' + viewsPath)
             var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
             res.render(_templateFileName + '.html', data);
-        });
+        }
+
+
+        // console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
+        // fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
+        //     if (err) throw err;
+        //     var data = JSON.parse(data);
+        //     //console.log('读取数据' + JSON.stringify(data));
+        //     // 拉取到数据后再渲染页面
+        //     data.envType = app.get('env');
+        //     data.pageUpdateTime = "";
+        //     data.staticConf = staticConf;
+        //     var viewsPath = ''
+
+        //     if (process.env.NODE_ENV == 'preview') {
+        //         viewsPath = '/_previews'
+        //     } else {
+        //         viewsPath = 'src/views'
+        //     }
+        //     console.log('当前目录' + viewsPath)
+        //     var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
+        //     res.render(_templateFileName + '.html', data);
+        // });
     }
 }
 
