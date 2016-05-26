@@ -35,7 +35,7 @@ var spritesFolder = [];
 gulp.task('get-sprites-folder', function(cb) {
     var _osPath = __dirname;
     _osPath = gulpSlash(_osPath); // 这里处理一下windows下路径的兼容
-    var _currentFolderPath = __dirname.split('/');
+    var _currentFolderPath = _osPath.split('/');
     _srcFolderPath = _currentFolderPath.slice(0, _currentFolderPath.length - 1).join('/') + '/src/static';
 
     return gulp.src(PATHS.spritesOriginalFiles)
