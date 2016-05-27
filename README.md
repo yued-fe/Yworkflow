@@ -23,7 +23,7 @@
 
 ##注意
 
-Windows用户请使用`cmber`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。
+Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。
 
 
 ##初始

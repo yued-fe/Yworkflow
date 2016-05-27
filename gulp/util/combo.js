@@ -28,7 +28,7 @@ module.exports = function(baseUri, options,comboOptions) {
     baseUri = baseUri || 'http://qidian.gtimg.com/c/=';
     options = options || {},
     comboOptions = comboOptions || {};
-    console.log(chalk.green('===Qidian.com=== '));
+    // console.log(chalk.green('===Qidian.com=== '));
     return through.obj(function(file, enc, cb) {
         var chunk = String(file.contents);
         var src = {
