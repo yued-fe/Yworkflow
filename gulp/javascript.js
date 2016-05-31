@@ -33,12 +33,9 @@ gulp.task('scripts', function(cb) {
     gulp.src(paths.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        // .pipe(jshint())
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
-        // .pipe(jshint.reporter(stylish))
-        // .pipe(uglify())
         .pipe(gulp.dest(paths.des))
     cb()
 });

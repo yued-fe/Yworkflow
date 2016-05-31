@@ -43,15 +43,13 @@ gulp.task('get-sprites-folder', function(cb) {
         .pipe(gulpSlash())
         .pipe(vinylPaths(function(paths) {
             var _relativeFilePath = paths.replace(_srcFolderPath, '');
-            // console.log('Paths:', _relativeFilePath);
             var _thisFileName = _relativeFilePath.split('/').pop();
-            // console.log(_thisFileName);
             _relativeSpriteFolder = _relativeFilePath.replace('sprites/' + _thisFileName, '');
             if (spritesFolder.indexOf(_relativeSpriteFolder) == -1) {
                 spritesFolder.push(_relativeSpriteFolder);
-                console.log(spritesFolder);
-            }
 
+            }
+            console.log('需要生成精灵图的文件夹包含:' + spritesFolder);
             return Promise.resolve();
         })).on('en', cb)
 
@@ -64,7 +62,6 @@ gulp.task('get-sprites-folder', function(cb) {
  */
 
 
-// task.sprites
 gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
     var _totalSpritesToGenerateSize = spritesFolder.length;
     console.log(chalk.green('【精灵图】共有 ') + chalk.red(_totalSpritesToGenerateSize) + chalk.green(' 张@2x精灵图待生成'));
@@ -76,7 +73,6 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
     for (i; i < _totalSpritesToGenerateSize; i++) {
         console.log('src/static' + spritesFolder[i] + 'sprites/*.png');
         var _thisSpriteMaster = spritesFolder[i].split('/').slice(0, spritesFolder[i].split('/').length - 1).pop();
-
         spriteData[i] = gulp.src('src/static' + spritesFolder[i] + 'sprites/*.png')
             .pipe(gulpSlash())
             .pipe(spritesmith({
@@ -88,23 +84,18 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
             }));
         var spriteRetina = spriteData[i].img,
             spriteResize = spriteData[i].img;
-
-        var spriteCss = spriteData[i].css
-            // console.log(folder + ' 图片 out:' + 'build/' + dir.img + '/' + folder);
-            // console.log(folder + ' CSS out:' + 'build/' + dir.sprite + '/' + folder);
+        var spriteCss = spriteData[i].css;
         var retianStream = spriteRetina.pipe(gulp.dest('build' + spritesFolder[i] + '/sprite'));
         var cssStream = spriteCss.pipe(gulp.dest('build/' + PROJECT_CONFIG.gtimgName + '/css'));
 
     }
     cb()
-        // console.log(chalk.green('[生成高清缩略图]' + 'sprite-' + folder + '@2x.png'));
 });
 
 
 /**
  * 压缩@2x高清图,生成标清@1x图
  */
-
 
 gulp.task('standard-sprites-build', ['get-sprites-folder', 'retina-sprites-build'], function(cb) {
     var _totalSpritesToGenerateSize = spritesFolder.length;

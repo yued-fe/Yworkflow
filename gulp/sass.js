@@ -35,8 +35,6 @@ gulp.task('sass', function(cb) {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(csscomb())
-        // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
-        // .pipe(gulp.dest(paths.css))
         .pipe(sourcemaps.write({
             sourceRoot: paths.sass
         }))
