@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Rainszhang & Luolei",
   "license": "ISC",
-  "description": "Qidian Project Local Server",
+  "description": "Qidian Project Local Tool",
   "scripts": {
     "dev": "cross-env NODE_ENV=local  gulp dev",
     "init": "npm run build && npm run dev",
@@ -11,9 +11,11 @@
     "go": "gulp clean && gulp auto-sprite && gulp auto-sprite && gulp build  && gulp rev && gulp rev-fix && gulp rev-views",
     "clean": "gulp clean",
     "build": "gulp clean && sleep 1  && gulp auto-sprite && gulp auto-sprite && gulp build",
-    "nocombo-publish": "npm run build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views  && npm run preview",
+    "nocombo-publish": "npm run build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views",
     "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo  && gulp copy-config",
-    "preview": "cross-env NODE_ENV=preview  gulp dev"
+    "preview": "cross-env NODE_ENV=preview  gulp dev",
+    "static": "gulp static-html",
+    "online-preview":"npm run nocombo-publish && gulp static-html --envConf build && gulp ftp-static && gulp ftp-views"
   },
   "devDependencies": {
     "chalk": "^1.1.1",

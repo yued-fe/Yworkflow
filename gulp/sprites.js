@@ -49,7 +49,7 @@ gulp.task('get-sprites-folder', function(cb) {
                 spritesFolder.push(_relativeSpriteFolder);
 
             }
-            console.log('需要生成精灵图的文件夹包含:' + spritesFolder);
+            // console.log('需要生成精灵图的文件夹包含:' + spritesFolder);
             return Promise.resolve();
         })).on('en', cb)
 
@@ -60,7 +60,6 @@ gulp.task('get-sprites-folder', function(cb) {
 /**
  * 遍历src/static 下的所有含{sprites}的目录，根据相对层级，在build目录生成之后的精灵图和scss
  */
-
 
 gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
     var _totalSpritesToGenerateSize = spritesFolder.length;
@@ -86,7 +85,7 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
             spriteResize = spriteData[i].img;
         var spriteCss = spriteData[i].css;
         var retianStream = spriteRetina.pipe(gulp.dest('build' + spritesFolder[i] + '/sprite'));
-        var cssStream = spriteCss.pipe(gulp.dest('build/' + PROJECT_CONFIG.gtimgName + '/css'));
+        var cssStream = spriteCss.pipe(gulp.dest('src/static/' + PROJECT_CONFIG.gtimgName + '/css'));
 
     }
     cb()

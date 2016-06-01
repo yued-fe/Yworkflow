@@ -30,6 +30,7 @@ var paths = {
 
 // sass task
 gulp.task('sass', function(cb) {
+    //对scss文件进行编译
     gulp.src(paths.sass)
         .pipe(plumber())
         .pipe(sourcemaps.init())

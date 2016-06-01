@@ -6,7 +6,7 @@
 
 var ProjectConfig = {
 	"name":"demoProjectName",
-	"gtimgName":"yued", // 对应 qidian.gtimg.com/{name} 路径
+	"gtimgName":"yuewen", // 对应 qidian.gtimg.com/{name} 路径
 	"port":2324
 };
 

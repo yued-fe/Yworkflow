@@ -9,6 +9,31 @@ var domainMap = {
 }
 
 var serverConfig = {
+    "build": {
+        "views":{
+            "path":"/Users/yuewen-luolei/Yuewen/Tencent/v2/views"
+        },
+        "index": {
+            "path": "/Users/yuewen-luolei/Desktop/testfolder"
+        },
+        "static":{  //静态文件配置
+            "domainPrefix" : "local",
+            "staticDomain": "http://10.97.19.100",
+            "staticPath":"http://10.97.19.100/yuewen",
+            "lbf": {
+                "conf": {
+                    "paths": {
+                        "site": "http://10.97.19.100/yuewen/js"
+                    },
+                    "vars": {
+                        "theme": "http://10.97.19.100/yuewen/css"
+                    },
+                    "combo": false,
+                    "debug": true
+                }
+            }
+        }
+    },
     "local": {
         "views":{
             "path":"/Users/yuewen-luolei/Yuewen/Tencent/v2/views"
@@ -19,14 +44,14 @@ var serverConfig = {
 		"static":{	//静态文件配置
             "domainPrefix" : "local",
 			"staticDomain": "devqidian.gtimg.com",
-			"staticPath":"//local.qidian.com:2324/yued",
+			"staticPath":"//localqidian.gtimg.com:2324/yuewen",
 			"lbf": {
 				"conf": {
 					"paths": {
-						"site": "//local.qidian.com:3234/yued/js"
+						"site": "//localqidian.gtimg.com:3234/yuewen/js"
 					},
 					"vars": {
-						"theme": "//local.qidian.com:3234/yued/css"
+						"theme": "//localqidian.gtimg.com:3234/yuewen/css"
 					},
 					"combo": false,
 					"debug": true

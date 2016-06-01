@@ -1,0 +1,162 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-close-name: 'icon-close';
+$icon-close-x: 0px;
+$icon-close-y: 106px;
+$icon-close-offset-x: 0px;
+$icon-close-offset-y: -106px;
+$icon-close-width: 36px;
+$icon-close-height: 36px;
+$icon-close-total-width: 206px;
+$icon-close-total-height: 142px;
+$icon-close-image: '@2x.png';
+$icon-close: (0px, 106px, 0px, -106px, 36px, 36px, 206px, 142px, '@2x.png', 'icon-close', );
+$icon-collect-active-name: 'icon-collect-active';
+$icon-collect-active-x: 112px;
+$icon-collect-active-y: 106px;
+$icon-collect-active-offset-x: -112px;
+$icon-collect-active-offset-y: -106px;
+$icon-collect-active-width: 30px;
+$icon-collect-active-height: 26px;
+$icon-collect-active-total-width: 206px;
+$icon-collect-active-total-height: 142px;
+$icon-collect-active-image: '@2x.png';
+$icon-collect-active: (112px, 106px, -112px, -106px, 30px, 26px, 206px, 142px, '@2x.png', 'icon-collect-active', );
+$icon-collect-name: 'icon-collect';
+$icon-collect-x: 146px;
+$icon-collect-y: 106px;
+$icon-collect-offset-x: -146px;
+$icon-collect-offset-y: -106px;
+$icon-collect-width: 30px;
+$icon-collect-height: 26px;
+$icon-collect-total-width: 206px;
+$icon-collect-total-height: 142px;
+$icon-collect-image: '@2x.png';
+$icon-collect: (146px, 106px, -146px, -106px, 30px, 26px, 206px, 142px, '@2x.png', 'icon-collect', );
+$icon-ding-active-name: 'icon-ding-active';
+$icon-ding-active-x: 40px;
+$icon-ding-active-y: 106px;
+$icon-ding-active-offset-x: -40px;
+$icon-ding-active-offset-y: -106px;
+$icon-ding-active-width: 32px;
+$icon-ding-active-height: 32px;
+$icon-ding-active-total-width: 206px;
+$icon-ding-active-total-height: 142px;
+$icon-ding-active-image: '@2x.png';
+$icon-ding-active: (40px, 106px, -40px, -106px, 32px, 32px, 206px, 142px, '@2x.png', 'icon-ding-active', );
+$icon-ding-name: 'icon-ding';
+$icon-ding-x: 76px;
+$icon-ding-y: 106px;
+$icon-ding-offset-x: -76px;
+$icon-ding-offset-y: -106px;
+$icon-ding-width: 32px;
+$icon-ding-height: 30px;
+$icon-ding-total-width: 206px;
+$icon-ding-total-height: 142px;
+$icon-ding-image: '@2x.png';
+$icon-ding: (76px, 106px, -76px, -106px, 32px, 30px, 206px, 142px, '@2x.png', 'icon-ding', );
+$icon-disable-reward-name: 'icon-disable-reward';
+$icon-disable-reward-x: 0px;
+$icon-disable-reward-y: 0px;
+$icon-disable-reward-offset-x: 0px;
+$icon-disable-reward-offset-y: 0px;
+$icon-disable-reward-width: 102px;
+$icon-disable-reward-height: 102px;
+$icon-disable-reward-total-width: 206px;
+$icon-disable-reward-total-height: 142px;
+$icon-disable-reward-image: '@2x.png';
+$icon-disable-reward: (0px, 0px, 0px, 0px, 102px, 102px, 206px, 142px, '@2x.png', 'icon-disable-reward', );
+$icon-dislike-active-name: 'icon-dislike-active';
+$icon-dislike-active-x: 106px;
+$icon-dislike-active-y: 0px;
+$icon-dislike-active-offset-x: -106px;
+$icon-dislike-active-offset-y: 0px;
+$icon-dislike-active-width: 100px;
+$icon-dislike-active-height: 100px;
+$icon-dislike-active-total-width: 206px;
+$icon-dislike-active-total-height: 142px;
+$icon-dislike-active-image: '@2x.png';
+$icon-dislike-active: (106px, 0px, -106px, 0px, 100px, 100px, 206px, 142px, '@2x.png', 'icon-dislike-active', );
+$spritesheet-width: 206px;
+$spritesheet-height: 142px;
+$spritesheet-image: '@2x.png';
+$spritesheet-sprites: ($icon-close, $icon-collect-active, $icon-collect, $icon-ding-active, $icon-ding, $icon-disable-reward, $icon-dislike-active, );
+$spritesheet: (206px, 142px, '@2x.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
