@@ -30,6 +30,6 @@ gulp.task('cleanbuild', function(cb) {
 
 gulp.task('clean', function(cb) {
     console.log(chalk.red('清理预览目录'));
-    del(['_prelease/', '_previews/','build/'])
+    del(['_prelease/', '_previews/','build/','_html'])
     cb()
 });

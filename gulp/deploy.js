@@ -42,23 +42,15 @@ var paths = {
 
 
 var conn = ftp.create({
-    host: '10.97.19.100',
-    user: 'ftp',
-    password: 'Lny4yJTWr3xHxllDoXLTzOm',
+    host: PROJECT_CONFIG.ftp.host,
+    user: PROJECT_CONFIG.ftp.host.user,
+    password: PROJECT_CONFIG.ftp.password,
     parallel: 10,
     log: gutil.log
 });
 
 
 gulp.task('ftp-static', function(cb) {
-    // gulp.src('./_prelease/**/*')
-    //     .pipe(ftp({
-    //         host: '10.97.19.100',
-    //         user: 'ftp',
-    //         pass: 'Lny4yJTWr3xHxllDoXLTzOm',
-    //         remotePath: '/' + PROJECT_CONFIG.gtimgName
-    //     }))
-    //     .pipe(gutil.noop());
 
     gulp.src('./_prelease/**', { base: './_prelease', buffer: false })
         .pipe(conn.newer('/' + PROJECT_CONFIG.gtimgName)) // only upload newer files

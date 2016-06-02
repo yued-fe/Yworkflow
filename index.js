@@ -300,7 +300,7 @@ function parseRouterMap(routerMap) {
 
 
 var routes = parseRouterMap(routerMap);
-// console.log(routes);
+
 for (var routerVal in routes) {
     try {
         app.get(routerVal, configRouter(routes[routerVal]));
@@ -318,11 +318,8 @@ for (var routerVal in routes) {
 
 for (var ajaxVal in ajaxMap) {
 
-    // console.log(ajaxVal + ':' + ajaxMap[ajaxVal]);
-    // console.log(routerVal);
     var _ajaxVal = ajaxVal,
         _cgiVal = ajaxMap[ajaxVal];
-    // console.log('ajax接口' + _ajaxVal);
     app.get(_ajaxVal, ajaxRouter(_ajaxVal))
 }
 
