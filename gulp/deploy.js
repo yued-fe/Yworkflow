@@ -39,11 +39,11 @@ var paths = {
     prelease: '_prelease'
 };
 
-
+// PROJECT_CONFIG.ftp.host
 
 var conn = ftp.create({
     host: PROJECT_CONFIG.ftp.host,
-    user: PROJECT_CONFIG.ftp.host.user,
+    user: PROJECT_CONFIG.ftp.user,
     password: PROJECT_CONFIG.ftp.password,
     parallel: 10,
     log: gutil.log

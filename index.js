@@ -10,35 +10,30 @@ var PROJECT_CONFIG = require('./.yconfig'); //载入项目基础配置
 
 var express = require('express');
 var app = express();
-var http = require('http');
 var path = require('path');
-var compress = require('compression'); // 压缩资源 放在顶部
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
-var morgan = require('morgan'); // http请求日志用
-var chalk = require('chalk'); // 美化日志
+var morgan = require('morgan'); // http请求日志
+var chalk = require('chalk'); // 美化显示日志
 var fs = require('fs');
 var dateFormat = require('dateformat'); //时间戳转换
-const envType = "local"; //全局环境
-const templatePathPrefix = "local"; //去除域名前缀
-
 var _ = require('underscore');
 
-//载入静态资源相关配置
+
+const envType = "local"; //全局环境
+const templatePathPrefix = "local"; //去除域名前缀
 var serverConf = require('./src/node-config/server');
 var staticConf = serverConf[envType]['static'];
 
 //域名别名，在本地环境读取实际目录用
-
 var domainAlias = require('./src/node-config/domain_alias')
 
 var PROJECT_CONFIG = require('./.yconfig');
 
 // 基础配置
-// app.use(compress()); // 启用Gizp压缩,放在顶部
-app.use(morgan('dev')); // 日志
+app.use(morgan('dev')); // 启动开发日志
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -120,8 +115,6 @@ function errorHandler(err, req, res, next) {
 var getRouterDomain = function(originHost, routerKey, val) {
     let routerVal, views, cgi;
     let useDefault = false; //使用默认当前目录
-    console.log(originHost);
-    console.log(domainAlias[originHost]);
     if (domainAlias && domainAlias[originHost]) {
         originHost = domainAlias[originHost];
     }
@@ -146,12 +139,12 @@ var getRouterDomain = function(originHost, routerKey, val) {
         views = routerKey; //使用默认request path
         cgi = routerVal;
     }
-
     if (!useDefault) {
         views = "/" + originHost + views;
+
     }
     let ret = { "views": views, "cgi": cgi };
-    // console.log(ret);
+
     return ret;
 }
 
@@ -177,6 +170,7 @@ var configRouter = function(val) {
         }
         var routerDomain = getRouterDomain(originHost, req.url, val);
         if (false === routerDomain) {
+
             console.log("no domain find");
             return next();
         }

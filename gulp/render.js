@@ -111,8 +111,8 @@ gulp.task('static-html', function(cb) {
  * ARS在发布模板的同时,顺便把node-config发布到同一目录(ars就不用重复建单)
  */
 
-gulp.task('copy-prelease',function(){
-        console.log(chalk.red('复制[node-config]配置文件到 _previews/ 目录' ));
-        gulp.src('src/node-config/**/*')
+gulp.task('copy-prelease', function() {
+    console.log(chalk.red('复制[node-config]配置文件到 _previews/ 目录'));
+    gulp.src('src/node-config/**/*')
         .pipe(gulp.dest('./_previews/node-config'))
 })

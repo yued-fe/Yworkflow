@@ -64,8 +64,6 @@ gulp.task('get-sprites-folder', function(cb) {
 gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
     var _totalSpritesToGenerateSize = spritesFolder.length;
     console.log(chalk.green('【精灵图】共有 ') + chalk.red(_totalSpritesToGenerateSize) + chalk.green(' 张@2x精灵图待生成'));
-    console.log('测试下:' + spritesFolder);
-
     var i = 0;
     var spriteData = [],
         spriteDataResize = [];
