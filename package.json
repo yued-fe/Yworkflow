@@ -15,7 +15,7 @@
     "publish": "gulp clean && sleep 1 && gulp auto-sprite && gulp auto-sprite && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo  && gulp copy-config",
     "preview": "cross-env NODE_ENV=preview  gulp dev",
     "static": "gulp static-html",
-    "online-preview":"npm run nocombo-publish && gulp static-html --envConf build && gulp ftp-static && gulp ftp-views"
+    "online-preview": "npm run nocombo-publish && gulp static-html --envConf build && gulp ftp-static && gulp ftp-views"
   },
   "devDependencies": {
     "chalk": "^1.1.1",
@@ -60,6 +60,7 @@
     "require-dir": "^0.3.0",
     "through2": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
+    "vinyl-ftp": "^0.4.5",
     "yargs": "^4.7.0"
   },
   "dependencies": {

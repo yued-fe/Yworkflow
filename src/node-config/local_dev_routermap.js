@@ -5,8 +5,6 @@
 
 var routerMap = {
 	//免费
-    'yued.qidian.com/': {'views': '/index', 'cgi': '/page/yued/index'},
-     'yued.qidian.com/demo': {'views': '/demo', 'cgi': ''}, //可以把cgi置空,直接渲染原始html
      'www.yuewen.com/':{'views': '/index', 'cgi': ''},
      'www.yuewen.com/app':{'views': '/app', 'cgi': ''},
     //下面实际为静态页面区域

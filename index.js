@@ -21,7 +21,6 @@ var morgan = require('morgan'); // http请求日志用
 var chalk = require('chalk'); // 美化日志
 var fs = require('fs');
 var dateFormat = require('dateformat'); //时间戳转换
-var errorhandler = require('errorhandler')
 const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
 
@@ -224,28 +223,6 @@ var configRouter = function(val) {
             var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
             res.render(_templateFileName + '.html', data);
         }
-
-
-        // console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
-        // fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
-        //     if (err) throw err;
-        //     var data = JSON.parse(data);
-        //     //console.log('读取数据' + JSON.stringify(data));
-        //     // 拉取到数据后再渲染页面
-        //     data.envType = app.get('env');
-        //     data.pageUpdateTime = "";
-        //     data.staticConf = staticConf;
-        //     var viewsPath = ''
-
-        //     if (process.env.NODE_ENV == 'preview') {
-        //         viewsPath = '/_previews'
-        //     } else {
-        //         viewsPath = 'src/views'
-        //     }
-        //     console.log('当前目录' + viewsPath)
-        //     var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
-        //     res.render(_templateFileName + '.html', data);
-        // });
     }
 }
 
@@ -253,8 +230,6 @@ var configRouter = function(val) {
 /**
  * ajax GET路由闭包
  */
-
-
 var ajaxRouter = function(val) {
     var that = this;
     var _routerVal = val,
@@ -274,11 +249,9 @@ var ajaxRouter = function(val) {
     }
 }
 
-
 /**
  * ajax POST路由闭包
  */
-
 var ajaxPostRouter = function(val) {
     var that = this;
     var _routerVal = val,
@@ -296,7 +269,6 @@ var ajaxPostRouter = function(val) {
         });
     }
 }
-
 
 
 /**
@@ -335,38 +307,7 @@ for (var routerVal in routes) {
     } catch (e) {
         console.log(e);
     }
-
-
-
 }
-
-
-// 首页
-app.get("/", function(req, res, next) {
-    var UA = req.headers['user-agent'];
-    /**
-     * 本地可以使用json文件调试
-     */
-    // fs.readFile(__dirname + '/dev/page/index.json', function(err, data) {
-    //     if (err) throw err;
-    //     var data = JSON.parse(data);
-    //     // 拉取到数据后再渲染页面
-    //     data.pageUpdateTime = dateFormat(data.timeStamp,"yyyy年mm月dd日,HH:MM:ss")
-    //     data.envType = app.get('env'); //设置环境变量
-    //     data.staticConf = staticConf;
-    //     res.render('limit.html', data);
-    // });
-    var _res = res;
-    request('http://devi.qidian.com/mockup/home.json', function(err, res, data) {
-        if (err) throw err;
-        var data = JSON.parse(data);
-        // 拉取到数据后再渲染页面
-        data.pageUpdateTime = dateFormat(data.timeStamp, "yyyy年mm月dd日,HH:MM:ss")
-        data.envType = app.get('env'); //设置环境变量
-        data.staticConf = staticConf;
-        _res.render('index.html', data);
-    })
-});
 
 
 
@@ -400,10 +341,6 @@ for (var ajaxVal in ajaxPostMap) {
 app.get('/404', function(req, res, next) {
     res.render('404.html');
 });
-
-
-app.use(errorhandler());
-
 
 // 启动server
 console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
