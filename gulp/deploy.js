@@ -52,11 +52,9 @@ var conn = ftp.create({
 
 gulp.task('ftp-static', function(cb) {
 
-    gulp.src('./_prelease/**', { base: './_prelease', buffer: false })
+    gulp.src('./build/' + PROJECT_CONFIG.gtimgName + '/**', { base: './build/' + PROJECT_CONFIG.gtimgName + '/', buffer: false })
         .pipe(conn.newer('/' + PROJECT_CONFIG.gtimgName)) // only upload newer files
         .pipe(conn.dest('/' + PROJECT_CONFIG.gtimgName));
-
-
 
 });
 

@@ -18,6 +18,9 @@ var revReplace = require('gulp-rev-replace');
 var bust = require('gulp-buster');
 var gulpCopy = require('gulp-copy');
 
+var gutil = require('gulp-util');
+
+
 var paths = {
     sass: 'src/static/**/*.scss',
     build: 'build',
@@ -29,11 +32,16 @@ var paths = {
  */
 
 gulp.task('rev', function(cb) {
+
+    var _skipReversion = !!(gutil.env.skipV) ? true : false;
+    console.log('是否跳过版本' + _skipReversion);
+
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
         dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],
         hashLength: 5,
-        hashTagMapPath:'hash-tag-map' //这里可以自定义配置hashTag映射表的目录
+        hashTagMapPath:'hash-tag-map', //这里可以自定义配置hashTag映射表的目录
+        skipVersion:_skipReversion
     });
     var ignoredFiles = {
         // sprites:paths.dist.
