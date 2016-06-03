@@ -1,4 +1,5 @@
 {
+  "css/brand_sprite.css": "css/brand_sprite.00145.css",
   "css/images_sprite.css": "css/images_sprite.4e27a.css",
   "css/yuewen.css": "css/yuewen.a1a3f.css",
   "js/fastclick.js": "js/fastclick.d6d5b.js",
@@ -144,6 +145,8 @@
   "css/images/brand/origin/yunqi.png": "css/images/brand/origin/yunqi.80c9a.png",
   "css/images/brand/origin/zhongzhibowen.png": "css/images/brand/origin/zhongzhibowen.7607c.png",
   "css/images/brand/origin/zuojiazhushou.png": "css/images/brand/origin/zuojiazhushou.509e1.png",
+  "css/images/brand/sprite/@1x.png": "css/images/brand/sprite/@1x.e8e9f.png",
+  "css/images/brand/sprite/@2x.png": "css/images/brand/sprite/@2x.85934.png",
   "css/images/ip/2x/daomubiji.jpg": "css/images/ip/2x/daomubiji.3284b.jpg",
   "css/images/ip/2x/dazhuzai.jpg": "css/images/ip/2x/dazhuzai.d7641.jpg",
   "css/images/ip/2x/fengqiuhuang.jpg": "css/images/ip/2x/fengqiuhuang.ef23a.jpg",

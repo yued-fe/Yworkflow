@@ -1,0 +1,283 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$chuangshi-name: 'chuangshi';
+$chuangshi-x: 0px;
+$chuangshi-y: 84px;
+$chuangshi-offset-x: 0px;
+$chuangshi-offset-y: -84px;
+$chuangshi-width: 200px;
+$chuangshi-height: 80px;
+$chuangshi-total-width: 608px;
+$chuangshi-total-height: 500px;
+$chuangshi-image: '@2x.png';
+$chuangshi: (0px, 84px, 0px, -84px, 200px, 80px, 608px, 500px, '@2x.png', 'chuangshi', );
+$hongxiu-name: 'hongxiu';
+$hongxiu-x: 408px;
+$hongxiu-y: 84px;
+$hongxiu-offset-x: -408px;
+$hongxiu-offset-y: -84px;
+$hongxiu-width: 200px;
+$hongxiu-height: 80px;
+$hongxiu-total-width: 608px;
+$hongxiu-total-height: 500px;
+$hongxiu-image: '@2x.png';
+$hongxiu: (408px, 84px, -408px, -84px, 200px, 80px, 608px, 500px, '@2x.png', 'hongxiu', );
+$huawen-name: 'huawen';
+$huawen-x: 204px;
+$huawen-y: 0px;
+$huawen-offset-x: -204px;
+$huawen-offset-y: 0px;
+$huawen-width: 200px;
+$huawen-height: 80px;
+$huawen-total-width: 608px;
+$huawen-total-height: 500px;
+$huawen-image: '@2x.png';
+$huawen: (204px, 0px, -204px, 0px, 200px, 80px, 608px, 500px, '@2x.png', 'huawen', );
+$jushihuawen-name: 'jushihuawen';
+$jushihuawen-x: 204px;
+$jushihuawen-y: 84px;
+$jushihuawen-offset-x: -204px;
+$jushihuawen-offset-y: -84px;
+$jushihuawen-width: 200px;
+$jushihuawen-height: 80px;
+$jushihuawen-total-width: 608px;
+$jushihuawen-total-height: 500px;
+$jushihuawen-image: '@2x.png';
+$jushihuawen: (204px, 84px, -204px, -84px, 200px, 80px, 608px, 500px, '@2x.png', 'jushihuawen', );
+$lanren-name: 'lanren';
+$lanren-x: 0px;
+$lanren-y: 168px;
+$lanren-offset-x: 0px;
+$lanren-offset-y: -168px;
+$lanren-width: 200px;
+$lanren-height: 80px;
+$lanren-total-width: 608px;
+$lanren-total-height: 500px;
+$lanren-image: '@2x.png';
+$lanren: (0px, 168px, 0px, -168px, 200px, 80px, 608px, 500px, '@2x.png', 'lanren', );
+$nvsheng-name: 'nvsheng';
+$nvsheng-x: 204px;
+$nvsheng-y: 168px;
+$nvsheng-offset-x: -204px;
+$nvsheng-offset-y: -168px;
+$nvsheng-width: 200px;
+$nvsheng-height: 80px;
+$nvsheng-total-width: 608px;
+$nvsheng-total-height: 500px;
+$nvsheng-image: '@2x.png';
+$nvsheng: (204px, 168px, -204px, -168px, 200px, 80px, 608px, 500px, '@2x.png', 'nvsheng', );
+$qidian-name: 'qidian';
+$qidian-x: 0px;
+$qidian-y: 252px;
+$qidian-offset-x: 0px;
+$qidian-offset-y: -252px;
+$qidian-width: 200px;
+$qidian-height: 80px;
+$qidian-total-width: 608px;
+$qidian-total-height: 500px;
+$qidian-image: '@2x.png';
+$qidian: (0px, 252px, 0px, -252px, 200px, 80px, 608px, 500px, '@2x.png', 'qidian', );
+$qidiandushu-name: 'qidiandushu';
+$qidiandushu-x: 204px;
+$qidiandushu-y: 252px;
+$qidiandushu-offset-x: -204px;
+$qidiandushu-offset-y: -252px;
+$qidiandushu-width: 200px;
+$qidiandushu-height: 80px;
+$qidiandushu-total-width: 608px;
+$qidiandushu-total-height: 500px;
+$qidiandushu-image: '@2x.png';
+$qidiandushu: (204px, 252px, -204px, -252px, 200px, 80px, 608px, 500px, '@2x.png', 'qidiandushu', );
+$qqyuedu-name: 'qqyuedu';
+$qqyuedu-x: 408px;
+$qqyuedu-y: 0px;
+$qqyuedu-offset-x: -408px;
+$qqyuedu-offset-y: 0px;
+$qqyuedu-width: 200px;
+$qqyuedu-height: 80px;
+$qqyuedu-total-width: 608px;
+$qqyuedu-total-height: 500px;
+$qqyuedu-image: '@2x.png';
+$qqyuedu: (408px, 0px, -408px, 0px, 200px, 80px, 608px, 500px, '@2x.png', 'qqyuedu', );
+$rongshuxia-name: 'rongshuxia';
+$rongshuxia-x: 0px;
+$rongshuxia-y: 0px;
+$rongshuxia-offset-x: 0px;
+$rongshuxia-offset-y: 0px;
+$rongshuxia-width: 200px;
+$rongshuxia-height: 80px;
+$rongshuxia-total-width: 608px;
+$rongshuxia-total-height: 500px;
+$rongshuxia-image: '@2x.png';
+$rongshuxia: (0px, 0px, 0px, 0px, 200px, 80px, 608px, 500px, '@2x.png', 'rongshuxia', );
+$tianfang-name: 'tianfang';
+$tianfang-x: 408px;
+$tianfang-y: 168px;
+$tianfang-offset-x: -408px;
+$tianfang-offset-y: -168px;
+$tianfang-width: 200px;
+$tianfang-height: 80px;
+$tianfang-total-width: 608px;
+$tianfang-total-height: 500px;
+$tianfang-image: '@2x.png';
+$tianfang: (408px, 168px, -408px, -168px, 200px, 80px, 608px, 500px, '@2x.png', 'tianfang', );
+$xiaoqiang-name: 'xiaoqiang';
+$xiaoqiang-x: 408px;
+$xiaoqiang-y: 252px;
+$xiaoqiang-offset-x: -408px;
+$xiaoqiang-offset-y: -252px;
+$xiaoqiang-width: 200px;
+$xiaoqiang-height: 80px;
+$xiaoqiang-total-width: 608px;
+$xiaoqiang-total-height: 500px;
+$xiaoqiang-image: '@2x.png';
+$xiaoqiang: (408px, 252px, -408px, -252px, 200px, 80px, 608px, 500px, '@2x.png', 'xiaoqiang', );
+$xiaoshuoyuedu-name: 'xiaoshuoyuedu';
+$xiaoshuoyuedu-x: 0px;
+$xiaoshuoyuedu-y: 336px;
+$xiaoshuoyuedu-offset-x: 0px;
+$xiaoshuoyuedu-offset-y: -336px;
+$xiaoshuoyuedu-width: 200px;
+$xiaoshuoyuedu-height: 80px;
+$xiaoshuoyuedu-total-width: 608px;
+$xiaoshuoyuedu-total-height: 500px;
+$xiaoshuoyuedu-image: '@2x.png';
+$xiaoshuoyuedu: (0px, 336px, 0px, -336px, 200px, 80px, 608px, 500px, '@2x.png', 'xiaoshuoyuedu', );
+$yanqing-name: 'yanqing';
+$yanqing-x: 204px;
+$yanqing-y: 336px;
+$yanqing-offset-x: -204px;
+$yanqing-offset-y: -336px;
+$yanqing-width: 200px;
+$yanqing-height: 80px;
+$yanqing-total-width: 608px;
+$yanqing-total-height: 500px;
+$yanqing-image: '@2x.png';
+$yanqing: (204px, 336px, -204px, -336px, 200px, 80px, 608px, 500px, '@2x.png', 'yanqing', );
+$yuedu-name: 'yuedu';
+$yuedu-x: 408px;
+$yuedu-y: 336px;
+$yuedu-offset-x: -408px;
+$yuedu-offset-y: -336px;
+$yuedu-width: 200px;
+$yuedu-height: 80px;
+$yuedu-total-width: 608px;
+$yuedu-total-height: 500px;
+$yuedu-image: '@2x.png';
+$yuedu: (408px, 336px, -408px, -336px, 200px, 80px, 608px, 500px, '@2x.png', 'yuedu', );
+$yunqi-name: 'yunqi';
+$yunqi-x: 0px;
+$yunqi-y: 420px;
+$yunqi-offset-x: 0px;
+$yunqi-offset-y: -420px;
+$yunqi-width: 200px;
+$yunqi-height: 80px;
+$yunqi-total-width: 608px;
+$yunqi-total-height: 500px;
+$yunqi-image: '@2x.png';
+$yunqi: (0px, 420px, 0px, -420px, 200px, 80px, 608px, 500px, '@2x.png', 'yunqi', );
+$zhongzhibowen-name: 'zhongzhibowen';
+$zhongzhibowen-x: 204px;
+$zhongzhibowen-y: 420px;
+$zhongzhibowen-offset-x: -204px;
+$zhongzhibowen-offset-y: -420px;
+$zhongzhibowen-width: 200px;
+$zhongzhibowen-height: 80px;
+$zhongzhibowen-total-width: 608px;
+$zhongzhibowen-total-height: 500px;
+$zhongzhibowen-image: '@2x.png';
+$zhongzhibowen: (204px, 420px, -204px, -420px, 200px, 80px, 608px, 500px, '@2x.png', 'zhongzhibowen', );
+$zuojiazhushou-name: 'zuojiazhushou';
+$zuojiazhushou-x: 408px;
+$zuojiazhushou-y: 420px;
+$zuojiazhushou-offset-x: -408px;
+$zuojiazhushou-offset-y: -420px;
+$zuojiazhushou-width: 200px;
+$zuojiazhushou-height: 80px;
+$zuojiazhushou-total-width: 608px;
+$zuojiazhushou-total-height: 500px;
+$zuojiazhushou-image: '@2x.png';
+$zuojiazhushou: (408px, 420px, -408px, -420px, 200px, 80px, 608px, 500px, '@2x.png', 'zuojiazhushou', );
+$spritesheet-width: 608px;
+$spritesheet-height: 500px;
+$spritesheet-image: '@2x.png';
+$spritesheet-sprites: ($chuangshi, $hongxiu, $huawen, $jushihuawen, $lanren, $nvsheng, $qidian, $qidiandushu, $qqyuedu, $rongshuxia, $tianfang, $xiaoqiang, $xiaoshuoyuedu, $yanqing, $yuedu, $yunqi, $zhongzhibowen, $zuojiazhushou, );
+$spritesheet: (608px, 500px, '@2x.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

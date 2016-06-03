@@ -82,7 +82,7 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
         var spriteRetina = spriteData[i].img,
             spriteResize = spriteData[i].img;
         var spriteCss = spriteData[i].css;
-        var retianStream = spriteRetina.pipe(gulp.dest('build' + spritesFolder[i] + '/sprite'));
+        var retianStream = spriteRetina.pipe(gulp.dest('src/static/'  + spritesFolder[i] + '/sprite'));
         var cssStream = spriteCss.pipe(gulp.dest('src/static/' + PROJECT_CONFIG.gtimgName + '/css'));
 
     }
@@ -111,7 +111,7 @@ gulp.task('standard-sprites-build', ['get-sprites-folder', 'retina-sprites-build
                 width: '50%'
             }))
             .pipe(rename('@1x.png'))
-            .pipe(gulp.dest('build' + spritesFolder[i] + '/sprite'))
+            .pipe(gulp.dest('src/static/' + spritesFolder[i] + '/sprite'))
 
 
 

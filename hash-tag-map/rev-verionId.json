@@ -1,4 +1,5 @@
 {
+  "css/brand_sprite.css": "css/brand_sprite.0.1.css",
   "css/images_sprite.css": "css/images_sprite.0.1.css",
   "css/yuewen.css": "css/yuewen.0.8.css",
   "js/fastclick.js": "js/fastclick.0.1.js",
@@ -144,6 +145,8 @@
   "css/images/brand/origin/yunqi.png": "css/images/brand/origin/yunqi.0.1.png",
   "css/images/brand/origin/zhongzhibowen.png": "css/images/brand/origin/zhongzhibowen.0.1.png",
   "css/images/brand/origin/zuojiazhushou.png": "css/images/brand/origin/zuojiazhushou.0.1.png",
+  "css/images/brand/sprite/@1x.png": "css/images/brand/sprite/@1x.0.1.png",
+  "css/images/brand/sprite/@2x.png": "css/images/brand/sprite/@2x.0.1.png",
   "css/images/ip/2x/daomubiji.jpg": "css/images/ip/2x/daomubiji.0.1.jpg",
   "css/images/ip/2x/dazhuzai.jpg": "css/images/ip/2x/dazhuzai.0.1.jpg",
   "css/images/ip/2x/fengqiuhuang.jpg": "css/images/ip/2x/fengqiuhuang.0.1.jpg",
