@@ -89,10 +89,24 @@ gulp.task('static-html', function(cb) {
         data.pageUpdateTime = "";
         data.staticConf = staticConf;
         data.pageUpdateTime = '';
+
+
+        var uploadedStaticPath = '',
+            uploadedViewPath = '';
+
+
+        if (!!(gutil.env.previews)) {
+            uploadedViewPath = '_previews';
+        } else {
+            uploadedViewPath = 'src/views';
+        }
+        // console.log(gutil.env.previews);
+        console.log('使用的模板:' + uploadedViewPath);
+
         console.log('原文件:' + _srcFolderPath + '/views/' + _tplViewsPath);
         try {
             // console.log(_srcFolderPath + '/_previews/' + _tplViewsPath);
-            gulp.src('./_previews/' + _tplViewsPath)
+            gulp.src('./' + uploadedViewPath + '/' + _tplViewsPath)
                 .pipe(ejs(data))
                 .pipe(gulp.dest('./_html/' + _thisRouterDomain));
         } catch (e) {
