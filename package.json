@@ -28,7 +28,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-buster": "^1.0.0",
-    "gulp-combo": "^0.1.9",
+    "gulp-qidian-combo": "^0.0.1",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-copy": "0.0.2",

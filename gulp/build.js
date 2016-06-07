@@ -9,7 +9,6 @@ var del = require('del');
 var gulp = require('gulp');
 var del = require('del');
 var chalk = require('chalk'); // 美化日志
-var combo = require('gulp-combo');
 var prettify = require('gulp-jsbeautifier');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 

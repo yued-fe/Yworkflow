@@ -17,10 +17,10 @@
  *
  */
 
-var PROJECT_CONFIG = require('../.yconfig');  //载入项目基础配置
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
-var combo = require('./util/combo');
+var combo = require('gulp-qidian-combo');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var argv = require('yargs').argv;
 
@@ -37,14 +37,16 @@ var dateFormat = require('dateformat');
 
 gulp.task('preview-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
-    console.log('combo url时间长更新' + _updateTime);
-    var baseUri = '<%= staticConf.staticDomain %>/c/=';
+    console.log('combo url时间更新' + _updateTime);
+    var baseUri = '<%= staticConf.staticDomain %>/c/='; //这里设置combo的url地址
     gulp.src('_previews/**/*.html')
         .pipe(combo(baseUri, {
             splitter: ',',
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
+            serverLogicToggle: true,
+            serverLogicCondition: 'combo == true',
             updateTime: _updateTime
         }, {
             max_age: 31536000
@@ -59,7 +61,7 @@ gulp.task('preview-combo', function() {
 
 gulp.task('view-combo', function() {
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
-    console.log(_updateTime);
+    console.log('url时间更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
     gulp.src('src/views/**/*.html')
         .pipe(combo(baseUri, {
@@ -67,6 +69,8 @@ gulp.task('view-combo', function() {
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
+            serverLogicToggle: true,
+            serverLogicCondition: 'combo == true', //这里配置combo的触发逻辑,可以是服务器环境,也可以是tag值
             updateTime: _updateTime
         }, {
             max_age: 31536000
