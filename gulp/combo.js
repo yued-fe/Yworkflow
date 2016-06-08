@@ -29,6 +29,8 @@ var serverConf = require('../src/node-config/server');
 var envType = "local";
 var staticConf = serverConf[envType]['static'];
 var dateFormat = require('dateformat');
+var gutil = require('gulp-util');
+
 
 /**
  * 执行combo,将预览版的html中的css和js url地址进行combo拼接
@@ -36,6 +38,7 @@ var dateFormat = require('dateformat');
 
 
 gulp.task('preview-combo', function() {
+    var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     console.log('combo url时间更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/='; //这里设置combo的url地址
@@ -45,8 +48,8 @@ gulp.task('preview-combo', function() {
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
-            serverLogicToggle: true,
-            serverLogicCondition: 'combo == true',
+            serverLogicToggle: _useLogic,
+            serverLogicCondition: 'envType == "pro" || envType == "oa"',
             updateTime: _updateTime
         }, {
             max_age: 31536000
@@ -60,6 +63,7 @@ gulp.task('preview-combo', function() {
  */
 
 gulp.task('view-combo', function() {
+      var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     console.log('url时间更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
@@ -69,8 +73,8 @@ gulp.task('view-combo', function() {
             async: false,
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
-            serverLogicToggle: true,
-            serverLogicCondition: 'combo == true', //这里配置combo的触发逻辑,可以是服务器环境,也可以是tag值
+            serverLogicToggle: _useLogic,
+            serverLogicCondition: 'envType == "pro" || envType == "oa', //这里配置combo的触发逻辑,可以是服务器环境,也可以是tag值
             updateTime: _updateTime
         }, {
             max_age: 31536000

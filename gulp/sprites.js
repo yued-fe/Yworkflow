@@ -47,7 +47,6 @@ gulp.task('get-sprites-folder', function(cb) {
             _relativeSpriteFolder = _relativeFilePath.replace('sprites/' + _thisFileName, '');
             if (spritesFolder.indexOf(_relativeSpriteFolder) == -1) {
                 spritesFolder.push(_relativeSpriteFolder);
-
             }
             // console.log('需要生成精灵图的文件夹包含:' + spritesFolder);
             return Promise.resolve();
@@ -97,7 +96,6 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
 gulp.task('standard-sprites-build', ['get-sprites-folder', 'retina-sprites-build'], function(cb) {
     var _totalSpritesToGenerateSize = spritesFolder.length;
     console.log(chalk.green('【精灵图】共有 ') + chalk.red(_totalSpritesToGenerateSize) + chalk.green(' 张@1x精灵图待生成'));
-    // console.log('测试下:' + spritesFolder);
 
     var i = 0;
     var resizeSpriteData = [],
