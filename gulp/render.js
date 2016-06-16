@@ -104,14 +104,15 @@ gulp.task('static-html', function(cb) {
 
         console.log('原文件:' + _srcFolderPath + '/views/' + _tplViewsPath);
         try {
-            // console.log(_srcFolderPath + '/_previews/' + _tplViewsPath);
+
+            var _thisViewsFileNameParent = '/' + _thisViewsFileName.split('/').slice(1,-1).join('/');
             gulp.src('./' + uploadedViewPath + '/' + _tplViewsPath)
+                .pipe(gulpSlash())
                 .pipe(ejs(data))
-                .pipe(gulp.dest('./_html/' + _thisRouterDomain));
+                .pipe(gulp.dest('./_html/' + _thisRouterDomain + _thisViewsFileNameParent));
         } catch (e) {
             console.log(e);
         }
-
 
 
     }
