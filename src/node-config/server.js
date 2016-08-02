@@ -187,4 +187,5 @@ var genConf = function() {
     return serverConfig;
 }
 
-module.exports = genConf();
+module.exports.domainMap = domainMap;
+module.exports.genConf = genConf();

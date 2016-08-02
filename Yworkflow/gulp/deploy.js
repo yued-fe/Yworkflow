@@ -4,18 +4,22 @@
  */
 'use strict'
 
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
+var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow/')[0];
+process.chdir(LOCAL_FOLDER);
+
 var fs = require('fs');
 var _ = require('underscore');
 
 
-var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
+var PROJECT_CONFIG = require('../../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
 var gulp = require('gulp');
 var del = require('del');
 var chalk = require('chalk'); // 美化日志
 var prettify = require('gulp-jsbeautifier');
-var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
+
 
 var RevAll = require('gulp-rev-custom-tag');
 var revReplace = require('gulp-rev-replace');
@@ -28,7 +32,7 @@ var gutil = require('gulp-util');
 
 
 const envType = "local"; //全局环境
-var serverConf = require('../src/node-config/server');
+var serverConf = require('../../src/node-config/server').genConf;
 var staticConf = serverConf[envType]['static'];
 var ftp = require('vinyl-ftp');
 
@@ -59,11 +63,11 @@ var uploadedStaticPath = '',
 
 
 if (!!(gutil.env.previews)) {
-     uploadedStaticPath = '_prelease',
-        uploadedViewPath = '_html';
+     uploadedStaticPath = '../_prelease',
+        uploadedViewPath = '../_html';
 } else {
-     uploadedStaticPath = 'build/'+ PROJECT_CONFIG.gtimgName,
-        uploadedViewPath = '_html';
+     uploadedStaticPath = '../build/'+ PROJECT_CONFIG.gtimgName,
+        uploadedViewPath = '../_html';
 }
 
 gulp.task('ftp-static', function(cb) {
@@ -73,7 +77,7 @@ gulp.task('ftp-static', function(cb) {
     console.log('上传' + uploadedViewPath + '目录模板文件');
 
     console.log('./' + uploadedStaticPath + '/**');
-    gulp.src('./' + uploadedStaticPath + '/**', { base: './' + uploadedStaticPath + '/', buffer: false })
+    gulp.src('../' + uploadedStaticPath + '/**', { base: './' + uploadedStaticPath + '/', buffer: false })
         .pipe(conn.newer('/' + PROJECT_CONFIG.gtimgName)) // only upload newer files
         .pipe(conn.dest('/' + PROJECT_CONFIG.gtimgName));
 
@@ -82,7 +86,7 @@ gulp.task('ftp-static', function(cb) {
 
 gulp.task('ftp-views', function(cb) {
 
-    gulp.src('./' + uploadedViewPath + '/**', { base: './' + uploadedViewPath, buffer: false })
+    gulp.src('../' + uploadedViewPath + '/**', { base: './' + uploadedViewPath, buffer: false })
         .pipe(conn.newer('/project/')) // only upload newer files
         .pipe(conn.dest('/project/'));
 });

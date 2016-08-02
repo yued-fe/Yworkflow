@@ -17,14 +17,17 @@
  *
  */
 
-var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
+var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow/')[0];
+process.chdir(LOCAL_FOLDER)
+
+var PROJECT_CONFIG = require('../../.yconfig'); //载入项目基础配置
 var gulp = require('gulp');
 var del = require('del');
 var combo = require('gulp-qidian-combo');
-var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 var argv = require('yargs').argv;
 
-var serverConf = require('../src/node-config/server');
+var serverConf = require('../../src/node-config/server').genConf;
 
 var envType = "local";
 var staticConf = serverConf[envType]['static'];
@@ -36,13 +39,13 @@ var gutil = require('gulp-util');
  * 执行combo,将预览版的html中的css和js url地址进行combo拼接
  */
 
-
 gulp.task('preview-combo', function() {
     var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
-    console.log('combo url时间更新' + _updateTime);
+    // console.log('combo url时间更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/='; //这里设置combo的url地址
     gulp.src('_previews/**/*.html')
+     .pipe(gulpSlash())
         .pipe(combo(baseUri, {
             splitter: ',',
             async: false,
@@ -63,11 +66,12 @@ gulp.task('preview-combo', function() {
  */
 
 gulp.task('view-combo', function() {
-      var _useLogic = gutil.env.useLogic ? true : false;
+    var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
-    console.log('url时间更新' + _updateTime);
+    // console.log('url时间更新' + _updateTime);
     var baseUri = '<%= staticConf.staticDomain %>/c/=';
     gulp.src('src/views/**/*.html')
+     .pipe(gulpSlash())
         .pipe(combo(baseUri, {
             splitter: ',',
             async: false,

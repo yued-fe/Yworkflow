@@ -4,7 +4,11 @@
  * Author: Luolei
  */
 
-var PROJECT_CONFIG = require('../.yconfig');
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
+var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow/')[0];
+process.chdir(LOCAL_FOLDER);
+
+var PROJECT_CONFIG = require('../../.yconfig');
 var gulp = require('gulp');
 
 var del = require('del');
@@ -25,7 +29,7 @@ var buffer = require('vinyl-buffer');
 var folders = require('gulp-folders');
 
 var PATHS = {
-    spritesOriginalFiles: 'src/**/*/sprites/**/*.{png,PNG}'
+    spritesOriginalFiles: LOCAL_FOLDER + 'src/**/*/sprites/**/*.{png,PNG}'
 }
 
 
@@ -67,9 +71,9 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
     var spriteData = [],
         spriteDataResize = [];
     for (i; i < _totalSpritesToGenerateSize; i++) {
-        console.log('src/static' + spritesFolder[i] + 'sprites/*.png');
+        console.log(spritesFolder[i] + 'sprites/*.png');
         var _thisSpriteMaster = spritesFolder[i].split('/').slice(0, spritesFolder[i].split('/').length - 1).pop();
-        spriteData[i] = gulp.src('src/static' + spritesFolder[i] + 'sprites/*.png')
+        spriteData[i] = gulp.src(spritesFolder[i] + 'sprites/*.png')
             .pipe(gulpSlash())
             .pipe(spritesmith({
                 imgName: '@2x.png',
@@ -81,7 +85,9 @@ gulp.task('retina-sprites-build', ['get-sprites-folder'], function(cb) {
         var spriteRetina = spriteData[i].img,
             spriteResize = spriteData[i].img;
         var spriteCss = spriteData[i].css;
-        var retianStream = spriteRetina.pipe(gulp.dest('src/static/'  + spritesFolder[i] + '/sprite'));
+        console.log('DEMO:'  + spritesFolder[i] + '/sprite');
+        var retianStream = spriteRetina.pipe(gulp.dest(spritesFolder[i] + '/sprite'));
+
         var cssStream = spriteCss.pipe(gulp.dest('src/static/' + PROJECT_CONFIG.gtimgName + '/css'));
 
     }
@@ -102,14 +108,14 @@ gulp.task('standard-sprites-build', ['get-sprites-folder', 'retina-sprites-build
         spriteDataResize = [];
     for (i; i < _totalSpritesToGenerateSize; i++) {
         // console.log('src/static' + spritesFolder[i] + 'sprites/*.png');
-        console.log('build' + spritesFolder[i] + '/sprite/@2x.png');
-        gulp.src('build' + spritesFolder[i] + '/sprite/@2x.png')
+        console.log(spritesFolder[i] + 'sprite/@2x.png');
+        gulp.src(spritesFolder[i] + 'sprite/@2x.png')
             .pipe(gulpSlash())
             .pipe(imageResize({
                 width: '50%'
             }))
             .pipe(rename('@1x.png'))
-            .pipe(gulp.dest('src/static/' + spritesFolder[i] + '/sprite'))
+            .pipe(gulp.dest( spritesFolder[i] + '/sprite'))
 
 
 

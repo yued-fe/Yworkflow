@@ -4,8 +4,11 @@
  */
 
 'use strict'
+var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
-var PROJECT_CONFIG = require('./.yconfig'); //载入项目基础配置
+var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow')[0];
+process.chdir(LOCAL_FOLDER)
+var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 
 
 var express = require('express');
@@ -24,14 +27,18 @@ var _ = require('underscore');
 
 const envType = "local"; //全局环境
 const templatePathPrefix = "local"; //去除域名前缀
-var serverConf = require('./src/node-config/server');
+var serverConf = require('../src/node-config/server').genConf;
 var staticConf = serverConf[envType]['static'];
 
 //域名别名，在本地环境读取实际目录用
-var domainAlias = require('./src/node-config/domain_alias')
+var domainAlias = require('../src/node-config/domain_alias')
 
-var PROJECT_CONFIG = require('./.yconfig');
-
+var renderExtends = require('../src/node-config/extends/loader.js')
+console.log(renderExtends);
+app.use(function(req,res,next){
+    res.locals = renderExtends;
+    next();
+})
 // 基础配置
 app.use(morgan('dev')); // 启动开发日志
 app.use(bodyParser.json());
@@ -45,15 +52,16 @@ app.all('*', function(req, res, next) {
     next();
 });
 
+
+
 app.use(cookieParser());
-
-app.use(express.static(path.join(__dirname, 'src/json'))); //设置本地模拟ajax读取的json路径
-
+app.use(express.static(LOCAL_FOLDER + 'src/json')); //设置本地模拟ajax读取的json路径
 app.set('port', process.env.PORT || PROJECT_CONFIG.port); // 设置默认端口
 
+
 if (process.env.NODE_ENV == 'local') {
-    app.use(express.static(path.join(__dirname, 'build')));
-    app.set('views', path.join(__dirname, 'src/views')); // 设置模板页面 本地测试
+    app.use(express.static(LOCAL_FOLDER + 'build'));
+    app.set('views',  LOCAL_FOLDER + 'src/views'); // 设置模板页面 本地测试
 }
 
 if (process.env.NODE_ENV == 'preview') {
@@ -85,15 +93,14 @@ app.engine('html', require('ejs').renderFile);
  * 载入通配路由规则
  */
 
-
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
-var routerMap = require('./src/node-config/local_dev_routermap.js');
+var routerMap = require('../src/node-config/local_dev_routermap.js');
 
 //ajaxmap仅供本地调试用,约定好格式即可
-var ajaxMap = require('./src/json/ajaxmap.js');
+var ajaxMap = require('../src/json/ajaxmap.js');
 
 //目前本地开发基本上只有GET和POST两种请求方式，暂时提供这两种的同用配置
-var ajaxPostMap = require('./src/json/ajaxpostmap.js');
+var ajaxPostMap = require('../src/json/ajaxpostmap.js');
 
 
 
@@ -149,8 +156,8 @@ var getRouterDomain = function(originHost, routerKey, val) {
 }
 
 var configRouter = function(val) {
-
     return function(req, res, next) {
+
         console.log("match route:" + req.url);
         var that = this;
         var rawHeaders = {}; //获得默认header头,透传
@@ -179,8 +186,10 @@ var configRouter = function(val) {
         var _cgiVal = routerDomain['cgi'];
 
         if (!!_cgiVal) {
-            console.log("读取文件：" + __dirname + '/src/json' + _cgiVal + '.json')
-            fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
+            console.log("读取文件："  + 'src/json' + _cgiVal + '.json')
+            console.log( __dirname.split('Yworkflow/'));
+            console.log(LOCAL_FOLDER);
+            fs.readFile(LOCAL_FOLDER + 'src/json' + _cgiVal + '.json', function(err, data) {
                 if (err) throw err;
                 var data = JSON.parse(data);
                 //console.log('读取数据' + JSON.stringify(data));
@@ -188,16 +197,17 @@ var configRouter = function(val) {
                 data.envType = app.get('env');
                 data.pageUpdateTime = "";
                 data.staticConf = staticConf;
+                 data.isZht = false;
                 var viewsPath = ''
 
                 if (process.env.NODE_ENV == 'preview') {
-                    viewsPath = '/_previews'
+                    viewsPath = '_previews/'
                 } else {
-                    viewsPath = 'src/views'
+                    viewsPath = 'src/views/'
                 }
                 console.log('当前目录' + viewsPath)
                 var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
-                res.render(_templateFileName + '.html', data);
+                res.render(LOCAL_FOLDER + viewsPath + _templateFileName + '.html', data);
             });
         } else {
             var data = {};
@@ -206,12 +216,13 @@ var configRouter = function(val) {
             data.envType = app.get('env');
             data.pageUpdateTime = "";
             data.staticConf = staticConf;
+            data.isZht = false;
             var viewsPath = ''
 
             if (process.env.NODE_ENV == 'preview') {
-                viewsPath = '/_previews'
+                viewsPath = '_previews/'
             } else {
-                viewsPath = 'src/views'
+                viewsPath = 'src/views/'
             }
             console.log('当前目录' + viewsPath)
             var _templateFileName = templateFileName.slice(1); //去除掉开头的斜杠
@@ -232,8 +243,8 @@ var ajaxRouter = function(val) {
     // console.log('模拟ajax接口:' + _cgiVal);
     var _templateFileName = _.last(_routerVal.split('/'));
     return function(req, res, next) {
-        console.log('路径是' + __dirname + '/src/json' + _cgiVal + '.json');
-        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
+        console.log('路径是'  + LOCAL_FOLDER + 'src/json' + _cgiVal + '.json');
+        fs.readFile( LOCAL_FOLDER +  'src/json' + _cgiVal + '.json', function(err, data) {
             if (err) throw err;
             var data = JSON.parse(data);
             console.log('读取数据' + JSON.stringify(data));
@@ -254,8 +265,8 @@ var ajaxPostRouter = function(val) {
     console.log(chalk.red('模拟POST路由:') + _cgiVal);
     var _templateFileName = _.last(_routerVal.split('/'));
     return function(req, res, next) {
-        console.log('路径是' + __dirname + '/src/json' + _cgiVal + '.json');
-        fs.readFile(__dirname + '/src/json' + _cgiVal + '.json', function(err, data) {
+        console.log('路径是'   + LOCAL_FOLDER + 'src/json' + _cgiVal + '.json');
+        fs.readFile( LOCAL_FOLDER + 'src/json' + _cgiVal + '.json', function(err, data) {
             if (err) throw err;
             var data = JSON.parse(data);
             console.log('读取数据' + JSON.stringify(data));
@@ -295,13 +306,36 @@ function parseRouterMap(routerMap) {
 
 var routes = parseRouterMap(routerMap);
 
+
+/**
+ * 这里载入基础的页面路由
+ */
+
 for (var routerVal in routes) {
     try {
+
         app.get(routerVal, configRouter(routes[routerVal]));
     } catch (e) {
         console.log(e);
     }
 }
+
+/**
+ * 这里配置框架机的cgi路由
+ */
+
+app.get('/page/*',function(req,res,next){
+        console.log(req.path);
+        fs.readFile( LOCAL_FOLDER + 'src/json' + req.path + '.json', function(err, data) {
+            if (err) throw err;
+            var data = JSON.parse(data);
+            console.log('读取数据' + JSON.stringify(data));
+            // 拉取到数据后再渲染页面
+            res.send(data);
+        });
+
+})
+
 
 
 
@@ -329,9 +363,16 @@ for (var ajaxVal in ajaxPostMap) {
     app.post(_ajaxVal, ajaxPostRouter(_ajaxVal))
 }
 
+
+/**
+ * 本地构建模拟api服务暴露给node框架机本地调试
+ */
+
+
 app.get('/404', function(req, res, next) {
-    res.render('404.html');
+    res.render(LOCAL_FOLDER + 'src/views/error.html');
 });
+
 
 // 启动server
 console.log(chalk.red('当前环境') + chalk.red(process.env.NODE_ENV));
