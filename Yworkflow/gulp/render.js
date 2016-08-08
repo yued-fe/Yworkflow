@@ -41,7 +41,6 @@ var paths = {
     prelease: '_prelease'
 };
 
-
 //node-config下的routermap.js十分重要，是线上框架机的路由依赖文件
 var routerMap = require('../../src/node-config/local_dev_routermap.js');
 
@@ -98,21 +97,22 @@ gulp.task('static-html', function(cb) {
 
 
         if (!!(gutil.env.previews)) {
-            uploadedViewPath = '../_previews';
+            uploadedViewPath = LOCAL_FOLDER + '_previews';
         } else {
-            uploadedViewPath = '../src/views';
+            uploadedViewPath = LOCAL_FOLDER + 'src/views';
         }
         // console.log(gutil.env.previews);
         console.log('使用的模板:' + uploadedViewPath);
 
-        console.log('原文件:' + _srcFolderPath + '/views/' + _tplViewsPath);
+        console.log('原文件:' + LOCAL_FOLDER + 'src/views/' + _tplViewsPath);
+        console.log('OUTPUT:' + LOCAL_FOLDER + '_html/' + _thisRouterDomain + _thisViewsFileNameParent);
         try {
 
             var _thisViewsFileNameParent = '/' + _thisViewsFileName.split('/').slice(1,-1).join('/');
-            gulp.src('./' + uploadedViewPath + '/' + _tplViewsPath)
+            gulp.src(uploadedViewPath + '/' + _tplViewsPath)
                 .pipe(gulpSlash())
                 .pipe(ejs(data))
-                .pipe(gulp.dest('../_html/' + _thisRouterDomain + _thisViewsFileNameParent));
+                .pipe(gulp.dest(LOCAL_FOLDER + '_html/' + _thisRouterDomain + _thisViewsFileNameParent));
         } catch (e) {
             console.log(e);
         }

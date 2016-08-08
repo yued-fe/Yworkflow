@@ -208,11 +208,11 @@ gulp.task('deps-update', function(cb) {
 
     }
 
-    for(var i=0;i<Object.keys(_lastBuildHashMap).length; i++){
-             var _checkJsFileName = Object.keys(_lastBuildHashMap)[i];
-             if(!_currentBuildHashMap[_checkJsFileName]){
-                console.log('旧的发生了变化:'+_checkJsFileName);
-             }
+    for (var i = 0; i < Object.keys(_lastBuildHashMap).length; i++) {
+        var _checkJsFileName = Object.keys(_lastBuildHashMap)[i];
+        if (!_currentBuildHashMap[_checkJsFileName]) {
+            console.log('旧的发生了变化:' + _checkJsFileName);
+        }
     }
 
 
@@ -313,6 +313,138 @@ gulp.task('deps-update', function(cb) {
     fs.writeFileSync(LOCAL_FOLDER + 'hash-tag-map/rev-verionId.json', JSON.stringify(_updateFileStringBk, null, 4));
 
 
+
+});
+
+
+gulp.task('deps-update-all', function(cb) {
+    console.log(chalk.red('[Start]分析编译后的资源版本HASH变动'));
+    //首先获得上一次的业务js编译后的hash值
+    var _lastBuildHashMap = require('../../hash-tag-map/rev-HashMap-last.json');
+    var _currentBuildHashMap = require('../../hash-tag-map/rev-HashMap.json');
+    var _currentIdMap = require('../../hash-tag-map/rev-verionId.json'),
+        _currentIdMapRevert = _.invert(_currentIdMap);
+    // var _reverseJs = require('../../hash-tag-map/reverse-js.json');
+    //创建一个临时数据储存变化了的js名
+    var _changedJsFiles = [],
+        _changedJsSourceFiles = [];
+
+    // console.log(Object.keys(_lastBuildHashMap));
+    for (var i = 0; i < Object.keys(_currentBuildHashMap).length; i++) {
+        var _checkJsFileName = Object.keys(_currentBuildHashMap)[i];
+        //
+        if (!!_lastBuildHashMap[_checkJsFileName]) {
+            var _oldHash = !!_lastBuildHashMap[_checkJsFileName] ? _lastBuildHashMap[_checkJsFileName] : 00000;
+            var _newHash = !!_currentBuildHashMap[_checkJsFileName] ? _currentBuildHashMap[_checkJsFileName] : 11111;
+            //如果hash值发生了变化,则可以理解成依赖文件有变,接下来处理相关依赖
+            if (_lastBuildHashMap[_checkJsFileName] !== _currentBuildHashMap[_checkJsFileName]) {
+                console.log('[Hash比较] ' + chalk.green(_oldHash) + chalk.blue(' / ') + chalk.red(_newHash) + ' 文件:' + _checkJsFileName);
+                _changedJsSourceFiles.push(_currentIdMapRevert[_checkJsFileName])
+                _changedJsFiles.push(_checkJsFileName);
+            }
+        } else {
+
+            console.log('[Hash比较] ' + chalk.green(_oldHash) + chalk.blue(' / ') + chalk.green(_newHash) + ' 文件:' + _checkJsFileName);
+            _changedJsFiles.push(_checkJsFileName);
+            console.log(_checkJsFileName);
+            // _changedJsSourceFiles.push(_currentIdMapRevert[_checkJsFileName])
+        }
+
+    }
+
+    for (var i = 0; i < Object.keys(_lastBuildHashMap).length; i++) {
+        var _checkJsFileName = Object.keys(_lastBuildHashMap)[i];
+        if (!_currentBuildHashMap[_checkJsFileName]) {
+            console.log(chalk.green('[新增文件]') + '' + _checkJsFileName);
+        }
+    }
+
+
+    if (_changedJsFiles.length > 0) {
+        console.log(chalk.red('\n[结果]本次编译后变化的所有编译文件(含新增):') + '\n' + JSON.stringify(_changedJsFiles, null, 4));
+        console.log(chalk.red('[结果]发生变化源文件是(HASH变化 版本号未变):') + '\n' + JSON.stringify(_changedJsSourceFiles, null, 4));
+    } else {
+        console.log(chalk.blue('[分析]没有文件发生变化'));
+    }
+
+
+    //接下来去检查所有的需要更新的
+    var _updateJsFiles = [];
+    var _updatdeAllTypeFiles = [];
+    for (var i = 0; i < _changedJsSourceFiles.length; i++) {
+        var _thisFile = _changedJsSourceFiles[i];
+        //如果检查的js在反向依赖js表中,则进行遍历查询
+        console.log(chalk.blue('[检查]编译后变化的文件:') + _thisFile);
+
+        _updatdeAllTypeFiles.push(_thisFile)
+
+
+    }
+    _updatdeAllTypeFiles = _.uniq(_updatdeAllTypeFiles);
+    console.log(_updatdeAllTypeFiles.length);
+    if (_updatdeAllTypeFiles.length) {
+        console.log(chalk.red('[结果] 二次检查后需要增加版本号的文件共有下列') + _.uniq(_updatdeAllTypeFiles).length + chalk.red('个'));
+        console.log(JSON.stringify(_updatdeAllTypeFiles, null, 4));
+    } else {
+        console.log(chalk.blue('[结果]编译文件没有变化'));
+    }
+
+
+    /**
+     * 接下来替换rev-verionId.json里面的版本文件
+     */
+
+    var _currentFileString = JSON.stringify(_currentIdMap, null, 4);
+    var _updateFileString = '';
+    // console.log(_currentFileString);
+    for (var i = 0; i < _updatdeAllTypeFiles.length; i++) {
+        var _lastId = _currentIdMap[_updatdeAllTypeFiles[i]];
+        // console.log('当前版本:' + _currentIdMap[_updateJsFiles[i]]);
+        var _lastFileNameTag = _lastId.split('/').pop().split('.').slice(-3);
+        // console.log('TAG检查:' + _lastFileNameTag);
+        var _startVerNum = _lastFileNameTag[0],
+            _secVerNum = _lastFileNameTag[1],
+            _fileExt = _lastFileNameTag[2];
+        var _currentVerNum = _startVerNum + '.' + _secVerNum;
+
+        var _updateStartVernum = parseFloat(_startVerNum),
+            _updateSecVerNum = parseFloat(_secVerNum);
+
+        if (_updateSecVerNum < 99) {
+            _updateSecVerNum = parseFloat(_updateSecVerNum) + 1;
+        } else {
+            _updateSecVerNum = '0';
+            _updateStartVernum += 1;
+        }
+
+        // var _updateFileString=
+        var _updateVerNum = _updateStartVernum + '.' + _updateSecVerNum;
+        // console.log('更新版本号' + _updateVerNum);
+        //  var _updateFileName = _lastId.replace(_currentVerNum + '.js', _updateVerNum + '.js');
+        var _updateFileName = _lastId.replace(_currentVerNum + '.' + _fileExt, _updateVerNum + '.' + _fileExt);
+        console.log(chalk.blue('[处理]更新:') + chalk.green(_lastId) + chalk.blue(' ==> ') + chalk.green(_updateFileName));
+        // console.log('检查demo:' + _lastId);
+        // console.log('检查2' + _updateFileName);
+        _currentFileString = _currentFileString.replace(_lastId, _updateFileName);
+
+
+        fs.rename(LOCAL_FOLDER + '_prelease/' + _lastId, LOCAL_FOLDER + '_prelease/' + _updateFileName, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        })
+
+
+    }
+
+    var _updateFileStringBk = JSON.parse(_currentFileString);
+    if (_.uniq(_updatdeAllTypeFiles).length > 0) {
+        console.log(chalk.green('[完成]更新rev-verionId.json中的文件版本号'));
+    } else {
+        console.log(chalk.green('[完成]最终rev-verionId.json生成'));
+    }
+
+    fs.writeFileSync(LOCAL_FOLDER + 'hash-tag-map/rev-verionId.json', JSON.stringify(_updateFileStringBk, null, 4));
 
 
 

@@ -110,7 +110,36 @@ gulp.task('rev-build-js', function(cb) {
     cb()
 });
 
+/**
+ * 检查所有的静态资源HASH是否有变动
+ * @param  {[type]} cb) {               var _skipReversion [description]
+ * @return {[type]}     [description]
+ */
+gulp.task('rev-build-all', function(cb) {
+    var _skipReversion = !!(gutil.env.skipV) ? true : false;
 
+    /**
+     * 首先备份原有的rev-HashMap.json,做比较用
+     */
+    var revAll = new RevAll({
+        prefix: '', //自动增加url路径
+        dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],
+        hashLength: 5,
+        hashTagMapPath: 'hash-tag-map-build', //这里可以自定义配置hashTag映射表的目录
+        skipVersion: _skipReversion,
+        recursiveRev: true //进行递归版本叠加
+    });
+    var ignoredFiles = {
+        // sprites:paths.dist.
+    };
+
+    gulp.src('_prelease/' + '/**/*')
+        .pipe(revAll.revision())
+        .pipe(revAll.verionRevFile()) //创建静态资源hash映射表
+        .pipe(gulp.dest('hash-tag-map'))
+
+    cb()
+});
 
 /**
  * 二次替换,防止js和css中有url没有被替换
@@ -125,6 +154,14 @@ gulp.task('rev-fix', function() {
         }))
         .pipe(gulp.dest('_prelease'))
 });
+
+
+
+gulp.task('tmp-store', function() {
+    return gulp.src(['_prelease/**/*']) // Minify any CSS sources
+        .pipe(gulpSlash())
+        .pipe(gulp.dest('_tmp'))
+})
 
 
 /**
@@ -150,7 +187,7 @@ gulp.task('rev-views', function(cb) {
 
 gulp.task('rev-fix-deps', function() {
     var manifest = gulp.src("hash-tag-map/rev-verionId.json");
-    return gulp.src(['_prelease/**/*.{js,ejs,css}']) // Minify any CSS sources
+    return gulp.src(['_tmp/**/*.{js,ejs,css}']) // Minify any CSS sources
         .pipe(gulpSlash())
         .pipe(revReplace({
             manifest: manifest
