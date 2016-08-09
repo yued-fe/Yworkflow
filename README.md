@@ -16,6 +16,7 @@
 module.exports = genConf();
 ```
 为下面的新代码
+
 ```
 //New
 
@@ -29,7 +30,11 @@ module.exports.genConf = genConf();
 请增加`src/node-config/loader.js`文件夹和文件。
 
 ```
+
+测试
+
 ```
+
 /**
  * 拓展方法加载器入口
  * Author:罗磊
@@ -44,5 +49,6 @@ require('fs').readdirSync(__dirname + '/').forEach(function(file) {
         exports[name] = require('./' + file);
     }
 });
+
 
 ```
