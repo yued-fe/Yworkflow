@@ -29,9 +29,6 @@ module.exports.genConf = genConf();
 
 请增加`src/node-config/loader.js`文件夹和文件。
 
-```
-
-测试
 
 ```
 
