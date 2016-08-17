@@ -168,6 +168,18 @@ gulp.task('ana', function(cb) {
 });
 
 
+
+gulp.task('fs-test', function() {
+
+        fs.rename('/Volumes/Macintosh HD/Users/yuewen-luolei/Yuewen/Shenzhen-SVN/qidian_proj/trunk/v2/_prelease/js/rank/index.0.38.js', '/Volumes/Macintosh HD/Users/yuewen-luolei/Yuewen/Shenzhen-SVN/qidian_proj/trunk/v2/_prelease/js/rank/hotnew.0.39.js', function(err) {
+            if (err) {
+                console.log(err);
+            }
+        })
+
+})
+
+
 /**
  * 根据gulp rev-build任务生成出来的编译后进行二次版本处理
  */
@@ -294,7 +306,7 @@ gulp.task('deps-update', function(cb) {
         _currentFileString = _currentFileString.replace(_lastId, _updateFileName);
 
 
-        fs.rename(LOCAL_FOLDER + '_prelease/' + _lastId, LOCAL_FOLDER + '_prelease/' + _updateFileName, function(err) {
+        fs.rename(LOCAL_FOLDER + '_tmp/' + _lastId, LOCAL_FOLDER + '_prelease/' + _updateFileName, function(err) {
             if (err) {
                 console.log(err);
             }
@@ -427,12 +439,10 @@ gulp.task('deps-update-all', function(cb) {
         // console.log('检查2' + _updateFileName);
         _currentFileString = _currentFileString.replace(_lastId, _updateFileName);
 
+        console.log(chalk.red('替换Path:') + LOCAL_FOLDER + '_prelease/' + _lastId);
+        console.log(chalk.blue('为新的名:' + LOCAL_FOLDER + '_prelease/' + _updateFileName));
 
-        fs.rename(LOCAL_FOLDER + '_prelease/' + _lastId, LOCAL_FOLDER + '_prelease/' + _updateFileName, function(err) {
-            if (err) {
-                console.log(err);
-            }
-        })
+        fs.renameSync(LOCAL_FOLDER + '_tmp/' + _lastId, LOCAL_FOLDER + '_tmp/' + _updateFileName)
 
 
     }

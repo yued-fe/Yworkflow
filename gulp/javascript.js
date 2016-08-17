@@ -27,6 +27,7 @@ var paths = {
 
 // JS检查
 gulp.task('lint', function() {
+    console.log('检查');
     return gulp.src(paths.js)
      .pipe(gulpSlash())
         .pipe(jshint())
@@ -34,6 +35,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scripts', function(cb) {
+    console.log('编辑');
     gulp.src(paths.js)
      .pipe(gulpSlash())
         .pipe(plumber())

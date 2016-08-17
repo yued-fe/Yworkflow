@@ -186,6 +186,7 @@ gulp.task('rev-views', function(cb) {
  */
 
 gulp.task('rev-fix-deps', function() {
+     del(['_prelease/**/*'])
     var manifest = gulp.src("hash-tag-map/rev-verionId.json");
     return gulp.src(['_tmp/**/*.{js,ejs,css}']) // Minify any CSS sources
         .pipe(gulpSlash())

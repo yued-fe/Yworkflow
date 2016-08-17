@@ -36,8 +36,6 @@ var paths = {
 
 // sass task
 gulp.task('sass', function(cb) {
-    console.log('编译SASS');
-    console.log('111' + LOCAL_FOLDER);
     //对scss文件进行编译
     gulp.src('src/static/**/*.scss')
         .pipe(gulpSlash())
