@@ -54,30 +54,30 @@ var conn = ftp.create({
 
 
 
-
-
-
 var uploadedStaticPath = '',
     uploadedViewPath = '';
 
 
 
 if (!!(gutil.env.previews)) {
-     uploadedStaticPath = '../_prelease',
-        uploadedViewPath = '../_html';
+    uploadedStaticPath = LOCAL_FOLDER + '_prelease',
+        uploadedViewPath = LOCAL_FOLDER + '_html';
 } else {
-     uploadedStaticPath = '../build/'+ PROJECT_CONFIG.gtimgName,
-        uploadedViewPath = '../_html';
+    uploadedStaticPath = LOCAL_FOLDER + 'build/' + PROJECT_CONFIG.gtimgName,
+        uploadedViewPath = LOCAL_FOLDER + '_html';
 }
 
 gulp.task('ftp-static', function(cb) {
     // console.log('编译版本' + );
-
+    console.log(LOCAL_FOLDER);
     console.log('上传' + uploadedStaticPath + '目录静态资源');
     console.log('上传' + uploadedViewPath + '目录模板文件');
 
-    console.log('./' + uploadedStaticPath + '/**');
-    gulp.src('../' + uploadedStaticPath + '/**', { base: './' + uploadedStaticPath + '/', buffer: false })
+    console.log(uploadedStaticPath + '/**');
+    gulp.src(uploadedStaticPath +  '/**', {
+            base: './build/' +PROJECT_CONFIG.gtimgName + '/',
+            buffer: false
+        })
         .pipe(conn.newer('/' + PROJECT_CONFIG.gtimgName)) // only upload newer files
         .pipe(conn.dest('/' + PROJECT_CONFIG.gtimgName));
 
@@ -86,7 +86,10 @@ gulp.task('ftp-static', function(cb) {
 
 gulp.task('ftp-views', function(cb) {
 
-    gulp.src('../' + uploadedViewPath + '/**', { base: './' + uploadedViewPath, buffer: false })
+    gulp.src( uploadedViewPath + '/**', {
+            base:'./_html/',
+            buffer: false
+        })
         .pipe(conn.newer('/project/')) // only upload newer files
         .pipe(conn.dest('/project/'));
 });
