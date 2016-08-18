@@ -27,7 +27,7 @@ module.exports.genConf = genConf();
 
 #######2) 增加`extends/loader.js`拓展功能入口
 
-请增加`src/node-config/loader.js`文件夹和文件。
+请增加`src/node-config/extends/loader.js`文件夹和文件。
 
 
 ```
