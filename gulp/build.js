@@ -51,9 +51,11 @@ gulp.task('rev', function(cb) {
         hashTagMapPath: 'hash-tag-map', //这里可以自定义配置hashTag映射表的目录
         skipVersion: _skipReversion
     });
+
     var ignoredFiles = {
         // sprites:paths.dist.
     };
+
     gulp.src('build/' + PROJECT_CONFIG.gtimgName + '/**')
         .pipe(gulpSlash())
         .pipe(revAll.revision())
@@ -89,7 +91,6 @@ gulp.task('rev-build-js', function(cb) {
      * 首先备份原有的rev-HashMap.json,做比较用
      */
 
-
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
         dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],
@@ -121,6 +122,7 @@ gulp.task('rev-build-all', function(cb) {
     /**
      * 首先备份原有的rev-HashMap.json,做比较用
      */
+
     var revAll = new RevAll({
         prefix: '', //自动增加url路径
         dontRenameFile: [/^\/favicon.ico$/g, '.html', '.json'],

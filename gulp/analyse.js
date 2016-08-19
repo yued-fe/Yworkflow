@@ -65,7 +65,7 @@ gulp.task('ana', function(cb) {
     _depsTreeString = JSON.stringify(_depsTree, null, 4).replace(/\.\.\//g, '').replace(_replaceStaticTag, '')
 
     /**
-     * 为了与re
+     *
      * @param  {[type]} key) {                       if (_AllJavascriptFile.indexOf(key) [description]
      * @return {[type]}      [description]
      */
@@ -166,18 +166,6 @@ gulp.task('ana', function(cb) {
 
 
 });
-
-
-
-gulp.task('fs-test', function() {
-
-        fs.rename('/Volumes/Macintosh HD/Users/yuewen-luolei/Yuewen/Shenzhen-SVN/qidian_proj/trunk/v2/_prelease/js/rank/index.0.38.js', '/Volumes/Macintosh HD/Users/yuewen-luolei/Yuewen/Shenzhen-SVN/qidian_proj/trunk/v2/_prelease/js/rank/hotnew.0.39.js', function(err) {
-            if (err) {
-                console.log(err);
-            }
-        })
-
-})
 
 
 /**
@@ -332,22 +320,27 @@ gulp.task('deps-update', function(cb) {
 gulp.task('deps-update-all', function(cb) {
     console.log(chalk.red('[Start]分析编译后的资源版本HASH变动'));
     //首先获得上一次的业务js编译后的hash值
+
     var _lastBuildHashMap = require('../../hash-tag-map/rev-HashMap-last.json');
     var _currentBuildHashMap = require('../../hash-tag-map/rev-HashMap.json');
     var _currentIdMap = require('../../hash-tag-map/rev-verionId.json'),
         _currentIdMapRevert = _.invert(_currentIdMap);
-    // var _reverseJs = require('../../hash-tag-map/reverse-js.json');
+
+
     //创建一个临时数据储存变化了的js名
     var _changedJsFiles = [],
         _changedJsSourceFiles = [];
 
-    // console.log(Object.keys(_lastBuildHashMap));
     for (var i = 0; i < Object.keys(_currentBuildHashMap).length; i++) {
         var _checkJsFileName = Object.keys(_currentBuildHashMap)[i];
-        //
+
+
         if (!!_lastBuildHashMap[_checkJsFileName]) {
+            // console.log(chalk.green('[check]') + '文件' + _checkJsFileName);
+             //如果文件名没有变化,则比较两者的hash
             var _oldHash = !!_lastBuildHashMap[_checkJsFileName] ? _lastBuildHashMap[_checkJsFileName] : 00000;
             var _newHash = !!_currentBuildHashMap[_checkJsFileName] ? _currentBuildHashMap[_checkJsFileName] : 11111;
+
             //如果hash值发生了变化,则可以理解成依赖文件有变,接下来处理相关依赖
             if (_lastBuildHashMap[_checkJsFileName] !== _currentBuildHashMap[_checkJsFileName]) {
                 console.log('[Hash比较] ' + chalk.green(_oldHash) + chalk.blue(' / ') + chalk.red(_newHash) + ' 文件:' + _checkJsFileName);
@@ -355,11 +348,11 @@ gulp.task('deps-update-all', function(cb) {
                 _changedJsFiles.push(_checkJsFileName);
             }
         } else {
-
+             // console.log(chalk.green('乌拉拉'));
             console.log('[Hash比较] ' + chalk.green(_oldHash) + chalk.blue(' / ') + chalk.green(_newHash) + ' 文件:' + _checkJsFileName);
             _changedJsFiles.push(_checkJsFileName);
             console.log(_checkJsFileName);
-            // _changedJsSourceFiles.push(_currentIdMapRevert[_checkJsFileName])
+
         }
 
     }
@@ -367,7 +360,7 @@ gulp.task('deps-update-all', function(cb) {
     for (var i = 0; i < Object.keys(_lastBuildHashMap).length; i++) {
         var _checkJsFileName = Object.keys(_lastBuildHashMap)[i];
         if (!_currentBuildHashMap[_checkJsFileName]) {
-            console.log(chalk.green('[新增文件]') + '' + _checkJsFileName);
+            // console.log(chalk.green('[新增文件]') + '' + _checkJsFileName);
         }
     }
 
@@ -403,17 +396,25 @@ gulp.task('deps-update-all', function(cb) {
 
 
     /**
-     * 接下来替换rev-verionId.json里面的版本文件
+     * 接下来替换rev-verionId.json和更新rev-HashMap.json里面的版本文件
      */
 
+     //更新rev-verionid.json
     var _currentFileString = JSON.stringify(_currentIdMap, null, 4);
     var _updateFileString = '';
-    // console.log(_currentFileString);
+
+    //更新hash-map
+    var _currentBuildHashMapString = JSON.stringify(_currentBuildHashMap,null,4);
+    var _upadteBuildHashMapString = '';
+
+
     for (var i = 0; i < _updatdeAllTypeFiles.length; i++) {
         var _lastId = _currentIdMap[_updatdeAllTypeFiles[i]];
-        // console.log('当前版本:' + _currentIdMap[_updateJsFiles[i]]);
+
+
         var _lastFileNameTag = _lastId.split('/').pop().split('.').slice(-3);
-        // console.log('TAG检查:' + _lastFileNameTag);
+
+
         var _startVerNum = _lastFileNameTag[0],
             _secVerNum = _lastFileNameTag[1],
             _fileExt = _lastFileNameTag[2];
@@ -429,33 +430,29 @@ gulp.task('deps-update-all', function(cb) {
             _updateStartVernum += 1;
         }
 
-        // var _updateFileString=
+
         var _updateVerNum = _updateStartVernum + '.' + _updateSecVerNum;
-        // console.log('更新版本号' + _updateVerNum);
-        //  var _updateFileName = _lastId.replace(_currentVerNum + '.js', _updateVerNum + '.js');
+
         var _updateFileName = _lastId.replace(_currentVerNum + '.' + _fileExt, _updateVerNum + '.' + _fileExt);
+
         console.log(chalk.blue('[处理]更新:') + chalk.green(_lastId) + chalk.blue(' ==> ') + chalk.green(_updateFileName));
-        // console.log('检查demo:' + _lastId);
-        // console.log('检查2' + _updateFileName);
+
         _currentFileString = _currentFileString.replace(_lastId, _updateFileName);
-
-        console.log(chalk.red('替换Path:') + LOCAL_FOLDER + '_prelease/' + _lastId);
-        console.log(chalk.blue('为新的名:' + LOCAL_FOLDER + '_prelease/' + _updateFileName));
-
+        _currentBuildHashMapString = _currentBuildHashMapString.replace(_lastId, _updateFileName)
         fs.renameSync(LOCAL_FOLDER + '_tmp/' + _lastId, LOCAL_FOLDER + '_tmp/' + _updateFileName)
-
 
     }
 
     var _updateFileStringBk = JSON.parse(_currentFileString);
+    var _upadteBuildHashMapString = JSON.parse(_currentBuildHashMapString);
     if (_.uniq(_updatdeAllTypeFiles).length > 0) {
         console.log(chalk.green('[完成]更新rev-verionId.json中的文件版本号'));
     } else {
         console.log(chalk.green('[完成]最终rev-verionId.json生成'));
     }
-
+    // console.log(_updateFileStringBk);
     fs.writeFileSync(LOCAL_FOLDER + 'hash-tag-map/rev-verionId.json', JSON.stringify(_updateFileStringBk, null, 4));
-
+    // fs.writeFileSync(LOCAL_FOLDER + 'hash-tag-map/rev-HashMap.json', JSON.stringify(_upadteBuildHashMapString, null, 4));
 
 
 });
