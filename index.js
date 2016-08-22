@@ -192,12 +192,12 @@ var configRouter = function(val) {
             fs.readFile(LOCAL_FOLDER + 'src/json' + _cgiVal + '.json', function(err, data) {
                 if (err) throw err;
                 var data = JSON.parse(data);
-                //console.log('读取数据' + JSON.stringify(data));
+                console.log('读取数据' + JSON.stringify(data));
                 // 拉取到数据后再渲染页面
                 data.envType = app.get('env');
                 data.pageUpdateTime = "";
                 data.staticConf = staticConf;
-                 data.isZht = false;
+                data.isZht = false;
                 var viewsPath = ''
 
                 if (process.env.NODE_ENV == 'preview') {

@@ -35,7 +35,6 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scripts', function(cb) {
-    console.log('编辑');
     gulp.src(paths.js)
      .pipe(gulpSlash())
         .pipe(plumber())

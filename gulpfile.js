@@ -3,7 +3,9 @@
  */
 
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
-var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow')[0] + '/';
+var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow')[0];
+
+// console.log('gulp 起始路径:' + LOCAL_FOLDER);
 console.log(__dirname.split('Yworkflow')[0]);
 var PROJECT_CONFIG = require('../.yconfig'); //载入项目基础配置
 
@@ -48,7 +50,7 @@ gulp.task('dev', function() {
     nodemon({
             script: 'Yworkflow/index.js',
             ext: 'js html scss css',
-            ignore: ['ejs', LOCAL_FOLDER + 'src/static/**/*', LOCAL_FOLDER +'build',LOCAL_FOLDER + '_prelease',LOCAL_FOLDER + '_previews'],
+            ignore: ['ejs', LOCAL_FOLDER + '_tmp', LOCAL_FOLDER + 'src', LOCAL_FOLDER +'build',LOCAL_FOLDER + '_prelease',LOCAL_FOLDER + '_previews'],
             env: {
                 "NODE_ENV": process.env.NODE_ENV
             }

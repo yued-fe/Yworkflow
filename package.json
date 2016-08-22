@@ -1,6 +1,6 @@
 {
     "name": "QidianViewsTool",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "author": "Rainszhang & Luolei",
     "license": "ISC",
     "description": "Qidian Project Local Tool",
@@ -18,8 +18,7 @@
         "static": "gulp static-html",
         "online-view": "npm run nocombo-publish && gulp static-html --envConf  build && gulp ftp-static && gulp ftp-views",
         "online-preview": "npm run nocombo-publish && gulp static-html --envConf build --previews  && gulp ftp-static --previews && gulp ftp-views --previews",
-        "publish-adv": "gulp clean && sleep 1  && gulp build  && sleep 1  && gulp rev && sleep 1 && gulp tmp-store && gulp copy-hash-map && gulp rev-fix && gulp rev-build-all && sleep 1 && gulp deps-update-all && gulp rev-fix-deps && gulp rev-views-deps  && gulp preview-combo --useLogic && gulp clean-ana && gulp copy-config",
-        "publish-test": "gulp clean && sleep 1  && gulp build  && sleep 1  && gulp rev && sleep 1 && gulp tmp-store && gulp copy-hash-map && gulp rev-fix && gulp rev-build-all && sleep 1  && gulp ana && gulp deps-update-all && gulp rev-fix-deps && gulp rev-views-deps  && gulp preview-combo --useLogic && gulp clean-ana && gulp copy-config"
+        "publish-adv": "gulp clean && sleep 1  && gulp build  && sleep 1  && gulp rev && sleep 1 && gulp tmp-store && gulp copy-hash-map && gulp rev-fix && gulp rev-build-all && sleep 1 && gulp deps-update-all && gulp rev-fix-deps && gulp rev-views-deps && gulp rev-build-all && gulp preview-combo --useLogic && gulp clean-ana && gulp copy-config"
     },
     "devDependencies": {
         "chalk": "^1.1.1",

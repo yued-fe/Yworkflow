@@ -348,20 +348,13 @@ gulp.task('deps-update-all', function(cb) {
                 _changedJsFiles.push(_checkJsFileName);
             }
         } else {
+            // console.log('新文件');
              // console.log(chalk.green('乌拉拉'));
             console.log('[Hash比较] ' + chalk.green(_oldHash) + chalk.blue(' / ') + chalk.green(_newHash) + ' 文件:' + _checkJsFileName);
-            _changedJsFiles.push(_checkJsFileName);
-            console.log(_checkJsFileName);
+            // _changedJsFiles.push(_checkJsFileName);
 
         }
 
-    }
-
-    for (var i = 0; i < Object.keys(_lastBuildHashMap).length; i++) {
-        var _checkJsFileName = Object.keys(_lastBuildHashMap)[i];
-        if (!_currentBuildHashMap[_checkJsFileName]) {
-            // console.log(chalk.green('[新增文件]') + '' + _checkJsFileName);
-        }
     }
 
 
