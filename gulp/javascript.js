@@ -29,17 +29,21 @@ var paths = {
 gulp.task('lint', function() {
     console.log('检查');
     return gulp.src(paths.js)
-     .pipe(gulpSlash())
+        .pipe(gulpSlash())
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 gulp.task('scripts', function(cb) {
     gulp.src(paths.js)
-     .pipe(gulpSlash())
+        .pipe(gulpSlash())
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        .pipe(eslint())
+        .pipe(eslint({
+            rules: {
+                'strict': 2
+            }
+        }))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
         .pipe(gulp.dest(paths.des))

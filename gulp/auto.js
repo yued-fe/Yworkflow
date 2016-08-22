@@ -18,25 +18,24 @@ var del = require('del');
 var chalk = require('chalk'); // 美化日志
 var prettify = require('gulp-jsbeautifier');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
-
-var prompt = require('gulp-prompt');
+// var inquirer = require('inquirer');
+// var prompt = require('gulp-prompt');
 
 
 
 
 
 gulp.task('auto-test', function() {
-
-    gulp.src('../.yconfig')
-        .pipe(prompt.prompt({
-            type: 'input',
-            name: 'task',
-            message: 'Which task would you like to run?'
-        }, function(res) {
-            console.log(res);
-            //value is in res.task (the name option gives the key)
-        }));
-
+    console.log('自动测试');
+    // gulp.src('../../.yconfig')
+    //     .pipe(prompt.prompt({
+    //         type: 'checkbox',
+    //         name: 'bump',
+    //         message: 'What type of bump would you like to do?',
+    //         choices: ['patch', 'minor', 'major']
+    //     }, function(res) {
+    //         //value is in res.bump (as an array)
+    //     }));
 
 })
 
@@ -61,7 +60,7 @@ gulp.task('init', function() {
             // Yes it is
         }
     } catch (e) {
-    	console.log('.yconfig配置不存在');
+        console.log('.yconfig配置不存在');
         // ...
     }
     /**
