@@ -338,6 +338,24 @@ app.get('/page/*',function(req,res,next){
 
 
 
+/**
+ * 这里配置ejs的代理路由
+ */
+
+app.get('/ejs/*',function(req,res,next){
+        console.log('====读取EJS');
+        var ejsReg = /^\/ejs\//gi;
+        var _proxyPath = req.path.replace(ejsReg,'');
+        console.log('替换后:' + _proxyPath);
+        console.log(req.path);
+        fs.readFile( LOCAL_FOLDER + 'src/static/' + _proxyPath, function(err, data) {
+            if (err) throw err;
+            res.send(data);
+        });
+
+})
+
+
 
 /**
  * 遍历ajaxmap.js 文件
