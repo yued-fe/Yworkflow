@@ -14,7 +14,7 @@
         "build": "gulp clean && sleep 1  && gulp build",
         "nocombo-publish": "npm run build && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views",
         "publish": "gulp clean && sleep 1  && gulp build  && sleep 1 && gulp rev && gulp rev-fix && gulp rev-views && gulp preview-combo --useLogic && gulp copy-config",
-        "publish-skip": "gulp clean && sleep 1  && gulp build  && sleep 1 && gulp rev --skipV && gulp rev-fix && gulp rev-views && gulp preview-combo  && gulp copy-config",
+        "publish-skip": "gulp clean && sleep 1  && gulp build  && sleep 1 && gulp rev --skipV && gulp rev-fix && gulp rev-views && gulp preview-combo --useLogic && gulp copy-config",
         "static": "gulp static-html",
         "online-view": "npm run nocombo-publish && gulp static-html --envConf  build && gulp ftp-static && gulp ftp-views",
         "online-preview": "npm run nocombo-publish && gulp static-html --envConf build --previews  && gulp ftp-static --previews && gulp ftp-views --previews",
