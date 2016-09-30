@@ -1,0 +1,130 @@
+/**
+ * @fileOverview
+ * @author liuwentao
+ * Created: 16/9/18
+ */
+.crash-reply{
+  padding: 0.8rem;
+  dt{
+    padding-bottom: 0.6rem;
+    font-size:0.8rem;
+    color:#4a4a4a;
+    font-weight: bold;
+    line-height:1.2rem;
+    border-bottom:1px solid #e2e3e5 ;
+  }
+  dd{
+    font-size:0.7rem;
+    color:#4a4a4a;
+    line-height:1.2rem;
+    padding-top: 0.4rem;
+  }
+}
+/* whether solve */
+.whether-solve{
+  padding: 0.8rem;
+  .whether-solve-btn-box{
+    text-align: center;
+    a{
+      display: inline-block;
+      height: 1.2rem;
+      padding: 0.3rem 0;
+      width: 6.2rem;
+      text-align: center;
+      border:1px solid #979797;
+      border-radius:0.9rem;
+      font-size:0.7rem;
+      line-height: 1.2rem;
+      color:#979797;
+      margin: 0 0.4rem;
+      &.solve-btn{
+        i{
+          background: url("/apps/help/crash/images/icon_resolved_un@3x.png") 0 0 no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+        }
+      }
+      &.no-solve-btn{
+        i{
+          background: url("/apps/help/crash/images/icon_not_resolved_un@3x.png") 0 0 no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+        }
+      }
+      &.cur{
+        border-color:#d43c33;
+        color: #d43c33;
+        &.solve-btn i{
+          background: url("/apps/help/crash/images/icon_resolved@3x.png") 0 0 no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+        }
+        &.no-solve-btn i{
+          background: url("/apps/help/crash/images/icon_not_resolved@3x.png") 0 0 no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+        }
+      }
+      i{
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+        vertical-align: middle;
+        margin-right: 0.2rem;
+      }
+      span{
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+    }
+  }
+  .whether-solve-not{
+    display: none;
+    h4{
+      position: relative;
+      height: 0.75rem;
+      font-size:0.7rem;
+      color:#9b9b9b;
+      text-align: center;
+      line-height: 0.75rem;
+      font-weight: normal;
+      margin-top: 0.8rem;
+      &:before{
+        position: absolute;
+        content: '';
+        left:0;
+        top:0.35rem;
+        height: 0.05rem;
+        width: 100%;
+        overflow: hidden;
+        background:#e2e3e5;
+      }
+      span{
+        position: relative;
+        display: inline-block;
+        padding: 0 0.5rem;
+        background: #fff;
+      }
+    }
+    .whether-solve-not-list{
+      margin-top: 0.65rem;
+      text-align: center;
+      a{
+        display: inline-block;
+        border:1px solid #a2a3a5;
+        border-radius:0.7rem;
+        padding: 0 0.4rem;
+        height:1.3rem;
+        font-size:0.6rem;
+        color:#a2a3a5;
+        line-height: 1.3rem;
+        &.cur{
+          border-color:#d43c33;
+          color: #d43c33;
+        }
+      }
+    }
+
+  }
+}

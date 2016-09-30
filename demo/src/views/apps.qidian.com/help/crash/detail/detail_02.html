@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>内存不足</title>
+
+    <% include ../../../component/resizeJs.html %>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/common/css/base.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/help/crash/css/detail.css">
+    <!-- @author liuwentao | @designer  | @pm  -->
+</head>
+<body>
+<dl class="crash-reply">
+    <dt> 内存不足</dt>
+    <dd>手机内存不够可能会导致APP闪退，建议后台不要同时运行过多APP，可关闭运行中程序提升内存。</dd>
+</dl>
+<div class="whether-solve">
+    <div class="whether-solve-btn-box" id="J_whetherSolve">
+        <a href="javascript:void(0);" data-rep="qdH5_HF_07', 1" class="solve-btn" ><i></i><span>已解决</span></a>
+        <a href="javascript:void(0);" data-rep="qdH5_HF_08', 1" class="no-solve-btn"><i></i><span>未解决</span></a>
+    </div>
+    <div class="whether-solve-not">
+        <h4><span>未解决的原因</span></h4>
+        <div class="whether-solve-not-list">
+            <a href="javascript:void(0);" data-rep="qdH5_HF_09">操作后未解决</a>
+            <a href="javascript:void(0);" data-rep="qdH5_HF_10">描述不清晰</a>
+            <a href="javascript:void(0);" data-rep="qdH5_HF_11">功能不好用</a>
+            <a href="javascript:void(0);" data-rep="qdH5_HF_12">其它原因</a>
+        </div>
+    </div>
+</div>
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/qd_jssdk/1.0.0-pre/qdsdk.min.js"></script>
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+</script>
+<script>
+    LBF.use(['lib.Zepto' , 'apps/help/crash/js/detail.js'], function ($ , Index) {
+        new Index({});
+    });
+</script>
+</body>
+</html>

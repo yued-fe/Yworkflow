@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>意外退出</title>
+
+    <% include ../../component/resizeJs.html %>
+    <!-- end speedTimer[var, zero] -->
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/common/css/base.css">
+    <link rel="stylesheet" href="<%= staticConf.staticPath %>/help/crash/css/index.css">
+    <!-- @author liuwentao | @designer  | @pm  -->
+</head>
+<body>
+<!--  升级 app -->
+<dl class="up-app">
+    <dd class="up-app-img"><img src="<%= staticConf.staticPath %>/help/crash/images/pic_update@3x.png" alt=""></dd>
+    <dd class="up-app-txt">应用意外退出？立即升级至最新版本</dd>
+    <dt>
+        <a id="down-link" href="javascript:;" onclick="qdsdk.app.report('qdH5_HF_01', 1);">立即升级</a>
+    </dt>
+</dl>
+<!-- crash question -->
+<h3 class="app-crash-title">应用意外退出相关问题</h3>
+<div class="crash-question-list">
+    <a href="/help/crash/detail/01" onclick="qdsdk.app.report('qdH5_HF_02', 1);" class="crash-question">
+        <span>APP版本过低或手机系统过低</span>
+        <i></i>
+    </a>
+    <a href="/help/crash/detail/02" onclick="qdsdk.app.report('qdH5_HF_03', 1);" class="crash-question">
+        <span>内存不足</span>
+        <i></i>
+    </a>
+    <a href="/help/crash/detail/03" onclick="qdsdk.app.report('qdH5_HF_04', 1);" class="crash-question">
+        <span>存储不足或缓存垃圾过多</span>
+        <i></i>
+    </a>
+    <a href="/help/crash/detail/04" onclick="qdsdk.app.report('qdH5_HF_05', 1);" class="crash-question">
+        <span>网络不好</span>
+        <i></i>
+    </a>
+</div>
+
+<!-- fixed btn -->
+<a href="javascript:void(0);" class="reply-fixed-btn" id="reply-fixed-btn"><span><i></i>问题反馈</span></a>
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/qd_jssdk/1.0.0-pre/qdsdk.min.js"></script>
+<script data-ignore="true" src="//<%= staticConf.staticDomain %>/lbf/1.0.2/LBF.js?max_age=31536000"></script>
+
+<script>
+    LBF.config(<%- JSON.stringify(staticConf.lbf.conf) -%>);
+</script>
+<script>
+    LBF.use(['lib.Zepto' , 'apps/help/crash/js/index.js'], function ($ , Index) {
+        new Index({});
+    });
+</script>
+<!--start 数据统计
+<script>
+    LBF.use(['monitor.ztReport'], function (ztReport) {
+        ztReport.report({
+            // 'qd': 起点站点系 | 'cs': 起点站点系 | ''：云起等
+            domain: 'qd'
+        });
+    });
+</script>
+end 数据统计-->
+</body>
+</html>

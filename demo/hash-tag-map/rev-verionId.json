@@ -1,0 +1,16 @@
+{
+    "favicon/qd_icon.ico": "favicon/qd_icon.0.1.ico",
+    "common/css/base.css": "common/css/base.0.1.css",
+    "help/crash/css/detail.css": "help/crash/css/detail.0.1.css",
+    "help/crash/css/index.css": "help/crash/css/index.0.1.css",
+    "help/crash/images/icon_not_resolved@3x.png": "help/crash/images/icon_not_resolved@3x.0.1.png",
+    "help/crash/images/icon_not_resolved_un@3x.png": "help/crash/images/icon_not_resolved_un@3x.0.1.png",
+    "help/crash/images/icon_reply@3x.png": "help/crash/images/icon_reply@3x.0.1.png",
+    "help/crash/images/icon_resolved@3x.png": "help/crash/images/icon_resolved@3x.0.1.png",
+    "help/crash/images/icon_resolved_un@3x.png": "help/crash/images/icon_resolved_un@3x.0.1.png",
+    "help/crash/images/icon_to@3x.png": "help/crash/images/icon_to@3x.0.1.png",
+    "help/crash/images/pic_update@3x.png": "help/crash/images/pic_update@3x.0.1.png",
+    "help/crash/js/detail.js": "help/crash/js/detail.0.1.js",
+    "help/crash/js/index.js": "help/crash/js/index.0.1.js",
+    "help/shudan/css/explain.css": "help/shudan/css/explain.0.1.css"
+}
