@@ -52,8 +52,7 @@ gulp.task('preview-combo', function() {
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
             serverLogicToggle: _useLogic,
-            serverLogicCondition: 'envType == "pro" || envType == "oa"',
-            updateTime: _updateTime
+            serverLogicCondition: 'envType == "pro" || envType == "oa"'
         }, {
             max_age: 31536000
         }))
@@ -78,8 +77,7 @@ gulp.task('view-combo', function() {
             ignorePathVar: '<%= staticConf.staticPath %>',
             assignPathTag: PROJECT_CONFIG.gtimgName, //这里需要配置combo后的相关文件路径
             serverLogicToggle: _useLogic,
-            serverLogicCondition: 'envType == "pro" || envType == "oa', //这里配置combo的触发逻辑,可以是服务器环境,也可以是tag值
-            updateTime: _updateTime
+            serverLogicCondition: 'envType == "pro" || envType == "oa' //这里配置combo的触发逻辑,可以是服务器环境,也可以是tag值
         }, {
             max_age: 31536000
         }))
