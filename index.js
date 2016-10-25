@@ -4,6 +4,7 @@
  */
 
 'use strict'
+require('./ejs-inline-template.js');//拓展ejs 支持script拓展
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
 
 var LOCAL_FOLDER = gulpSlash(__dirname).split('Yworkflow')[0];
