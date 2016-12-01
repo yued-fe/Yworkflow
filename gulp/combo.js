@@ -43,7 +43,7 @@ gulp.task('preview-combo', function() {
     var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     // console.log('combo url时间更新' + _updateTime);
-    var baseUri = '<%= staticConf.staticDomain %>/c/='; //这里设置combo的url地址
+    var baseUri = '//<%= staticConf.staticDomain %>/c/='; //这里设置combo的url地址
     gulp.src('_previews/**/*.html')
      .pipe(gulpSlash())
         .pipe(combo(baseUri, {
@@ -68,7 +68,7 @@ gulp.task('view-combo', function() {
     var _useLogic = gutil.env.useLogic ? true : false;
     var _updateTime = dateFormat((new Date()).getTime(), 'yyyymmddHHMM');
     // console.log('url时间更新' + _updateTime);
-    var baseUri = '<%= staticConf.staticDomain %>/c/=';
+    var baseUri = '//<%= staticConf.staticDomain %>/c/=';
     gulp.src('src/views/**/*.html')
      .pipe(gulpSlash())
         .pipe(combo(baseUri, {
