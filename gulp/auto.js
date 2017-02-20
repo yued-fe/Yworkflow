@@ -9,7 +9,6 @@ process.chdir(LOCAL_FOLDER)
 var fs = require('fs');
 var _ = require('lodash');
 
-// var PROJECT_CONFIG = require('../../.yconfig'); //载入项目基础配置
 
 var gulp = require('gulp');
 var del = require('del');
@@ -18,27 +17,12 @@ var del = require('del');
 var chalk = require('chalk'); // 美化日志
 var prettify = require('gulp-jsbeautifier');
 var gulpSlash = require('gulp-slash'); //处理windows和unix文件夹斜杠
-// var inquirer = require('inquirer');
-// var prompt = require('gulp-prompt');
-
-
-
 
 
 gulp.task('auto-test', function() {
     console.log('自动测试');
-    // gulp.src('../../.yconfig')
-    //     .pipe(prompt.prompt({
-    //         type: 'checkbox',
-    //         name: 'bump',
-    //         message: 'What type of bump would you like to do?',
-    //         choices: ['patch', 'minor', 'major']
-    //     }, function(res) {
-    //         //value is in res.bump (as an array)
-    //     }));
 
 })
-
 
 gulp.task('init', function() {
     console.log(chalk.red('检查本机器依赖配置'));

@@ -33,7 +33,7 @@ var gutil = require('gulp-util');
 const envType = "local"; //全局环境
 var serverConf = require('../../src/node-config/server').genConf;
 var staticConf = serverConf[envType]['static'];
-
+var renderExtends = require('../../src/node-config/extends/loader.js')
 
 var paths = {
     sass: 'src/static/**/*.scss',
@@ -63,7 +63,6 @@ gulp.task('static-html', function(cb) {
     console.log(chalk.red('====静态转换模板文件==== Start'));
     console.log(chalk.green('共有' + _domains.length + '子站'));
     console.log(chalk.green('共有' + _routers.length + '条路由'));
-    // console.log(routerMap);
     var i = 0;
     for (i; i < _routers.length; i++) {
         var _thisTpl = _routers[i];
@@ -80,7 +79,7 @@ gulp.task('static-html', function(cb) {
         } else {
             var data = {};
         }
-        //console.log('读取数据' + JSON.stringify(data));
+
         // 拉取到数据后再渲染页面
 
         var _evnVar = gutil.env.envConf ? gutil.env.envConf : 'local';
@@ -91,10 +90,15 @@ gulp.task('static-html', function(cb) {
         data.staticConf = staticConf;
         data.pageUpdateTime = '';
 
+        Object.keys(renderExtends).forEach(function(key){
+            var _thisFuc =  renderExtends[key];
+            data = Object.assign(data,renderExtends)
+            console.log(_thisFuc.toString());
+            data.key = _thisFuc;
+        })
 
         var uploadedStaticPath = '',
             uploadedViewPath = '';
-
 
         if (!!(gutil.env.previews)) {
             uploadedViewPath = LOCAL_FOLDER + '_previews';
