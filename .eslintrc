@@ -1,0 +1,22 @@
+{
+    "extends": "airbnb-base/legacy",
+    "globals": {
+        "define": true,
+        "g_data": true
+    },
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "comma-dangle": "off",
+        "consistent-return": "off",
+        "func-names": "off",
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-mixed-operators": "off",
+        "no-new": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "vars-on-top": "off"
+    }
+}
+
