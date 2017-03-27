@@ -18,11 +18,7 @@ const async = require("async");
 const app = express();
 
 
-app.use(morgan('dev'),{
-    skip:function(req,res){
-         return res.statusCode < 400
-    }
-}); // 启动开发日志
+app.use(morgan('dev')); // 启动开发日志
 
 // app.use(morgan(function(tokens, req, res) {
 //     return [
