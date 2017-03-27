@@ -4,11 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "hosts": "sudo gulp hosts",
-=======
     "hosts":"sudo gulp hosts",
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -25,10 +21,7 @@
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-plugin-import": "^2.2.0",
-<<<<<<< HEAD
     "express-http-proxy": "^0.11.0",
-=======
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152
     "figlet": "^1.2.0",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
@@ -42,11 +35,7 @@
     "gulp-load-plugins": "^1.5.0",
     "gulp-newer": "^1.3.0",
     "gulp-nodemon": "^2.2.1",
-<<<<<<< HEAD
     "gulp-nunjucks": "^2.3.0",
-=======
-    "gulp-nunjucks": "^3.0.0",
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",

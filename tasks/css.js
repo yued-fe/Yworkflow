@@ -20,11 +20,7 @@ var changedDeps = require('./plugins/gulp-changed-deps/');
 var src = path.join(PROJECT_ABS_PATH,TASK_CONFIG.src);
 var dest = path.join(PROJECT_ABS_PATH,TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH,TASK_CONFIG.sourcemap);
-<<<<<<< HEAD
 var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.root.dest));
-=======
-var absoluteRootDest = path.resolve(PROJECT_CONFIG.root.dest);
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152
 
 
 // CSS格式美化
