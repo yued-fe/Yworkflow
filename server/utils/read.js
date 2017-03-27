@@ -15,11 +15,10 @@ module.exports = function (url, callback) {
         }
 
         var data;
-
         try {
             data = JSON.parse(stripJsonComments(result)); // 去掉json中的注释
         } catch (ex) {
-            data = result;
+            data = JSON.parse(result)
         }
         callback(null, data);
     });

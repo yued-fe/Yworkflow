@@ -20,10 +20,8 @@ var changedDeps = require('./plugins/gulp-changed-deps/');
 var src = path.join(PROJECT_ABS_PATH,TASK_CONFIG.src);
 var dest = path.join(PROJECT_ABS_PATH,TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH,TASK_CONFIG.sourcemap);
-var absoluteRootDest = path.resolve(PROJECT_CONFIG.root.dest);
+var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.root.dest));
 
-console.log('CSS项目');
-console.log(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'));
 
 // CSS格式美化
 gulp.task('css:css',function(){
@@ -64,7 +62,7 @@ gulp.task('css', function (done) {
         // 监听CSS文件
     gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['css:css','css:scss','css:copy'])
         .on('change',function(event){
-            console.log(chalk.green('[文件变化:CSS]' + event.path));
+            // console.log(chalk.green('[文件变化:CSS]' + event.path));
         })
     runSequence(['css:css','css:scss','css:copy'], done);
 });

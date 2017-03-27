@@ -24,6 +24,7 @@ const staticViews = Object.keys(static_routes).map(function(routeKey) {
     return static_routes[routeKey].views.replace(/^\/|\.html$/g, ''); // 将静态化路由的views转换成和动态化路由的views一致
 });
 
+
 Object.keys(dynamic_routes).forEach(function(routeKey) {
     const delimiterIndex = routeKey.indexOf('/');
     const routeHost = routeKey.slice(0, delimiterIndex);
@@ -66,9 +67,7 @@ exports.parseRouterMap = function(routerMap) {
             views: "",
             cgi: ""
         };
-
         var _thisRouterView = routerMap[routerVal]['views'];
-
         //域名不做处理,如果没有cgi,则默认补全
         _fixRouterConf.cgi = !!(routerMap[routerVal]['cgi']) ? routerMap[routerVal]['cgi'] : '';
 

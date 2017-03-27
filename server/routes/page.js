@@ -4,7 +4,7 @@ require('../lib/ejs-inline-template.js'); //拓展ejs 支持script拓展
 const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
 const express = require('express');
-
+const chalk = require('chalk');
 const utils = require('../utils');
 
 const router = express.Router();
@@ -42,29 +42,33 @@ Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
 	router.get(routePath, function(req, res, next) {
+		console.log(chalk.red(req.originalUrl));
 		const method = req.method.toLowerCase(); // 请求方法
 		const reqQueryString = req.url.replace(req.path, ''); // 请求参数
 		let searchQuery = utils.getProxyQuery(reqQueryString, routePath, req);
-		console.log(searchQuery);
-		let resFullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
+		// 如果req.originalUrl获得URL为完整域名,则直接返回
+		// 否则则进行补全
+		let resFullUrl = '';
+		if (parse(req.originalUrl).hostname) {
+			resFullUrl = req.originalUrl;
+		} else {
+			resFullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+		}
 		// 首先确定映射的host主域名
-		let route = domainToRoute[utils.getRawHost(req.headers)] || domainToRoute[PROJECT_CONFIG.masterHost];
+		let route = domainToRoute[utils.getRawHost(resFullUrl)] || domainToRoute[PROJECT_CONFIG.masterHost];
 
 		// 如果没有cgi请求,则直接render
 		if (!route.cgi) {
 			render();
 			return;
 		}
-
 		// 如果开启强制代理,则所有的数据请求均走http请求
 		if (PROJECT_CONFIG.proxy_force) {
-			console.log('请求服务器');
 			proxyToRemote();
 		} else {
 			// 拼接本地文件路径, 将 cgi 中的 [?=&] 转换成 -
 			const fileUrl = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.json';
-
 			utils.read(fileUrl, function(err, data) {
 				if (err) {
 					proxyToRemote();
@@ -80,7 +84,6 @@ Object.keys(routes).forEach(function(routePath) {
 			if (!result || typeof result !== 'object') {
 				result = {};
 			}
-			console.log(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.root.src, `${route.views}.html`));
 
 			result.staticConf = confHandler.getStaticConf();
 
@@ -89,6 +92,7 @@ Object.keys(routes).forEach(function(routePath) {
 			// 本地抛出DEBUG_INFO供业务调试
 			result.DEBUG_INFO = result;
 
+            console.log(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`));
 			res.render(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`), result)
 		}
 

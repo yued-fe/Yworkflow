@@ -4,6 +4,30 @@ const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基
 const parse = require('url-parse'); // 获得URL处理模块
 // 获得路由表
 const routersHandler = require('../lib/routersHandler');
+const chalk = require('chalk');
+const hosts_list = PROJECT_CONFIG.hosts;
+const hosts_alias = PROJECT_CONFIG.alias; // 设置域名映射
+
+const getServerIpList = require('./getServerIp')(); // 获得当前机器的域名
+
+/**
+ * 处理host_list中的这些
+ * @param  {[type]} thisHostName [description]
+ * @return {[type]}              [description]
+ */
+
+function genRawHost(thisHostName) {
+	if (thisHostName.startsWith('local')) {
+		var rawHost = thisHostName.replace(/^local/, '');
+		if (hosts_alias[rawHost] !== undefined) {
+			rawHost = hosts_alias[rawHost];
+		}
+		console.log(chalk.green('[实际HOST]' + rawHost));
+		return rawHost;
+	} else {
+		return PROJECT_CONFIG.master_host;
+	}
+}
 
 /**
  * 获得原始的域名host
@@ -11,21 +35,13 @@ const routersHandler = require('../lib/routersHandler');
  * @param  {[type]} url [description]
  * @return {[type]}     [description]
  */
-
 module.exports = function(url) {
-
 	let domain_prefix = PROJECT_CONFIG.env || process.env.NODE_ENV;
 	let thisHostName = parse(url).hostname;
-
-	// 如果访问的域名与业务路由中任意域名都不匹配,则默认使用配置文件中配置的masterHost
-	if (routersHandler.getDomainsList().indexOf(thisHostName) === -1) {
-		return PROJECT_CONFIG.master_host;
-	}
-
-	//如果hostname带有local,则返回无local原始host
-	if (startsWith(thisHostName, 'local')) {
-		return thisHostName.replace(/^local/g, '')
-	} else {
+	// 首先判断是否是本地配置的host,如果是才进行host处理
+	if (hosts_list.indexOf(thisHostName) !== -1 || getServerIpList.indexOf(thisHostName) !== -1) {
+		return genRawHost(thisHostName)
+	}else{
 		return thisHostName;
 	}
 };

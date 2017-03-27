@@ -13,14 +13,13 @@ module.exports = function (method, url, params, headers, callback) {
         headers: headers,
         gzip:true
     };
-
     if (method === 'post' && headers['content-type'] === 'application/json') {
         options.body = JSON.stringify(params);
     } else {
         options.form = params;
     }
 
-    console.log(chalk.blue('发送请求:'), chalk.green(url), chalk.green(JSON.stringify(params))); // eslint-disable-line no-console
+    console.log(chalk.blue('[请求' + method.toUpperCase() +  ']:'), chalk.green(url), chalk.green(JSON.stringify(params))); // eslint-disable-line no-console
 
     request[method](options, function (err, res, result) {
         if (err) {
@@ -28,7 +27,7 @@ module.exports = function (method, url, params, headers, callback) {
             callback(err);
             return;
         }
-
+        result = JSON.stringify(JSON.parse(result),null,4);
         try {
             callback.call(res, null, JSON.parse(result));
         } catch (ex) {

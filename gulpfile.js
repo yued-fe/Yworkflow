@@ -31,7 +31,6 @@ gulp.task('nodemon', function() {
         watch: [
             path.join('./'), // 监听Yworkflow目录
             path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path),// 监听服务配置相关
-            path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views), // 监听模板文件变化
             path.join(PROJECT_CONFIG.absPath, '.yconfig'),
         ],
         env: process.env.NODE_ENV
@@ -51,11 +50,9 @@ gulp.task('nodemon', function() {
  * @return {[type]}           [description]
  */
 gulp.task('dev', ['nodemon'], function(done) {
-
     if (process.env.NODE_ENV === 'production') {
         runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), 'html:tricky', done);
     } else {
         runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), done);
     }
-
 });

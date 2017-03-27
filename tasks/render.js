@@ -20,7 +20,6 @@ var runSequence = require('run-sequence');
 
 var changedDeps = require('./plugins/gulp-changed-deps/');
 
-
 // 将处理文件全部拷贝到输出目录
 gulp.task('render', function() {
 	console.log('处理静态资源');

@@ -25,9 +25,9 @@ function ajaxHandler(req, res, next) {
         if (!result || typeof result !== 'object') {
             result = {};
         }
-        // if (typeof result.code === 'undefined') {
-        //     result = { code: 0, data: result };
-        // }
+        if (typeof result.code === 'undefined') {
+            result = { code: 0, data: result };
+        }
 
         res.send(result);
     }
@@ -49,7 +49,6 @@ function ajaxHandler(req, res, next) {
             send(result);
         });
     }
-
     if (PROJECT_CONFIG.debug) {
         proxyToRemote();
     } else {
@@ -59,7 +58,6 @@ function ajaxHandler(req, res, next) {
             if (err) {
                 proxyToRemote();
             } else {
-                console.log(JSON.stringify(result));
                 send(result);
             }
         });
@@ -69,7 +67,6 @@ function ajaxHandler(req, res, next) {
 
 const ajaxPath = PROJECT_CONFIG.ajax;
 ajaxPath.forEach(function(link) {
-    console.log(link + '/*');
     router.all(link + '/*', ajaxHandler);
 })
 

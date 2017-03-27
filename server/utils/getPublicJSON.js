@@ -5,6 +5,7 @@ const fs = require('fs');
 const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
 const chalk = require('chalk');
+const dateFormat = require('dateformat');
 const stripJsonComments = require('strip-json-comments'); // 注释json相关
 
 /**
@@ -14,8 +15,15 @@ const stripJsonComments = require('strip-json-comments'); // 注释json相关
  */
 module.exports = function(result, req, res) {
 	let publish_json = {
-
+        "CLIENT_URL":req.protocol + '://' + req.get('host') + req.originalUrl,
+        "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss")
 	};
+
+    // 如果没有配置,则直接返回原始数据
+    if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json))) {
+        return _.merge(publish_json, result)
+    }
+
 	//检查公共数据是否存在loader加载器
 	if (fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json, 'index.js'))) {
 

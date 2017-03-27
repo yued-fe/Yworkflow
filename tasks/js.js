@@ -25,7 +25,6 @@ var sourceMapDes = path.join(PROJECT_ABS_PATH, TASK_CONFIG.sourcemap);
 
 // JS代码检查
 gulp.task('js:eslint', function() {
-    console.log(TASK_CONFIG.eslint);
     return gulp.src(path.join(src, '**/*.js'))
         .pipe(plugins.changed(dest))
         .pipe(plugins.plumber())
