@@ -10,8 +10,6 @@ const chalk = require('chalk');
 //获得Yworkflow项目根路径
 const rootPath = path.resolve('.');
 
-
-
 /**
  * 加载启动Yworkflow本地Server的核心配置
  * 根据配置读取业务代码

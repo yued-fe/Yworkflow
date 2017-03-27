@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>移动端HTML模版</title>
+
+    <% include ./apps.qidian.com/component/resizeJs.html %>
+    <!-- end speedTimer[var, zero] -->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .error-img{
+            width: 9rem;
+            height: 9rem;
+            margin: 8rem auto 0;
+            background: url("data:image/png;base64,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") 0 0 no-repeat;
+            -webkit-background-size:100% 100%;
+            background-size:100% 100%;
+        }
+        .error-img img{
+            width: 100%;
+            height: 100%;
+        }
+        h2{
+            margin-top: 3rem;
+            font-size:0.8rem;
+            color:#c1c1c1;
+            text-align: center;
+            line-height: 1rem;
+            font-weight: normal;
+        }
+    </style>
+    <!-- @author liuwentao | @designer  | @pm  -->
+</head>
+<body>
+<div class="error-img"></div>
+<h2>找不到页面...</h2>
+
+</body>
+</html>
