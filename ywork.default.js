@@ -71,14 +71,14 @@ var defaultConfig = {
     },
     // 与本地开发
     'tasks': {
-        'html': {
-            'src': 'src/server/views',
-            'dest': '.cache/views',
-            'multiple': true,
-            'nunjucks': {
+        // 'html': {
+        //     'src': 'src/server/views',
+        //     'dest': '.cache/views',
+        //     'multiple': true,
+        //     'nunjucks': {
 
-            }
-        },
+        //     }
+        // },
         // CSS编译相关
         'css': {
             'src': './src/static/css',
@@ -99,49 +99,49 @@ var defaultConfig = {
             },
             'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
         },
-        'img': {
-            'src': './src/static/img',
-            'dest': './.cache/qdm/img',
-            'optimize': './src/static/images/events', // 优化图片处理
-            'extensions': ['jpg', 'png', 'svg', 'gif', 'ico'], // 处理文件后缀
-        },
-        'icon': { // ICON相关任务配置
-            'src': './src/static/icon',
-            'dest': './.cache/qdm/icon',
-            'multiple': true, // 是否分批处理，即以子目录为单位，在多页面需要分开处理时会用到
-            'img': { // 图片合并相关配置
-                '1xDir': '.1x', // 1倍图存放地址，以 "." 开头是隐藏文件，为了表示此文件是生成的，不是源文件
-                'imageResize': { // gulp-image-resize(将2倍图源文件压缩成1倍图) 插件配置
-                    'width': '50%',
-                    'upscale': true,
-                },
-                'spritesmith': { // gulp.spritesmith(生成雪碧图) 插件配置
-                    'imgName': 'sprite.png',
-                    'cssName': 'sprite.css',
-                    'padding': 4,
-                    'retinaSrcFilter': '!' + path.join(rootCWD, '**/.1x/*'), // 2倍图过滤条件，路径与 gulpfile.js 文件位置有关联
-                    'retinaImgName': 'sprite@2x.png',
-                },
-            },
-            'svg': { // SVG合并相关配置
-                'svgmin': { // gulp－svgmin(压缩svg) 插件配置
-                    'plugins': [
-                        { 'removeAttrs': { 'attrs': '(fill|fill-rule)' } },
-                        { 'removeTitle': true },
-                    ],
-                },
-                'svgstore': { 'inlineSvg': true }, // gulp-svgstore(合并svg) 插件配置
-                'svgTransport': {}, // gulp-svg-transport(svg转js) 插件配置
-                'rename': 'sprite.js', // gulp-rename(重命名合并后svg转js文件名字) 插件配置
-            },
-        },
-        // 配置自动生成中文字体得入口页面
-        'font': {
-            'src': './src/static/font',
-            'dest': './.cache/qdm/font',
-            'extensions': ['css', 'eot', 'svg', 'ttf', 'woff', 'woff2'], // 处理文件后缀
-            'fontSpider': {}, // gulp-font-spider(压缩字体) 插件配置
-        },
+        // 'img': {
+        //     'src': './src/static/img',
+        //     'dest': './.cache/qdm/img',
+        //     'optimize': './src/static/images/events', // 优化图片处理
+        //     'extensions': ['jpg', 'png', 'svg', 'gif', 'ico'], // 处理文件后缀
+        // },
+        // 'icon': { // ICON相关任务配置
+        //     'src': './src/static/icon',
+        //     'dest': './.cache/qdm/icon',
+        //     'multiple': true, // 是否分批处理，即以子目录为单位，在多页面需要分开处理时会用到
+        //     'img': { // 图片合并相关配置
+        //         '1xDir': '.1x', // 1倍图存放地址，以 "." 开头是隐藏文件，为了表示此文件是生成的，不是源文件
+        //         'imageResize': { // gulp-image-resize(将2倍图源文件压缩成1倍图) 插件配置
+        //             'width': '50%',
+        //             'upscale': true,
+        //         },
+        //         'spritesmith': { // gulp.spritesmith(生成雪碧图) 插件配置
+        //             'imgName': 'sprite.png',
+        //             'cssName': 'sprite.css',
+        //             'padding': 4,
+        //             'retinaSrcFilter': '!' + path.join(rootCWD, '**/.1x/*'), // 2倍图过滤条件，路径与 gulpfile.js 文件位置有关联
+        //             'retinaImgName': 'sprite@2x.png',
+        //         },
+        //     },
+        //     'svg': { // SVG合并相关配置
+        //         'svgmin': { // gulp－svgmin(压缩svg) 插件配置
+        //             'plugins': [
+        //                 { 'removeAttrs': { 'attrs': '(fill|fill-rule)' } },
+        //                 { 'removeTitle': true },
+        //             ],
+        //         },
+        //         'svgstore': { 'inlineSvg': true }, // gulp-svgstore(合并svg) 插件配置
+        //         'svgTransport': {}, // gulp-svg-transport(svg转js) 插件配置
+        //         'rename': 'sprite.js', // gulp-rename(重命名合并后svg转js文件名字) 插件配置
+        //     },
+        // },
+        // // 配置自动生成中文字体得入口页面
+        // 'font': {
+        //     'src': './src/static/font',
+        //     'dest': './.cache/qdm/font',
+        //     'extensions': ['css', 'eot', 'svg', 'ttf', 'woff', 'woff2'], // 处理文件后缀
+        //     'fontSpider': {}, // gulp-font-spider(压缩字体) 插件配置
+        // },
         // 其他静态资源
         'static': {
             'src': './src/static',

@@ -4,25 +4,43 @@
  */
 'use strict'
 
-var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
-var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
-var TASK_CONFIG = PROJECT_CONFIG.tasks.static;
-var path = require('path');
+const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
+const TASK_CONFIG = PROJECT_CONFIG.tasks.static;
+const path = require('path');
 
-var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
-var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
+const src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
+const dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
 
-var gulp = require('gulp');
-var path = require('path');
-var chalk = require('chalk');
-var plugins = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
+const gulp = require('gulp');
+const chalk = require('chalk');
+const request = require('request');
 
-var changedDeps = require('./plugins/gulp-changed-deps/');
+
+const plugins = require('gulp-load-plugins')();
+const runSequence = require('run-sequence');
+
+const changedDeps = require('./plugins/gulp-changed-deps/');
+
+const utils = require('../server/utils');
+
+
+var htmlRenderTasks = [];
+
+/**
+ * 生成需要静态化的页面任务
+ * @return {[type]} [description]
+ */
+var getHtmlRenderTask = function(){
+
+}
 
 // 将处理文件全部拷贝到输出目录
 gulp.task('render', function() {
-	console.log('处理静态资源');
+
+    request('http://127.0.0.1'  +  ':' + PROJECT_CONFIG.port + '/magic/getPublicData',function(err, res, result){
+
+    })
 });
 
 

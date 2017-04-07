@@ -7,6 +7,8 @@ const path = require('path');
 const chalk = require('chalk');
 const dateFormat = require('dateformat');
 const stripJsonComments = require('strip-json-comments'); // 注释json相关
+const staticConf = require('../lib/confHandler').getStaticConf(); // 获得模板层变量
+
 
 /**
  * 在data中注入公用json
@@ -15,8 +17,11 @@ const stripJsonComments = require('strip-json-comments'); // 注释json相关
  */
 module.exports = function(result, req, res) {
 	let publish_json = {
+        "envType":PROJECT_CONFIG.env,
         "CLIENT_URL":req.protocol + '://' + req.get('host') + req.originalUrl,
-        "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss")
+        "CLIENT_UA":req.headers['user-agent'],
+        "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss"),
+        "staticConf":staticConf // 模板配置变量
 	};
 
     // 如果没有配置,则直接返回原始数据

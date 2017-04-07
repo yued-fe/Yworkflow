@@ -13,7 +13,6 @@ module.exports = function (url, callback) {
             callback(err);
             return;
         }
-
         var data;
         try {
             data = JSON.parse(stripJsonComments(result)); // 去掉json中的注释

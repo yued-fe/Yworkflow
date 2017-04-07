@@ -20,17 +20,6 @@ const app = express();
 
 app.use(morgan('dev')); // 启动开发日志
 
-// app.use(morgan(function(tokens, req, res) {
-//     return [
-//         tokens.method(req, res),
-//         tokens.url(req, res),
-//         tokens.status(req, res),
-//         tokens.res(req, res, 'content-length'), '-',
-//         tokens['response-time'](req, res),'ms'
-//     ].join(' ')
-// }))
-
-
 // 拓展中间件
 app.locals = confHandler.getExtendsLoader();
 
@@ -54,6 +43,7 @@ app.use(function(req, res, next) {
 
 const apiRouter = require('./routes/api');
 const pageRouter = require('./routes/page');
+const magicRouter = require('./routes/magic'); // 一个供静态化使用的便捷路由
 
 // 静态资源代理配置
 const staticPath = PROJECT_CONFIG.paths.static;
@@ -74,7 +64,7 @@ if (typeof staticPath === 'string') {
                     var parseUrl = parse(req.url);
                     let remoteUrl = '';
                     if (parse(req.url).hostname) {
-                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query + '&proxy=node';
+                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query + '&proxy=yuenode';
                     } else {
                         remoteUrl = staticPath[key] + req.url;
                     }
@@ -92,13 +82,13 @@ if (typeof staticPath === 'string') {
 
 }
 
-
 // 启动API相关路由
 // 可以在yconfig中配置所有的 /ajax 相关路由
 app.use(apiRouter);
 
 // 启动业务相关路由
 app.use(pageRouter);
+app.use('/magic',magicRouter);
 
 // 代理其他资源到原始的URL
 app.use(function(req, res, next) {

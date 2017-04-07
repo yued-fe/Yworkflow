@@ -19,14 +19,11 @@ ejs.compile = function (template, options) {
         matched.forEach(function (input) {
             // 将 text/ejs-template 内容中的 '<%' 替换成 '<%%', 后续由 ejs 还原, 这样就不会被编译
             var temp = replace(input, '<' + delimiter, '<' + delimiter + delimiter);
-
             // 将 text/ejs-template 内容中的 '<%%%' 替换成 '<%', 后续由 ejs 编译
             var output = replace(temp, '<' + delimiter + delimiter + delimiter, '<' + delimiter);
-
             template = template.replace(input, output);
         });
     }
-
     return originCompile.call(null, template, options);
 };
 

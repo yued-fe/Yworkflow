@@ -19,12 +19,12 @@ function queryStartMarkChecker(queryString){
  * 后台CGI转成 http://{CGI-SERVER}/mpage/forum/getBookForum?bookId={具体参数}&someId={具体参数}&others=...
  */
 module.exports = function(searchQuery, rawRoute, req) {
+
 	// 如果请求的实际路由与配置路由不相同,则对参数做rewrite处理
 	if (rawRoute !== req.path) {
 		let queryObj = {};
 		let rawSplit = rawRoute.split('/');
 		let realSplit = req.path.split('/');
-
 		let i = 0;
 		let routeSplitLength = rawSplit.length;
 
@@ -35,7 +35,6 @@ module.exports = function(searchQuery, rawRoute, req) {
 				queryObj[customeRouteKey] = realSplit[i];
 			}
 		}
-
 		let proxyQueryResult = Object.assign(qs.parse(searchQuery), queryObj);
 
 		searchQuery = qs.stringify(proxyQueryResult, {

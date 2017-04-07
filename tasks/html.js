@@ -6,12 +6,18 @@
 
 
 var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+
+if (!PROJECT_CONFIG.tasks.html) {
+    return;
+}
+
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.html;
 
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var glob = require('glob');
+var htmlbeautify = require('gulp-html-beautify');
 
 var changedDeps = require('./plugins/gulp-changed-deps/');
 var path = require('path');
@@ -26,8 +32,6 @@ var htmlCompileTasks = [];
 // 生成html编译任务
 var getHtmlCompileTask = function (inputDir, outputDir) {
 
-    console.log('原文件' + inputDir);
-    console.log('输出文件' + outputDir);
     return function () {
         var inputSrc = [path.join(inputDir, '**/*.html')];
         if (!PROJECT_CONFIG.debug) {
@@ -42,9 +46,7 @@ var getHtmlCompileTask = function (inputDir, outputDir) {
 };
 
 if (TASK_CONFIG.multiple) { // 以子目录为单位
-    console.log(src);
     glob.sync(path.join(src, '*/')).forEach(function (dir) {
-        console.log(dir);
         var dirname = path.relative(src, dir);
         var dirDest = path.join(dest, dirname);
         var htmlCompileTaskName = 'html:compile(' + dirname + ')';

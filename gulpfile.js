@@ -5,16 +5,18 @@
 require('require-dir')('./tasks');
 
 
-var PROJECT_CONFIG = require('./yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('./yworkflow').getConfig(); //载入项目基础配置
+const path = require('path');
+const gulp = require('gulp');
+const nodemon = require('gulp-nodemon'); // server自动重启
+const chalk = require('chalk');
+const figlet = require('figlet');
+const runSequence = require('run-sequence');
+const gutil = require('gulp-util');
 
-var path = require('path');
-var gulp = require('gulp');
-var nodemon = require('gulp-nodemon'); // server自动重启
-var chalk = require('chalk');
-var figlet = require('figlet');
-var runSequence = require('run-sequence');
 
 gulp.task('nodemon', function() {
+    let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     figlet('Yworkflow', function(err, data) {
         if (err) {
             console.log('Something went wrong...');
@@ -25,9 +27,10 @@ gulp.task('nodemon', function() {
     });
     // 自动监听
     nodemon({
-        script: 'server/index.js',
+        script: 'server/index.js' ,
         nodeArgs: ['--harmony'],
         ext: 'js html',
+        args:['--path', path.resolve(configFile)],
         watch: [
             path.join('./'), // 监听Yworkflow目录
             path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path),// 监听服务配置相关
@@ -50,6 +53,8 @@ gulp.task('nodemon', function() {
  * @return {[type]}           [description]
  */
 gulp.task('dev', ['nodemon'], function(done) {
+    let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
+    console.log('启动参数' + configFile);
     if (process.env.NODE_ENV === 'production') {
         runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), 'html:tricky', done);
     } else {

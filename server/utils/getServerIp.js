@@ -20,7 +20,6 @@ module.exports = function() {
             }
         }
     }
-    console.log(addresses);
     return addresses;
 
 };

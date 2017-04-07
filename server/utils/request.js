@@ -7,7 +7,6 @@ const request = require('request');
 
 module.exports = function (method, url, params, headers, callback) {
     headers.host = urlParse(url).host; // 不修改 host 会502
-
     const options = {
         url: url,
         headers: headers,
@@ -27,8 +26,9 @@ module.exports = function (method, url, params, headers, callback) {
             callback(err);
             return;
         }
-        result = JSON.stringify(JSON.parse(result),null,4);
+
         try {
+            result = JSON.stringify(JSON.parse(result),null,4);
             callback.call(res, null, JSON.parse(result));
         } catch (ex) {
             console.log(chalk.red('数据转JSON失败:'), ex); // eslint-disable-line no-console

@@ -1,10 +1,11 @@
-<<<<<<< HEAD
 ####Yworkflow3 文档
+
+
 
 #####Start
 
-''
 =======
+
 # 起点改造 前端构建服务工具
 
 > Yworkflow是一套基于[Gulp](http://gulpjs.com/),配合阅文前后端分离架构的前端本地模板构建工具。
