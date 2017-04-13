@@ -42,11 +42,11 @@ Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
 	router.get(routePath, function(req, res, next) {
+
 		const method = req.method.toLowerCase(); // 请求方法
 		// const reqQueryString = req.url.replace(req.path, ''); // 请求参数
         const reqQueryString = parse(req.url).query;
 		let searchQuery = utils.getProxyQuery(reqQueryString, routePath, req);
-
 		// 如果req.originalUrl获得URL为完整域名,则直接返回
 		// 否则则进行补全
 		let resFullUrl = '';
@@ -55,10 +55,10 @@ Object.keys(routes).forEach(function(routePath) {
 		} else {
 			resFullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 		}
+
 		// 首先确定映射的host主域名
 		let route = domainToRoute[utils.getRawHost(resFullUrl)] || domainToRoute[PROJECT_CONFIG.masterHost];
 
-        console.log(route);
 		// 如果没有cgi请求,则直接render
 		if (!route.cgi) {
 			render();

@@ -6,7 +6,7 @@
   "scripts": {
     "hosts": "sudo gulp hosts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev"
+    "dev": "gulp dev --path "
   },
   "author": "",
   "license": "ISC",
