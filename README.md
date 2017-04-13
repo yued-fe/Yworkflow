@@ -1,37 +1,8 @@
 
-####Yworkflow3 文档
+Yworkflow3 新手说明
+==============
 
-#####Start
-=======
-
-# 起点改造 前端构建服务工具
-
-> Yworkflow是一套基于[Gulp](http://gulpjs.com/),配合阅文前后端分离架构的前端本地模板构建工具。
-
-######当前使用Yworkflow的业务:
-
-* 起点中文网改造 www.qidian.com
-* 起点活动页 activity.qidian.com
-* 起点移动端 apps.qidian.com
-
-## 功能特性
-
-- 自动化构建
-    - Sass > CSS
-    - JS压缩和eslint检查
-    - CSS Sprite精灵图自动生成
-    - [图片自动优化](https://www.npmjs.com/package/imagemin-pngquant)(压缩体积)
-    - 去缓存文件Reversion(递增版本号)
-    - 静态资源Combo
-    - 静态化生成静态模板
-    - 自动发布到内网服务器进行在线预览
-
-- 本地开发
-    - 模拟线上框架机逻辑,浏览器直接HTTP模拟调试
-    - 自定义业务路由，自定义ejs模板引擎
-    - 服务自动监听文件变化:实时编译css和js
-
-##Why Yworkflow
+####写在前面
 
 过去前端团队业务多以重构为主，大多数同事是以静态页面开发的模式进行本地开发，好处是目录结构比较简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
 
@@ -39,26 +10,48 @@
 
 对于本地构建工具，总结出来就是「用开发的思维来写前端」，利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做。
 
+####环境依赖
 
+* [Node.js](https://nodejs.org/zh-cn/)
+* [Graphics Magick](http://www.graphicsmagick.org/index.html)
+* [Image Magick](https://www.imagemagick.org/script/index.php)
 
-##快速开始
-
-首先请根据你的系统安装[Node.js](https://nodejs.org/)环境。
-
-####系统依赖
-
-由于精灵图生成、压缩需要调用系统层图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
+由于精灵图生成、压缩需要调用系统图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
 
 * GraphicsMagick:[下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
 * imagemagick: [下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
 
-注:**强烈建议**Mac用户使用[brew](http://brew.sh/)来安装
+**强烈建议**Mac用户使用[brew](http://brew.sh/)来安装
 
-```
+```shell
 brew update && brew upgrade
 brew install imagemagick
 brew install graphicsmagick
 ```
+
+
+#####Start
+
+
+## 功能特性
+
+- 自动化构建
+    - Sass > CSS
+
+    - JS压缩和eslint检查
+    - CSS Sprite精灵图自动生成
+    - 中文webfont生成
+    - [图片优化](https://www.npmjs.com/package/imagemin-pngquant)(压缩体积)
+
+- 本地开发
+    - 模拟线上框架机逻辑,浏览器直接HTTP模拟调试
+    - 自定义业务路由，自定义ejs模板引擎
+    - 服务自动监听文件变化:实时编译css和js
+
+
+- 资源压缩
+
+
 
 * 下载安装
     1. `git clone http://git.code.oa.com/qidian_proj/Qidian.git` 或者svn checkout具体的项目仓库
@@ -319,9 +312,4 @@ include use-sprite($icon-a, $projectA-sprite-normal, $projectA-sprite-retina);
 
 //按照上述方法，就可以直接调用某个精灵图了，无需手动调整background-size position等参数。
 
-```
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152
-=======
-# Yworkflow
-定制本地构建服务
->>>>>>> 68f9b6a200c9dd29d008610d31604694f4fe40a1
+
