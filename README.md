@@ -2,7 +2,7 @@
 Yworkflow3 新手说明
 ==============
 
-####写在前面
+## 写在前面
 
 过去前端团队业务多以重构为主，大多数同事是以静态页面开发的模式进行本地开发，好处是目录结构比较简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
 
@@ -10,7 +10,7 @@ Yworkflow3 新手说明
 
 利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做，提高前后端联调效率。
 
-####环境依赖
+## 环境依赖
 
 * [Node.js](https://nodejs.org/zh-cn/)
 * [Graphics Magick](http://www.graphicsmagick.org/index.html)
@@ -23,7 +23,7 @@ Yworkflow3 新手说明
 
 Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://github.com/shadowsocks/shadowsocks/tree/master) + [proxychains4](https://github.com/rofl0r/proxychains-ng)，有效解决依赖下载速度问题。
 
-####终端推荐
+## 终端推荐
 
 * Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。
 
@@ -88,7 +88,7 @@ brew install graphicsmagick
     1. `git clone https://github.com/yued-fe/Yworkflow.git`
     2. 安装全局npm模块`npm install gulp gulp-cli cross-env -g`
 
-####初始
+#### 初始
 
 Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
 
@@ -263,7 +263,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 ````
 
 
-####使用
+#### 使用
 
 1. 进入 {Yworkflow3路径}项目跟路径，例:`cd /Users/yuewen-luolei/Yuewen/Tencent/Yworkflow3`
 2. 安装项目依赖 ` npm install`
