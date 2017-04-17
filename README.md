@@ -6,7 +6,7 @@ Yworkflow3 新手说明
 
 过去前端团队业务多以重构为主，大多数同事是以静态页面开发的模式进行本地开发，好处是目录结构比较简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
 
-过去这半年来，我们的项目逐渐规范化和流程化，根据项目的实际需求，结合前后端架构[]Yuenode](http://git.code.oa.com/yuewen/yuenode)，针对本地开发的同事，开发出这一套Yworkflow前端构建服务工具。
+过去这半年来，我们的项目逐渐规范化和流程化，根据项目的实际需求，结合前后端架构[Yuenode](http://git.code.oa.com/yuewen/yuenode)，针对本地开发的同事，开发出这一套Yworkflow前端构建服务工具。
 
 利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做，提高前后端联调效率。
 
@@ -45,11 +45,11 @@ brew install imagemagick
 brew install graphicsmagick
 ```
 
-## Yworkflow套件
+## Yworkflow三件套
 
-    * [Yworkflow](https://github.com/yued-fe/Yworkflow):本地开发模拟基础架构
-    * [Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli):静态资源版本化、模板reversion和combo工具
-    * [Ymini](https://github.com/foru17/ymini):压缩css和静态资源的脚本工具
+    * [Yworkflow](https://github.com/yued-fe/Yworkflow) :本地开发基础架构
+    * [Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli) :自动化静态资源版本化、模板combo工具
+    * [Ymini](https://github.com/foru17/ymini) :压缩css和静态资源的脚本工具
 
 
 ## 功能特性
@@ -88,7 +88,7 @@ brew install graphicsmagick
     1. `git clone https://github.com/yued-fe/Yworkflow.git`
     2. 安装全局npm模块`npm install gulp gulp-cli cross-env -g`
 
-##初始
+####初始
 
 Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
 
@@ -269,3 +269,47 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 2. 安装项目依赖 ` npm install`
 3. 打开某一个具体项目配置，例`gulp dev --path  /Users/yuewen-luolei/Yuewen/Tencent/qidian-m/.yconfig`
 4. 打开浏览器，即可通过`.yconfig`配置的域名和端口号，进行开发
+
+#### 发布
+
+静态资源版本化和自动生成模板统一使用[Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli)工具，该工具解决静态资源和模板映射的自动化生成。
+
+1.安装`npm install -g Yworkcli del-cli`
+2.配置文件
+
+```javascript
+{
+    "static":{
+        "path":".cahce/qdm", //生成的项目资源路径
+        "gtimgName":"qdm", //对应的gtimg地址资源路径
+        "output":"_prelease/qdm" //本地输出的编译后路径
+    },
+    "views":{
+        "path":"src/views", //匹配的模板文件路径
+        "output":"_previews/views"//最终生成的目录文件路劲
+    },
+    "configs":{
+        "path":"src/node-config",//框架机config路径
+        "output":"_previews/node-config"//框架集config发布路径
+    },
+    "combo": {
+        "force": true,//是否开启combo
+        "gtimgTag":"<%= staticConf.domains.static %>",// 静态资源环境配置
+        "uri":"<%= staticConf.domains.static %>/c/=",//combo的线上URL接口
+        "logicCondition": "envType == \"pro\" || envType == \"oa\"" //开启combo的条件,注意需要转义双引号
+    },
+}
+
+```
+
+3.发布,进入项目路径`cd /Users/yuewen-luolei/Yuewen/Tencent/qidian-m && yworkcli --publish --log './ywork.log'`
+4.可以通过 `--loag {相对路径}`来配置日志路径,可以查看`ywork.log`查看任务情况
+
+#### 资源压缩
+
+1. 安装 `npm install ymini -g`
+2. 压缩JS资源 `ymini --js --path {PATH || FILENAME} #压缩指定文件夹下的所有'.js'文件`
+3. 压缩CSS资源: `ymini --css --path {PATH || FILENAME} #压缩指定文件夹下的所有'.css'文件`
+
+
+
