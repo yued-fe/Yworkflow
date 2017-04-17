@@ -33,7 +33,7 @@ gulp.task('nodemon', function() {
         args:['--path', path.resolve(configFile)],
         watch: [
             path.join('./'), // 监听Yworkflow目录
-            path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path),// 监听服务配置相关
+            path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path ,'./**/*'),// 监听服务配置相关
             path.join(PROJECT_CONFIG.absPath, '.yconfig'),
         ],
         env: process.env.NODE_ENV

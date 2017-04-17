@@ -6,9 +6,9 @@ Yworkflow3 新手说明
 
 过去前端团队业务多以重构为主，大多数同事是以静态页面开发的模式进行本地开发，好处是目录结构比较简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
 
-过去这半年来，我们的项目逐渐规范化和流程化，根据项目的实际需求，开发出这一套Yworkflow前端构建服务工具。
+过去这半年来，我们的项目逐渐规范化和流程化，根据项目的实际需求，结合前后端架构[]Yuenode](http://git.code.oa.com/yuewen/yuenode)，针对本地开发的同事，开发出这一套Yworkflow前端构建服务工具。
 
-对于本地构建工具，总结出来就是「用开发的思维来写前端」，利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做。
+利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做，提高前后端联调效率。
 
 ####环境依赖
 
@@ -16,53 +16,12 @@ Yworkflow3 新手说明
 * [Graphics Magick](http://www.graphicsmagick.org/index.html)
 * [Image Magick](https://www.imagemagick.org/script/index.php)
 
-由于精灵图生成、压缩需要调用系统图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
-
-* GraphicsMagick:[下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
-* imagemagick: [下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
-
-**强烈建议**Mac用户使用[brew](http://brew.sh/)来安装
-
-```shell
-brew update && brew upgrade
-brew install imagemagick
-brew install graphicsmagick
-```
-
-
-#####Start
-
-
-## 功能特性
-
-- 自动化构建
-    - Sass > CSS
-
-    - JS压缩和eslint检查
-    - CSS Sprite精灵图自动生成
-    - 中文webfont生成
-    - [图片优化](https://www.npmjs.com/package/imagemin-pngquant)(压缩体积)
-
-- 本地开发
-    - 模拟线上框架机逻辑,浏览器直接HTTP模拟调试
-    - 自定义业务路由，自定义ejs模板引擎
-    - 服务自动监听文件变化:实时编译css和js
-
-
-- 资源压缩
-
-
-
-* 下载安装
-    1. `git clone http://git.code.oa.com/qidian_proj/Qidian.git` 或者svn checkout具体的项目仓库
-    2. 安装全局npm模块`sudo npm install gulp gulp-cli cross-env`
-    3. 进入项目文件夹`cd ./Yworkflow`目录，执行`npm install`安装模块 ,若日志提示`permission denied` 权限的问题,请执行`sudo npm install`
 
 注意:由于国内网络问题,建议使用国内npm仓库源或者代理安装npm模块。推荐可以使用
 
 * [淘宝NPM镜像](https://npm.taobao.org/)
 
-Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://github.com/shadowsocks/shadowsocks/tree/master) + [proxychains4](https://github.com/rofl0r/proxychains-ng)，有效解决模块中第三方资源的下载速度问题。
+Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://github.com/shadowsocks/shadowsocks/tree/master) + [proxychains4](https://github.com/rofl0r/proxychains-ng)，有效解决依赖下载速度问题。
 
 ####终端推荐
 
@@ -71,245 +30,242 @@ Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://gith
 * Mac用户推荐使用[iTerm2](https://www.iterm2.com/)，另外推荐配合使用[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)增强终端命令行功能。
 
 
+
+
+由于精灵图生成、压缩需要调用系统图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
+
+* GraphicsMagick:[下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
+* imagemagick: [下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
+
+**强烈建议**Mac用户使用[brew](http://brew.sh/)来安装
+
+```
+brew update && brew upgrade
+brew install imagemagick
+brew install graphicsmagick
+```
+
+## Yworkflow套件
+
+    * [Yworkflow](https://github.com/yued-fe/Yworkflow):本地开发模拟基础架构
+    * [Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli):静态资源版本化、模板reversion和combo工具
+    * [Ymini](https://github.com/foru17/ymini):压缩css和静态资源的脚本工具
+
+
+## 功能特性
+
+- 自动化构建
+    - CSS
+        - Sass编译
+        - 资源相对路径转绝对路径
+        - sourcemap
+    - Javascript:
+        - ESlint语法检测
+        - require 补全提前声明
+    - HTML
+        - 默认ejs模板
+        - nunjucks转ejs
+    - 精灵图
+        - svg转精灵图
+    - 中文webfont
+        - font-spider
+    - 图像处理
+       - [png图片优化](https://www.npmjs.com/package/imagemin-pngquant)
+
+- 本地开发
+    - 模拟框架机逻辑,浏览器直接HTTP模拟调试
+    - 自定义业务路由
+    - 服务自动监听文件变化:实时编译css和js
+
+- 资源压缩
+    - 参考[Ymini](https://github.com/foru17/ymini)说明文档
+
+
+
+#### 开始任务
+
+* 下载安装
+    1. `git clone https://github.com/yued-fe/Yworkflow.git`
+    2. 安装全局npm模块`npm install gulp gulp-cli cross-env -g`
+
 ##初始
 
+Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
 
-````bash
-QidianViewsTool/
-│
-├── gulp                // Gulp 任务目录
-│   ├── build.js      // gulp build
-│   ├── clean.js    // gulp clean folder and files
-│   ├── combo.js        // gulp combo
-│   ├── deploy.js       // gulp zip
-│   ├── images.js // gulp images
-│   ├── javascript.js // gulp sprites
-│   ├── sass.js    // gulp sass
-│   ├── sprites.js  // gulp sprites (to modified)
-│   │
-│   │
-│   ├── hash-tag-map
-│   │   ├──rev-manifest.json // 静态资源hash映射表
-│   │   └──rev-verionId.json //静态资源增量版本号映射表
-│
-├── package.json // 任务package.json
-│
-└── src                   // 项目目录，详见下述项目结构 ↓↓↓
-│   ├── json
-│   ├── node-config
-│   ├── static
-│    └── views // gulp配置入口
-│
-├── .yconfig  // 构建工具基础配置
-├── .csscombo.json // gulp-csscombo 配置文件
-├── .eslintrc  // eslint 配置文件
-├── .gitignore // git忽略文件
-├── gulpfile.js // gulp任务流配置
-├── index.js // 本地服务入口
-├── package.json // 项目说明和依赖
-├── README.md // 说明文档
+项目的一切配置,均通过`.yconfig`文件配置，增加项目的定制化和适用性。
+
+具体的配置,可以分别参考起点M站[qidian-m](http://git.code.oa.com/qidian_proj/qidian-m)和小说阅读网PC[readnovel_pc_proj](http://git.code.oa.com/readx/readnovel_pc_proj)
+
+
+```
+
+        var path = require('path');
+        var rootCWD = '..';
+        var defaultConfig = {
+        'name': 'qidian-m',
+        'author': 'luolei@yuewen.com',
+        'gtimgname': 'qdm', // 对应 qidian.gtimg.com/{name} 路径
+        'node_site': 'yworkflow', // 与后端约定的业务node别名
+        'env': 'local',
+        'master_host': 'm.qidian.com',
+        'debug': true,
+        'proxy_force': true, // 是否开启强制代理
+        'proxy_server': 'http://prem.qidian.com', // 接口服务地址
+        'port': 8888,
+        
+        // 执行sudo npm run hosts可以自动注入host到 /etc/hosts 文件夹
+        'hosts': [
+            'localm.qidian.com',
+        ],
+    
+    // 由于实际业务上可能采用不同的域名,进行域名映射
+    // 对于设置alias的域名统一转换成value
+    'alias': {
+        'mobile.qidian.com':'m.qidian.com'
+    },
+    
+    // 目前所有业务都是同域反向代理,这里进行一个强约定
+    // 可将所有的ajax路由在这里列出
+    'ajax': [
+        '/ajax', // 默认保留,请勿删除
+        '/apiajax',
+        '/meajax',
+        '/majax'
+    ],
+    
+    //本地文件映射
+    'paths': {
+        'json': 'src/server/json', // 设置本地开发配置的 json路径
+        'public_json': 'src/server/custom', // 注入公共数据 例如 data.user等
+        'views': '.cache/views', // 设置本地ejs模板的读取路径
+        'static_root': '.cache/static', // 指定开发时的资源入口
+        // 'static':'src/static', // 静态资源路径可以直接指定一个通用路由
+        'static': { // 也可以分别指派
+            '/qdm': '.cache/qdm',
+            '/lbf': '.cache/lbf',
+            '/jssdk': '.cache/qd_jssdk',
+            '/lbf': '.cache/lbf',
+            '/qreport':'http://qdp.qidian.com/qreport' // 上报代理到线上资源
+        } // 本地静态资源路径
+    },
+    
+    // 提供自动上传到 ftp 服务功能
+    'ftp': {
+        'host': '10.97.19.100',
+        'user': 'ftp',
+        'password': 'lny4yjtwr3xhxlldoxltzom'
+    },
+    
+    // server 配置相关是与框架机耦合的配置,这里请注意与运维约定相关参数
+    'server': {
+        'path': 'src/server/config', // 提供给框架机环境的配置入口路径
+        'server_conf_file': 'server', // 框架机配置文件名,默认server.js
+        'routermap_file': 'routes', // 动态路由配置文件
+        'static_routemap_file': 'static_routermap', // 静态化路由配置文件
+        'custome_handle_file': '', // 建议与 node_site 同名以便维护
+        'extends_loader_file': 'extends/loader', // 自定义中间件入口
+    },
+
+    'root': {
+        'cwd': '',
+        'src': 'src',
+        'dest': '.cache'
+    },
+    // 与本地开发
+    'tasks': {
+        'html': {
+            'src': 'src/server/views',
+            'dest': '.cache/views',
+            'prettify':true, // 格式化html代码
+            'multiple': true,
+            'nunjucks': {
+
+            }
+        },
+        // CSS编译相关
+        'css': {
+            'src': './src/static/css',
+            'dest': './.cache/qdm/css',
+            'autoprefix': true, //  autoprefix开关
+            'sourcemap': './.map', // sourcemap开关
+            'extensions': ['css', 'scss']
+        },
+        'js': {
+            'src': './src/static/js',
+            'dest': '.cache/qdm/js',
+            'sourcemap': './map',
+            'eslint': {
+                ignorePath: path.resolve(rootCWD, '.eslintignore'), // gulp-eslint 忽略配置，路径与 gulpfile.js 文件位置有关联
+            },
+            'lbfTransport': { // 自动补齐模块ID和依赖
+                publicPath: 'qdm/js',
+            },
+            'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
+        },
+        'img': {
+            'src': './src/static/img',
+            'dest': './.cache/qdm/img',
+            'optimize': './src/static/images/events', // 优化图片处理
+            'extensions': ['jpg', 'png', 'svg', 'gif', 'ico'], // 处理文件后缀
+        },
+        'icon': { // ICON相关任务配置
+            'src': './src/static/icon',
+            'dest': './.cache/qdm/icon',
+            'multiple': true, // 是否分批处理，即以子目录为单位，在多页面需要分开处理时会用到
+            'img': { // 图片合并相关配置
+                '1xDir': '.1x', // 1倍图存放地址，以 "." 开头是隐藏文件，为了表示此文件是生成的，不是源文件
+                'imageResize': { // gulp-image-resize(将2倍图源文件压缩成1倍图) 插件配置
+                    'width': '50%',
+                    'upscale': true,
+                },
+                'spritesmith': { // gulp.spritesmith(生成雪碧图) 插件配置
+                    'imgName': 'sprite.png',
+                    'cssName': 'sprite.css',
+                    'padding': 4,
+                    'retinaSrcFilter': '!' + path.join(rootCWD, '**/.1x/*'), // 2倍图过滤条件，路径与 gulpfile.js 文件位置有关联
+                    'retinaImgName': 'sprite@2x.png',
+                },
+            },
+            'svg': { // SVG合并相关配置
+                'svgmin': { // gulp－svgmin(压缩svg) 插件配置
+                    'plugins': [
+                        { 'removeAttrs': { 'attrs': '(fill|fill-rule)' } },
+                        { 'removeTitle': true },
+                    ],
+                },
+                'svgstore': { 'inlineSvg': true }, // gulp-svgstore(合并svg) 插件配置
+                'svgTransport': {}, // gulp-svg-transport(svg转js) 插件配置
+                'rename': 'sprite.js', // gulp-rename(重命名合并后svg转js文件名字) 插件配置
+            },
+        },
+        // 配置自动生成中文字体得入口页面
+        'font': {
+            'src': './src/static/font',
+            'dest': './.cache/qdm/font',
+            'extensions': ['css', 'eot', 'svg', 'ttf', 'woff', 'woff2'], // 处理文件后缀
+            'fontSpider': {}, // gulp-font-spider(压缩字体) 插件配置
+        },
+        // 其他静态资源
+        'static': {
+            'src': './src/static',
+            'dest': './.cache',
+            'extensions': ['css', 'scss'],
+            'copyDirect': {
+                './src/static/lbf/**': './.cache/lbf',
+                './src/static/qd_jssdk/**': './.cache/qd_jssdk',
+                './src/server/config/**': './.cache/config',
+                './src/server/views/*.*': './.cache/views',
+            }
+        }
+    }
+    };
+    module.exports = defaultConfig;
 ````
 
-请注意配置`.yconfig`文件，在这里可以配置项目对应的静态资源文件夹路径,本地调试所需的端口等。
 
+####使用
 
-##构建工具目录结构
-
-````bash
-QidianViewsTool/
-│
-├── gulp                // Gulp 任务目录
-│   ├── build.js      // gulp build
-│   ├── clean.js    // gulp clean folder and files
-│   ├── combo.js        // gulp combo
-│   ├── deploy.js       // gulp zip
-│   ├── images.js // gulp images
-│   ├── javascript.js // gulp sprites
-│   ├── sass.js    // gulp sass
-│   ├── sprites.js  // gulp sprites (to modified)
-│   │
-│   │
-│   ├── hash-tag-map
-│   │   ├──rev-manifest.json // 静态资源hash映射表
-│   │   └──rev-verionId.json //静态资源增量版本号映射表
-│
-├── package.json // 任务package.json
-│
-└── src                   // 项目目录，详见下述项目结构 ↓↓↓
-│   ├── json
-│   ├── node-config
-│   ├── static
-│    └── views // gulp配置入口
-│
-├── .yconfig  // 构建工具基础配置
-├── .csscombo.json // gulp-csscombo 配置文件
-├── .eslintrc  // eslint 配置文件
-├── .gitignore // git忽略文件
-├── gulpfile.js // gulp任务流配置
-├── index.js // 本地服务入口
-├── package.json // 项目说明和依赖
-├── README.md // 说明文档
-````
-
-#### 开发项目目录结构
-
-````bash
-src/                          // 项目目录
-├── src                           // 源文件目录
-│   ├── json                       // 模拟调试后台通信cgi和ajax接口目录
-│   │ ├──ajax // 本地模拟ajax
-│   │ └──page // 本地模拟cgi
-│   │ ├── ajaxmap.js // ajax GET请求映射config
-│   │ ├── ajaxpostmap.js ajax POST请求映射config
-│   │
-│   ├── node-config // **重要** Node框架机所依赖的config
-│   │ ├── domain_alias.js // 设置域名别名,框架机会根据header hosts头处理映射逻辑
-│   │ ├── dynamic_routermap.js   // Dynamic框架机路由映射config
-│   │ ├── static_routermap.js  //  Static框架机API和生成html路径映射config
-│   │ ├── local_dev_routermap.js // 本地调试动态和静态混合使用的路由config
-│   │ ├── minify.js // 服务端渲染 html 压缩级别config
-│   │ ├── server.js // 框架机环境、L5、资源路径等config
-│
-├── static                           // 静态资源开发路径， `gulp watch {.sass,.css.js}`会监听此目录下的文件
-│   ├── qd  // 该目录资源对应线上 qidian.gtimg.com/qd/ 路径
-│   │ ├── css // .sass 文件存放路径
-│   │ ├── images // 静态图片资源存放路径
-│   │ ├── js // 静态资源存放路径
-│
-├── views                          // 生产目录，具体的项目模板文件
- │   │  ├── rank.qidian.com
-│   │ ├── free.qidian.com
-│   │ ├── all.qidian.com
-│   │ ├── index.html
-├──  ├── list.html
-````
-
-
-## 任务说明
-
-> 注1：**`./src`** 为源文件(开发目录)，`/build` 目录为流程**自动**生成的**临时目录**。
-> 注2：**`./_prelease`**和**`_previews`**分别为发布之前**自动**生成的**静态资源目录**和**EJS模板目录**。
-> 注3:**`_/tmp`**为本地模拟server路径的**临时目录**
-
-
-**1. 初始化任务 `npm run init`**
-    执行`npm init`，初始化项目，第一次会先编译和处理所有的静态资源文件，把`src`开发目录的相关资源经过编译和处理后生成到`build`目录，此时构建工具会在`:3234`端口开启一个本地服务，你可以通过`localhost:3234`访问配置路由的页面。
-
-**2.生成不使用combo的模板文件`npm run nocombo-publish`**
-
-执行`npm run nocombo-publish`，会依次执行
-
-* `gulp clean`: 清理`./_prelease`,`./_previews`,`_/tmp`目录下的所有资源
-* `gulp build`: sass转css，js检查和压缩，复制其他静态资源，在`build`目录生成本地调试使用的相关文件。
-* `gulp rev` 将`build`目录下的所有静态资源，通过hash计算，增量生成版本号，在`hash-tag-map`目录下生成hash和版本号映射表。
-* `gulp rev-fix` 将`.css`和`.js`文件中所有涉及相关静态资源的url路径均替换成版本号后的新url。
-* `gulp rev-views` 将把`views`目录下的所有html模板中的静态资源替换成增加了版本号的新url
-
-**3.生成使用combo的模板文件`npm run publish`**
-
-在上述`nocombo-publish`之后，增加一步`gulp combo`的处理流程，自动将单独的css和js url变成一个combo url。
-
-####预览
-
-1.**普通开发和调试 `npm run dev`**
-  开启本地服务，开启`gulp watch`，实时编译。模板文件使用的是`views`目录下的文件。
-
-2.**预览`npm run preview`**
-
-预览编译和版本化后的模板，模板文件使用的是`_previews`下的文件。
-
-####静态化，发布到局域网预览
-
-'node-config/server.js'中新建一个`build`的环境，对应生成静态化所引用的资源绝对路径。
-
-1.** `npm run online-view`**
-
-使用`src/views`目录模板和`build/`静态资源静态化，将最后生成的渲染好的html文件输出到`_html`文件夹，并上传到指定的内网服务器预览。
-
-1.** `npm run online-preview`**
-
-使用`_previews`目录模板和`_prelease/`**带版本号**的静态资源静态化，将最后生成的渲染好的html文件输出到`_html`文件夹，并上传到指定的内网服务器预览。
-
-
-最终的线上预览地址是
-
-`http://10.97.19.100/project/{项目域名}/x.html`
-
-举例:
-`http://10.97.19.100/project/www.yuewen.com/index.html`
-
-
-
-####待解决
-
-1. 本地combo模拟（由于需要nginx支持，本地调试较为繁琐，此功能滞后）
-
-
-####关于映射
-
-框架机为了解决多环境、多业务支持，本次起点改造通过多域名的方式，隔离和区分环境机器，有诸如`devr.qidian.com`,`oar.qidian.com`,`rank.qidian.com`等多套域名，对应开发环境有`localr.qidian.com`。
-
-若开发具体某个有二级频道的项目，请在`views`目录下以最终线上路由为基准新建项目文件夹，把相应的模板文件置于其中开发。
-
-请在`src/node-config/domain_alias.js`中配置域名映射，以便正常启动本地服务。
-
-
-
-####精灵图生成注意事项
-
-本构建工具已经支持自动生成精灵高清@2x和标清@1x图
-
-命令行输入`npm run sprite`即可。
-
-注意
-
-> 注1: 请将二倍的高清icon图标，根据项目需求，放在`src/static/images/{某个项目}/sprites/icon-*.png`下。
-
-
-以起点某个`{projectA}`为例
-
-
-```
-├── static
-│   ├── qd
-│   │ ├── css
-│   │ ├── images
-│   │ │     ├──projectA
-│   │ │     │      ├──icon-a.png
-│   │ │     │      ├──icon-b.png
-│   │ │     │      ├──icon-c.png
-│   │ ├── js
-
-```
-
-开发者唯一只需关心的就是`icon`图标的目录。**不需要**自己手动配置精灵图`scss`文件。
-工具会根据`{某个项目}`的名称，对应在`build/qd/images/{projectA}/`
-生成`@2x.png`高清图与`@1x.png`标清图。并在`build/qd/css/projectA_sprite.scss`
-
-```
-├── build
-│   ├── qd
-│   │ ├── css
-│   │ │     ├── projectA_sprite.scss
-│   │ ├── images
-│   │ │     ├──projectA
-│   │ │     │      ├──sprite
-│   │ │     │      │     ├── @2x.png
-│   │ │     │      │     ├── @1x.png
-│   │ ├── js
-```
-
-若有多个项目`{projectB}`,`{projectC}`等等，工具均会自动对应生成，开发者只需要在引用精灵的scss文件中使用我们自定义好的宏就好。
-
-```scss
-$projectA-sprite-normal: '/qd/images/projectA/sprite/@1x.png';
-$projectA-sprite-retina: '/qd/images/projectA/sprite/@2x.png';
-
-
-//使用精灵图
-
-include use-sprite($icon-a, $projectA-sprite-normal, $projectA-sprite-retina);
-
-//按照上述方法，就可以直接调用某个精灵图了，无需手动调整background-size position等参数。
-
-
+1. 进入 {Yworkflow3路径}项目跟路径，例:`cd /Users/yuewen-luolei/Yuewen/Tencent/Yworkflow3`
+2. 安装项目依赖 ` npm install`
+3. 打开某一个具体项目配置，例`gulp dev --path  /Users/yuewen-luolei/Yuewen/Tencent/qidian-m/.yconfig`
+4. 打开浏览器，即可通过`.yconfig`配置的域名和端口号，进行开发
