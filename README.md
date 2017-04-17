@@ -48,7 +48,7 @@ brew install graphicsmagick
 ## Yworkflow三件套
 
     * [Yworkflow](https://github.com/yued-fe/Yworkflow) :本地开发基础架构
-    * [Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli) :自动化静态资源版本化、模板combo工具
+    * [Yworkcli](https://github.com/yued-fe/yworkcli) :自动化静态资源版本化、模板combo工具
     * [Ymini](https://github.com/foru17/ymini) :压缩css和静态资源的脚本工具
 
 
