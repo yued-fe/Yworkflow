@@ -5,6 +5,11 @@
 'use strict'
 
 var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+
+if (!PROJECT_CONFIG.tasks.img) {
+    return;
+}
+
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.img;
 var path = require('path');
@@ -19,7 +24,6 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
 var changedDeps = require('./plugins/gulp-changed-deps/');
-
 
 // 将处理文件全部拷贝到输出目录
 gulp.task('img:copy', function() {

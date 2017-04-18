@@ -31,9 +31,7 @@ module.exports = function(result, req, res) {
 
 	//检查公共数据是否存在loader加载器
 	if (fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json, 'index.js'))) {
-
 		publish_json = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json));
-
 		result = _.merge(result, publish_json)
 	} else {
 		// 如果没有加载文件,则遍历文件夹json

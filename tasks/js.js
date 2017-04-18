@@ -5,6 +5,10 @@
 
 'use strict'
 var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+if (!PROJECT_CONFIG.tasks.js) {
+    return;
+}
+
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.js;
 

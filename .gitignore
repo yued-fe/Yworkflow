@@ -1,40 +1,16 @@
-<<<<<<< HEAD
-npm-debug.log
-node_modules
-
-.DS_Store
-.cache
-ywork.log
-=======
-﻿# 通过命令生成的最终静态文件无需入库
-_prelease/
-
-
-# bundling output 生产环境编译的代码无需上传
-build/*
-build
-dist/*
-dist
+# list all git ignored files and folders
 
 #临时文件
-_prelease/
-_previews/
-_tmp/
 .idea/
-#static/
-_html/
-
-
+node_modules
 
 # Node Modules (use `npm install` to generate these)
 node_modules/*
 node_modules
-../*
-
+npm-debug.log
 
 # OS X Junk
 .DS_Store
-npm-debug.log
 
 # Not-Needed System Files
 *.swp
@@ -42,6 +18,3 @@ npm-debug.log
 .svn
 
 
-
-
->>>>>>> c7a99d7641d07b3765634c7cc399c2eb067a5152

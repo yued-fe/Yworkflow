@@ -70,7 +70,7 @@ var defaultConfig = {
         'dest': '.cache'
     },
     // 与本地开发
-    'tasks': {
+    'tasks': { // 若用不到相应的任务,直接注释掉相关配置即可
         // 'html': {
         //     'src': 'src/server/views',
         //     'dest': '.cache/views',

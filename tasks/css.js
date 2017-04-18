@@ -5,6 +5,11 @@
 'use strict'
 
 var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+
+if (!PROJECT_CONFIG.tasks.css) {
+    return;
+}
+
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.css;
 
@@ -22,8 +27,6 @@ var dest = path.join(PROJECT_ABS_PATH,TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH,TASK_CONFIG.sourcemap);
 var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.root.dest));
 
-console.log('绝对路径CSS');
-console.log(absoluteRootDest);
 // CSS格式美化
 gulp.task('css:css',function(){
     

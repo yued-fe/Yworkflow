@@ -13,7 +13,6 @@ const server_conf = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.ser
 
 const NODE_ENV = PROJECT_CONFIG.env || process.env.NODE_ENV;
 
-console.log(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.extends_loader_file));
 const extends_loader = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.extends_loader_file));
 
 /**

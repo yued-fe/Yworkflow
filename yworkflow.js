@@ -16,7 +16,6 @@ const gutil = require('gulp-util');
  * 根据配置读取业务代码
  */
 
-
 module.exports.getConfig = function() {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     // console.log('配置路径' + path.resolve(configFile));
@@ -35,11 +34,6 @@ module.exports.getConfig = function() {
 	}
 	return options;
 }
-
-
-/**
- * 抛出配置路径
- */
 
 
 
