@@ -47,7 +47,9 @@ gulp.task('css:scss', function () {
         .pipe(changedDeps(dest, { extension: '.css' }))
         .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.sass().on('error', plugins.sass.logError))
+        .pipe(plugins.sass({
+            
+        }).on('error', plugins.sass.logError))
         .pipe(plugins.csscomb())
         .pipe(plugins.sourcemaps.write(sourceMapDes))
         .pipe(gulp.dest(dest))

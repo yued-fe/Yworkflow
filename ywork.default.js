@@ -8,7 +8,7 @@ var rootCWD = '..';
 var defaultConfig = {
     'name': 'qidian-m',
     'author': 'luolei@yuewen.com',
-    'gtimgname': 'qdm', // 对应 qidian.gtimg.com/{name} 路径
+    'gtimgName': 'qdm', // 对应 qidian.gtimg.com/{name} 路径
     'node_site': 'yworkflow', // 与后端约定的业务node别名
     'env': 'local',
     'master_host': 'm.qidian.com',
