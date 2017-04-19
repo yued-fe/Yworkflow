@@ -283,9 +283,9 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 
 **注意**:
 
-1.不支持https代理,场景有限,滞后支持。
-2.如果在代理模式通过IP访问，默认理解host为`.yconfig`文件中配置的`master_host`。
-3.仅代理`hosts`中配置的域名,其他域名，均指向原始资源URL。
+1. 不支持https代理,场景有限,滞后支持。
+2. 如果在代理模式通过IP访问，默认理解host为`.yconfig`文件中配置的`master_host`。
+3. 仅代理`hosts`中配置的域名,其他域名，均指向原始资源URL。
 
 例:
 
@@ -301,13 +301,14 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'localwww.readnovel.com',
     ],
 ```
-    0.非代理模式下,小阅访问`localwww.readnovel.com:8008`即可访问页面。
-    1.代理模式下,小阅访问`localwww.readnovel.com`,`www.readnovel.com`，`10.97.180.114`(局域网或者公网IP)均可访问页面
-    2.代理模式下,小阅访问资源`http://qidian.qpic.cn/qdbimg/349573/c_5334091103442901/90`,访问的是原始资源
+
+0. 非代理模式下,小阅访问`localwww.readnovel.com:8008`即可访问页面。
+1. 代理模式下,小阅访问`localwww.readnovel.com`,`www.readnovel.com`，`10.97.180.114`(局域网或者公网IP)均可访问页面
+2. 代理模式下,小阅访问资源`http://qidian.qpic.cn/qdbimg/349573/c_5334091103442901/90`,访问的是依旧原始资源
 
 #### 发布
 
-静态资源版本化和自动生成模板统一使用[Yworkcli](https://www.google.com/#q=https%3A//github.com/yued-fe/yworkcli)工具，该工具解决静态资源和模板映射的自动化生成。
+静态资源版本化和自动生成模板统一使用[Yworkcli](https://github.com/yued-fe/yworkcli)工具，该工具解决静态资源和模板映射的自动化生成。
 
 1.安装`npm install -g Yworkcli del-cli`
 2.配置文件
