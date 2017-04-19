@@ -1,9 +1,10 @@
 {
   "name": "yworkflow",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "yworkflow":"npm install gulp gulp-cli ymini Yworkcli del-cli -g ",
     "hosts": "sudo gulp hosts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp dev --path "

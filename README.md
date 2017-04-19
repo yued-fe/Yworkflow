@@ -81,13 +81,13 @@ brew install graphicsmagick
     - 参考[Ymini](https://github.com/foru17/ymini)说明文档
 
 
-
 #### 开始任务
 
 * 下载安装
     1. `git clone https://github.com/yued-fe/Yworkflow.git`
-    2. 安装全局npm模块`npm install gulp gulp-cli cross-env -g`
+    2. 安装三件套`npm run yworkflow`,
 
+    
 #### 初始
 
 Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
@@ -107,9 +107,9 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'gtimgname': 'qdm', // 对应 qidian.gtimg.com/{name} 路径
         'node_site': 'yworkflow', // 与后端约定的业务node别名
         'env': 'local',
-        'master_host': 'm.qidian.com',
+        'master_host': 'm.qidian.com',// 设置主host,如果没有指定域名,则默认解析为该host,支持ip直接访问
         'debug': true,
-        'proxy_force': true, // 是否开启强制代理
+        'proxy_force': true, // 开启强制代理,接口指向服务端数据
         'proxy_server': 'http://prem.qidian.com', // 接口服务地址
         'port': 8888,
         
@@ -269,6 +269,41 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 2. 安装项目依赖 ` npm install`
 3. 打开某一个具体项目配置，例`gulp dev --path  /Users/yuewen-luolei/Yuewen/Tencent/qidian-m/.yconfig`
 4. 打开浏览器，即可通过`.yconfig`配置的域名和端口号，进行开发
+
+#### 代理模式
+
+线上业务是无port的概念,为了方便本地调试，Yworkflow3支持代理模式。下面以Chrome浏览器为例。
+
+1.安装[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)插件。
+2.设置情景模式，端口号为具体项目端口号即可
+
+![](https://luoleiorg.b0.upaiyun.com/tmp/proxy1.jpg)
+
+3.浏览器切换到自定义的情景模式,这个时候就可以通过80端口访问本地页面，模拟线上环境。（此时接口依旧根据配置读取本地json或者测试服务器)
+
+**注意**:
+
+1.不支持https代理,场景有限,滞后支持。
+2.如果在代理模式通过IP访问，默认理解host为`.yconfig`文件中配置的`master_host`。
+3.仅代理`hosts`中配置的域名,其他域名，均指向原始资源URL。
+
+例:
+
+小阅的配置如下
+
+```
+    'master_host': 'www.readnovel.com',
+    'proxy_force': true, // 是否开启强制代理
+    'proxy_server': 'http://oawww.readnovel.com', // 接口服务地址
+    'port': 8008,
+    'hosts': [
+        'www.readnovel.com',
+        'localwww.readnovel.com',
+    ],
+```
+0.非代理模式下,小阅访问`localwww.readnovel.com:8008`即可访问页面。
+1.代理模式下,小阅访问`localwww.readnovel.com`,`www.readnovel.com`，`10.97.180.114`(局域网或者公网IP)均可访问页面
+2.代理模式下,小阅访问资源`http://qidian.qpic.cn/qdbimg/349573/c_5334091103442901/90`,访问的是原始资源
 
 #### 发布
 

@@ -11,10 +11,16 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
-
+const fs = require('fs');
 
 gulp.task('nodemon', function() {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
+    // 如果没有配置,则直接返回原始数据
+    if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'))) {
+        console.log(chalk.red('[初始]自动创建 .eslintignore 文件'));
+        fs.writeFileSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'),'.cache');
+    }
+
     figlet('Yworkflow', function(err, data) {
         if (err) {
             console.log('Something went wrong...');

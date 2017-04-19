@@ -27,17 +27,16 @@ var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
 var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH, TASK_CONFIG.sourcemap);
 
-
-    console.log('配置入口');
- console.log(TASK_CONFIG);
 // JS代码检查
 gulp.task('js:eslint', function() {
+
     return gulp.src(path.join(src, '**/*.js'))
         .pipe(plugins.changed(dest))
         .pipe(plugins.plumber())
         .pipe(gulp.dest(dest))
         .pipe(plugins.eslint(TASK_CONFIG.eslint))
         .pipe(plugins.eslint.format()); // TASK_CONFIG.eslintFormatter
+
 });
 
 // JS模块转换
@@ -49,7 +48,6 @@ gulp.task('js:transport', function() {
         .pipe(lbfTransport(TASK_CONFIG.lbfTransport))
         .pipe(gulp.dest(dest));
 });
-
 
 // 将JS路径下其他文件全部拷贝到输出目录
 gulp.task('js:copy', function () {
