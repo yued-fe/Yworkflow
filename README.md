@@ -87,7 +87,7 @@ brew install graphicsmagick
     1. `git clone https://github.com/yued-fe/Yworkflow.git`
     2. 安装三件套`npm run yworkflow`,
 
-    
+
 #### 初始
 
 Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
@@ -301,9 +301,9 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'localwww.readnovel.com',
     ],
 ```
-0.非代理模式下,小阅访问`localwww.readnovel.com:8008`即可访问页面。
-1.代理模式下,小阅访问`localwww.readnovel.com`,`www.readnovel.com`，`10.97.180.114`(局域网或者公网IP)均可访问页面
-2.代理模式下,小阅访问资源`http://qidian.qpic.cn/qdbimg/349573/c_5334091103442901/90`,访问的是原始资源
+    0.非代理模式下,小阅访问`localwww.readnovel.com:8008`即可访问页面。
+    1.代理模式下,小阅访问`localwww.readnovel.com`,`www.readnovel.com`，`10.97.180.114`(局域网或者公网IP)均可访问页面
+    2.代理模式下,小阅访问资源`http://qidian.qpic.cn/qdbimg/349573/c_5334091103442901/90`,访问的是原始资源
 
 #### 发布
 
