@@ -21,8 +21,11 @@ module.exports = function(result, req, res) {
         "CLIENT_URL":req.protocol + '://' + req.get('host') + req.originalUrl,
         "CLIENT_UA":req.headers['user-agent'],
         "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss"),
-        "staticConf":staticConf // 模板配置变量
+        "staticConf":staticConf, // 模板配置变量
 	};
+
+	// 增加YUE通用变量兼容
+	publish_json.YUE = Object.assign({},publish_json);
 
     // 如果没有配置,则直接返回原始数据
     if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json))) {

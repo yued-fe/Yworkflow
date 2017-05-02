@@ -11,7 +11,7 @@ const hosts_alias = PROJECT_CONFIG.alias; // 设置域名映射
 const getServerIpList = require('./getServerIp')(); // 获得当前机器的域名
 
 /**
- * 处理host_list中的这些
+ * 处理host_list
  * @param  {[type]} thisHostName [description]
  * @return {[type]}              [description]
  */
