@@ -49,7 +49,7 @@ function ajaxHandler(req, res, next) {
             send(result);
         });
     }
-    if (PROJECT_CONFIG.debug) {
+    if (PROJECT_CONFIG.proxy_force) {
         proxyToRemote();
     } else {
         // 拼接本地文件路径
