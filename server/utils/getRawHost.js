@@ -17,16 +17,13 @@ const getServerIpList = require('./getServerIp')(); // 获得当前机器的域�
  */
 
 function genRawHost(thisHostName) {
-	if (thisHostName.startsWith('local') && thisHostName !== 'localhost') {
-		var rawHost = thisHostName.replace(/^local/, '');
-		if (hosts_alias[rawHost] !== undefined) {
-			rawHost = hosts_alias[rawHost];
+		if (hosts_alias[thisHostName] !== undefined) {
+			var rawHost = hosts_alias[thisHostName];
+			return rawHost;
+		}else{
+			return PROJECT_CONFIG.master_host;	
 		}
 		console.log(chalk.green('[实际HOST]' + rawHost));
-		return rawHost;
-	} else {
-		return PROJECT_CONFIG.master_host;
-	}
 }
 
 /**
@@ -38,6 +35,7 @@ function genRawHost(thisHostName) {
 module.exports = function(url) {
 	let domain_prefix = PROJECT_CONFIG.env || process.env.NODE_ENV;
 	let thisHostName = parse(url).hostname;
+	thisHostName = (thisHostName.startsWith('local')) ? thisHostName.replace(/^local/, '') : thisHostName;
 	// 首先判断是否是本地配置的host,如果是才进行host处理
 	if (hosts_list.indexOf(thisHostName) !== -1 || getServerIpList.indexOf(thisHostName) !== -1) {
 		return genRawHost(thisHostName)

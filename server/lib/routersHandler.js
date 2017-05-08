@@ -68,13 +68,13 @@ exports.parseRouterMap = function(routerMap) {
     var routers = {};
     for (var routerVal in routerMap) {
 
-        var _fixRouterConf = {
+        var fixRouterConf = {
             views: "",
             cgi: ""
         };
-        var _thisRouterView = routerMap[routerVal]['views'];
+        var thisRouterView = routerMap[routerVal]['views'];
         //域名不做处理,如果没有cgi,则默认补全
-        _fixRouterConf.cgi = !!(routerMap[routerVal]['cgi']) ? routerMap[routerVal]['cgi'] : '';
+        fixRouterConf.cgi = !!(routerMap[routerVal]['cgi']) ? routerMap[routerVal]['cgi'] : '';
 
         var reqPath = "";
         var domain = "_"; //未定义domain
@@ -83,16 +83,15 @@ exports.parseRouterMap = function(routerMap) {
         //如开以 / 开头,则理解成无配置域名
         if (pos === 0) { //path
             reqPath = routerVal;
-            _fixRouterConf = routerMap[routerVal];
+            fixRouterConf = routerMap[routerVal];
         } else { //域名
-
             domain = routerVal.substr(0, pos);
             reqPath = routerVal.substr(pos);
             //如果views没有补全域名,则补全域名
-            if (!!_thisRouterView && (_thisRouterView).indexOf('/') === 0 && _thisRouterView.indexOf(domain) === -1) {
-                _fixRouterConf.views = domain + _thisRouterView;
+            if (!!thisRouterView && (thisRouterView).indexOf('/') === 0 && thisRouterView.indexOf(domain) === -1) {
+                fixRouterConf.views = domain + thisRouterView;
             } else {
-                _fixRouterConf.views = _thisRouterView;
+                fixRouterConf.views = thisRouterView;
             }
 
         }
@@ -101,7 +100,7 @@ exports.parseRouterMap = function(routerMap) {
             routers[reqPath] = {};
         }
 
-        routers[reqPath][domain] = _fixRouterConf;
+        routers[reqPath][domain] = fixRouterConf;
     }
     return routers;
 

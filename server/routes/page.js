@@ -20,7 +20,6 @@ const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.
 const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.static_routemap_file))
 
 const routes = routersHandler.parseRouterMap(dynamic_routes);
-
 const confHandler = require('../lib/confHandler');
 
 // const staticViews = Object.keys(static_routes).map(function(routeKey) {
@@ -38,7 +37,6 @@ function startsWith(str, word) {
 }
 
 Object.keys(routes).forEach(function(routePath) {
-
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
 	router.get(routePath, function(req, res, next) {
@@ -58,7 +56,6 @@ Object.keys(routes).forEach(function(routePath) {
 		// 首先确定映射的host主域名
 		let route = domainToRoute[utils.getRawHost(resFullUrl)] || domainToRoute[PROJECT_CONFIG.master_host];
 		console.log(domainToRoute)
-		console.log(route)
 		// 如果没有cgi请求,则直接render
 		if (!route.cgi) {
 			render();
