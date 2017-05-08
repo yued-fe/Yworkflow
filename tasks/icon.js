@@ -142,6 +142,7 @@ if (TASK_CONFIG.multiple) { // 以子目录为单位
 gulp.task('icon', function (done) {
     var preTasks = [];
     var tasks = [];
+    console.log(imgConfig)
     imgResizeTasks.forEach(function (task) {
         if (PROJECT_CONFIG.debug) {
             var watcher = gulp.watch(task.src, [task.name]); // 启动图片压缩监听
@@ -168,6 +169,5 @@ gulp.task('icon', function (done) {
         PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动SVG合并监听
         tasks.push(task.name);
     });
-
     runSequence(preTasks, tasks, done); // 默认执行一次所有任务
 });

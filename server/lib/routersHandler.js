@@ -20,9 +20,14 @@ const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.
 const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.static_routemap_file))
 
 
-const staticViews = Object.keys(static_routes).map(function(routeKey) {
-    return static_routes[routeKey].views.replace(/^\/|\.html$/g, ''); // 将静态化路由的views转换成和动态化路由的views一致
-});
+// const staticViews = Object.keys(static_routes).map(function(routeKey) {
+//     console.log('读取START')
+//     console.log(static_routes)
+//     console.log(routeKey)
+//     console.log(static_routes[routeKey])
+//     // console.log(static_routes[routeKey].views)
+//     return static_routes[routeKey].views.replace(/^\/|\.html$/g, ''); // 将静态化路由的views转换成和动态化路由的views一致
+// });
 
 
 Object.keys(dynamic_routes).forEach(function(routeKey) {

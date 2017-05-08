@@ -103,6 +103,7 @@ app.use(function(req, res, next) {
             request(options, function(e, response, result) {
                 if (e) {
                     console.log(chalk.red('代理出错了'));
+                    console.log(e)
                     cb(null, {
                         response: response,
                         result: result
@@ -130,6 +131,7 @@ app.use(function(req, res, next) {
 
 console.log(chalk.green('当前项目绝对路径:') + chalk.red(PROJECT_CONFIG.absPath));
 app.listen(app.get('port'), () => {
+    console.log(app.get('env'))
     console.log('本地服务启动,端口:' + app.get('port'));
     // require('./lib/document')('', pageRouter.stack);
     require('./lib/document')('', apiRouter.stack);

@@ -29,6 +29,7 @@ gulp.task('nodemon', function() {
         }
         console.log(chalk.bold.green(data))
     });
+
     // 自动监听
     nodemon({
         script: 'server/index.js' ,
@@ -40,7 +41,7 @@ gulp.task('nodemon', function() {
             path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path ,'./**/*'),// 监听服务配置相关
             path.resolve(configFile),
         ],
-        env: process.env.NODE_ENV
+        env: { NODE_ENV: PROJECT_CONFIG.env }
     }).on('restart', function(changeFiles) {
         if (changeFiles) {
             changeFiles.forEach(function(file) {
@@ -58,7 +59,6 @@ gulp.task('nodemon', function() {
  */
 gulp.task('dev', ['nodemon'], function(done) {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
-    console.log('启动参数' + configFile);
     if (process.env.NODE_ENV === 'production') {
         runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), 'html:tricky', done);
     } else {

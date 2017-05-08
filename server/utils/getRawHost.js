@@ -17,7 +17,7 @@ const getServerIpList = require('./getServerIp')(); // 获得当前机器的域�
  */
 
 function genRawHost(thisHostName) {
-	if (thisHostName.startsWith('local')) {
+	if (thisHostName.startsWith('local') && thisHostName !== 'localhost') {
 		var rawHost = thisHostName.replace(/^local/, '');
 		if (hosts_alias[rawHost] !== undefined) {
 			rawHost = hosts_alias[rawHost];
