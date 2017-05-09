@@ -30,8 +30,6 @@ Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://gith
 * Mac用户推荐使用[iTerm2](https://www.iterm2.com/)，另外推荐配合使用[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)增强终端命令行功能。
 
 
-
-
 由于精灵图生成、压缩需要调用系统图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
 
 * GraphicsMagick:[下载地址](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/)
@@ -109,13 +107,13 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'env': 'local',
         'master_host': 'm.qidian.com',// 设置主host,如果没有指定域名,则默认解析为该host,支持ip直接访问
         'debug': true,
-        'proxy_force': true, // 开启强制代理,接口指向服务端数据
+        'proxy_force': true, // 开启代理开关,接口指向服务端数据
         'proxy_server': 'http://prem.qidian.com', // 接口服务地址
         'port': 8888,
         
         // 执行sudo npm run hosts可以自动注入host到 /etc/hosts 文件夹
         'hosts': [
-            'localm.qidian.com',
+            'm.qidian.com', // 配置该项目的业务域名,针对这里配置的所有域名进行路由代理
         ],
     
     // 由于实际业务上可能采用不同的域名,进行域名映射
@@ -132,7 +130,6 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         '/meajax',
         '/majax'
     ],
-    
     //本地文件映射
     'paths': {
         'json': 'src/server/json', // 设置本地开发配置的 json路径
@@ -142,7 +139,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         // 'static':'src/static', // 静态资源路径可以直接指定一个通用路由
         'static': { // 也可以分别指派
             '/qdm': '.cache/qdm',
-            '/lbf': '.cache/lbf',
+            '/lbf': 'http://devqidian.gtimg.com/lbf', // 支持直接将某一个域名代理到线上路径
             '/jssdk': '.cache/qd_jssdk',
             '/lbf': '.cache/lbf',
             '/qreport':'http://qdp.qidian.com/qreport' // 上报代理到线上资源
@@ -165,13 +162,12 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'custome_handle_file': '', // 建议与 node_site 同名以便维护
         'extends_loader_file': 'extends/loader', // 自定义中间件入口
     },
-
     'root': {
         'cwd': '',
         'src': 'src',
         'dest': '.cache'
     },
-    // 与本地开发
+    // 本地编译相关task
     'tasks': {
         'html': {
             'src': 'src/server/views',
@@ -190,17 +186,18 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
             'sourcemap': './.map', // sourcemap开关
             'extensions': ['css', 'scss']
         },
+        // JS编译相关
         'js': {
             'src': './src/static/js',
             'dest': '.cache/qdm/js',
             'sourcemap': './map',
             'eslint': {
-                ignorePath: path.resolve(rootCWD, '.eslintignore'), // gulp-eslint 忽略配置，路径与 gulpfile.js 文件位置有关联
+                ignorePath: path.resolve(__filename,'../', '.eslintignore'), // gulp-eslint 忽略配置，路径与 gulpfile.js 文件位置有关联
             },
             'lbfTransport': { // 自动补齐模块ID和依赖
                 publicPath: 'qdm/js',
             },
-            'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
+            'eslintFormatter': path.join('node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关
         },
         'img': {
             'src': './src/static/img',
@@ -208,7 +205,9 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
             'optimize': './src/static/images/events', // 优化图片处理
             'extensions': ['jpg', 'png', 'svg', 'gif', 'ico'], // 处理文件后缀
         },
-        'icon': { // ICON相关任务配置
+        // ICON相关任务配置
+        // 会自动遍历 src设置文件夹的目录,生成精灵图
+        'icon': { 
             'src': './src/static/icon',
             'dest': './.cache/qdm/icon',
             'multiple': true, // 是否分批处理，即以子目录为单位，在多页面需要分开处理时会用到
@@ -222,7 +221,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
                     'imgName': 'sprite.png',
                     'cssName': 'sprite.css',
                     'padding': 4,
-                    'retinaSrcFilter': '!' + path.join(rootCWD, '**/.1x/*'), // 2倍图过滤条件，路径与 gulpfile.js 文件位置有关联
+                    'retinaSrcFilter': '!' + path.resolve(__filename,'../', '**/.1x/*'), // 2倍图过滤条件，路径与 gulpfile.js 文件位置有关联
                     'retinaImgName': 'sprite@2x.png',
                 },
             },
@@ -250,7 +249,8 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
             'src': './src/static',
             'dest': './.cache',
             'extensions': ['css', 'scss'],
-            'copyDirect': {
+            'copyDirect': { 
+                // 直接复制资源到指定位置
                 './src/static/lbf/**': './.cache/lbf',
                 './src/static/qd_jssdk/**': './.cache/qd_jssdk',
                 './src/server/config/**': './.cache/config',

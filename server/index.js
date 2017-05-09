@@ -59,14 +59,20 @@ if (typeof staticPath === 'string') {
                 // filter: function(req, res) {
                 // 	return req.method == 'GET';
                 // },
+                decorateRequest: function(proxyReq, originalReq) {
+                    // you can update headers 
+                    proxyReq.path = key + originalReq.path;
+                    return proxyReq;
+                },
                 forwardPath: function(req) {
                     var parseUrl = parse(req.url);
                     let remoteUrl = '';
                     if (parse(req.url).hostname) {
-                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query + '&proxy=yuenode';
+                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
                     } else {
                         remoteUrl = staticPath[key] + req.url;
                     }
+                    // console.log(req.headers)
                     console.log(chalk.blue('[请求代理]:') + chalk.green(remoteUrl));
                     return staticPath[key] + req.url
                 },
