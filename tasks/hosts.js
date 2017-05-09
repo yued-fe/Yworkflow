@@ -20,7 +20,6 @@ gulp.task('hosts', function(done) {
 	// 修正hosts文件
 	var commentesIntro = '# ' + PROJECT_CONFIG.name + ' Author:' + PROJECT_CONFIG.author + '\n';
 	var hostLine = '';
-
 	//首先检查文件中是否已经配置了相关域名hosts
 	fs.readFile('/etc/hosts', 'utf-8', function(err, result) {
 		if (err) {

@@ -21,7 +21,6 @@ const extends_loader = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.
  * @return {[type]}           [description]
  */
 exports.getStaticConf = function() {
-	// console.log(server_conf)
     return server_conf.genConf[NODE_ENV].static;
 }
 

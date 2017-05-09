@@ -56,7 +56,6 @@ Object.keys(routes).forEach(function(routePath) {
 		// 首先确定映射的host主域名
 		let route = domainToRoute[utils.getRawHost(resFullUrl)] || domainToRoute[PROJECT_CONFIG.master_host];
 		// 如果没有cgi请求,则直接render
-		console.log(route)
 		if (!route.cgi) {
 			render();
 			return;

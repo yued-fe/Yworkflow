@@ -133,8 +133,8 @@ app.use(function(req, res, next) {
 
 console.log(chalk.green('当前项目绝对路径:') + chalk.red(PROJECT_CONFIG.absPath));
 app.listen(app.get('port'), () => {
-    console.log(app.get('env'))
-    console.log('本地服务启动,端口:' + app.get('port'));
+    console.log(chalk.blue('[服务环境] ') + chalk.green(app.get('env')));
+    console.log(chalk.blue('[服务端口] ') + chalk.green(app.get('port')));
     // require('./lib/document')('', pageRouter.stack);
     require('./lib/document')('', apiRouter.stack);
 })

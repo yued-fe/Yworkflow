@@ -1,7 +1,7 @@
 module.exports =  function (baseUrl, routes) {
     var Table = require('cli-table');
     var table = new Table({ head: ["Method", "Path"] });
-    console.log('\n当前路由列表 ' + baseUrl);
+    console.log('\n代理ajax路由转发列表 ' + baseUrl);
     console.log('********************************************');
     for (var key in routes) {
         if (routes.hasOwnProperty(key)) {

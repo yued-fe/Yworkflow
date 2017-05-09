@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "yworkflow":"npm install gulp gulp-cli ymini Yworkcli del-cli -g ",
-    "hosts": "sudo gulp hosts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "hosts": "sudo gulp hosts --path ",
     "dev": "gulp dev --path "
   },
   "author": "luolei",
