@@ -21,7 +21,6 @@ app.use(morgan('dev')); // 启动开发日志
 
 // 拓展中间件
 app.locals = confHandler.getExtendsLoader();
-
 app.set('view engine', 'ejs'); // 载入ejs模板
 app.engine('html', require('ejs').renderFile);
 app.set('port', process.env.PORT || PROJECT_CONFIG.port); // 设置默认端口
@@ -60,7 +59,6 @@ if (typeof staticPath === 'string') {
                 // 	return req.method == 'GET';
                 // },
                 decorateRequest: function(proxyReq, originalReq) {
-                    // you can update headers 
                     proxyReq.path = key + originalReq.path;
                     return proxyReq;
                 },
@@ -72,7 +70,6 @@ if (typeof staticPath === 'string') {
                     } else {
                         remoteUrl = staticPath[key] + req.url;
                     }
-                    // console.log(req.headers)
                     console.log(chalk.blue('[请求代理]:') + chalk.green(remoteUrl));
                     return staticPath[key] + req.url
                 },
@@ -98,7 +95,7 @@ app.use('/magic',magicRouter);
 // 代理其他资源到原始的URL
 app.use(function(req, res, next) {
     let rawheaders = req.headers;
-    // 继承原始CLIENT HEADER
+    // 继承原始headers信息
     let options = {
         url: req.originalUrl,
         headers: req.headers,
@@ -108,8 +105,7 @@ app.use(function(req, res, next) {
         function(cb) {
             request(options, function(e, response, result) {
                 if (e) {
-                    console.log(chalk.red('代理出错了'));
-                    console.log(e)
+                    console.log(chalk.red('代理出错了') + req.originalUrl);
                     cb(null, {
                         response: response,
                         result: result
