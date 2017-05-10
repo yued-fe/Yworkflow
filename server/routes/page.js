@@ -52,7 +52,6 @@ Object.keys(routes).forEach(function(routePath) {
 		} else {
 			resFullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 		}
-		console.log('请求' + resFullUrl)
 		// 首先确定映射的host主域名
 		let route = domainToRoute[utils.getRawHost(resFullUrl)] || domainToRoute[PROJECT_CONFIG.master_host];
 		// 如果没有cgi请求,则直接render
@@ -60,6 +59,7 @@ Object.keys(routes).forEach(function(routePath) {
 			render();
 			return;
 		}
+
 		// 如果开启强制代理,则所有的数据请求均走http请求
 		if (PROJECT_CONFIG.proxy_force) {
 			proxyToRemote();
@@ -89,7 +89,7 @@ Object.keys(routes).forEach(function(routePath) {
 			// 本地抛出DEBUG_INFO供业务调试
 			result.DEBUG_INFO = result;
 
-            console.log(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`));
+            console.log(chalk.blue('[读取模板] ') + path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`));
 			res.render(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`), result)
 		}
 
