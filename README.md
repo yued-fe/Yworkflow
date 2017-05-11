@@ -4,11 +4,11 @@ Yworkflow3 新手说明
 
 ## 写在前面
 
-过去前端团队业务多以重构为主，大多数同事是以静态页面开发的模式进行本地开发，好处是目录结构比较简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
+过去前端团队业务多以重构为主，传统静态页面开发的模式进行本地开发，好处是目录结构简单，容易理解，直接手写css和js，坏处也不言而喻，脱离了线上场景，无法掌握路由设计，无法正确管理页面的业务渲染逻辑，无法模拟ajax请求。
 
-过去这半年来，我们的项目逐渐规范化和流程化，根据项目的实际需求，结合前后端架构[Yuenode](http://git.code.oa.com/yuewen/yuenode)，针对本地开发的同事，开发出这一套Yworkflow前端构建服务工具。
+过去这一年来，我们的项目开发逐渐规范化和流程化，根据实际需求，结合前后端分离Node架构[Yuenode](https://github.com/yued-fe/yuenode)，开发出这一套基于`gulp`和`express`的本地脚手架工具。
 
-利用Nodejs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做，提高前后端联调效率。
+利用NodeJs模拟服务器环境，在本地介入业务逻辑，把过去交给「开发」的套模板的工作，放到前端来做，提高前后端联调效率。
 
 ## 环境依赖
 
@@ -25,10 +25,9 @@ Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://gith
 
 ## 终端推荐
 
-* Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。
+* ~~Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。~~(3.0版本不再对Windows进行支持)。
 
 * Mac用户推荐使用[iTerm2](https://www.iterm2.com/)，另外推荐配合使用[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)增强终端命令行功能。
-
 
 由于精灵图生成、压缩需要调用系统图形模块[ImageMagick](http://www.imagemagick.org/script/index.php)和[ GraphicsMagick](http://www.graphicsmagick.org/)，请事先安装好相应的图像模块。
 
@@ -83,7 +82,7 @@ brew install graphicsmagick
 
 * 下载安装
     1. `git clone https://github.com/yued-fe/Yworkflow.git`
-    2. 安装三件套`npm run yworkflow`,
+    2. 安装三件套`npm run yworkflow`（若提示权限问题,请使用sudo)
 
 
 #### 初始
@@ -297,8 +296,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
     'proxy_server': 'http://oawww.readnovel.com', // 接口服务地址
     'port': 8008,
     'hosts': [
-        'www.readnovel.com',
-        'localwww.readnovel.com',
+        'www.readnovel.com'
     ],
 ```
 
@@ -331,6 +329,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
     "combo": {
         "force": true,//是否开启combo
         "gtimgTag":"<%= staticConf.domains.static %>",// 静态资源环境配置
+        "gtimgNamePrepend":"qd", // 在combo组合前增加文件名
         "uri":"<%= staticConf.domains.static %>/c/=",//combo的线上URL接口
         "logicCondition": "envType == \"pro\" || envType == \"oa\"" //开启combo的条件,注意需要转义双引号
     },

@@ -26,7 +26,7 @@ var defaultConfig = {
         'mobile.qidian.com':'m.qidian.com'
     },
     // 目前所有业务都是同域反向代理,这里进行一个强约定
-    // 可将所有的ajax路由在这里列出
+    // 可将下列所有匹配路由的ajax请求代理到 proxy_server
     'ajax': [
         '/ajax', // 默认保留,请勿删除
         '/apiajax',
@@ -40,10 +40,8 @@ var defaultConfig = {
         'views': '.cache/views', // 设置本地ejs模板的读取路径
         'static_root': '.cache/static', // 指定开发时的资源入口
         // 'static':'src/static', // 静态资源路径可以直接指定一个通用路由
-        'static': { // 也可以分别指派
+        'static': { // 也可以分别指定
             '/qdm': '.cache/qdm',
-            '/lbf': '.cache/lbf',
-            '/jssdk': '.cache/qd_jssdk',
             '/lbf': '.cache/lbf',
             '/qreport':'http://qdp.qidian.com/qreport' // 上报代理到线上资源
         } // 本地静态资源路径
@@ -97,7 +95,7 @@ var defaultConfig = {
             'lbfTransport': { // 自动补齐模块ID和依赖
                 publicPath: 'qdm/js',
             },
-            'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
+             'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
         },
         // 'img': {
         //     'src': './src/static/img',
