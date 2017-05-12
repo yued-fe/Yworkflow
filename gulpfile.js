@@ -20,7 +20,6 @@ if (PROJECT_CONFIG.tasks.render && fs.existsSync( path.join(PROJECT_CONFIG.absPa
 }
 
 
-
 gulp.task('nodemon', function() {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     // 如果没有配置,则直接返回原始数据

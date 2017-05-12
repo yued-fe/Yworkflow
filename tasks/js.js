@@ -2,8 +2,8 @@
  * js相关任务
  * @type {[type]}
  */
-
 'use strict'
+
 var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
 if (!PROJECT_CONFIG.tasks.js) {
     return;

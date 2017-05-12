@@ -16,7 +16,6 @@ Yworkflow3 新手说明
 * [Graphics Magick](http://www.graphicsmagick.org/index.html)
 * [Image Magick](https://www.imagemagick.org/script/index.php)
 
-
 注意:由于国内网络问题,建议使用国内npm仓库源或者代理安装npm模块。推荐可以使用
 
 * [淘宝NPM镜像](https://npm.taobao.org/)
@@ -176,6 +175,12 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
             'nunjucks': {
 
             }
+        },
+        // 静态化路径
+        'render': {
+            'render_routermap_file': 'src/node-config/RENDER.js', // 该路由表设置的所有路由均会对应生成html实体文件
+            'dest': '_html', // 静态化文件生成路径
+            'minimize':true, // 生成压缩html 
         },
         // CSS编译相关
         'css': {

@@ -2,9 +2,8 @@
  * 静态化任务
  * @type {[type]}
  */
+
 'use strict'
-
-
 
 const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
 const PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
@@ -16,7 +15,6 @@ if (!PROJECT_CONFIG.tasks.render) {
 const TASK_CONFIG = PROJECT_CONFIG.tasks.render;
 const path = require('path');
 const fs = require('fs');
-
 
 const render_routermap_file = path.join(PROJECT_ABS_PATH, TASK_CONFIG.render_routermap_file);
 const render_dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
@@ -53,7 +51,6 @@ gulp.task('render:minimize', function() {
 		.pipe(gulp.dest(render_dest))
 });
 
-
 /**
  * 生成需要静态化的页面任务
  * @return {[type]} [description]
@@ -63,7 +60,7 @@ var getHtmlRenderTask = function(router) {
 		checkDirectory.checkFolder(router);
 		requestProy.get('http://' + router, function(err, res, result) {
 			if (err) {
-				console.log(chalk.red(['静态化']) + router + '\n' +  err);
+				console.log(chalk.red(['静态化']) + router + '\n' + err);
 				return;
 			}
 			try {
@@ -79,7 +76,6 @@ var getHtmlRenderTask = function(router) {
 		})
 	}
 }
-
 
 // 针对不同路由,独立生成不同的task任务,优化静态化性能
 Object.keys(render_routes).forEach(function(router) {
@@ -99,6 +95,6 @@ gulp.task('render', function(done) {
 			PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动RENDER编译监听	
 			tasks.push(task.name);
 		})
-	// 如果开启了压缩,则执行压缩task
-	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null , done); // 默认执行一次所有任务
+		// 如果开启了压缩,则执行压缩task
+	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null, done); // 默认执行一次所有任务
 });
