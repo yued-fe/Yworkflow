@@ -20,7 +20,6 @@ var path = require('path');
 var chalk = require('chalk');
 
 
-
 var lbfTransport = require('./plugins/gulp-lbf-transport/');
 var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
 var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
@@ -28,7 +27,6 @@ var sourceMapDes = path.join(PROJECT_ABS_PATH, TASK_CONFIG.sourcemap);
 
 // JS代码检查
 gulp.task('js:eslint', function() {
-
     return gulp.src(path.join(src, '**/*.js'))
         .pipe(plugins.changed(dest))
         .pipe(plugins.plumber())

@@ -13,12 +13,20 @@ const runSequence = require('run-sequence');
 const gutil = require('gulp-util');
 const fs = require('fs');
 
+if (PROJECT_CONFIG.tasks.render && fs.existsSync( path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.tasks.render.render_routermap_file))) {
+    var render_routermap_file =  path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.tasks.render.render_routermap_file);
+}else{
+    var render_routermap_file = '';
+}
+
+
+
 gulp.task('nodemon', function() {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     // 如果没有配置,则直接返回原始数据
     if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'))) {
         console.log(chalk.red('[初始]自动创建 .eslintignore 文件'));
-        fs.writeFileSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'),'.cache');
+        fs.writeFileSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'), '.cache');
     }
 
     figlet('Yworkflow', function(err, data) {
@@ -32,16 +40,21 @@ gulp.task('nodemon', function() {
 
     // 自动监听
     nodemon({
-        script: 'server/index.js' ,
+        script: 'server/index.js',
         nodeArgs: ['--harmony'],
         ext: 'js html',
-        args:['--path', path.resolve(configFile)],
+        args: ['--path', path.resolve(configFile)],
+        ignore: [
+           render_routermap_file, // 监听服务配置相关
+        ],
         watch: [
             path.join('./'), // 监听Yworkflow目录
-            path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path ,'./**/*'),// 监听服务配置相关
+            path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, './**/*'), // 监听服务配置相关
             path.resolve(configFile),
         ],
-        env: { NODE_ENV: PROJECT_CONFIG.env }
+        env: {
+            NODE_ENV: PROJECT_CONFIG.env
+        }
     }).on('restart', function(changeFiles) {
         if (changeFiles) {
             changeFiles.forEach(function(file) {

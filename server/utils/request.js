@@ -17,8 +17,7 @@ module.exports = function (method, url, params, headers, callback) {
     } else {
         options.form = params;
     }
-
-    console.log(chalk.blue('[请求' + method.toUpperCase() +  ']:'), chalk.green(url), chalk.green(JSON.stringify(params))); // eslint-disable-line no-console
+    console.log(chalk.bgRed('[请求' + method.toUpperCase() +  ']'), chalk.red(url), chalk.red(JSON.stringify(params))); // eslint-disable-line no-console
 
     request[method](options, function (err, res, result) {
         if (err) {
@@ -26,7 +25,6 @@ module.exports = function (method, url, params, headers, callback) {
             callback(err);
             return;
         }
-
         try {
             result = JSON.stringify(JSON.parse(result),null,4);
             callback.call(res, null, JSON.parse(result));

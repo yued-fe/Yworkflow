@@ -16,15 +16,11 @@ const routersHandler = require('../lib/routersHandler');
 // 首先读取动态路由
 const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file))
 
-// // 读取静态化路由:本地均当成动态路由来进行模拟
+// 读取静态化路由:本地均当成动态路由来进行模拟
 const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.static_routemap_file))
 
 const routes = routersHandler.parseRouterMap(dynamic_routes);
 const confHandler = require('../lib/confHandler');
-
-// const staticViews = Object.keys(static_routes).map(function(routeKey) {
-// 	return static_routes[routeKey].views.replace(/^\/|\.html$/g, ''); // 将静态化路由的views转换成和动态化路由的views一致
-// });
 
 /**
  * 检查是否以某字符串开头

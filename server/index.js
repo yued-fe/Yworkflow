@@ -17,10 +17,13 @@ const async = require("async");
 
 const app = express();
 
-app.use(morgan('dev')); // 启动开发日志
-
+// 开启debug模式,才在显示所有的请求日志
+if(PROJECT_CONFIG.debug){
+    app.use(morgan('dev')); // 启动开发日志
+}
 // 拓展中间件
 app.locals = confHandler.getExtendsLoader();
+
 app.set('view engine', 'ejs'); // 载入ejs模板
 app.engine('html', require('ejs').renderFile);
 app.set('port', process.env.PORT || PROJECT_CONFIG.port); // 设置默认端口
@@ -31,7 +34,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cookieParser());
-
 // 本地调试允许所有请求
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -54,7 +56,6 @@ if (typeof staticPath === 'string') {
         let REG_HTTP = new RegExp("^(http|https)://", "i");
         if (REG_HTTP.test(staticPath[key])) {
             app.use(key, proxy(staticPath[key], {
-                // 过滤掉有外网资源和请求
                 // filter: function(req, res) {
                 // 	return req.method == 'GET';
                 // },
@@ -70,7 +71,7 @@ if (typeof staticPath === 'string') {
                     } else {
                         remoteUrl = staticPath[key] + req.url;
                     }
-                    console.log(chalk.blue('[请求代理]:') + chalk.green(remoteUrl));
+                    console.log(chalk.blue('[映射代理]:') + chalk.green(remoteUrl));
                     return staticPath[key] + req.url
                 },
                 intercept: function(rsp, data, req, res, callback) {
@@ -81,7 +82,6 @@ if (typeof staticPath === 'string') {
             app.use(key, express.static(path.join(PROJECT_CONFIG.absPath, staticPath[key])));
         }
     });
-
 }
 
 // 启动API相关路由

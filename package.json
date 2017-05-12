@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "yworkflow":"npm install gulp gulp-cli ymini Yworkcli del-cli -g ",
+    "yworkflow": "npm install gulp gulp-cli ymini Yworkcli del-cli -g ",
     "hosts": "sudo gulp hosts --path ",
     "dev": "gulp dev --path "
   },
@@ -35,6 +35,7 @@
     "gulp-if": "^2.0.2",
     "gulp-image-resize": "^0.12.0",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-minimize": "^1.0.0",
     "gulp-newer": "^1.3.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-nunjucks": "^2.3.0",

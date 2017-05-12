@@ -19,7 +19,6 @@ function queryStartMarkChecker(queryString){
  * 后台CGI转成 http://{CGI-SERVER}/mpage/forum/getBookForum?bookId={具体参数}&someId={具体参数}&others=...
  */
 module.exports = function(searchQuery, rawRoute, req) {
-
 	// 如果请求的实际路由与配置路由不相同,则对参数做rewrite处理
 	if (rawRoute !== req.path) {
 		let queryObj = {};
@@ -38,7 +37,7 @@ module.exports = function(searchQuery, rawRoute, req) {
 		let proxyQueryResult = Object.assign(qs.parse(searchQuery), queryObj);
 
 		searchQuery = qs.stringify(proxyQueryResult, {
-			encode: false // 方便调试,关闭encode
+			encode: false // 为方便调试,关闭encode
 		})
 	}
 	// 如果query值存在且开头无问号,则自动补全

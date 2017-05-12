@@ -6,9 +6,9 @@
 
 'use strict';
 const _ = require('lodash');
-
 const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
+const fs = require('fs');
 const parse = require('url-parse'); // 获得URL处理模块
 
 const routes = {};
@@ -16,9 +16,15 @@ const domainList = [];
 // 首先读取动态路由
 const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file))
 
-// 读取静态化路由:本地均当成动态路由来进行模拟
+// 读取线上静态化路由:本地均当成动态路由来进行模拟
 const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.static_routemap_file))
 
+// 读取本地静态化路由:本地均当成动态路由来进行模拟
+if (PROJECT_CONFIG.tasks.render && fs.existsSync( path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.tasks.render.render_routermap_file))) {
+    var render_routes =  require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.tasks.render.render_routermap_file));
+}else{
+    var render_routes = {};
+}
 
 Object.keys(dynamic_routes).forEach(function(routeKey) {
     const delimiterIndex = routeKey.indexOf('/');
@@ -45,6 +51,17 @@ Object.keys(dynamic_routes).forEach(function(routeKey) {
 exports.getDomainsList = function(routerMap){
     return domainList;
 }
+
+
+/**
+ * 获得本地静态化业务路由
+ * @param  {[type]} routerMap [description]
+ * @return {[type]}           [description]
+ */
+exports.getRenderList = function(routerMap){
+    return render_routes;
+}
+
 
 
 /**
