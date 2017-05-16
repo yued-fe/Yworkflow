@@ -64,7 +64,7 @@ if (typeof staticPath === 'string') {
                     return proxyReq;
                 },
                 forwardPath: function(req) {
-                    var parseUrl = parse(req.url);
+                    let parseUrl = parse(req.url);
                     let remoteUrl = '';
                     if (parse(req.url).hostname) {
                         remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
@@ -79,6 +79,8 @@ if (typeof staticPath === 'string') {
                 }
             }));
         } else {
+            // 针对 /ejs 开始的路由,做一个强依赖处理
+            app.use((!!PROJECT_CONFIG.paths.ejs_rewrite_router ? PROJECT_CONFIG.paths.ejs_rewrite_router : '/ejs') + key, express.static(path.join(PROJECT_CONFIG.absPath, staticPath[key])));
             app.use(key, express.static(path.join(PROJECT_CONFIG.absPath, staticPath[key])));
         }
     });

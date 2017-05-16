@@ -7,5 +7,5 @@ var gulp = require('gulp');
 var del = require('del');
 
 gulp.task('clean', function () {
-    return del([path.join(PROJECT_CONFIG.absPath,PROJECT_CONFIG.root.dest)], { dot: true, force: true });
+    // return del([path.join(PROJECT_CONFIG.absPath,PROJECT_CONFIG.root.dest)], { dot: true, force: true });
 });

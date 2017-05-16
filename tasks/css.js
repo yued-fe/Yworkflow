@@ -29,7 +29,6 @@ var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.ro
 
 // CSS格式美化
 gulp.task('css:css',function(){
-    
 	return gulp.src(src + '/**/*.css')
 		.pipe(plugins.plumber())
 		.pipe(plugins.changed(dest))

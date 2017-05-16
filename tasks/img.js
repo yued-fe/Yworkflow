@@ -27,6 +27,7 @@ var changedDeps = require('./plugins/gulp-changed-deps/');
 
 // 将处理文件全部拷贝到输出目录
 gulp.task('img:copy', function() {
+	console.log('复制复原')
 	return gulp.src(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'))
 		.pipe(plugins.changed(dest))
 		.pipe(gulp.dest(dest));
@@ -35,14 +36,15 @@ gulp.task('img:copy', function() {
 // 优化图片压缩质量
 gulp.task('img:optimize', function(done) {
 	// 监听图片文件
-	gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
-	runSequence('img:copy', done);
+	// gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
+	// runSequence('img:copy', done);
 });
 
 
 gulp.task('img', function(done) {
+	// console.log(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}')
 	// 监听图片文件
-	gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
+	// gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
 	runSequence('img:copy', done);
 });
 

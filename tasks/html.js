@@ -65,7 +65,7 @@ if (TASK_CONFIG.multiple) { // 以子目录为单位
 gulp.task('html', function (done) {
     var tasks = [];
     htmlCompileTasks.forEach(function (task) {
-        PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动HTML编译监听
+        gulp.watch(task.src, [task.name]); // 启动HTML编译监听
         tasks.push(task.name);
     });
     runSequence(tasks, done); // 默认执行一次所有任务
