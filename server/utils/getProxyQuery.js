@@ -18,29 +18,14 @@ function queryStartMarkChecker(queryString){
  * 'm.qidian.com/book/:bookId/:someId/forum': { views: 'm.qidian.com/book/forum', cgi: '/mpage/forum/getBookForum' },
  * 后台CGI转成 http://{CGI-SERVER}/mpage/forum/getBookForum?bookId={具体参数}&someId={具体参数}&others=...
  */
-module.exports = function(searchQuery, rawRoute, req) {
+module.exports = function(searchQuery, params) {
 	// 如果请求的实际路由与配置路由不相同,则对参数做rewrite处理
-	if (rawRoute !== req.path) {
-		let queryObj = {};
-		let rawSplit = rawRoute.split('/');
-		let realSplit = req.path.split('/');
-		let i = 0;
-		let routeSplitLength = rawSplit.length;
-
-		for (i; i < routeSplitLength; i++) {
-			if (rawSplit[i] !== realSplit[i]) {
-				// 移除掉路由开头的分号
-				let customeRouteKey = rawSplit[i].substring(1);
-				queryObj[customeRouteKey] = realSplit[i];
-			}
-		}
-		let proxyQueryResult = Object.assign(qs.parse(searchQuery), queryObj);
-
+		let proxyQueryResult = Object.assign(searchQuery, params);
 		searchQuery = qs.stringify(proxyQueryResult, {
 			encode: false // 为方便调试,关闭encode
 		})
-	}
 	// 如果query值存在且开头无问号,则自动补全
 	searchQuery = queryStartMarkChecker(searchQuery);
+	console.log(searchQuery)
 	return searchQuery;
 };

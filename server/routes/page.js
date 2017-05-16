@@ -38,7 +38,13 @@ Object.keys(routes).forEach(function(routePath) {
 	router.get(routePath, function(req, res, next) {
 		const method = req.method.toLowerCase(); // 请求方法
         const reqQueryString = parse(req.url).query;
-		let searchQuery = utils.getProxyQuery(reqQueryString, routePath, req);
+        console.log('=======')
+        console.log(req.params);
+        console.log(req.query)
+        // console.log(parse(req.url).query)
+
+
+		let searchQuery = utils.getProxyQuery(req.query, req.params);
 		// 如果req.originalUrl获得URL为完整域名,则直接返回
 		// 否则则进行补全
 		let resFullUrl = '';
