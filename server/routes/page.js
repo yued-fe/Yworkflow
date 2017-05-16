@@ -38,9 +38,6 @@ Object.keys(routes).forEach(function(routePath) {
 	router.get(routePath, function(req, res, next) {
 		const method = req.method.toLowerCase(); // 请求方法
         const reqQueryString = parse(req.url).query;
-        console.log('=======')
-        console.log(req.params);
-        console.log(req.query)
         // console.log(parse(req.url).query)
 
 

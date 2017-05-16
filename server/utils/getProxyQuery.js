@@ -23,9 +23,8 @@ module.exports = function(searchQuery, params) {
 		let proxyQueryResult = Object.assign(searchQuery, params);
 		searchQuery = qs.stringify(proxyQueryResult, {
 			encode: false // 为方便调试,关闭encode
-		})
+		});
 	// 如果query值存在且开头无问号,则自动补全
 	searchQuery = queryStartMarkChecker(searchQuery);
-	console.log(searchQuery)
 	return searchQuery;
 };
