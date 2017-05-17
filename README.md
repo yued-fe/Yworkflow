@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.05.17 支持本地json[文件注释]()
 * 2017.05.16 路由配置params参数正则过滤:例`/:bookId(\\d+)`转`?bookId=$1`
 * 2017.05.16 增加路由`.ejs`静态资源路由反向代理
 
@@ -272,7 +273,6 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
     module.exports = defaultConfig;
 ````
 
-
 #### 使用
 
 1. 进入 {Yworkflow3路径}项目跟路径，例:`cd /Users/yuewen-luolei/Yuewen/Tencent/Yworkflow3`
@@ -356,6 +356,15 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 1. 安装 `npm install ymini -g`
 2. 压缩JS资源 `ymini --js --path {PATH || FILENAME} #压缩指定文件夹下的所有'.js'文件`
 3. 压缩CSS资源: `ymini --css --path {PATH || FILENAME} #压缩指定文件夹下的所有'.css'文件`
+
+
+## 备注
+
+#### **1.JSON注释**
+
+![](https://luoleiorg.b0.upaiyun.com/tmp/json-strip.jpg)
+
+支持在本地json文件中注释。
 
 
 
