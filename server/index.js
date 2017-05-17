@@ -92,7 +92,6 @@ app.use(apiRouter);
 
 // 启动业务相关路由
 app.use(pageRouter);
-app.use('/magic',magicRouter);
 
 // 代理其他资源到原始的URL
 app.use(function(req, res, next) {
