@@ -18,8 +18,6 @@ const gutil = require('gulp-util');
 
 module.exports.getConfig = function() {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
-    // console.log('配置路径' + path.resolve(configFile));
-    // console.log('配置文件名' + path.basename(path.resolve(configFile)));
 	let options = require('./ywork.default');
 	// 首先检查Yworkflow外层文件夹是否存在 .ywork 配置文件
 	// 如果存在,则使用外部配置

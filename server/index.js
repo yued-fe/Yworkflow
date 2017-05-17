@@ -17,7 +17,7 @@ const async = require("async");
 
 const app = express();
 
-// 开启debug模式,才在显示所有的请求日志
+// 开启log_debug模式,才在显示所有的请求日志
 if(!!PROJECT_CONFIG.log_debug){
     app.use(morgan('dev')); // 启动开发日志
 }
@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cookieParser());
+
 // 本地调试允许所有请求
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -43,7 +44,6 @@ app.use(function(req, res, next) {
 
 const apiRouter = require('./routes/api');
 const pageRouter = require('./routes/page');
-const magicRouter = require('./routes/magic'); // 一个供静态化使用的便捷路由
 
 // 静态资源代理配置
 const staticPath = PROJECT_CONFIG.paths.static;

@@ -18,7 +18,7 @@ var defaultConfig = {
     'port': 8888,
     // 执行sudo npm run hosts --path {项目路径} 可以自动注入host到 /etc/hosts 文件夹
     'hosts': [
-        'localm.qidian.com',
+        'm.qidian.com',
     ],
     // 由于实际业务上可能采用不同的域名,进行域名映射
     // 对于设置alias的域名统一转换成value
