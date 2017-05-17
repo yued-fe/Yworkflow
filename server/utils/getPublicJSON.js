@@ -72,7 +72,6 @@ module.exports = function(result, req, res) {
 		result = _.merge(publish_json, result)
 	}
 
-
 	return result;
 
 };

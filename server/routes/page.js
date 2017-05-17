@@ -22,16 +22,6 @@ const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.s
 const routes = routersHandler.parseRouterMap(dynamic_routes);
 const confHandler = require('../lib/confHandler');
 
-/**
- * 检查是否以某字符串开头
- * @param  {[type]} str  [description]
- * @param  {[type]} word [description]
- * @return {[type]}      [description]
- */
-function startsWith(str, word) {
-	return str.lastIndexOf(word, 0) === 0;
-}
-
 Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始

@@ -19,7 +19,6 @@ var runSequence = require('run-sequence');
 var path = require('path');
 var chalk = require('chalk');
 
-
 var lbfTransport = require('./plugins/gulp-lbf-transport/');
 var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
 var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);

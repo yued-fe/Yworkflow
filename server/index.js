@@ -18,7 +18,7 @@ const async = require("async");
 const app = express();
 
 // 开启debug模式,才在显示所有的请求日志
-if(PROJECT_CONFIG.debug){
+if(!!PROJECT_CONFIG.log_debug){
     app.use(morgan('dev')); // 启动开发日志
 }
 // 拓展中间件
@@ -71,7 +71,7 @@ if (typeof staticPath === 'string') {
                     } else {
                         remoteUrl = staticPath[key] + req.url;
                     }
-                    console.log(chalk.blue('[映射代理]:') + chalk.green(remoteUrl));
+                    console.log(chalk.blue('[映射代理]:') + remoteUrl);
                     return staticPath[key] + req.url
                 },
                 intercept: function(rsp, data, req, res, callback) {
@@ -79,7 +79,7 @@ if (typeof staticPath === 'string') {
                 }
             }));
         } else {
-            // 针对 /ejs 开始的路由,做一个强依赖处理
+            // 针对 /ejs 开始的路由,做一个代理
             app.use((!!PROJECT_CONFIG.paths.ejs_rewrite_router ? PROJECT_CONFIG.paths.ejs_rewrite_router : '/ejs') + key, express.static(path.join(PROJECT_CONFIG.absPath, staticPath[key])));
             app.use(key, express.static(path.join(PROJECT_CONFIG.absPath, staticPath[key])));
         }

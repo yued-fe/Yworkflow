@@ -8,8 +8,8 @@ var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础�
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 
 var path = require('path');
-var gulp = require('gulp');
 var fs = require('fs');
+var gulp = require('gulp');
 var chalk = require('chalk');
 
 var hosts = (PROJECT_CONFIG.hosts && PROJECT_CONFIG.hosts.length > 0) ? PROJECT_CONFIG.hosts : PROJECT_CONFIG.env + PROJECT_CONFIG.master_host

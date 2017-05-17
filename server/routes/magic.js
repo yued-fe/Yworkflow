@@ -17,5 +17,4 @@ router.get('/getPublicData', function(req, res, next) {
 })
 
 
-
 module.exports = router;
