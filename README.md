@@ -152,9 +152,9 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
     
     // 提供自动上传到 ftp 服务功能
     'ftp': {
-        'host': '10.97.19.100',
-        'user': 'ftp',
-        'password': 'lny4yjtwr3xhxlldoxltzom'
+        'host': '192.168.1.1',
+        'user': '',
+        'password': ''
     },
     
     // server 配置相关是与框架机耦合的配置,这里请注意与运维约定相关参数
