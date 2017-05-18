@@ -27,7 +27,6 @@ var changedDeps = require('./plugins/gulp-changed-deps/');
 
 // 将处理文件全部拷贝到输出目录
 gulp.task('img:copy', function() {
-	console.log('复制复原')
 	return gulp.src(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'))
 		.pipe(plugins.changed(dest))
 		.pipe(gulp.dest(dest));
