@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+'use strict';
+process.title = 'yworkflow';
+
+var fs = require('fs');
+var path = require('path');
+var _ = require('lodash');
+var chalk = require('chalk');
+
+
+var optimist = require('optimist');
+var argv = optimist.argv;
+var text = argv._.join(' ');
+
+if (argv.help) {
+
+}
