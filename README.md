@@ -30,7 +30,7 @@ Mac用户终结解决方案可以使用命令行代理[Shadowsocks](https://gith
 
 ## 终端推荐
 
-* ~~Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。~~(3.0版本不再对Windows进行支持)。
+* ~~Windows用户请使用`cmder`或者`git bash`等终端，原生的`CMD`太弱了缺失许多linux命令,可能会导致一些任务处理失败。~~(3.0版本不再对Windows进行支持，但是你依旧可以在windows下使用Yworkflow3.0进行本地开发，可能会遇到路径相关的问题，无法使用Yworkcli)。
 
 * Mac用户推荐使用[iTerm2](https://www.iterm2.com/)，另外推荐配合使用[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)增强终端命令行功能。
 

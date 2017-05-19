@@ -12,7 +12,6 @@ if (!PROJECT_CONFIG.tasks.js) {
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.js;
 
-
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
@@ -32,7 +31,6 @@ gulp.task('js:eslint', function() {
         .pipe(gulp.dest(dest))
         .pipe(plugins.eslint(TASK_CONFIG.eslint))
         .pipe(plugins.eslint.format()); // TASK_CONFIG.eslintFormatter
-
 });
 
 // JS模块转换

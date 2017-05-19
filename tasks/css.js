@@ -41,7 +41,6 @@ gulp.task('css:css',function(){
 
 // 编译Scss并格式美化
 gulp.task('css:scss', function () {
-    console.log(src);
     return gulp.src(src + '/**/*.scss')
         .pipe(changedDeps(dest, { extension: '.css' }))
         .pipe(plugins.plumber())

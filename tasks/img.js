@@ -32,18 +32,15 @@ gulp.task('img:copy', function() {
 		.pipe(gulp.dest(dest));
 });
 
-// 优化图片压缩质量
+// 优化图片压缩质量  @todo
 gulp.task('img:optimize', function(done) {
-	// 监听图片文件
-	// gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
-	// runSequence('img:copy', done);
+
 });
 
 
 gulp.task('img', function(done) {
-	// console.log(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}')
 	// 监听图片文件
-	// gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
+	gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
 	runSequence('img:copy', done);
 });
 

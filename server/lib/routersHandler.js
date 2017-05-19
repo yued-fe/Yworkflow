@@ -62,8 +62,6 @@ exports.getRenderList = function(routerMap){
     return render_routes;
 }
 
-
-
 /**
  * 对配置的路由做兼容处理,统一转成带完整路由 和 完整路径views模式
  * @param  {[type]} originHost [description]
