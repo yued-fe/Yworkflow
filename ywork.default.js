@@ -13,7 +13,7 @@ var defaultConfig = {
     'env': 'local',
     'master_host': 'm.qidian.com',
     'debug': true,
-    'proxy_force': true, // 是否开启强制代理
+    'proxy_force': false, // 是否开启强制代理
     'proxy_server': 'http://prem.qidian.com', // 接口服务地址
     'port': 8888,
     // 执行sudo npm run hosts --path {项目路径} 可以自动注入host到 /etc/hosts 文件夹
