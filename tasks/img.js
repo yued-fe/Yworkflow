@@ -40,7 +40,7 @@ gulp.task('img:optimize', function(done) {
 
 gulp.task('img', function(done) {
 	// 监听图片文件
-	gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
+	// gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['img:copy']);
 	runSequence('img:copy', done);
 });
 
