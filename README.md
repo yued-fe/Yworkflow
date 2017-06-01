@@ -15,9 +15,9 @@ Yworkflow3 新手说明
 
 ```Bash
 #如果使用的是默认bash则添加到.bashrc配置中
-echo "alias yuegate='sh $PWD/yuegate'"  >> ~/.bashrc
+echo "alias yworkflow='sh $PWD/bin/yworkflow'"  >> ~/.bashrc
 #如果使用zshrc则添加到.zshrc配置中
-echo "alias yuegate='sh $PWD/yuegate'"  >> ~/.zshrc
+echo "alias yworkflow='sh $PWD/bin/yworkflow'"  >> ~/.zshrc
 ```
 脚本会自动在Yworkflow文件夹创建`.yworkprojects`文件，开发者可以按照以下规范,将不同的项目配置路径下来
 
