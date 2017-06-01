@@ -1,18 +1,43 @@
-#!/usr/bin/env node
+#!/bin/bash
+# Yworkflow 项目启动器
+# Author:luolei
 
-'use strict';
-process.title = 'yworkflow';
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin
 
-var fs = require('fs');
-var path = require('path');
-var _ = require('lodash');
-var chalk = require('chalk');
+clear
 
+#获得Yworkflow3的执行路径
+ABSOLUTE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+ABS_PARENT_ROOT="$(dirname "$ABSOLUTE_PATH")"
+APP_ROOT="$(dirname "$ABS_PARENT_ROOT")"
 
-var optimist = require('optimist');
-var argv = optimist.argv;
-var text = argv._.join(' ');
+yworkHistoryConf=$HOME/.yworkhistory
+> $yworkHistoryConf
+projectList=$APP_ROOT/.yworkprojects
 
-if (argv.help) {
+if [ ! -e "$projectList" ]; then
+	  echo '自动创建项目路径文件'
+      echo "" >> $projectList 
+else
+	echo ''
+fi
 
+Num=1
+function main(){
+    echo "Hello,请选择要通过Yworkflow启动的项目:"
+    echo "======================================================"
+    cat $projectList | grep -v "^$" | while read path
+    
+    do
+     echo "$Num---$path" >> $yworkHistoryConf;
+     Num=$(($Num+1))
+    done
+
+    cat $yworkHistoryConf
+    echo "======================================================"
+    read -p "请输入项目编号(1/2/3...):" proNum
+    proConfPath=`cat $yworkHistoryConf | grep "^$proNum---" | awk -F':' '{print $2}'`
+    echo $proConfPath
+    cd $APP_ROOT && gulp dev --path $proConfPath
 }
+main

@@ -16,5 +16,6 @@ npm-debug.log
 *.swp
 *.bak
 .svn
+.yworkprojects
 
 

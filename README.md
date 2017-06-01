@@ -4,9 +4,41 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.06.01 增加快速启动yworkflow的脚本,支持历史项目选择
 * 2017.05.17 支持本地开发[json注释](https://github.com/yued-fe/Yworkflow#1json注释)
 * 2017.05.16 路由配置params参数正则过滤:例`/:bookId(\\d+)`转`?bookId=$1`
 * 2017.05.16 增加路由`.ejs`静态资源路由反向代理
+
+## yworkflow脚本使用方法
+
+在Yworkflow文件夹下，终端执行
+
+```Bash
+#如果使用的是默认bash则添加到.bashrc配置中
+echo "alias yuegate='sh $PWD/yuegate'"  >> ~/.bashrc
+#如果使用zshrc则添加到.zshrc配置中
+echo "alias yuegate='sh $PWD/yuegate'"  >> ~/.zshrc
+```
+脚本会自动在Yworkflow文件夹创建`.yworkprojects`文件，开发者可以按照以下规范,将不同的项目配置路径下来
+
+```
+#{项目备注} {冒号:需要通过冒号来间隔} {不同的项目路径启动配置}
+起点PC: /Users/yuewen-luolei/Yuewen/Tencent/qidian_pc_proj/qidian.yconfig
+小说阅读吧PC: /Users/yuewen-luolei/Yuewen/Tencent/readnovel_proj/.yconfig
+言情小说吧M站: /Users/yuewen-luolei/Yuewen/Tencent/xs8_m_proj/.yconfig
+
+```
+
+**注意**:`.yworkprojects`不需要入库,根据你的需求自定义即可。
+
+#### 使用
+
+终端任意路径执行`yworkflow`即可
+
+![](http://luoleiorg.b0.upaiyun.com/tmp/yworkflow.jpg)
+
+
+以全局调用。
 
 ## 写在前面
 

@@ -29,6 +29,5 @@ ejs.compile = function (template, options) {
 
 function replace(str, replaceFrom, replaceTo) {
     replaceFrom = new RegExp(replaceFrom, 'gm');
-
     return str.replace(replaceFrom, replaceTo);
 }
