@@ -1,6 +1,6 @@
 # list all git ignored files and folders
 
-#临时文件
+# 临时文件
 .idea/
 node_modules
 
@@ -16,6 +16,7 @@ npm-debug.log
 *.swp
 *.bak
 .svn
+# 开发者本地项目列表无需入库
 .yworkprojects
 
 
