@@ -68,10 +68,26 @@ gulp.task('nodemon', function() {
  * @param  {[type]} done){} [description]
  * @return {[type]}           [description]
  */
+gulp.task('build', function(done) {
+    let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
+    console.log(Object.keys(PROJECT_CONFIG.tasks))
+    if (process.env.NODE_ENV === 'production') {
+        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks),'html:tricky', done);
+    } else {
+        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), done);
+    }
+});
+
+
+/**
+ * 设置默认任务
+ * @param  {[type]} done){} [description]
+ * @return {[type]}           [description]
+ */
 gulp.task('dev', ['nodemon'], function(done) {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     if (process.env.NODE_ENV === 'production') {
-        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), 'html:tricky', done);
+        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks),'html:tricky', done);
     } else {
         runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), done);
     }

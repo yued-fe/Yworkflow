@@ -16,8 +16,8 @@ yworkHistoryConf=$HOME/.yworkhistory
 projectList=$APP_ROOT/.yworkprojects
 
 if [ ! -e "$projectList" ]; then
-	  echo '自动创建项目路径文件'
-      echo "" >> $projectList 
+	echo '自动创建项目路径文件'
+    echo "" >> $projectList 
 else
 	echo ''
 fi

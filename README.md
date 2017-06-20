@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.06.20 增加router任务:支持将路由文件夹合并成单一路由文件
 * 2017.06.01 增加快速启动yworkflow的脚本,支持历史项目选择
 * 2017.05.17 支持本地开发[json注释](https://github.com/yued-fe/Yworkflow#1json注释)
 * 2017.05.16 路由配置params参数正则过滤:例`/:bookId(\\d+)`转`?bookId=$1`
@@ -147,7 +148,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         'proxy_server': 'http://prem.qidian.com', // 接口服务地址
         'port': 8888,
         
-        // 执行sudo npm run hosts可以自动注入host到 /etc/hosts 文件夹
+        // 代理模式使用到的域名:下列所有域名在代理模式下均走Yworkflow router逻辑
         'hosts': [
             'm.qidian.com', // 配置该项目的业务域名,针对这里配置的所有域名进行路由代理
         ],
@@ -206,6 +207,12 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
     },
     // 本地编译相关task
     'tasks': {
+        // 支持将本地路由文件夹的路由打包成单一路由文件
+        'router':{
+            'srcEntry':'src/node-config/dynamic_routermap',// 本地路由文件夹入口
+            'dest':'src/node-config/dynamic_routermap.js',// 最终生成的单一路由文件
+            'exclude':['STATIC.js','PROXY.js']// 需要排除的本地路由
+        },
         'html': {
             'src': 'src/server/views',
             'dest': '.cache/views',

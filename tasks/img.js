@@ -22,7 +22,6 @@ var path = require('path');
 var chalk = require('chalk');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
-
 var changedDeps = require('./plugins/gulp-changed-deps/');
 
 // 将处理文件全部拷贝到输出目录

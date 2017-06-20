@@ -42,8 +42,8 @@ gulp.task('css:css',function(){
 // 编译Scss并格式美化
 gulp.task('css:scss', function () {
     return gulp.src(src + '/**/*.scss')
-        .pipe(changedDeps(dest, { extension: '.css' }))
         .pipe(plugins.plumber())
+        .pipe(changedDeps(dest, { extension: '.css' }))
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.sass({
             

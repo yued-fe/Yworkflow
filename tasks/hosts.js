@@ -14,7 +14,6 @@ var chalk = require('chalk');
 
 var hosts = (PROJECT_CONFIG.hosts && PROJECT_CONFIG.hosts.length > 0) ? PROJECT_CONFIG.hosts : PROJECT_CONFIG.env + PROJECT_CONFIG.master_host
 
-
 // 自动读取配置中的hosts配置,写入本地/etc/hosts文件
 gulp.task('hosts', function(done) {
 	// 修正hosts文件

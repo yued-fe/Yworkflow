@@ -55,7 +55,7 @@ var getImgResizeTask = function (input, outputDir) {
 // 生成图片合并任务
 var getImgSpriteTask = function (input, outputDir) {
     return function () {
-        return gulp.src(input, { dot: true })
+        return gulp.src(input, { dot: true,read:false})
             .pipe(plugins.newer(path.join(outputDir, imgConfig.spritesmith.imgName)))
             .pipe(plugins.plumber())
             .pipe(plugins.spritesmith(imgConfig.spritesmith))
