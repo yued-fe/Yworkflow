@@ -79,11 +79,6 @@ module.exports = {
 		var	staticFileNameRaw = staticFileName[0].split('.html')[0];
 		var staticFilePathRaw = splitStaticPathExtract.join('/');
 
-
-		/**
-		 * 根据本地、线上环境区分,在指定位置创建文件夹
-		 */
-
 		var checkPath = '';
 		// 创建根路径
 

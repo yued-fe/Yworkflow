@@ -10,7 +10,6 @@ const routes = {};
 // 首先读取动态路由
 const server_conf = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.server_conf_file));
 
-
 const NODE_ENV = PROJECT_CONFIG.env || process.env.NODE_ENV;
 
 const extends_loader = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.extends_loader_file));

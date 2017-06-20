@@ -6,7 +6,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 
 clear
 
-#获得Yworkflow3的执行路径
+# 获得Yworkflow3的执行路径
 ABSOLUTE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 ABS_PARENT_ROOT="$(dirname "$ABSOLUTE_PATH")"
 APP_ROOT="$(dirname "$ABS_PARENT_ROOT")"
