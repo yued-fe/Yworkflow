@@ -23,7 +23,6 @@ exports.getStaticConf = function() {
     return server_conf.genConf[NODE_ENV].static;
 }
 
-
 /**
  * 活动中间组件
  * @return {[type]} [description]

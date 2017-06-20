@@ -47,7 +47,7 @@
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
     "gulp-util": "^3.0.8",
-    "gulp.spritesmith": "^6.1.0",
+    "gulp.spritesmith": "6.1.0",
     "morgan": "^1.8.1",
     "phantomjssmith": "^1.0.0",
     "require-dir": "^0.3.1",
