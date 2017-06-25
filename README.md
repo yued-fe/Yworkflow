@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2016.06.25 增加build任务, 供yworkcli独立调用
 * 2017.06.20 增加router任务:支持将路由文件夹合并成单一路由文件
 * 2017.06.01 增加快速启动yworkflow的脚本,支持历史项目选择
 * 2017.05.17 支持本地开发[json注释](https://github.com/yued-fe/Yworkflow#1json注释)
