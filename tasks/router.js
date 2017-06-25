@@ -71,3 +71,7 @@ gulp.task('router', function(done) {
 	gulp.watch(path.join(PROJECT_CONFIG.absPath,TASK_CONFIG.srcEntry,'**/*'), ['router:concat']);
 	runSequence('router:concat', done);
 });
+
+gulp.task('router:build', function(done) {
+	runSequence('router:concat', done);
+});

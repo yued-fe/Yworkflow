@@ -170,3 +170,20 @@ gulp.task('icon', function (done) {
     });
     runSequence(preTasks, tasks, done); // 默认执行一次所有任务
 });
+
+gulp.task('icon:build', function (done) {
+    var preTasks = [];
+    var tasks = [];
+    imgResizeTasks.forEach(function (task) {
+        preTasks.push(task.name);
+    });
+
+    imgSpriteTasks.forEach(function (task) {
+        tasks.push(task.name);
+    });
+
+    svgSpriteTasks.forEach(function (task) {
+        tasks.push(task.name);
+    });
+    runSequence(preTasks, tasks, done); // 默认执行一次所有任务
+});

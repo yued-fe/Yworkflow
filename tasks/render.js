@@ -98,3 +98,12 @@ gulp.task('render', function(done) {
 		// 如果开启了压缩,则执行压缩task
 	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null, done); // 默认执行一次所有任务
 });
+
+gulp.task('render:build', function(done) {
+	var tasks = [];
+	htmlRenderTasks.forEach(function(task) {
+		tasks.push(task.name);
+	})
+	// 如果开启了压缩,则执行压缩task
+	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null, done); // 默认执行一次所有任务
+});

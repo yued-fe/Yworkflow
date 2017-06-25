@@ -70,3 +70,11 @@ gulp.task('html', function (done) {
     });
     runSequence(tasks, done); // 默认执行一次所有任务
 });
+
+gulp.task('html:build', function (done) {
+    var tasks = [];
+    htmlCompileTasks.forEach(function (task) {
+        tasks.push(task.name);
+    });
+    runSequence(tasks, done); // 默认执行一次所有任务
+});

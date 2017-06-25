@@ -59,5 +59,8 @@ gulp.task('js', function (done) {
     runSequence(['js:eslint', 'js:transport','js:copy'], done);
 });
 
+gulp.task('js:build', function (done) {
+    runSequence(['js:eslint', 'js:transport','js:copy'], done);
+});
 
 

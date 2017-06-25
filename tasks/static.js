@@ -51,4 +51,7 @@ gulp.task('static', function(done) {
     runSequence(staticTasks, done);
 });
 
+gulp.task('static:build', function(done) {
+    runSequence(staticTasks, done);
+});
 
