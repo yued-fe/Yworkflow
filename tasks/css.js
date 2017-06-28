@@ -30,7 +30,6 @@ var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.ro
 
 
 function isCssUrlToAbsoluteToggle(){
-    console.log(typeof(TASK_CONFIG.cssUrlToAbsolute))
     if(typeof(TASK_CONFIG.cssUrlToAbsolute) == 'undefined'){
         return true;
     }else{
