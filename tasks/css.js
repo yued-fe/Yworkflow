@@ -27,6 +27,19 @@ var dest = path.join(PROJECT_ABS_PATH,TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH,TASK_CONFIG.sourcemap);
 var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH,PROJECT_CONFIG.root.dest));
 
+
+
+function isCssUrlToAbsoluteToggle(){
+    console.log(typeof(TASK_CONFIG.cssUrlToAbsolute))
+    if(typeof(TASK_CONFIG.cssUrlToAbsolute) == 'undefined'){
+        return true;
+    }else{
+        return (TASK_CONFIG.cssUrlToAbsolute !== false) ? true : false; 
+    }
+
+}
+
+console.log(isCssUrlToAbsoluteToggle())
 // CSS格式美化
 gulp.task('css:css',function(){
 	return gulp.src(src + '/**/*.css')
@@ -34,10 +47,13 @@ gulp.task('css:css',function(){
 		.pipe(plugins.changed(dest))
 		.pipe(plugins.csscomb())
 		.pipe(gulp.dest(dest))
-		.pipe(plugins.cssUrlToAbsolute({ root: absoluteRootDest }))
+        .pipe(plugins.if(isCssUrlToAbsoluteToggle(), plugins.cssUrlToAbsolute({ root: absoluteRootDest })))
 		.pipe(gulp.dest(dest));
 
 });
+
+
+
 
 // 编译Scss并格式美化
 gulp.task('css:scss', function () {
@@ -51,7 +67,7 @@ gulp.task('css:scss', function () {
         .pipe(plugins.csscomb())
         .pipe(plugins.sourcemaps.write(sourceMapDes))
         .pipe(gulp.dest(dest))
-        .pipe(plugins.cssUrlToAbsolute({ root: absoluteRootDest }))
+        .pipe(plugins.if(isCssUrlToAbsoluteToggle(), plugins.cssUrlToAbsolute({ root: absoluteRootDest })))
         .pipe(gulp.dest(dest));
 });
 
