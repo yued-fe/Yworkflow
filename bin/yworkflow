@@ -6,6 +6,10 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 
 clear
 
+export PATH="/usr/local/bin:$PATH"
+ export NODE_PATH=/usr/local/lib/node_modules
+source /usr/local/opt/nvm/nvm.sh
+
 # 获得Yworkflow3的执行路径
 ABSOLUTE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 ABS_PARENT_ROOT="$(dirname "$ABSOLUTE_PATH")"
