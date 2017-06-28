@@ -73,5 +73,9 @@ gulp.task('css', function (done) {
     runSequence(['css:css','css:scss','css:copy'], done);
 });
 
+gulp.task('css:build', function (done) {
+    runSequence(['css:css','css:scss','css:copy'], done);
+});
+
 
     // runSequence(['css:css'], done);

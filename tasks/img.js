@@ -44,5 +44,11 @@ gulp.task('img', function(done) {
 });
 
 
+gulp.task('img:build', function(done) {
+	runSequence('img:copy', done);
+});
+
+
+
 
 

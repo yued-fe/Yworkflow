@@ -6,7 +6,6 @@ require('require-dir')('./tasks');
 const PROJECT_CONFIG = require('./yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
 const gulp = require('gulp');
-const nodemon = require('gulp-nodemon'); // server自动重启
 const chalk = require('chalk');
 const figlet = require('figlet');
 const runSequence = require('run-sequence');
@@ -20,6 +19,7 @@ if (PROJECT_CONFIG.tasks.render && fs.existsSync( path.join(PROJECT_CONFIG.absPa
 }
 
 gulp.task('nodemon', function() {
+    const nodemon = require('gulp-nodemon'); // server自动重启
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
     // 如果没有配置,则直接返回原始数据
     if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'))) {
@@ -70,11 +70,15 @@ gulp.task('nodemon', function() {
  */
 gulp.task('build', function(done) {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
-    console.log(Object.keys(PROJECT_CONFIG.tasks))
+    var keys = Object.keys(PROJECT_CONFIG.tasks);
+    keys = keys.map(function (key) {
+        return key + ':build';
+    });
+    console.log(keys)
     if (process.env.NODE_ENV === 'production') {
-        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks),'html:tricky', done);
+        runSequence('clean', keys, 'html:tricky', done);
     } else {
-        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), done);
+        runSequence('clean', keys, done);
     }
 });
 
