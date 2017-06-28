@@ -1,6 +1,6 @@
 {
   "name": "yworkflow",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,17 @@
   },
   "author": "luolei",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yued-fe/Yworkflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yued-fe/Yworkcli/issues"
+  },
+  "_npmUser": {
+    "name": "git-patrickliu",
+    "email": "phil.liu.cn@gmail.com"
+  },
   "devDependencies": {
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.1",
