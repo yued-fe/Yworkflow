@@ -4,7 +4,7 @@
  */
 'use strict'
 
-var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+var PROJECT_CONFIG = require('../yworkflow'); //载入项目基础配置
 
 if (!PROJECT_CONFIG.tasks.css) {
     return;
@@ -21,12 +21,13 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
 var changedDeps = require('./plugins/gulp-changed-deps/');
-
-var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
-var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
+                                        
+                                        // ./src/static/css
+var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);        // /Users/tanwei/Documents/m/hongxiu_m_proj/src/static/css
+var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);     //  /Users/tanwei/Documents/m/hongxiu_m_proj/.cache/hongxium/css
 var sourceMapDes = path.join(PROJECT_ABS_PATH, TASK_CONFIG.sourcemap);
-var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH, PROJECT_CONFIG.root.dest));
-
+var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH, PROJECT_CONFIG.root.dest)); // /Users/tanwei/Documents/m/hongxiu_m_proj/.cache
+                                                                    // .cache
 
 
 function isCssUrlToAbsoluteToggle() {

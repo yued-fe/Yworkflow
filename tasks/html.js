@@ -5,7 +5,7 @@
 'use strict'
 
 
-var PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+var PROJECT_CONFIG = require('../yworkflow'); //载入项目基础配置
 
 if (!PROJECT_CONFIG.tasks.html) {
     return;

@@ -2,12 +2,12 @@
 'use strict';
 const _ = require('lodash');
 
-const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../../yworkflow'); //载入项目基础配置
 const path = require('path');
 const parse = require('url-parse'); // 获得URL处理模块
 
 const routes = {};
-// 首先读取动态路由
+// 首先读取动态路由			// /Users/tanwei/Documents/m/hongxiu_m_proj/src/server/config/server
 const server_conf = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.server_conf_file));
 
 const NODE_ENV = PROJECT_CONFIG.env || process.env.NODE_ENV;

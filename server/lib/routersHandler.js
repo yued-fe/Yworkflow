@@ -6,14 +6,14 @@
 
 'use strict';
 const _ = require('lodash');
-const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../../yworkflow'); //载入项目基础配置
 const path = require('path');
 const fs = require('fs');
 const parse = require('url-parse'); // 获得URL处理模块
 
 const routes = {};
 const domainList = [];
-// 首先读取动态路由
+// 首先读取动态路由    // routes文件夹下的 index.js 文件
 const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file))
 
 // 读取线上静态化路由:本地均当成动态路由来进行模拟

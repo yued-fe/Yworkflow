@@ -1,7 +1,7 @@
 'use strict'
 
 require('./lib/ejs-inline-template.js'); //拓展ejs 支持script拓展
-const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../yworkflow'); //载入项目基础配置
 const confHandler = require('./lib/confHandler');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -59,24 +59,27 @@ if (typeof staticPath === 'string') {
                 // filter: function(req, res) {
                 // 	return req.method == 'GET';
                 // },
-                decorateRequest: function(proxyReq, originalReq) {
-                    proxyReq.path = key + originalReq.path;
-                    return proxyReq;
+                proxyReqPathResolver: req => {
+                    return (require('url').parse(staticPath[key]).path + require('url').parse(req.url).path);
                 },
-                forwardPath: function(req) {
-                    let parseUrl = parse(req.url);
-                    let remoteUrl = '';
-                    if (parse(req.url).hostname) {
-                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
-                    } else {
-                        remoteUrl = staticPath[key] + req.url;
-                    }
-                    console.log(chalk.blue('[映射代理]:') + remoteUrl);
-                    return staticPath[key] + req.url
-                },
-                intercept: function(rsp, data, req, res, callback) {
-                    callback(null, data);
-                }
+                // decorateRequest: function(proxyReq, originalReq) {
+                //     proxyReq.path = key + originalReq.path;
+                //     return proxyReq;
+                // },
+                // forwardPath: function(req) {
+                //     let parseUrl = parse(req.url);
+                //     let remoteUrl = '';
+                //     if (parse(req.url).hostname) {
+                //         remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
+                //     } else {
+                //         remoteUrl = staticPath[key] + req.url;
+                //     }
+                //     console.log(chalk.blue('[映射代理]:') + remoteUrl);
+                //     return staticPath[key] + req.url
+                // },
+                // intercept: function(rsp, data, req, res, callback) {
+                //     callback(null, data);
+                // }
             }));
         } else {
             // 针对 /ejs 开始的路由,做一个代理

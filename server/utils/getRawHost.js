@@ -1,6 +1,6 @@
 'use strict'
 
-const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../../yworkflow'); //载入项目基础配置
 const parse = require('url-parse'); // 获得URL处理模块
 // 获得路由表
 const routersHandler = require('../lib/routersHandler');
