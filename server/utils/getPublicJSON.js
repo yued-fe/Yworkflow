@@ -18,7 +18,7 @@ const staticConf = require('../lib/confHandler').getStaticConf(); // 获得模�
 module.exports = function(result, req, res) {
 	let publish_json = {
         "envType":PROJECT_CONFIG.env,
-        "CLIENT_URL":req.protocol + '://' + req.get('host') + req.originalUrl,
+        "CLIENT_URL":req.originalUrl,
         "CLIENT_UA":req.headers['user-agent'],
         "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss"),
         "staticConf":staticConf, // 模板配置变量
