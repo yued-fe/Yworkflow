@@ -21,13 +21,12 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
 var changedDeps = require('./plugins/gulp-changed-deps/');
-                                        
-                                        // ./src/static/css
-var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);        // /Users/tanwei/Documents/m/hongxiu_m_proj/src/static/css
-var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);     //  /Users/tanwei/Documents/m/hongxiu_m_proj/.cache/hongxium/css
+
+var src = path.join(PROJECT_ABS_PATH, TASK_CONFIG.src);
+var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
 var sourceMapDes = path.join(PROJECT_ABS_PATH, TASK_CONFIG.sourcemap);
-var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH, PROJECT_CONFIG.root.dest)); // /Users/tanwei/Documents/m/hongxiu_m_proj/.cache
-                                                                    // .cache
+var absoluteRootDest = path.resolve(path.join(PROJECT_ABS_PATH, PROJECT_CONFIG.root.dest));
+
 
 
 function isCssUrlToAbsoluteToggle() {

@@ -59,27 +59,24 @@ if (typeof staticPath === 'string') {
                 // filter: function(req, res) {
                 // 	return req.method == 'GET';
                 // },
-                proxyReqPathResolver: req => {
-                    return (require('url').parse(staticPath[key]).path + require('url').parse(req.url).path);
+                decorateRequest: function(proxyReq, originalReq) {
+                    proxyReq.path = key + originalReq.path;
+                    return proxyReq;
                 },
-                // decorateRequest: function(proxyReq, originalReq) {
-                //     proxyReq.path = key + originalReq.path;
-                //     return proxyReq;
-                // },
-                // forwardPath: function(req) {
-                //     let parseUrl = parse(req.url);
-                //     let remoteUrl = '';
-                //     if (parse(req.url).hostname) {
-                //         remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
-                //     } else {
-                //         remoteUrl = staticPath[key] + req.url;
-                //     }
-                //     console.log(chalk.blue('[映射代理]:') + remoteUrl);
-                //     return staticPath[key] + req.url
-                // },
-                // intercept: function(rsp, data, req, res, callback) {
-                //     callback(null, data);
-                // }
+                forwardPath: function(req) {
+                    let parseUrl = parse(req.url);
+                    let remoteUrl = '';
+                    if (parse(req.url).hostname) {
+                        remoteUrl = staticPath[key] + parseUrl.pathname + parseUrl.query;
+                    } else {
+                        remoteUrl = staticPath[key] + req.url;
+                    }
+                    console.log(chalk.blue('[映射代理]:') + remoteUrl);
+                    return staticPath[key] + req.url
+                },
+                intercept: function(rsp, data, req, res, callback) {
+                    callback(null, data);
+                }
             }));
         } else {
             // 针对 /ejs 开始的路由,做一个代理

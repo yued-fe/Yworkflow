@@ -7,7 +7,7 @@ const path = require('path');
 const parse = require('url-parse'); // 获得URL处理模块
 
 const routes = {};
-// 首先读取动态路由			// /Users/tanwei/Documents/m/hongxiu_m_proj/src/server/config/server
+// 首先读取动态路由
 const server_conf = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.server_conf_file));
 
 const NODE_ENV = PROJECT_CONFIG.env || process.env.NODE_ENV;

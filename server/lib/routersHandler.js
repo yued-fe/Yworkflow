@@ -13,7 +13,7 @@ const parse = require('url-parse'); // 获得URL处理模块
 
 const routes = {};
 const domainList = [];
-// 首先读取动态路由    // routes文件夹下的 index.js 文件
+// 首先读取动态路由
 const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file))
 
 // 读取线上静态化路由:本地均当成动态路由来进行模拟
