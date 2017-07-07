@@ -3,7 +3,7 @@
 
 require('require-dir')('./tasks');
 
-const PROJECT_CONFIG = require('./yworkflow'); //载入项目基础配置
+const PROJECT_CONFIG = require('./yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
 const gulp = require('gulp');
 const chalk = require('chalk');

@@ -1,7 +1,7 @@
 'use strict'
 
 require('./lib/ejs-inline-template.js'); //拓展ejs 支持script拓展
-const PROJECT_CONFIG = require('../yworkflow'); //载入项目基础配置
+const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
 const confHandler = require('./lib/confHandler');
 const path = require('path');
 const bodyParser = require('body-parser');
