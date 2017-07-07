@@ -21,9 +21,6 @@
     "name": "git-patrickliu",
     "email": "phil.liu.cn@gmail.com"
   },
-  "bin": {
-    "yworkflow": "./bin/yworkflow.js"
-  },
   "devDependencies": {
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.1",

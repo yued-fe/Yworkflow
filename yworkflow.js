@@ -16,33 +16,23 @@ const gutil = require('gulp-util');
  * 根据配置读取业务代码
  */
 
-
-let getConfig,configFile,absPath;
-
-let options = require('./ywork.default');
-
-let envPath = gutil.env.path;
-
-if(!fs.existsSync(envPath)) {
-
-	absPath = process.cwd().substring(0,process.cwd().indexOf('node_modules'));
-	try {
-	    // 读取子站yworkflow配置
-	    configFile = require(absPath + 'yconfig.js');
-	    options.absPath = absPath;
-	    options = _.merge(options,configFile);
-	} catch (err) {
-	    // 没有读取到默认添加{}
-	    console.log(chalk.red('[没有找到配置文件,请检查是否在项目路径]'));
+module.exports.getConfig = function() {
+    let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
+	let options = require('./ywork.default');
+	// 首先检查Yworkflow外层文件夹是否存在 .ywork 配置文件
+	// 如果存在,则使用外部配置
+	if (fs.existsSync(configFile)) {
+		let projectConfig = require(path.resolve(configFile))
+        options.absPath = path.resolve(configFile).substring(0,path.resolve(configFile).indexOf(path.basename(path.resolve(configFile))))
+		options = _.merge(options,projectConfig)
+	} else {
+		console.log(chalk.red('[没有找到配置文件,请检查是否在项目路径]'));
+		console.log(chalk.green('文件:' + path.resolve(configFile) + ' 不存在'));
+		return false;
 	}
-
-} else {
-
-	let projectConfig = require(path.resolve(envPath));
-	options.absPath = path.resolve(envPath).substring(0,path.resolve(envPath).indexOf(path.basename(path.resolve(envPath))));
-	options = _.merge(options,projectConfig);
+	return options;
 }
 
-getConfig = options;
 
-module.exports = getConfig;
+
+
