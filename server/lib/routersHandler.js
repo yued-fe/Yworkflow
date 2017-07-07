@@ -6,7 +6,7 @@
 
 'use strict';
 const _ = require('lodash');
-const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../../yworkflow'); //载入项目基础配置
 const path = require('path');
 const fs = require('fs');
 const parse = require('url-parse'); // 获得URL处理模块

@@ -5,7 +5,7 @@
  */
 
 'use strict'
-const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
+const PROJECT_CONFIG = require('../yworkflow'); //载入项目基础配置
 if (!PROJECT_CONFIG.tasks.router) {
 	return;
 }
