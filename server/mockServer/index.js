@@ -18,7 +18,7 @@ const app = require('koa')();
 const request = require('co-request');
 const chalk = require('chalk');
 
-module.exports = function yuenode(opt = {}) {
+module.exports = function mockServer(opt = {}) {
 
     app.use(function* (next) {
         try {

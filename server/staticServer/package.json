@@ -1,0 +1,17 @@
+{
+  "name": "Yworkflow-staticServer",
+  "version": "1.0.0",
+  "author": "shilei",
+  "description": "A static server of Yworkflow",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chalk": "^2.0.1",
+    "koa": "^1.4.0",
+    "koa-static": "^4.0.1",
+    "koa-router": "^5.4.0"
+  }
+}
