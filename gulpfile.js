@@ -74,11 +74,15 @@ gulp.task('build', function(done) {
     keys = keys.map(function (key) {
         return key + ':build';
     });
-    console.log(keys)
+    var tasks = ['clean'];
+    tasks = tasks.concat(key);
     if (process.env.NODE_ENV === 'production') {
-        runSequence('clean', keys, 'html:tricky', done);
+        tasks.push('html:tricky');
+        tasks.push(done);
+        runSequence.apply(runSequence, tasks);
     } else {
-        runSequence('clean', keys, done);
+        tasks.push(done);
+        runSequence.apply(runSequence, tasks);
     }
 });
 
@@ -90,9 +94,14 @@ gulp.task('build', function(done) {
  */
 gulp.task('dev', ['nodemon'], function(done) {
     let configFile = gutil.env.path ? gutil.env.path : '../.yconfig';
+    var tasks = ['clean'];
+    tasks = tasks.concat(Object.keys(PROJECT_CONFIG.tasks));
     if (process.env.NODE_ENV === 'production') {
-        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks),'html:tricky', done);
+        tasks.push('html:tricky');
+        tasks.push(done);
+        runSequence.apply(runSequence, tasks);
     } else {
-        runSequence('clean', Object.keys(PROJECT_CONFIG.tasks), done);
+        tasks.push(done);
+        runSequence.apply(runSequence, tasks);
     }
 });

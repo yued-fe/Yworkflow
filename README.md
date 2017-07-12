@@ -4,8 +4,10 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
-* 2016.06.28 增加Css任务cssUrlToAbsolute开关,默认关闭
-* 2016.06.25 增加build任务, 供yworkcli独立调用
+* 2017.07.12 将runSequence任务变成串行,并行存在着任务执行冲突
+* 2017.07.10 新增yworkflowcli，用于本地快速起yworkflow本地开发
+* 2017.06.28 增加Css任务cssUrlToAbsolute开关,默认关闭
+* 2017.06.25 增加build任务, 供yworkcli独立调用
 * 2017.06.20 增加router任务:支持将路由文件夹合并成单一路由文件
 * 2017.06.01 增加快速启动yworkflow的脚本,支持历史项目选择
 * 2017.05.17 支持本地开发[json注释](https://github.com/yued-fe/Yworkflow#1json注释)
