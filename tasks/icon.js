@@ -168,7 +168,10 @@ gulp.task('icon', function (done) {
         PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动SVG合并监听
         tasks.push(task.name);
     });
-    runSequence(preTasks, tasks, done); // 默认执行一次所有任务
+
+    var totalTasks = preTasks.concat(tasks);
+    totalTasks.push(done);
+    runSequence.apply(runSequence, totalTasks); // 默认执行一次所有任务
 });
 
 gulp.task('icon:build', function (done) {
@@ -185,5 +188,8 @@ gulp.task('icon:build', function (done) {
     svgSpriteTasks.forEach(function (task) {
         tasks.push(task.name);
     });
-    runSequence(preTasks, tasks, done); // 默认执行一次所有任务
+
+    var totalTasks = preTasks.concat(tasks);
+    totalTasks.push(done);
+    runSequence.apply(runSequence, totalTasks); // 默认执行一次所有任务
 });

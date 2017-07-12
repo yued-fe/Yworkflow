@@ -91,19 +91,27 @@ Object.keys(render_routes).forEach(function(router) {
 // 将处理文件全部拷贝到输出目录
 gulp.task('render', function(done) {
 	var tasks = [];
-	htmlRenderTasks.forEach(function(task) {
-			PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动RENDER编译监听	
-			tasks.push(task.name);
-		})
-		// 如果开启了压缩,则执行压缩task
-	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null, done); // 默认执行一次所有任务
+    htmlRenderTasks.forEach(function (task) {
+        PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动RENDER编译监听
+        tasks.push(task.name);
+    });
+    // 如果开启了压缩,则执行压缩task
+    if (PROJECT_CONFIG.tasks.render.minimize) {
+        tasks.push('render:minimize');
+    }
+    tasks.push(done);
+    runSequence.apply(runSequence, tasks); // 默认执行一次所有任务
 });
 
-gulp.task('render:build', function(done) {
-	var tasks = [];
-	htmlRenderTasks.forEach(function(task) {
-		tasks.push(task.name);
-	})
-	// 如果开启了压缩,则执行压缩task
-	runSequence(tasks, PROJECT_CONFIG.tasks.render.minimize ? 'render:minimize' : null, done); // 默认执行一次所有任务
+gulp.task('render:build', function (done) {
+    var tasks = [];
+    htmlRenderTasks.forEach(function (task) {
+        tasks.push(task.name);
+    });
+    // 如果开启了压缩,则执行压缩task
+    if (PROJECT_CONFIG.tasks.render.minimize) {
+        tasks.push('render:minimize');
+    }
+    tasks.push(done);
+    runSequence.apply(runSequence, tasks); // 默认执行一次所有任务
 });

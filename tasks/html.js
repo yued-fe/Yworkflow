@@ -68,7 +68,8 @@ gulp.task('html', function (done) {
         gulp.watch(task.src, [task.name]); // 启动HTML编译监听
         tasks.push(task.name);
     });
-    runSequence(tasks, done); // 默认执行一次所有任务
+    tasks.push(done);
+    runSequence.apply(runSequence, tasks); // 默认执行一次所有任务
 });
 
 gulp.task('html:build', function (done) {
@@ -76,5 +77,6 @@ gulp.task('html:build', function (done) {
     htmlCompileTasks.forEach(function (task) {
         tasks.push(task.name);
     });
-    runSequence(tasks, done); // 默认执行一次所有任务
+    tasks.push(done);
+    runSequence.apply(runSequence, tasks); // 默认执行一次所有任务
 });

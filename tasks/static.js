@@ -48,10 +48,12 @@ gulp.task('static', function(done) {
         // 监听文件，触发文件拷贝
         gulp.watch(staticFiles, staticTasks);
     }
-    runSequence(staticTasks, done);
+    staticTasks.push(done);
+    runSequence.apply(runSequence, staticTasks);
 });
 
 gulp.task('static:build', function(done) {
-    runSequence(staticTasks, done);
+    staticTasks.push(done);
+    runSequence.apply(runSequence, staticTasks);
 });
 

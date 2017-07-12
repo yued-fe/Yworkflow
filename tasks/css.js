@@ -88,12 +88,12 @@ gulp.task('css', function(done) {
     gulp.watch(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), ['css:css', 'css:scss', 'css:copy'])
         .on('change', function(event) {
             console.log(chalk.green('[文件变化:CSS]' + event.path));
-        })
-    runSequence(['css:css', 'css:scss', 'css:copy'], done);
+        });
+    runSequence.apply(runSequence, ['css:css', 'css:scss', 'css:copy', done]);
 });
 
 gulp.task('css:build', function(done) {
-    runSequence(['css:css', 'css:scss', 'css:copy'], done);
+    runSequence.apply(runSequence, ['css:css', 'css:scss', 'css:copy', done]);
 });
 
 

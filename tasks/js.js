@@ -56,11 +56,11 @@ gulp.task('js', function (done) {
         .on('change',function(event){
             console.log(chalk.green('[文件变化:JS]' + event.path));
         })
-    runSequence(['js:eslint', 'js:transport','js:copy'], done);
+    runSequence('js:eslint', 'js:transport','js:copy', done);
 });
 
 gulp.task('js:build', function (done) {
-    runSequence(['js:eslint', 'js:transport','js:copy'], done);
+    runSequence('js:eslint', 'js:transport','js:copy', done);
 });
 
 
