@@ -1,6 +1,6 @@
 {
   "name": "yworkflow",
-  "version": "3.0.8",
+  "version": "4.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -63,7 +63,11 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "strip-json-comments": "^2.0.1",
-    "through2": "^2.0.3"
+    "through2": "^2.0.3",
+    "co-request": "^1.0.0",
+    "koa": "^1.4.0",
+    "yuenode-core": "^2.7.2",
+    "cookie": "^0.3.1"
   },
   "dependencies": {
     "async": "^2.1.5",
