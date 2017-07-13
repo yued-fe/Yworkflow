@@ -59,7 +59,10 @@ gulp.task('nodemon', function() {
                 console.log(chalk.red('[文件变化]') + chalk.green(file));
             })
         }
-    });
+    }).once('exit',function(){
+        console.log('Exiting Yworkflow');
+        process.exit();
+    })
 
 });
 
