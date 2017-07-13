@@ -2,7 +2,7 @@
 
 /**
  * 本地 mock server
- * @module mockServer
+ * @module server/mockServer
  * 
  * @param {object}      opt                     启动参数对象
  * @param {string}      opt.port                启动端口
@@ -15,8 +15,9 @@ global.Promise = require('bluebird');
 const fs = require('fs');
 const path = require('path');
 const app = require('koa')();
-const request = require('co-request');
 const chalk = require('chalk');
+
+const utils = require('../utils.js');
 
 module.exports = function mockServer(opt = {}) {
 
@@ -52,38 +53,9 @@ module.exports = function mockServer(opt = {}) {
             console.log(chalk.red('[Mock Server] ' + err.message));
 
             // 转发请求
-            let reqConf = {
-                uri: opt.proxyServer + this.url,
-                method: this.method,
-                headers: this.header,
-                body: this.request.body,
-                gzip: true,
-                timeout: 5000,
-                followRedirect: false
-            };
-
-            if (this.method.toUpperCase() === 'POST' && this.header['content-type'] !== 'application/json') {
-                reqConf.form = this.request.body;
-            }
-
-            // 发送请求
-            const result = yield request(reqConf);
+            const result = yield utils.proxyReq(opt.proxyServer, this);
 
             console.log('[Mock Server] 请求线上：' + chalk.blue(opt.proxyServer + this.url));
-
-            if (result.statusCode !== 200) {
-                // 如果后端返回301、302，跳转
-                if (result.statusCode === 301 || result.statusCode === 302) {
-                    this.status = result.statusCode;
-                    return this.redirect(result.headers.location);
-                }
-
-                let newErr = new Error(result.statusCode);
-                newErr.status = result.statusCode;
-                throw newErr;
-            }
-
-            this.body = result.body;
         }
 
         yield next;

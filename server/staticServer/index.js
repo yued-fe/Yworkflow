@@ -2,7 +2,7 @@
 
 /**
  * 本地 static server
- * @module staticServer
+ * @module server/staticServer
  * 
  * @param {object}      opt                     启动参数对象
  * @param {string}      opt.port                启动端口

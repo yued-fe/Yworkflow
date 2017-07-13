@@ -2,7 +2,7 @@
 
 /**
  * 本地 yuenode server
- * @module yuenode
+ * @module server/yuenode
  * 
  * @param {object}      opt                         启动参数对象
  * @param {string}      opt.proxyServer             线上接口服务地址
