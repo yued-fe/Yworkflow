@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.07.13 优化yworkcli cli日志,恢复彩色显示
 * 2017.07.12 将runSequence任务变成串行,并行存在着任务执行冲突
 * 2017.07.10 新增yworkflow，用于本地快速起yworkflow本地开发
 * 2017.06.28 增加Css任务cssUrlToAbsolute开关,默认关闭
