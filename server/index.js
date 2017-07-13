@@ -1,94 +1,71 @@
 'use strict';
 
 /**
- * Yworkflow 本地转发
+ * Yworkflow 启动 server
  * @module server/index
- * 
- * @param {object}      opt                     启动参数对象
- * @param {object}      opt.mockConf            mockServer 配置
- * @param {object}      opt.staticConf          staticServer 配置
- * @param {object}      opt.yuenodeConf         yuenode 配置
- * @param {string}      opt.port                启动端口
- * @param {string}      opt.masterhost          masterhost
- * @param {object}      opt.alias               alias
- * @param {array}       opt.hosts               需要走yworkflow的域名
- * @param {array}       opt.ajax                ajax接口数组
- * @param {object}      opt.staticMap           静态资源map
  */
-global.Promise = require('bluebird');
-const chalk = require('chalk');
-const app = require('koa')();
-const router = require('koa-router')();
 
-const utils = require('../utils.js');
+const path = require('path');
 
-module.exports = function Yworkflow(opt = {}) {
+const entry = require('./serverProxy.js');
+const PROJECT_CONFIG = require('../yworkflow').getConfig(); //载入项目基础配置
 
-    app.use(function* (next) {
-        try {
-            yield next;
-        } catch (err) {
-            this.status = err.status || 500;
-            console.log(chalk.red(`[Yworkflow] ${this.url} ${err.message}`));
-        }
-    });
+const dynamic_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file));
 
-    // 处理host
-    app.use(function* (next) {
-        // 处理 ip 和 localhost 访问
-        const ipReg = /\d+\.\d+\.\d+\.\d(:\d+)?/i;
-        const localReg = /localhost(:\d+)?/i;
-        if (ipReg.test(this.host) || localReg.test(this.host)) {
-            this.host = opt.masterhost;
-        }
-        // 去除 local 和 端口
-        this.host = this.host.replace(/^local/i, '').replace(/:\d*$/, '');
-        // alias
-        if (opt.alias[this.host]) {
-            this.host = opt.alias[this.host];
-        }
-
-        yield next;
-    });
-
-    // 判断代理域名，不符合转发出去
-    app.use(function* (next) {
-        if (opt.hosts.includes(this.host)) {
-            yield next;
-        } else {
-            // 转发请求
-            const result = yield utils.proxyReq(this.protocol + '://' + this.host, this);
-        }
-    });
-
-    // mock转发
-    opt.ajax.push('/page', '/mpage');
-    for (let route of opt.ajax) {
-        router.all(route, function* () {
-            const result = yield utils.proxyReq(this.protocol + '://' + this.host + ':' + opt.mockConf.port, this);
-        });
-    }
-
-    // 静态转发
-    let localStaticMap = {};
-    for (let route of Object.keys(opt.staticMap)) {
-        // 有http的去线上
-        if (opt.staticMap[route].startsWith('http')) {
-            router.all(route, function* () {
-                const result = yield utils.proxyReq(opt.staticMap[route].replace(new RegExp(route + '$', 'i'), ''), this);
-            });
-        // 本地
-        } else {
-            router.all(route, function* () {
-                const result = yield utils.proxyReq(this.protocol + '://' + this.host + ':' + opt.staticConf.port, this);
-            });
+// 提取走本地的静态路由
+let staticMap = PROJECT_CONFIG.paths.static,
+    localStaticMap = {};
+if (typeof staticMap === 'string') {
+    localStaticMap = staticMap;
+} else {
+    for (let route of Object.keys(staticMap)) {
+        // 没有有http的需要本地
+        if (!staticMap[route].startsWith('http')) {
+            localStaticMap[route] = path.join(PROJECT_CONFIG.absPath, staticMap[route]);
         }
     }
+}
 
-    app.use(router.routes()).use(router.allowedMethods());
+// mock路由
+const mockAjax = PROJECT_CONFIG.ajax;
+mockAjax.push('/page', '/mpage');
 
-    // 启动监听
-    app.listen(opt.port, () => {
-        console.log(chalk.green('Yworkflow is listening on port: '), chalk.bold(opt.port));
-    });
-};
+// 启动
+entry({
+    // 主端口
+    port: PROJECT_CONFIG.port,
+    masterhost: PROJECT_CONFIG.master_host,
+    // 域名转换
+    alias: PROJECT_CONFIG.alias,
+    // 需要走yworkflow的host
+    hosts: PROJECT_CONFIG.hosts,
+    // mock转发路由
+    ajax: mockAjax,
+    // 静态化路由
+    staticMap: staticMap,
+    // /ejs 代理
+    ejsRewriteRouter: PROJECT_CONFIG.paths.ejs_rewrite_router ||  '/ejs',
+
+    mockConf: {
+        port: PROJECT_CONFIG.port + 1,
+        jsonPath: path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json),
+        publicJsonPath: path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json),
+        proxyForce: PROJECT_CONFIG.proxy_force,
+        proxyServer: PROJECT_CONFIG.proxy_server
+    },
+    staticConf: {
+        port: PROJECT_CONFIG.port + 2,
+        staticMap: localStaticMap
+    },
+    yuenodeConf: {
+        proxyServer: PROJECT_CONFIG.proxy_server,
+        NODE_SITE: PROJECT_CONFIG.node_site,
+        ENV_TYPE: 'local',
+        port: PROJECT_CONFIG.port + 3,
+        path: path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path),
+        server_conf_file: PROJECT_CONFIG.server.server_conf_file,
+        routermap_file: PROJECT_CONFIG.server.routermap_file,
+        extends_file: PROJECT_CONFIG.server.extends_loader_file,
+        character_conversion: true
+    }
+});

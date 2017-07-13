@@ -10,7 +10,8 @@
  * @param {string}      opt.ENV_TYPE                当前Node服务环境
  * @param {number}      opt.port                    服务端口
  * @param {string}      opt.path                    项目配置文件夹地址
- * @param {string}      opt.server_conf_file        配置文件名    
+ * @param {string}      opt.server_conf_file        配置文件名
+ * @param {string}      opt.extends_file            扩展文件
  * @param {string}      opt.routermap_file          动态路由映射文件
  * @param {boolean}     opt.character_conversion    是否开启简繁体转换功能
  */
@@ -125,7 +126,7 @@ module.exports = function (opt) {
                             'x-url': ctx.url,
                         }, header, {
                             // 保持线上应该没问题
-                            host: opt.proxyServer
+                            host: serverConf.cgi.domain
                         });
                     },
                     // 注入渲染数据

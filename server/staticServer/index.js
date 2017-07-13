@@ -5,7 +5,7 @@
  * @module server/staticServer
  * 
  * @param {object}      opt                     启动参数对象
- * @param {string}      opt.port                启动端口
+ * @param {number}      opt.port                启动端口
  * @param {object}      opt.staticMap           静态资源映射
  */
 
@@ -20,17 +20,20 @@ module.exports = function staticServer(opt = {}) {
     app.use(function* (next) {
         try {
             yield next;
-            console.log(chalk.blue(`[Static Server] ${this.url} success`));
+            console.log(chalk.blue(`[Static Server] ${this.url} ${this.status}`));
         } catch (err) {
             console.log(chalk.red(`[Static Server] ${this.url} ${err.message}`));
         }
     });
 
-    for (let route of Object.keys(opt.staticMap)) {
-        router.get(route, serve(opt.staticMap[route]));
+    if (typeof opt.staticMap === 'string') {
+        app.use(serve(opt.staticMap));
+    } else {
+        for (let route of Object.keys(opt.staticMap)) {
+            router.get(route + '/*', serve(opt.staticMap[route]));
+        }
+        app.use(router.routes()).use(router.allowedMethods());
     }
-
-    app.use(router.routes()).use(router.allowedMethods());
 
     // 启动监听
     app.listen(opt.port, () => {
