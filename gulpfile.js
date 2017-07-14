@@ -78,7 +78,7 @@ gulp.task('build', function(done) {
         return key + ':build';
     });
     var tasks = ['clean'];
-    tasks = tasks.concat(key);
+    tasks = tasks.concat(keys);
     if (process.env.NODE_ENV === 'production') {
         tasks.push('html:tricky');
         tasks.push(done);

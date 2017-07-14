@@ -50,6 +50,30 @@ gulp.task('js:copy', function () {
         .pipe(gulp.dest(dest));
 });
 
+// JS代码检查
+gulp.task('js:eslint:build', function() {
+    return gulp.src(path.join(src, '**/*.js'))
+        .pipe(plugins.plumber())
+        .pipe(gulp.dest(dest))
+        .pipe(plugins.eslint(TASK_CONFIG.eslint))
+        .pipe(plugins.eslint.format()); // TASK_CONFIG.eslintFormatter
+});
+
+// JS模块转换
+gulp.task('js:transport:build', function() {
+    return gulp.src(path.join(src, '**/*.js'))
+        .pipe(plugins.plumber())
+        .pipe(gulp.dest(dest))
+        .pipe(lbfTransport(TASK_CONFIG.lbfTransport))
+        .pipe(gulp.dest(dest));
+});
+
+// 将JS路径下其他文件全部拷贝到输出目录
+gulp.task('js:copy:build', function () {
+    return gulp.src([src + '/**/*.*', '!' + src + '/**/*.js'])
+        .pipe(gulp.dest(dest));
+});
+
 
 gulp.task('js', function (done) {
         gulp.watch(path.join(src, '**/*.js'), ['js:eslint', 'js:transport','js:copy'])
@@ -60,7 +84,7 @@ gulp.task('js', function (done) {
 });
 
 gulp.task('js:build', function (done) {
-    runSequence('js:eslint', 'js:transport','js:copy', done);
+    runSequence('js:eslint:build', 'js:transport:build','js:copy:build', done);
 });
 
 

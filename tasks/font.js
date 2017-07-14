@@ -45,6 +45,24 @@ gulp.task('font:copy', function() {
         .pipe(gulp.dest(dest));
 });
 
+// 字体压缩
+gulp.task('font:compress:build', function() {
+    return gulp.src(path.join(src, '**/*.html'))
+        .pipe(plugins.plumber())
+        .pipe(plugins.fontSpider(TASK_CONFIG.fontSpider));
+});
+
+// 字体复制
+gulp.task('font:copy:build', function() {
+    return gulp.src([path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'), '!' + path.join(src, '**/.font-spider/*')])
+        .pipe(plugins.plumber())
+        .pipe(gulp.dest(dest))
+        .pipe(plugins.if(isCssFile, plugins.cssUrlToAbsolute({
+            root: absoluteRootDest
+        }))) // CSS相对地址转绝对地址
+        .pipe(gulp.dest(dest));
+});
+
 gulp.task('font', function(done) {
     // 监听html文件，触发字体压缩
     gulp.watch(path.join(src, '**/*.html'), ['font:compress']);
@@ -56,5 +74,5 @@ gulp.task('font', function(done) {
 });
 
 gulp.task('font:build', function(done) {
-    runSequence('font:compress', 'font:copy', done);
+    runSequence('font:compress:build', 'font:copy:build', done);
 });
