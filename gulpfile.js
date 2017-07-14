@@ -59,7 +59,10 @@ gulp.task('nodemon', function() {
                 console.log(chalk.red('[文件变化]') + chalk.green(file));
             })
         }
-    });
+    }).once('exit',function(){
+        console.log('Exiting Yworkflow');
+        process.exit();
+    })
 
 });
 
@@ -75,7 +78,7 @@ gulp.task('build', function(done) {
         return key + ':build';
     });
     var tasks = ['clean'];
-    tasks = tasks.concat(key);
+    tasks = tasks.concat(keys);
     if (process.env.NODE_ENV === 'production') {
         tasks.push('html:tricky');
         tasks.push(done);

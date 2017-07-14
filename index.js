@@ -1,7 +1,7 @@
 /**
  * Created by patrickliu on 2017/6/24.
  */
-const  execSync  = require('child_process');
+const  { execSync }  = require('child_process');
 
 exports = module.exports = ({path}) => {
     if (!path) {

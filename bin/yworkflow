@@ -1,47 +1,26 @@
-#!/bin/bash
-# Yworkflow 项目启动器
-# Author:luolei
+#!/usr/bin/env node
 
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin
+var chalk = require('chalk');
+var optimist = require('optimist');
+var argv = optimist.argv;
+var spawn = require('child_process').spawn;
+var path = require('path');
+var absPath = '';
+var shellPath = path.resolve(__dirname, '..');
+var glob = require('glob');
 
-clear
-
-export PATH="/usr/local/bin:$PATH"
- export NODE_PATH=/usr/local/lib/node_modules
-source /usr/local/opt/nvm/nvm.sh
-
-# 获得Yworkflow3的执行路径
-ABSOLUTE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
-ABS_PARENT_ROOT="$(dirname "$ABSOLUTE_PATH")"
-APP_ROOT="$(dirname "$ABS_PARENT_ROOT")"
-
-yworkHistoryConf=$HOME/.yworkhistory
-> $yworkHistoryConf
-projectList=$APP_ROOT/.yworkprojects
-
-if [ ! -e "$projectList" ]; then
-	echo '自动创建项目路径文件'
-    echo "" >> $projectList 
-else
-	echo ''
-fi
-
-Num=1
-function main(){
-    echo "Hello,请选择要通过Yworkflow启动的项目:"
-    echo "======================================================"
-    cat $projectList | grep -v "^$" | while read path
-    
-    do
-     echo "$Num---$path" >> $yworkHistoryConf;
-     Num=$(($Num+1))
-    done
-
-    cat $yworkHistoryConf
-    echo "======================================================"
-    read -p "请输入项目编号(1/2/3...):" proNum
-    proConfPath=`cat $yworkHistoryConf | grep "^$proNum---" | awk -F':' '{print $2}'`
-    echo $proConfPath
-    cd $APP_ROOT && gulp dev --path $proConfPath
+if (argv.path) {
+    absPath = path.resolve(process.env.PWD, argv.path);
+} else {
+    var matched = glob.sync(path.resolve(process.env.PWD, '*.yconfig'), { dot: true });
+    if (matched.length !== 1) {
+        throw new Error('工作目录没有或发现多个.yconfig, 请调用--path 手动指定');
+        return;
+    }
+    absPath = path.resolve(process.env.PWD, matched[0]);
 }
-main
+var child = spawn('cd ' + shellPath + ' && gulp dev --path ' + absPath, {
+    shell: true,
+    stdio: 'inherit'
+});
+

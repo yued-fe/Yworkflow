@@ -82,6 +82,50 @@ gulp.task('css:copy', function() {
         .pipe(gulp.dest(dest));
 });
 
+
+
+// CSS格式美化
+gulp.task('css:css:build', function() {
+    return gulp.src(src + '/**/*.css')
+        .pipe(plugins.plumber())
+        .pipe(plugins.csscomb())
+        .pipe(gulp.dest(dest))
+        .pipe(plugins.if(isCssUrlToAbsoluteToggle(), plugins.cssUrlToAbsolute({
+            root: absoluteRootDest
+        })))
+        .pipe(gulp.dest(dest));
+
+});
+
+
+
+// 编译Scss并格式美化
+gulp.task('css:scss:build', function() {
+    return gulp.src(src + '/**/*.scss')
+        .pipe(plugins.plumber())
+        .pipe(changedDeps(dest, {
+            extension: '.css'
+        }))
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sass({
+
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.csscomb())
+        .pipe(plugins.sourcemaps.write(sourceMapDes))
+        .pipe(gulp.dest(dest))
+        .pipe(plugins.if(isCssUrlToAbsoluteToggle(), plugins.cssUrlToAbsolute({
+            root: absoluteRootDest
+        })))
+        .pipe(gulp.dest(dest));
+});
+
+
+// 将CSS路径下其他文件全部拷贝到输出目录
+gulp.task('css:copy:build', function() {
+    return gulp.src([src + '/**/*.*', '!' + src + '/**/*.{css,scss}'])
+        .pipe(gulp.dest(dest));
+});
+
 // 监听css变化
 gulp.task('css', function(done) {
     // 监听CSS文件
@@ -93,7 +137,7 @@ gulp.task('css', function(done) {
 });
 
 gulp.task('css:build', function(done) {
-    runSequence.apply(runSequence, ['css:css', 'css:scss', 'css:copy', done]);
+    runSequence.apply(runSequence, ['css:css:build', 'css:scss:build', 'css:copy:build', done]);
 });
 
 

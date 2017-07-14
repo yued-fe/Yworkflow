@@ -31,6 +31,12 @@ gulp.task('img:copy', function() {
 		.pipe(gulp.dest(dest));
 });
 
+// 将处理文件全部拷贝到输出目录
+gulp.task('img:copy:build', function() {
+	return gulp.src(path.join(src, '**/*.{' + TASK_CONFIG.extensions.join(',') + '}'))
+		.pipe(gulp.dest(dest));
+});
+
 // 优化图片压缩质量  @todo
 gulp.task('img:optimize', function(done) {
 
@@ -45,6 +51,6 @@ gulp.task('img', function(done) {
 
 
 gulp.task('img:build', function(done) {
-	runSequence('img:copy', done);
+	runSequence('img:copy:build', done);
 });
 
