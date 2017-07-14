@@ -121,6 +121,6 @@
     "through2": "^2.0.3",
     "url": "^0.11.0",
     "url-parse": "^1.1.8",
-    "yuenode-core": "^2.7.2"
+    "yuenode-core": "^2.7.3"
   }
 }

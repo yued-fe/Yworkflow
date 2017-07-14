@@ -23,18 +23,24 @@ const utils = require('../utils.js');
 
 module.exports = function mockServer(opt = {}) {
 
-    const publicJson = fs.readdirSync(opt.publicJsonPath);
     let publicData = {};
-    publicJson.forEach((file) => {
-        if (file.endsWith('.json')) {
-            publicData = Object.assign(publicData, JSON.parse(stripJsonComments(fs.readFileSync(path.join(opt.publicJsonPath,file), 'utf8'))));
-        } else {
-            publicData = Object.assign(publicData, require(path.join(opt.publicJsonPath,file)));
-        }
-    });
+    try {
+        const publicJson = fs.readdirSync(opt.publicJsonPath);
+        publicJson.forEach((file) => {
+            if (file.endsWith('.json')) {
+                publicData = Object.assign(publicData, JSON.parse(stripJsonComments(fs.readFileSync(path.join(opt.publicJsonPath,file), 'utf8'))));
+            } else {
+                publicData = Object.assign(publicData, require(path.join(opt.publicJsonPath,file)));
+            }
+        });
+    } catch (err) {
+        console.log(err.message);
+    }
+    
 
     app.use(function* (next) {
         try {
+            console.log(chalk.blue(`[Mock Server] ${this.url}`));
             this.status = 200;
             yield next;
             console.log(chalk.blue(`[Mock Server] ${this.url} ${this.status}`));

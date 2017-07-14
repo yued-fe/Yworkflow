@@ -35,7 +35,7 @@ module.exports = function Yworkflow(opt = {}) {
         } catch (err) {
             this.status = err.status || 500;
             console.log(chalk.red(`[Yworkflow] ${this.url} ${err.message}`));
-            console.log(err.stack)
+            console.log(err.stack);
         }
     });
 
@@ -60,7 +60,10 @@ module.exports = function Yworkflow(opt = {}) {
         } else {
             // 转发请求
             const result = yield utils.proxyReq({
-                uri: this.protocol + '://' + this.host.replace(/^http(s)?:\/\//i,'') + utils.getRealUrl(this.url)
+                uri: this.protocol + '://' + this.host.replace(/^http(s)?:\/\//i,'') + utils.getRealUrl(this.url),
+                headers: Object.assign(this.header, {
+                    host: this.host.replace(/^http(s)?:\/\//i,'')
+                })
             }, this);
         }
     });
@@ -111,7 +114,10 @@ module.exports = function Yworkflow(opt = {}) {
             if (opt.staticMap[route].startsWith('http')) {
                 router.get(route + '/*', function* () {
                     const result = yield utils.proxyReq({
-                        uri: opt.staticMap[route] + utils.getRealUrl(this.url).replace(new RegExp('^' + route, 'i'), '')
+                        uri: opt.staticMap[route] + utils.getRealUrl(this.url).replace(new RegExp('^' + route, 'i'), ''),
+                        headers: Object.assign(this.header, {
+                            host: opt.staticMap[route].replace(/^http(s)?:\/\//i,'')
+                        })
                     }, this);
                 });
             // 本地

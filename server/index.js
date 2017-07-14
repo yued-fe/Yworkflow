@@ -58,6 +58,7 @@ entry({
         staticMap: localStaticMap
     },
     yuenodeConf: {
+        viewsPath: path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views),
         proxyServer: PROJECT_CONFIG.proxy_server,
         NODE_SITE: PROJECT_CONFIG.node_site,
         ENV_TYPE: 'local',

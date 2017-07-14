@@ -5,7 +5,8 @@
  * @module server/yuenode
  * 
  * @param {object}      opt                         启动参数对象
- * @param {string}      opt.proxyServer             线上接口服务地址
+ * @param {string}      opt.viewsPath               如果有，使用此目录的模板
+ * @param {string}      opt.proxyServer             代理
  * @param {string}      opt.NODE_SITE               NODE服务项目别名
  * @param {string}      opt.ENV_TYPE                当前Node服务环境
  * @param {number}      opt.port                    服务端口
@@ -87,7 +88,7 @@ module.exports = function (opt) {
             {
                 name: 'addEjsRender',
                 options: {
-                    root: serverConf.views.path
+                    root: opt.viewsPath || serverConf.views.path
                 }
             },
             // 兼容旧项目，将 COOKIE,UA,URL 等信息、自定义扩展、静态文件配置注入
@@ -117,7 +118,7 @@ module.exports = function (opt) {
                             let reqHost = yield L5.getAddr(ctx, serverConf.cgi.L5);
                             return reqHost ? reqHost : serverConf.cgi.ip;
                         }
-                        return serverConf.cgi.ip;
+                        return 'localhost:' + (opt.port - 3);
                     },
                     // 注入请求header
                     getHeader: (header, ctx) => {
@@ -126,7 +127,7 @@ module.exports = function (opt) {
                             'x-url': ctx.url,
                         }, header, {
                             // 保持线上应该没问题
-                            host: serverConf.cgi.domain
+                            host: opt.proxyServer.replace(/^http(s)?:\/\//i,'')
                         });
                     },
                     // 注入渲染数据
