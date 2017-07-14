@@ -30,41 +30,39 @@ var dest = path.join(PROJECT_ABS_PATH, TASK_CONFIG.dest);
 var htmlCompileTasks = [];
 
 // 生成html编译任务
+var getHtmlCompileTask = function (inputDir, outputDir) {
+
+    return function () {
+        var inputSrc = [path.join(inputDir, '**/*.html')];
+        if (!PROJECT_CONFIG.debug) {
+            inputSrc.push('!' + path.join(inputDir, '_*/**/*.html')); // 非 debug 模式已出以 "_" 开头目录
+        }
+        return gulp.src(inputSrc, { base: inputDir })
+            .pipe(plugins.plumber())
+            .pipe(changedDeps(outputDir, { syntax: 'nunjucks', base: inputDir }))
+            .pipe(plugins.nunjucks.compile(TASK_CONFIG.nunjucks))
+            .pipe(gulp.dest(outputDir));
+    };
+};
+
+if (TASK_CONFIG.multiple) { // 以子目录为单位
+    glob.sync(path.join(src, '*/')).forEach(function (dir) {
+        var dirname = path.relative(src, dir);
+        var dirDest = path.join(dest, dirname);
+        var htmlCompileTaskName = 'html:compile(' + dirname + ')';
+        var htmlSrc = path.join(dir, '**/*.html');
+        htmlCompileTasks.push({ src: htmlSrc, name: htmlCompileTaskName }); // 用于监听
+        gulp.task(htmlCompileTaskName, getHtmlCompileTask(dir, dirDest)); // 定义HTMl编译任务
+
+    });
+} else {
+    var htmlCompileTaskName = 'html:compile';
+    var allHtmlSrc = path.join(src, '**/*.html');
+    htmlCompileTasks.push({ src: allHtmlSrc, name: htmlCompileTaskName }); // 用于监听
+    gulp.task(htmlCompileTaskName, getHtmlCompileTask(src, dest)); // 定义HTMl编译任务
+}
 
 gulp.task('html', function (done) {
-
-    var getHtmlCompileTask = function (inputDir, outputDir) {
-
-        return function () {
-            var inputSrc = [path.join(inputDir, '**/*.html')];
-            if (!PROJECT_CONFIG.debug) {
-                inputSrc.push('!' + path.join(inputDir, '_*/**/*.html')); // 非 debug 模式已出以 "_" 开头目录
-            }
-            return gulp.src(inputSrc, { base: inputDir })
-                .pipe(plugins.plumber())
-                .pipe(changedDeps(outputDir, { syntax: 'nunjucks', base: inputDir }))
-                .pipe(plugins.nunjucks.compile(TASK_CONFIG.nunjucks))
-                .pipe(gulp.dest(outputDir));
-        };
-    };
-
-    if (TASK_CONFIG.multiple) { // 以子目录为单位
-        glob.sync(path.join(src, '*/')).forEach(function (dir) {
-            var dirname = path.relative(src, dir);
-            var dirDest = path.join(dest, dirname);
-            var htmlCompileTaskName = 'html:compile(' + dirname + ')';
-            var htmlSrc = path.join(dir, '**/*.html');
-            htmlCompileTasks.push({ src: htmlSrc, name: htmlCompileTaskName }); // 用于监听
-            gulp.task(htmlCompileTaskName, getHtmlCompileTask(dir, dirDest)); // 定义HTMl编译任务
-
-        });
-    } else {
-        var htmlCompileTaskName = 'html:compile';
-        var allHtmlSrc = path.join(src, '**/*.html');
-        htmlCompileTasks.push({ src: allHtmlSrc, name: htmlCompileTaskName }); // 用于监听
-        gulp.task(htmlCompileTaskName, getHtmlCompileTask(src, dest)); // 定义HTMl编译任务
-    }
-    
     var tasks = [];
     htmlCompileTasks.forEach(function (task) {
         gulp.watch(task.src, [task.name]); // 启动HTML编译监听
@@ -75,38 +73,6 @@ gulp.task('html', function (done) {
 });
 
 gulp.task('html:build', function (done) {
-
-    var getHtmlCompileTask = function (inputDir, outputDir) {
-
-        return function () {
-            var inputSrc = [path.join(inputDir, '**/*.html')];
-            if (!PROJECT_CONFIG.debug) {
-                inputSrc.push('!' + path.join(inputDir, '_*/**/*.html')); // 非 debug 模式已出以 "_" 开头目录
-            }
-            return gulp.src(inputSrc, { base: inputDir })
-                .pipe(plugins.plumber())
-                .pipe(plugins.nunjucks.compile(TASK_CONFIG.nunjucks))
-                .pipe(gulp.dest(outputDir));
-        };
-    };
-
-    if (TASK_CONFIG.multiple) { // 以子目录为单位
-        glob.sync(path.join(src, '*/')).forEach(function (dir) {
-            var dirname = path.relative(src, dir);
-            var dirDest = path.join(dest, dirname);
-            var htmlCompileTaskName = 'html:compile(' + dirname + ')';
-            var htmlSrc = path.join(dir, '**/*.html');
-            htmlCompileTasks.push({ src: htmlSrc, name: htmlCompileTaskName }); // 用于监听
-            gulp.task(htmlCompileTaskName, getHtmlCompileTask(dir, dirDest)); // 定义HTMl编译任务
-
-        });
-    } else {
-        var htmlCompileTaskName = 'html:compile';
-        var allHtmlSrc = path.join(src, '**/*.html');
-        htmlCompileTasks.push({ src: allHtmlSrc, name: htmlCompileTaskName }); // 用于监听
-        gulp.task(htmlCompileTaskName, getHtmlCompileTask(src, dest)); // 定义HTMl编译任务
-    }
-    
     var tasks = [];
     htmlCompileTasks.forEach(function (task) {
         tasks.push(task.name);

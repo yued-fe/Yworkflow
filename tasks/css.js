@@ -83,6 +83,7 @@ gulp.task('css:copy', function() {
 });
 
 
+
 // CSS格式美化
 gulp.task('css:css:build', function() {
     return gulp.src(src + '/**/*.css')
@@ -102,8 +103,13 @@ gulp.task('css:css:build', function() {
 gulp.task('css:scss:build', function() {
     return gulp.src(src + '/**/*.scss')
         .pipe(plugins.plumber())
+        .pipe(changedDeps(dest, {
+            extension: '.css'
+        }))
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.sass({}).on('error', plugins.sass.logError))
+        .pipe(plugins.sass({
+
+        }).on('error', plugins.sass.logError))
         .pipe(plugins.csscomb())
         .pipe(plugins.sourcemaps.write(sourceMapDes))
         .pipe(gulp.dest(dest))
