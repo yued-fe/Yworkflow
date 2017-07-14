@@ -82,6 +82,9 @@ module.exports = function Yworkflow(opt = {}) {
         if (!this.header['Access-Control-Allow-Origin']) {
             this.set('Access-Control-Allow-Origin', '*');
         }
+        if (!this.header['Access-Control-Allow-Headers']) {
+            this.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Range');
+        }
     });
 
     // mock转发
@@ -94,7 +97,6 @@ module.exports = function Yworkflow(opt = {}) {
     // 静态转发
     // 针对旧有的 /ejs 反向代理做特殊处理指向 /qd
     router.get(opt.ejsRewriteRouter + '/*', function* () {
-        console.log('===========ejs')
         const result = yield utils.proxyReq({
             uri: this.protocol + '://127.0.0.1:' + opt.staticConf.port + utils.getRealUrl(this.url).replace(new RegExp('^' + opt.ejsRewriteRouter, 'i'), '')
         }, this);
