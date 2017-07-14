@@ -29,6 +29,7 @@ module.exports = {
             body: ctx.request.body,
             gzip: true,
             timeout: 5000,
+            encoding: null,
             followRedirect: false
         };
         
@@ -50,7 +51,6 @@ module.exports = {
         ctx.status = result.statusCode;
         ctx.set(result.headers);
         ctx.body = result.body;
-
         return result;
     }
 };

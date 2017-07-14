@@ -27,18 +27,14 @@ module.exports = function staticServer(opt = {}) {
     });
 
     if (typeof opt.staticMap === 'string') {
-        app.use(serve(opt.staticMap, {
-                gzip: false
-            }));
+        app.use(serve(opt.staticMap));
     } else {
         for (let route of Object.keys(opt.staticMap)) {
             router.get(route + '/*', function* (next){
                 // '/qd': '.cache/qd' 访问的时候应该吧路径中的 /qd 去掉以防访问 /qd/qd
                 this.request.path = this.request.path.replace(new RegExp('^' + route, 'i'),'');
                 yield next;
-            }, serve(opt.staticMap[route], {
-                gzip: false
-            }));
+            }, serve(opt.staticMap[route]));
         }
         app.use(router.routes()).use(router.allowedMethods());
     }

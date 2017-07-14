@@ -73,7 +73,6 @@ module.exports = function mockServer(opt = {}) {
                     host: opt.proxyServer.replace(/^http(s)?:\/\//i,'')
                 })
             }, this);
-
         }
 
         yield next;
