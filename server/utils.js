@@ -44,11 +44,8 @@ module.exports = {
             reqConf.form = ctx.request.body;
         }
 
-        console.log('proxyReq:',reqConf.uri);
         // 发送请求
         let result = yield request(reqConf);
-        
-        console.log('proxyRes:',reqConf.uri, result.statusCode);
 
         ctx.status = result.statusCode;
         ctx.set(result.headers);

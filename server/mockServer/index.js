@@ -65,6 +65,7 @@ module.exports = function mockServer(opt = {}) {
 
             console.log(chalk.red('[Mock Server] ' + err.message));
 
+            console.log('[Mock Server] 请求线上：' + chalk.blue(opt.proxyServer + this.url));
             // 转发请求
             const result = yield utils.proxyReq({
                 uri: opt.proxyServer + this.url,
@@ -73,7 +74,6 @@ module.exports = function mockServer(opt = {}) {
                 })
             }, this);
 
-            console.log('[Mock Server] 请求线上：' + chalk.blue(opt.proxyServer + this.url));
         }
 
         yield next;
