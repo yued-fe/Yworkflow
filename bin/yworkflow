@@ -12,9 +12,9 @@ var glob = require('glob');
 if (argv.path) {
     absPath = path.resolve(process.env.PWD, argv.path);
 } else {
-    var matched = glob.sync(path.resolve(process.env.PWD, '*.yconfig'));
+    var matched = glob.sync(path.resolve(process.env.PWD, '*.yconfig'), { dot: true });
     if (matched.length !== 1) {
-        throw new Error('工作目录发现多个.yconfig, 请调用--path 手动指定');
+        throw new Error('工作目录没有或发现多个.yconfig, 请调用--path 手动指定');
         return;
     }
     absPath = path.resolve(process.env.PWD, matched[0]);
