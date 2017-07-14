@@ -45,7 +45,7 @@ gulp.task('js:transport', function() {
 
 // 将JS路径下其他文件全部拷贝到输出目录
 gulp.task('js:copy', function () {
-    return gulp.src([src + '/**/*.*', '!' + src + '/**/*.{js}'])
+    return gulp.src([src + '/**/*.*', '!' + src + '/**/*.js'])
         .pipe(plugins.changed(dest))
         .pipe(gulp.dest(dest));
 });

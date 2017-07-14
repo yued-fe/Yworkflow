@@ -56,6 +56,5 @@ gulp.task('font', function(done) {
 });
 
 gulp.task('font:build', function(done) {
-    // 默认执行一次字体复制
-    runSequence('font:copy', done);
+    runSequence('font:compress', 'font:copy', done);
 });
