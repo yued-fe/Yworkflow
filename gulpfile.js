@@ -38,7 +38,7 @@ gulp.task('nodemon', function() {
 
     // 自动监听
     nodemon({
-        script: 'server/index.js',
+        script: 'server/app.js',
         nodeArgs: ['--harmony'],
         ext: 'js html',
         args: ['--path', path.resolve(configFile)],

@@ -7,6 +7,7 @@
 
 const request = require('co-request');
 const url = require('url');
+const chalk = require('chalk');
 
 module.exports = {
 
@@ -21,23 +22,27 @@ module.exports = {
      */
     proxyReq: function* (target, ctx) {
 
+        let uri;
+        if (typeof target === 'string') {
+            uri = target + this.getRealUrl(ctx.url);
+        } else {
+            uri = target.uri;
+        }
+
         // 转发请求
         let reqConf = {
-            uri: '',
+            uri: uri,
             method: ctx.method,
-            headers: ctx.header,
+            headers: Object.assign(ctx.header, {
+                host: url.parse(uri).host
+            }),
             body: ctx.request.body,
-            gzip: true,
+            // gzip: true,
             timeout: 5000,
             encoding: null,
             followRedirect: false
         };
         
-        if (typeof target === 'string') {
-            reqConf.uri = target + this.getRealUrl(ctx.url);
-        } else {
-            reqConf = Object.assign(reqConf, target);
-        }
 
         if (ctx.method.toUpperCase() === 'POST' && ctx.header['content-type'].indexOf('json') > -1) {
             reqConf.body = JSON.stringify(ctx.request.body);
@@ -47,6 +52,8 @@ module.exports = {
 
         // 发送请求
         let result = yield request(reqConf);
+
+        ctx.appendLog('[proxyReq] 请求线上：' + chalk.magenta(uri));
 
         ctx.status = result.statusCode;
         ctx.set(result.headers);
