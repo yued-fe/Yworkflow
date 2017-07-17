@@ -26,7 +26,6 @@ gulp.task('nodemon', function() {
         console.log(chalk.red('[初始]自动创建 .eslintignore 文件'));
         fs.writeFileSync(path.join(PROJECT_CONFIG.absPath, '.eslintignore'), '.cache');
     }
-
     figlet('Yworkflow', function(err, data) {
         if (err) {
             console.log('Something went wrong...');
@@ -59,9 +58,6 @@ gulp.task('nodemon', function() {
                 console.log(chalk.red('[文件变化]') + chalk.green(file));
             })
         }
-    }).once('exit',function(){
-        console.log('Exiting Yworkflow');
-        process.exit();
     })
 
 });
@@ -108,3 +104,5 @@ gulp.task('dev', ['nodemon'], function(done) {
         runSequence.apply(runSequence, tasks);
     }
 });
+
+gulp.task('default', ['dev']);

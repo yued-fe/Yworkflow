@@ -13,7 +13,6 @@ if (!PROJECT_CONFIG.tasks.css) {
 var PROJECT_ABS_PATH = PROJECT_CONFIG.absPath;
 var TASK_CONFIG = PROJECT_CONFIG.tasks.css;
 
-
 var gulp = require('gulp');
 var path = require('path');
 var chalk = require('chalk');
@@ -38,7 +37,7 @@ function isCssUrlToAbsoluteToggle() {
 
 }
 
-    // CSS格式美化
+// CSS格式美化
 gulp.task('css:css', function() {
     return gulp.src(src + '/**/*.css')
         .pipe(plugins.plumber())
@@ -51,7 +50,6 @@ gulp.task('css:css', function() {
         .pipe(gulp.dest(dest));
 
 });
-
 
 
 // 编译Scss并格式美化

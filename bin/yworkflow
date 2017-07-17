@@ -1,14 +1,70 @@
 #!/usr/bin/env node
 
 var chalk = require('chalk');
-var optimist = require('optimist');
-var argv = optimist.argv;
 var spawn = require('child_process').spawn;
 var path = require('path');
 var absPath = '';
 var shellPath = path.resolve(__dirname, '..');
 var glob = require('glob');
+var figlet = require('figlet');
+var packageFile= require('../package.json');
 
+var optimist = require('optimist')
+	.usage([chalk.red('[说明]YWORKFLOW是一个智能的自动化构建和开发工具'),'[项目] https://github.com/yued-fe/Yworkflow','[版本] ' + require('../package.json').version].join('\n'))
+	.alias('h', 'help')
+	.alias('v', 'version')
+	.describe(chalk.green('path'), ':指定yworkflow配置')
+	.describe(chalk.green('build'), ':执行build任务,不启动server服务')
+
+var argv = optimist.argv;
+var text = argv._.join(' ');
+
+// gulp任务初始参数
+let args = ['--gulpfile', path.join(shellPath,'gulpfile.js')];
+
+/**
+ *显示yworkflow说明
+ * @param  {[type]} argv.help [description]
+ * @return {[type]}           [description]
+ */
+if (argv.help || !!text) {
+	figlet('Yworkflow', function(err, data) {
+		if (err) {
+			console.log('Something went wrong...');
+			console.dir(err);
+			return;
+		}
+		console.log(chalk.bold.green(data))
+	});
+	return console.log(optimist.help());
+}
+
+/**
+ * 显示版本信息
+ * @param  {[type]} argv.version [description]
+ * @return {[type]}              [description]
+ */
+if (argv.version) {
+	figlet(require('../package.json').version, function(err, data) {
+		if (err) {
+			console.log('Something went wrong...');
+
+			console.log(chalk.green(data));
+			return;
+		}
+		console.log(chalk.red('当前版本:'));
+		console.log(data);
+	});
+	return;
+}
+
+
+
+/**
+ * 指定配置
+ * @param  {[type]} argv.version [description]
+ * @return {[type]}              [description]
+ */
 if (argv.path) {
     absPath = path.resolve(process.env.PWD, argv.path);
 } else {
@@ -19,8 +75,18 @@ if (argv.path) {
     }
     absPath = path.resolve(process.env.PWD, matched[0]);
 }
-var child = spawn('cd ' + shellPath + ' && gulp dev --path ' + absPath, {
-    shell: true,
-    stdio: 'inherit'
-});
+
+/**
+ * 是否只执行build任务
+ * @param  {[type]} argv.version [description]
+ * @return {[type]}              [description]
+ */
+if (argv.build) {
+    args = args.concat('build');
+}
+
+
+args = args.concat('--path', absPath);
+require('child_process').fork(path.join(shellPath,'node_modules/gulp/bin/gulp'), args)
+
 

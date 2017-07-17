@@ -26,8 +26,6 @@ var changedDeps = require('./plugins/gulp-changed-deps/');
 var staticFiles = [];
 var staticTasks = [];
 
-
-
 // 将处理文件全部拷贝到输出目录
 gulp.task('static', function(done) {
 

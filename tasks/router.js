@@ -39,11 +39,9 @@ function checkRouterFile(routerPath) {
 			})
 		}
 	}
-
 	const router_tpl = [
 		'/**',
 		'* 业务代号: ' + PROJECT_CONFIG.name,
-		'* 更新时间: ' + dateformat((new Date()).getTime(), 'yyyy-mm-dd HH:MM:ss'),
 		'* 本地路由数量: ' + Object.keys(dynamic_routes).length,
 		'* 线上路由数量: ' + Object.keys(generatedRouters).length,
 		'* ====ROUTERS EXCLUDES======',
@@ -53,16 +51,15 @@ function checkRouterFile(routerPath) {
 		'module.exports =',
 		'<%- routers %>'
 	].join('\n')
-
 	// 首先检查路由是文件夹还是单一文件
 	let routerString = ejs.render(router_tpl, {
 		routers: JSON.stringify(sortJson(generatedRouters), null, 4)
 	});
-	console.log('[路由合并] 最终路由配置有' +  Object.keys(generatedRouters).length + '条')
+	console.log('[路由合并] 最终路由配置有' +  Object.keys(generatedRouters).length + '条');
 	fs.writeFileSync(path.join(PROJECT_CONFIG.absPath, TASK_CONFIG.dest), routerString);
 }
 
-gulp.task('router:concat', function(done) {
+gulp.task('router:concat', function() {
 	console.log('[路由合并]');
 	checkRouterFile(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, PROJECT_CONFIG.server.routermap_file))
 });
