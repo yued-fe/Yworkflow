@@ -7,10 +7,10 @@ var absPath = '';
 var shellPath = path.resolve(__dirname, '..');
 var glob = require('glob');
 var figlet = require('figlet');
-var packageFile= require('../package.json');
+var packageFile = require('../package.json');
 
 var optimist = require('optimist')
-	.usage([chalk.red('[说明]YWORKFLOW是一个智能的自动化构建和开发工具'),'[项目] https://github.com/yued-fe/Yworkflow','[版本] ' + require('../package.json').version].join('\n'))
+	.usage([chalk.blue('[说明] YWORKFLOW是一个智能的自动化构建和开发工具'), '[项目] https://github.com/yued-fe/Yworkflow', '[版本] ' + require('../package.json').version].join('\n'))
 	.alias('h', 'help')
 	.alias('v', 'version')
 	.describe(chalk.green('path'), ':指定yworkflow配置')
@@ -20,7 +20,7 @@ var argv = optimist.argv;
 var text = argv._.join(' ');
 
 // gulp任务初始参数
-let args = ['--gulpfile', path.join(shellPath,'gulpfile.js')];
+let args = ['--gulpfile', path.join(shellPath, 'gulpfile.js')];
 
 /**
  *显示yworkflow说明
@@ -59,21 +59,22 @@ if (argv.version) {
 }
 
 
-
 /**
  * 指定配置
  * @param  {[type]} argv.version [description]
  * @return {[type]}              [description]
  */
 if (argv.path) {
-    absPath = path.resolve(process.env.PWD, argv.path);
+	absPath = path.resolve(process.env.PWD, argv.path);
 } else {
-    var matched = glob.sync(path.resolve(process.env.PWD, '*.yconfig'), { dot: true });
-    if (matched.length !== 1) {
-        throw new Error('工作目录没有或发现多个.yconfig, 请调用--path 手动指定');
-        return;
-    }
-    absPath = path.resolve(process.env.PWD, matched[0]);
+	var matched = glob.sync(path.resolve(process.env.PWD, '*.yconfig'), {
+		dot: true
+	});
+	if (matched.length !== 1) {
+		throw new Error('工作目录没有或发现多个.yconfig, 请调用--path 手动指定');
+		return;
+	}
+	absPath = path.resolve(process.env.PWD, matched[0]);
 }
 
 /**
@@ -82,11 +83,9 @@ if (argv.path) {
  * @return {[type]}              [description]
  */
 if (argv.build) {
-    args = args.concat('build');
+	args = args.concat('build');
 }
 
 
 args = args.concat('--path', absPath);
-require('child_process').fork(path.join(shellPath,'node_modules/gulp/bin/gulp'), args)
-
-
+require('child_process').fork(path.join(shellPath, 'node_modules/gulp/bin/gulp'), args)

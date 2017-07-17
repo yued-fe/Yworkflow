@@ -16,36 +16,6 @@ Yworkflow3 新手说明
 * 2017.05.16 路由配置params参数正则过滤:例`/:bookId(\\d+)`转`?bookId=$1`
 * 2017.05.16 增加路由`.ejs`静态资源路由反向代理
 
-## yworkflow脚本使用方法
-
-在Yworkflow文件夹下，终端执行
-
-```Bash
-#如果使用的是默认bash则添加到.bashrc配置中
-echo "alias yworkflow='sh $PWD/bin/yworkflow'"  >> ~/.bashrc
-#如果使用zshrc则添加到.zshrc配置中
-echo "alias yworkflow='sh $PWD/bin/yworkflow'"  >> ~/.zshrc
-```
-脚本会自动在Yworkflow文件夹创建`.yworkprojects`文件，开发者可以按照以下规范,将不同的项目配置路径下来
-
-```
-#{项目备注} {冒号:需要通过冒号来间隔} {不同的项目路径启动配置}
-起点PC: /Users/yuewen-luolei/Yuewen/Tencent/qidian_pc_proj/qidian.yconfig
-小说阅读吧PC: /Users/yuewen-luolei/Yuewen/Tencent/readnovel_proj/.yconfig
-言情小说吧M站: /Users/yuewen-luolei/Yuewen/Tencent/xs8_m_proj/.yconfig
-
-```
-
-**注意**:`.yworkprojects`不需要入库,根据你的需求自定义即可。
-
-#### 使用
-
-终端任意路径执行`yworkflow`即可
-
-![](http://luoleiorg.b0.upaiyun.com/tmp/yworkflow.jpg)
-
-
-以全局调用。
 
 ## 写在前面
 
@@ -124,9 +94,10 @@ brew install graphicsmagick
 
 #### 开始任务
 
-* 下载安装
-    1. `git clone https://github.com/yued-fe/Yworkflow.git`
-    2. 安装三件套`npm run yworkflow`（若提示权限问题,请使用sudo)
+
+#### 安装
+
+`npm install -g yworkflow yworkcli`
 
 
 #### 初始
@@ -322,9 +293,8 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 #### 使用
 
 1. 进入 {Yworkflow3路径}项目跟路径，例:`cd /Users/yuewen-luolei/Yuewen/Tencent/Yworkflow3`
-2. 安装项目依赖 ` npm install`
-3. 打开某一个具体项目配置，例`gulp dev --path  /Users/yuewen-luolei/Yuewen/Tencent/qidian-m/.yconfig`
-4. 打开浏览器，即可通过`.yconfig`配置的域名和端口号，进行开发
+2. 执行启动脚本 ` yworkflow --path {file}.ycofnig`
+3. 打开浏览器，即可通过`.yconfig`中配置的域名和端口号，进行开发
 
 #### 代理模式
 
