@@ -7,7 +7,9 @@ var absPath = '';
 var shellPath = path.resolve(__dirname, '..');
 var glob = require('glob');
 var figlet = require('figlet');
+var compareVersion = require('compare-version');
 var packageFile = require('../package.json');
+var request = require('request');
 
 var optimist = require('optimist')
 	.usage([chalk.blue('[说明] YWORKFLOW是一个智能的自动化构建和开发工具'), '[项目] https://github.com/yued-fe/Yworkflow', '[版本] ' + require('../package.json').version].join('\n'))
@@ -28,6 +30,7 @@ let args = ['--gulpfile', path.join(shellPath, 'gulpfile.js')];
  * @return {[type]}           [description]
  */
 if (argv.help || !!text) {
+
 	figlet('Yworkflow', function(err, data) {
 		if (err) {
 			console.log('Something went wrong...');
@@ -39,22 +42,48 @@ if (argv.help || !!text) {
 	return console.log(optimist.help());
 }
 
+
+function getLatesYworkflow() {
+	return new Promise((resolve, reject) => {
+		request({
+			url: 'https://encrypt.proxy.is26.com/proxy/registry.npmjs.org/yworkflow',
+			method: 'get'
+		}, (err, res, body) => {
+			if (res && res.statusCode === 200) {
+				resolve(body);
+			} else {
+				reject(err);
+			}
+		});
+	}).then(result => {
+		return JSON.parse(result)['dist-tags'].latest;
+	}).catch(err => {
+		return require('../package.json').version;
+	})
+}
+
+
+
 /**
  * 显示版本信息
  * @param  {[type]} argv.version [description]
  * @return {[type]}              [description]
  */
 if (argv.version) {
-	figlet(require('../package.json').version, function(err, data) {
-		if (err) {
-			console.log('Something went wrong...');
+	getLatesYworkflow().then(function(ver) {
+		if (compareVersion(ver, require('../package.json').version) >= 1) {
+			console.log(chalk.red('[注意]' + 'Yworkflow已经有更新版本,请及时升级'))
+			console.log(chalk.green('[线上版本]:') + ver)
+			console.log(chalk.green('[本地版本]:') + require('../package.json').version);
+		};
+		figlet(require('../package.json').version, function(err, data) {
+			if (err) {
+				console.log('Something went wrong...');
+				console.log(chalk.green(data));
+			}
+		});
 
-			console.log(chalk.green(data));
-			return;
-		}
-		console.log(chalk.red('当前版本:'));
-		console.log(data);
-	});
+	})
 	return;
 }
 
@@ -86,6 +115,14 @@ if (argv.build) {
 	args = args.concat('build');
 }
 
-
-args = args.concat('--path', absPath);
-require('child_process').fork(path.join(shellPath, 'node_modules/gulp/bin/gulp'), args)
+// 强制做检查更新提示
+getLatesYworkflow().then(function(ver) {
+	if (compareVersion(ver, require('../package.json').version) >= 1) {
+		console.log(chalk.bgRed('[重要提示]' +'Yworkflow已经更新,请及时升级'))
+		console.log(chalk.bgRed('[线上版本]:' + ver))
+		console.log(chalk.bgRed('[本地版本]:' + require('../package.json').version));
+		console.log(chalk.bgBlue('[升级方法]:npm install -g yworkflow '));
+	};
+	args = args.concat('--path', absPath);
+	require('child_process').fork(path.join(shellPath, 'node_modules/gulp/bin/gulp'), args)
+})
