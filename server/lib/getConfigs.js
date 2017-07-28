@@ -57,8 +57,8 @@ module.exports = function (opt) {
             };
 
             // 读取当前站点配置
-            if (process.env.yuenodeConf) {
-                siteConf = Object.assign(siteConf, JSON.parse(process.env.yuenodeConf));
+            if (process.env.config) {
+                siteConf = Object.assign(siteConf, JSON.parse(process.env.config));
             }
             
             return siteConf;

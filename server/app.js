@@ -45,7 +45,7 @@ const stateInfo = {
 };
 
 const config = {
-    yuenodeConf: siteConf,
+    config: siteConf,
     middlewares: [
         // 请求记录中间件
         {
