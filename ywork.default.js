@@ -78,25 +78,25 @@ var defaultConfig = {
         //     }
         // },
         // CSS编译相关
-        'css': {
-            'src': './src/static/css',
-            'dest': './.cache/qdm/css',
-            'autoprefix': true, //  autoprefix开关
-            'sourcemap': './.map', // sourcemap开关
-            'extensions': ['css', 'scss']
-        },
-        'js': {
-            'src': './src/static/js',
-            'dest': '.cache/qdm/js',
-            'sourcemap': './map',
-            'eslint': {
-                ignorePath: path.resolve(rootCWD, '.eslintignore'), // gulp-eslint 忽略配置，路径与 gulpfile.js 文件位置有关联
-            },
-            'lbfTransport': { // 自动补齐模块ID和依赖
-                publicPath: 'qdm/js',
-            },
-             'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
-        },
+        // 'css': {
+        //     'src': './src/static/css',
+        //     'dest': './.cache/qdm/css',
+        //     'autoprefix': true, //  autoprefix开关
+        //     'sourcemap': './.map', // sourcemap开关
+        //     'extensions': ['css', 'scss']
+        // },
+        // 'js': {
+        //     'src': './src/static/js',
+        //     'dest': '.cache/qdm/js',
+        //     'sourcemap': './map',
+        //     'eslint': {
+        //         ignorePath: path.resolve(rootCWD, '.eslintignore'), // gulp-eslint 忽略配置，路径与 gulpfile.js 文件位置有关联
+        //     },
+        //     'lbfTransport': { // 自动补齐模块ID和依赖
+        //         publicPath: 'qdm/js',
+        //     },
+        //      'eslintFormatter': path.join(rootCWD, 'node_modules/eslint-friendly-formatter'), // gulp-eslint 格式化配置，路径与 gulpfile.js 文件位置有关联
+        // },
         // 'img': {
         //     'src': './src/static/img',
         //     'dest': './.cache/qdm/img',
@@ -141,17 +141,14 @@ var defaultConfig = {
         //     'fontSpider': {}, // gulp-font-spider(压缩字体) 插件配置
         // },
         // 其他静态资源
-        'static': {
-            'src': './src/static',
-            'dest': './.cache',
-            'extensions': ['css', 'scss'],
-            'copyDirect': {
-                './src/static/lbf/**': './.cache/lbf',
-                './src/static/qd_jssdk/**': './.cache/qd_jssdk',
-                './src/server/config/**': './.cache/config',
-                './src/server/views/*.*': './.cache/views',
-            }
-        }
+        // 'static': {
+        //     'src': './src/static',
+        //     'dest': './.cache',
+        //     'extensions': ['css', 'scss'],
+        //     'copyDirect': {
+
+        //     }
+        // }
     }
 
 };
