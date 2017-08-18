@@ -388,7 +388,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 
 a.js:
 ```javascript
-if(req.url = 'aaaaaa') {
+if(req.url === 'aaaaaa') {
     setTimeout(function () {
         next(null, {
             code: 0,
