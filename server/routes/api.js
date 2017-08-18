@@ -5,6 +5,7 @@ const path = require('path');
 const express = require('express');
 const utils = require('../utils');
 const qs = require('qs');
+var fs = require('fs');
 const parse = require('url-parse');
 const router = express.Router();
 
@@ -53,14 +54,33 @@ function ajaxHandler(req, res, next) {
         proxyToRemote();
     } else {
         // 拼接本地文件路径
-        const fileUrl = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, reqPath) + '.json';
-        utils.read(fileUrl, function(err, result) {
-            if (err) {
-                proxyToRemote();
-            } else {
-                send(result);
-            }
-        });
+        const fileUrlJson = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, reqPath) + '.json';
+        const fileUrlJs = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, reqPath) + '.js';
+        if(fs.existsSync(fileUrlJs)) {
+            fs.readFile(fileUrlJs, { encoding: 'utf-8' }, function (err, data) {
+                if (err) {
+                    proxyToRemote();
+                } else {
+                    var nextCallback = function (err, rs) {
+                        if (err) {
+                            res.sendStatus(err.code);
+                        } else {
+                            render(rs);
+                        }
+                    };
+                    var fun = new Function('req', 'res', 'next', data);
+                    fun(req, res, nextCallback);
+                }
+            });
+        } else {
+            utils.read(fileUrlJson, function(err, result) {
+                if (err) {
+                    proxyToRemote();
+                } else {
+                    send(result);
+                }
+            });
+        }
     }
 }
 

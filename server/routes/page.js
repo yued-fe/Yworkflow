@@ -5,6 +5,7 @@ const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基
 const path = require('path');
 const express = require('express');
 const chalk = require('chalk');
+const fs = require('fs');
 const utils = require('../utils');
 
 const router = express.Router();
@@ -54,15 +55,36 @@ Object.keys(routes).forEach(function(routePath) {
 			proxyToRemote();
 		} else {
 			// 拼接本地文件路径, 将 cgi 中的 [?=&] 转换成 -
-			const fileUrl = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.json';
-			utils.read(fileUrl, function(err, data) {
-				if (err) {
-					proxyToRemote();
-				} else {
-					render(data)
-				}
-			});
+			const fileUrlJson = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.json';
+			const fileUrlJs = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.js';
+			
+			// 如果有js, 优先读js
+			if(fs.existsSync(fileUrlJs)) {
+				fs.readFile(fileUrlJs, { encoding: 'utf-8' }, function (err, data) {
+					if (err) {
+						proxyToRemote();
+					} else {
+						var nextCallback = function (err, rs) {
+							if (err) {
+								res.sendStatus(err.code);
+							} else {
+								render(rs);
+							}
+						};
+						var fun = new Function('req', 'res', 'next', data);
+						fun(req, res, nextCallback);
+					}
+				});
+			} else {
 
+				utils.read(fileUrlJson, function(err, data) {
+					if (err) {
+						proxyToRemote();
+					} else {
+						render(data)
+					}
+				});
+			}
 		}
 
 		// 渲染逻辑

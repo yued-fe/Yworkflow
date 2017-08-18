@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.08.18 -- v3.1.8 优化本地mock功能, 可以在js中利用req, res, next进行逻辑判断, 从而实现模拟错误,模拟延时等功能
 * 2017.07.17 优化yworkflow cli功能,优化gulp模块调用,增加--build方法
 * 2017.07.13 优化yworkflow cli日志,恢复日志彩色显示
 * 2017.07.12 将runSequence任务变成串行,并行存在着任务执行冲突
@@ -381,6 +382,24 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 ![](https://luoleiorg.b0.upaiyun.com/tmp/json-strip.jpg)
 
 支持在本地json文件中注释。
+
+#### **2.JS mock **
+除了在mock文件夹加入json数据之外, 支持加入js的mock文件. 并且js具有更高的优先级(即同目录下有a.js和a.json, a.js具有更高的优化级).
+```javascript
+if(req.url = 'aaaaaa') {
+    setTimeout(function () {
+        next(null, {
+            code: 0,
+            data: {}
+        });
+    }, 1000);
+} else {
+    var err = new Error();
+    err.code = 500;
+    // 抛出500 error
+    next(err);
+}
+```
 
 
 
