@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.08.21 -- v3.1.10 将mock中日志着色以及fix render报错
 * 2017.08.18 -- v3.1.9 cli-tables模块遗漏补回
 * 2017.08.18 -- v3.1.8 优化本地mock功能, 可以在js中利用req, res, next进行逻辑判断, 从而实现模拟错误,模拟延时等功能
 * 2017.07.17 优化yworkflow cli功能,优化gulp模块调用,增加--build方法
