@@ -4,6 +4,7 @@ const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基
 const path = require('path');
 const express = require('express');
 const utils = require('../utils');
+const chalk = require('chalk');
 const qs = require('qs');
 var fs = require('fs');
 const parse = require('url-parse');
@@ -57,6 +58,7 @@ function ajaxHandler(req, res, next) {
         const fileUrlJson = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, reqPath) + '.json';
         const fileUrlJs = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, reqPath) + '.js';
         if(fs.existsSync(fileUrlJs)) {
+            console.log(chalk.blue('[读取js文件] ' + fileUrlJs));
             fs.readFile(fileUrlJs, { encoding: 'utf-8' }, function (err, data) {
                 if (err) {
                     proxyToRemote();
@@ -65,7 +67,7 @@ function ajaxHandler(req, res, next) {
                         if (err) {
                             res.sendStatus(err.code);
                         } else {
-                            render(rs);
+                            send(rs);
                         }
                     };
                     var fun = new Function('req', 'res', 'next', data);

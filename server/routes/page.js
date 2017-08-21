@@ -60,6 +60,7 @@ Object.keys(routes).forEach(function(routePath) {
 			
 			// 如果有js, 优先读js
 			if(fs.existsSync(fileUrlJs)) {
+				console.log(chalk.blue('[读取js文件] ' + fileUrlJs));
 				fs.readFile(fileUrlJs, { encoding: 'utf-8' }, function (err, data) {
 					if (err) {
 						proxyToRemote();
