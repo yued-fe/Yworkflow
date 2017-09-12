@@ -100,12 +100,12 @@ brew install graphicsmagick
 
 #### 安装
 
-`npm install -g yworkflow yworkcli`
+`npm install -g yworkflow Yworkcli del-cli`
 
 
 #### 初始
 
-Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`gulp dev --path {项目绝对路径}/.yconfig`的形式,启动任务。
+Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖，做了完全抽离。你可以安装Yworkflow3到你机器的任意位置，通过`yworkflow`的形式,启动任务。
 
 项目的一切配置,均通过`.yconfig`文件配置，增加项目的定制化和适用性。
 
@@ -282,9 +282,6 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
             'extensions': ['css', 'scss'],
             'copyDirect': { 
                 // 直接复制资源到指定位置
-                './src/static/lbf/**': './.cache/lbf',
-                './src/static/qd_jssdk/**': './.cache/qd_jssdk',
-                './src/server/config/**': './.cache/config',
                 './src/server/views/*.*': './.cache/views',
             }
         }
@@ -301,7 +298,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
 
 #### 代理模式
 
-线上业务是无port的概念,为了方便本地调试，Yworkflow3支持代理模式。下面以Chrome浏览器为例。
+线上业务是无port的概念,为方便本地调试，Yworkflow3支持代理模式。以Chrome浏览器为例。
 
 1.安装[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)插件。
 2.设置情景模式，端口号为具体项目端口号即可
