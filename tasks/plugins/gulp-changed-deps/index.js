@@ -8,7 +8,7 @@ var REG_SCSS_COMMENTS = /\/\*[\s\S]*?\*\/|\/\/.*(?=[\n\r])/g;
 var REG_SCSS_DEPS = /@import\s*["']([^"']+)["'];?/g;
 
 var REG_NUNJUCKS_COMMENTS = /{#[\s\S]*?#}/g;
-var REG_NUNJUCKS_DEPS = /{%\s*(?:extends|import)\s*["']([^"']+)["'][^%]*%}/g;
+var REG_NUNJUCKS_DEPS = /{%\s*(?:extends|import|include)\s*["']([^"']+)["'][^%]*%}/g;
 
 var allGetContentsDeps = {
     // scss文件处理
