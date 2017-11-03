@@ -45,8 +45,7 @@ gulp.task('inline:replace', function (cb) {
                 patternKeys.forEach(function (key) {
                     task = patternTask(task, key, patterns[key]); 
                 });
-                task.pipe(gulp.dest(destPath));
-                return task;
+                return task.pipe(gulp.dest(destPath));
             })(), function (err) {
                 if(err) return console.error(err);
                 cb();
@@ -77,7 +76,7 @@ gulp.task('inline:usemin', function () {
 
 gulp.task('inline', function(done) {
     // 如果有replace则执行replace
-    if(replaceConfig.replace) {
+    if(replaceConfig) {
         runSequence('inline:replace', 'inline:usemin', done);
     } else {
         runSequence('inline:usemin', done);
