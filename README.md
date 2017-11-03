@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2017.11.03 -- v3.1.12 新加inline task, 用法见下面
 * 2017.11.02 -- v3.1.11 修复刷新问题，在tasks/plugins/gulp-changed-deps中加入nunjunks的include关键词
 * 2017.08.21 -- v3.1.10 将mock中日志着色以及fix render报错
 * 2017.08.18 -- v3.1.9 cli-tables模块遗漏补回
@@ -400,6 +401,22 @@ if(req.url === 'aaaaaa') {
     err.code = 500;
     // 抛出500 error
     next(err);
+}
+```
+#### **3. inline task **
+因为inline css 或 js 到html的时候,需要替换一些地址,这个配置在replace里面.
+```json
+"inline": {
+    "baseDir": "./.cache", //本地生成的文件夹
+    "replace": [{
+        "src": "need-to-replace-css-file-path",
+        "dest": "need-to-export-css-file-dir",
+        "patterns": {
+            "/ovserseam/": "......" //文件中需要被替换的内容
+        }
+    }],
+    "htmlPath": "path-to-need-inline-css-html-file",
+    "htmlDest": "need-to-export-html-file-dir"
 }
 ```
 
