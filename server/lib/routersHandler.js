@@ -80,7 +80,7 @@ exports.parseRouterMap = function(routerMap) {
         var thisRouterView = routerMap[routerVal]['views'];
         //域名不做处理,如果没有cgi,则默认补全
         fixRouterConf.cgi = !!(routerMap[routerVal]['cgi']) ? routerMap[routerVal]['cgi'] : '';
-        if (fixRouterConf.localcgi) {
+        if (routerMap[routerVal]['localcgi']) {
             fixRouterConf.cgi = !!(routerMap[routerVal]['localcgi']) ? routerMap[routerVal]['localcgi'] : '';
         }
 
