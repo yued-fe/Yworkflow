@@ -403,7 +403,7 @@ if(req.url === 'aaaaaa') {
     next(err);
 }
 ```
-#### **3. inline task **
+#### **3. inline task**
 因为inline css 或 js 到html的时候,需要替换一些地址,这个配置在replace里面.
 ```json
 "inline": {
