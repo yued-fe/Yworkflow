@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2019.01.03 -- v3.1.15 补充 YUE 数据
 * 2017.11.03 -- v3.1.12 新加inline task, 用法见下面
 * 2017.11.02 -- v3.1.11 修复刷新问题，在tasks/plugins/gulp-changed-deps中加入nunjunks的include关键词
 * 2017.08.21 -- v3.1.10 将mock中日志着色以及fix render报错

@@ -8,7 +8,8 @@ const chalk = require('chalk');
 const dateFormat = require('dateformat');
 const stripJsonComments = require('strip-json-comments'); // 注释json相关
 const staticConf = require('../lib/confHandler').getStaticConf(); // 获得模板层变量
-
+const url = require('url');
+const extendFns = require('../lib/confHandler').getExtendsLoader(); // 扩展
 
 /**
  * 在data中注入公用json
@@ -24,13 +25,40 @@ module.exports = function(result, req, res) {
         "staticConf":staticConf, // 模板配置变量
 	};
 
-	// 增加YUE通用变量兼容
-	publish_json.YUE = Object.assign({},publish_json);
-
-    // 如果没有配置,则直接返回原始数据
-    if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json))) {
-        return _.merge(publish_json, result)
+	const urlObj = url.parse(
+		req.originalUrl,
+		true,
+		true
+	);
+  if (urlObj.query) {
+    const keys = Object.keys(urlObj.query)
+    if (keys && keys.length) {
+      const newQuery = {};
+      keys.forEach((key) => {
+        newQuery[encodeURI(key)] = encodeURI(urlObj.query[key]);
+      })
+      urlObj.query = newQuery;
     }
+  }
+  if (req.headers && req.headers.referer) {
+    req.headers.referer = url.parse(req.headers.referer).href;
+  }
+
+	// 增加YUE通用变量兼容
+	publish_json.YUE = Object.assign({
+		ua: req.headers['user-agent'] || '',
+    location: urlObj,
+    cookie: req.headers.cookie,
+    cookieObj: req.cookies,
+    url: urlObj.href,
+    urlObj: urlObj,
+    header: req.headers,
+	}, publish_json, extendFns || {});
+
+  // 如果没有配置,则直接返回原始数据
+  if (!fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json))) {
+      return _.merge(publish_json, result)
+  }
 
 	//检查公共数据是否存在loader加载器
 	if (fs.existsSync(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.public_json, 'index.js'))) {
