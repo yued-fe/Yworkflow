@@ -49,6 +49,10 @@ var allGetContentsDeps = {
  * @return {Date} 最后修改时间
  */
 function getLastModified(fileObj) {
+    // 如果fileObj有问题，直接返回0
+    if (!fileObj || !fileObj.File) {
+        return 0;
+    }
     var lastModified = fileObj.File.stat ? fileObj.File.stat.mtime : 0;
 
     Object.keys(fileObj.deps).forEach(function (depFilePath) {
