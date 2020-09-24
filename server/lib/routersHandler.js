@@ -84,6 +84,13 @@ exports.parseRouterMap = function(routerMap) {
             fixRouterConf.cgi = !!(routerMap[routerVal]['localcgi']) ? routerMap[routerVal]['localcgi'] : '';
         }
 
+        // 注入 GQL 需要的参数
+        if (routerMap[routerVal]['schema']) {
+            fixRouterConf['schema'] = routerMap[routerVal]['schema'];
+            fixRouterConf['args'] = routerMap[routerVal]['args'];
+            fixRouterConf['variables'] = routerMap[routerVal]['variables'];
+        }
+
         var reqPath = "";
         var domain = "_"; //未定义domain
         var pos = routerVal.indexOf("/");
