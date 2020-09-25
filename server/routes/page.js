@@ -27,7 +27,7 @@ Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
 	router.get(routePath, function(req, res, next) {
-		const method = req.method.toLowerCase(); // 请求方法
+		let method = req.method.toLowerCase(); // 请求方法
 		// const reqQueryString = parse(req.url).query;
 		// console.log(parse(req.url).query)
 
@@ -109,7 +109,7 @@ Object.keys(routes).forEach(function(routePath) {
 			let url;
 			if (route.schema) {
 				// 如果是 GQL 接口，直接使用 cgi
-				url = route.cgi;
+				url = PROJECT_CONFIG.proxy_server + route.cgi;
 				method = 'post';
 				req.headers['content-type'] = 'application/json'
 

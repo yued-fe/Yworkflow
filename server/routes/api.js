@@ -92,4 +92,7 @@ ajaxPath.forEach(function(link) {
     router.all(link + '/*', ajaxHandler);
 })
 
+// 独立处理 grl 接口地址
+router.all('/gql-api', ajaxHandler);
+
 module.exports = router;
