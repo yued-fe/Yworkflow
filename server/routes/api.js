@@ -93,6 +93,9 @@ ajaxPath.forEach(function(link) {
 })
 
 // 独立处理 grl 接口地址
-router.all('/gql-api', ajaxHandler);
+const gqlPath = PROJECT_CONFIG.graphql || [];
+gqlPath.forEach(function (link) {
+    router.all(link, ajaxHandler);
+})
 
 module.exports = router;

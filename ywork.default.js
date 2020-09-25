@@ -33,6 +33,7 @@ var defaultConfig = {
         '/meajax',
         '/majax'
     ],
+    'graphql': ['/graphql'],
     //本地文件映射
     'paths': {
         'json': 'src/server/json', // 设置本地开发配置的 json路径
