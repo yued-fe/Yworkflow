@@ -23,6 +23,8 @@ const static_routes = require(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.s
 const routes = routersHandler.parseRouterMap(dynamic_routes);
 const confHandler = require('../lib/confHandler');
 
+const IS_WEBNOVEL_PC = 'oversea';
+
 Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
@@ -134,7 +136,12 @@ Object.keys(routes).forEach(function(routePath) {
 				if (err) {
 					res.send(err.stack)
 				} else {
-					render(data);
+					let finalData = data
+					// 如果是 Webnovel PC 站点，则需要处理特殊数据
+					if ((PROJECT_CONFIG.node_site === IS_WEBNOVEL_PC) && route.schema) {
+						finalData = utils.transformGQLData(data)
+					}
+					render(finalData)
 				}
 			})
 		}
