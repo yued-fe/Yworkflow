@@ -39,6 +39,10 @@ function ajaxHandler(req, res, next) {
         // 拼接远程请求路径，增加调试参数
         const url = PROJECT_CONFIG.proxy_server + thisUrl.pathname + thisUrl.query;
         utils.request(method, url, req.body, req.headers, function(err, result) {
+            if (thisUrl.pathname === '/graphql') {
+                res.send(result);
+                return;
+            }
             if (err) {
                 res.status(500);
                 send({
