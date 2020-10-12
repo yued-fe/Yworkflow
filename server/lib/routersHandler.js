@@ -89,6 +89,7 @@ exports.parseRouterMap = function(routerMap) {
             fixRouterConf['schema'] = routerMap[routerVal]['schema'];
             fixRouterConf['args'] = routerMap[routerVal]['args'];
             fixRouterConf['variables'] = routerMap[routerVal]['variables'];
+            fixRouterConf['handlerWithData'] = routerMap[routerVal]['handlerWithData'];
         }
 
         var reqPath = "";

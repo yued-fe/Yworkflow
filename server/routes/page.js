@@ -138,8 +138,8 @@ Object.keys(routes).forEach(function(routePath) {
 				} else {
 					let finalData = data
 					// 如果是 Webnovel PC 站点，则需要处理特殊数据
-					if ((PROJECT_CONFIG.node_site === IS_WEBNOVEL_PC) && route.schema) {
-						finalData = utils.transformGQLData(data)
+					if (route.schema && route.handlerWithData) {
+						route.handlerWithData({state: {schema: route.schema}}, finalData.data || {})
 					}
 					render(finalData)
 				}
