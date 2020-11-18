@@ -4,6 +4,7 @@ Yworkflow3 新手说明
 
 ## 更新日志
 
+* 2020.09.25 -- v3.1.17 兼容 GQL
 * 2019.02.19 -- v3.1.16 修复部分 BUGt s
 * 2019.01.03 -- v3.1.15 补充 YUE 数据
 * 2017.11.03 -- v3.1.12 新加inline task, 用法见下面
@@ -151,6 +152,7 @@ Yworkflow3针对过去老版本必须紧跟项目文件夹、有过多强依赖�
         '/meajax',
         '/majax'
     ],
+    'graphql': ['/graphql'],
     //本地文件映射
     'paths': {
         'json': 'src/server/json', // 设置本地开发配置的 json路径

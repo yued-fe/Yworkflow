@@ -10,6 +10,12 @@ var fs = require('fs');
 const parse = require('url-parse');
 const router = express.Router();
 
+// 独立处理 grl 接口地址
+const gqlPath = PROJECT_CONFIG.graphql || [];
+gqlPath.forEach(function (link) {
+    router.all(link, ajaxHandler);
+})
+
 /**
  * ajax请求的闭包处理
  * @param  {[type]}   req  [description]
@@ -39,6 +45,11 @@ function ajaxHandler(req, res, next) {
         // 拼接远程请求路径，增加调试参数
         const url = PROJECT_CONFIG.proxy_server + thisUrl.pathname + thisUrl.query;
         utils.request(method, url, req.body, req.headers, function(err, result) {
+            // GQL 请求需要返回原始请求结果
+            if (gqlPath.indexOf(thisUrl.pathname) > -1) {
+                res.send(result);
+                return;
+            }
             if (err) {
                 res.status(500);
                 send({

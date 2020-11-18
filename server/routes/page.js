@@ -27,10 +27,9 @@ Object.keys(routes).forEach(function(routePath) {
 	const domainToRoute = routes[routePath]; // 数据格式: { host1: route1, host2: route2 }
 	// express 路由开始
 	router.get(routePath, function(req, res, next) {
-		const method = req.method.toLowerCase(); // 请求方法
-        const reqQueryString = parse(req.url).query;
-        // console.log(parse(req.url).query)
-
+		let method = req.method.toLowerCase(); // 请求方法
+		// const reqQueryString = parse(req.url).query;
+		// console.log(parse(req.url).query)
 
 		let searchQuery = utils.getProxyQuery(req.query, req.params);
 		// 如果req.originalUrl获得URL为完整域名,则直接返回
@@ -101,20 +100,50 @@ Object.keys(routes).forEach(function(routePath) {
 			// 本地抛出DEBUG_INFO供业务调试
 			result.DEBUG_INFO = result;
 
-            console.log(chalk.blue('[读取模板] ') + path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`));
+			console.log(chalk.blue('[读取模板] ') + path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`));
+
 			res.render(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.views, `${route.views}.html`), result)
 		}
 
 		function proxyToRemote() {
-			// 拼接远程请求路径
-			const url = utils.appendQueryString(PROJECT_CONFIG.proxy_server + route.cgi, searchQuery);
+			let url;
+			if (route.schema) {
+				// 如果是 GQL 接口，直接使用 cgi
+				url = PROJECT_CONFIG.proxy_server + route.cgi;
+				method = 'post';
+				req.headers['content-type'] = 'application/json'
+
+				// 拼接 直出 schema 文件路径
+				const schemaQuery = utils.getSSRSchema(path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.server.path, '/schema'), route.schema, route.args);
+
+				// 合并variables，权重: 请求 query < params < variables 配置
+				const variables = Object.assign({}, req.query, req.params, route.variables);
+
+				req.body = {
+					query: schemaQuery,
+					variables
+				}
+			} else {
+				// 拼接远程请求路径
+				url = utils.appendQueryString(PROJECT_CONFIG.proxy_server + route.cgi, searchQuery);
+			}
+
 			// 请求调试服务器
 			utils.request(method, url, req.body, req.headers, function(err, data) {
 				// 如果出错,则抛出错误
 				if (err) {
 					res.send(err.stack)
 				} else {
-					render(data);
+					let finalData = data
+					// 如果业务侧有配置处理请求结果的函数，则调用
+					if (route.schema && route.handlerWithData) {
+						try {
+							route.handlerWithData({state: {schema: route.schema}}, finalData.data || {})
+						} catch (error) {
+							console.log("处理请求结果错误：", error)
+						}
+					}
+					render(finalData)
 				}
 			})
 		}
