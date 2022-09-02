@@ -3,6 +3,7 @@
 var chalk = require('chalk');
 var spawn = require('child_process').spawn;
 var path = require('path');
+var fs = require('fs');
 var absPath = '';
 var shellPath = path.resolve(__dirname, '..');
 var glob = require('glob');
@@ -87,5 +88,15 @@ if (argv.build) {
 }
 
 args = args.concat('--path', absPath);
+
+// 兼容高版本npm，安装npm包会打平目录结构
+const gulpBin = [
+	path.join(shellPath, 'node_modules/gulp/bin/gulp.js'),
+	path.join(shellPath, '..', 'gulp/bin/gulp.js')
+].find(function(file) {
+	return fs.existsSync(file)
+});
+
 require('child_process')
-    .fork(path.join(shellPath, 'node_modules/gulp/bin/gulp'), args);
+    .fork(gulpBin, args);
+
