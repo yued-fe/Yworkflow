@@ -98,8 +98,11 @@ gulp.task('icon', function (done) {
                 var img1xSrc = path.join(img1xDir, '**/*.{png,PNG}');
                 var img2xSrc = [imgAllSrc, '!' + img1xSrc]; // img2xSrc 会包含 img1xSrc, 在这里排除
 
-                imgResizeTasks.push({ src: img2xSrc, name: imgResizeTaskName }); // 用于监听
-                gulp.task(imgResizeTaskName, getImgResizeTask(img2xSrc, img1xDir)); // 定义图片压缩任务
+                // 如果配置有压缩图片，则执行
+                if (imgConfig.imageResize) {
+                    imgResizeTasks.push({ src: img2xSrc, name: imgResizeTaskName }); // 用于监听
+                    gulp.task(imgResizeTaskName, getImgResizeTask(img2xSrc, img1xDir)); // 定义图片压缩任务
+                }
 
                 imgSpriteTasks.push({ src: imgAllSrc, name: imgSpriteTaskName }); // 用于监听
                 gulp.task(imgSpriteTaskName, getImgSpriteTask(imgAllSrc, dirDest)); // 定义图片合并任务
@@ -124,8 +127,11 @@ gulp.task('icon', function (done) {
             var allImg1xSrc = path.join(allImg1xDir, '**/*.{png,PNG}');
             var allImg2xSrc = [allImgAllSrc, '!' + allImg1xSrc]; // allImg2xSrc 会包含 allImg1xSrc, 在这里排除
 
-            imgResizeTasks.push({ src: allImg2xSrc, name: allImgResizeTaskName }); // 用于监听
-            gulp.task(allImgResizeTaskName, getImgResizeTask(allImg2xSrc, allImg1xDir)); // 定义图片压缩任务
+            // 如果配置有压缩图片，则执行
+            if (imgConfig.imageResize) {
+                imgResizeTasks.push({ src: allImg2xSrc, name: allImgResizeTaskName }); // 用于监听
+                gulp.task(allImgResizeTaskName, getImgResizeTask(allImg2xSrc, allImg1xDir)); // 定义图片压缩任务
+            }
 
             imgSpriteTasks.push({ src: allImgAllSrc, name: allImgSpriteTaskName }); // 用于监听
             gulp.task(allImgSpriteTaskName, getImgSpriteTask(allImgAllSrc, dest)); // 定义图片合并任务
@@ -142,23 +148,26 @@ gulp.task('icon', function (done) {
     }
     var preTasks = [];
     var tasks = [];
-    imgResizeTasks.forEach(function (task) {
-        if (PROJECT_CONFIG.debug) {
-            var watcher = gulp.watch(task.src, [task.name]); // 启动图片压缩监听
-            watcher.on('change', function (event) {
-                var img1xSrc;
-                if (event.type === 'renamed') {
-                    img1xSrc = path.join(path.dirname(event.path), imgConfig['1xDir'], path.basename(event.old));
-                    del.sync(img1xSrc, { dot: true, force: true });
-                } else if (event.type === 'deleted') {
-                    img1xSrc = path.join(path.dirname(event.path), imgConfig['1xDir'], path.basename(event.path));
-                    del.sync(img1xSrc, { dot: true, force: true });
-                }
-            });
-        }
-        preTasks.push(task.name);
-    });
-
+    // 如果配置有压缩图片，则执行
+    if (imgConfig.imageResize) {
+        imgResizeTasks.forEach(function (task) {
+            if (PROJECT_CONFIG.debug) {
+                var watcher = gulp.watch(task.src, [task.name]); // 启动图片压缩监听
+                watcher.on('change', function (event) {
+                    var img1xSrc;
+                    if (event.type === 'renamed') {
+                        img1xSrc = path.join(path.dirname(event.path), imgConfig['1xDir'], path.basename(event.old));
+                        del.sync(img1xSrc, { dot: true, force: true });
+                    } else if (event.type === 'deleted') {
+                        img1xSrc = path.join(path.dirname(event.path), imgConfig['1xDir'], path.basename(event.path));
+                        del.sync(img1xSrc, { dot: true, force: true });
+                    }
+                });
+            }
+            preTasks.push(task.name);
+        });
+    }
+    
     imgSpriteTasks.forEach(function (task) {
         PROJECT_CONFIG.debug && gulp.watch(task.src, [task.name]); // 启动图片合并监听
         tasks.push(task.name);
@@ -231,8 +240,11 @@ gulp.task('icon:build', function (done) {
                 var img1xSrc = path.join(img1xDir, '**/*.{png,PNG}');
                 var img2xSrc = [imgAllSrc, '!' + img1xSrc]; // img2xSrc 会包含 img1xSrc, 在这里排除
 
-                imgResizeTasks.push({ src: img2xSrc, name: imgResizeTaskName }); // 用于监听
-                gulp.task(imgResizeTaskName, getImgResizeTask(img2xSrc, img1xDir)); // 定义图片压缩任务
+                // 如果配置有压缩图片，则执行
+                if (imgConfig.imageResize) {
+                    imgResizeTasks.push({ src: img2xSrc, name: imgResizeTaskName }); // 用于监听
+                    gulp.task(imgResizeTaskName, getImgResizeTask(img2xSrc, img1xDir)); // 定义图片压缩任务
+                }
 
                 imgSpriteTasks.push({ src: imgAllSrc, name: imgSpriteTaskName }); // 用于监听
                 gulp.task(imgSpriteTaskName, getImgSpriteTask(imgAllSrc, dirDest)); // 定义图片合并任务
@@ -257,8 +269,11 @@ gulp.task('icon:build', function (done) {
             var allImg1xSrc = path.join(allImg1xDir, '**/*.{png,PNG}');
             var allImg2xSrc = [allImgAllSrc, '!' + allImg1xSrc]; // allImg2xSrc 会包含 allImg1xSrc, 在这里排除
 
-            imgResizeTasks.push({ src: allImg2xSrc, name: allImgResizeTaskName }); // 用于监听
-            gulp.task(allImgResizeTaskName, getImgResizeTask(allImg2xSrc, allImg1xDir)); // 定义图片压缩任务
+            // 如果配置有压缩图片，则执行
+            if (imgConfig.imageResize) {
+                imgResizeTasks.push({ src: allImg2xSrc, name: allImgResizeTaskName }); // 用于监听
+                gulp.task(allImgResizeTaskName, getImgResizeTask(allImg2xSrc, allImg1xDir)); // 定义图片压缩任务
+            }
 
             imgSpriteTasks.push({ src: allImgAllSrc, name: allImgSpriteTaskName }); // 用于监听
             gulp.task(allImgSpriteTaskName, getImgSpriteTask(allImgAllSrc, dest)); // 定义图片合并任务
