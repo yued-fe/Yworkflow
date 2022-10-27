@@ -1,6 +1,6 @@
 'use strict'
 
-require('../lib/ejs-inline-template.js'); //拓展ejs 支持script拓展
+require('../lib/ejs-inline-template.js')(); //拓展ejs 支持script拓展
 const PROJECT_CONFIG = require('../../yworkflow').getConfig(); //载入项目基础配置
 const path = require('path');
 const express = require('express');
@@ -56,7 +56,7 @@ Object.keys(routes).forEach(function(routePath) {
 			// 拼接本地文件路径, 将 cgi 中的 [?=&] 转换成 -
 			const fileUrlJson = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.json';
 			const fileUrlJs = path.join(PROJECT_CONFIG.absPath, PROJECT_CONFIG.paths.json, route.cgi.replace(/(\?|&)[a-zA-Z0-9]+=/g, '-')) + '.js';
-			
+
 			// 如果有js, 优先读js
 			if(fs.existsSync(fileUrlJs)) {
 				console.log(chalk.blue('[读取js文件] ' + fileUrlJs));
