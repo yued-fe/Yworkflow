@@ -23,6 +23,7 @@ module.exports = function(result, req, res) {
         "CLIENT_UA":req.headers['user-agent'],
         "pageUpdateTime":dateFormat((new Date()).getTime(),"yyyy-mm-dd,HH:MM:ss"),
         "staticConf":staticConf, // 模板配置变量
+				header: req.headers,
 	};
 
 	const urlObj = url.parse(

@@ -3,6 +3,7 @@ Yworkflow3 新手说明
 ==============
 
 ## 更新日志
+* 2023.02.14 -- v3.1.21 render添加参数req.header
 * 2022.10.27 -- v3.1.20 修改 ejs-inline-template 逻辑，支持 include 模板时跳过 `<script type="text/ejs-template"></script>` 内部编译
 * 2022.09.02 -- v3.1.19 添加条件逻辑判断是否`resize image`
 * 2022.09.02 -- v3.1.18 修复高版本`npm`找不到`node_modules/gulp/bin/gulp`问题。兼容 高版本npm，下载npm包会打平目录结构
